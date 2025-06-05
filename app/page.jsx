@@ -232,16 +232,17 @@ export default function Home() {
             </div>
           </div>
           <div className="flex gap-[24px] justify-between py-[40px]">
-            <div className="flex bg-[#F8F7F0] p-[30px] gap-[20px]">
+            <div className="flex bg-[#F8F7F0] p-[30px] gap-[20px] w-[430px]">
               <div className="p-[7px] rounded-full bg-[#D8F422] box-border w-[36px] h-[36px] ">
                 <Image
                   src={check}
                   alt="Перевага"
                   width={22}
                   height={22}
+                  className="w-[22px] h-[22px]"
                 ></Image>
               </div>
-              <div>
+              <div  className="w-full">
                 <h3 className="text-[28px]">Індивідуальні рішення</h3>
                 <p className="text-[20px] text-[#555555]">
                   Підбираємо вікна, двері та скління під конкретні потреби
@@ -249,7 +250,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="flex bg-[#F8F7F0] p-[30px] gap-[20px]">
+            <div className="flex bg-[#F8F7F0] p-[30px] gap-[20px] w-[430px]">
               <div className="p-[7px] rounded-full bg-[#D8F422] box-border w-[36px] h-[36px] ">
                 <Image
                   src={check}
@@ -258,15 +259,14 @@ export default function Home() {
                   height={22}
                 ></Image>
               </div>
-              <div>
-                <h3 className="text-[28px]">Індивідуальні рішення</h3>
+              <div className="w-full">
+                <h3 className="text-[28px]">Надійні конструкції</h3>
                 <p className="text-[20px] text-[#555555]">
-                  Підбираємо вікна, двері та скління під конкретні потреби
-                  вашого проєкту{" "}
+                  Ми використовуємо сертифіковані матеріали та профільні системи, що витримують час і погодні умови.
                 </p>
               </div>
             </div>
-            <div className="flex bg-[#F8F7F0] p-[30px] gap-[20px]">
+            <div className="flex bg-[#F8F7F0] p-[30px] gap-[20px] w-[430px]">
               <div className="p-[7px] rounded-full bg-[#D8F422] box-border w-[36px] h-[36px] ">
                 <Image
                   src={check}
@@ -275,11 +275,10 @@ export default function Home() {
                   height={22}
                 ></Image>
               </div>
-              <div>
-                <h3 className="text-[28px]">Індивідуальні рішення</h3>
+              <div className="w-full">
+                <h3 className="text-[28px]">Професійне встановлення</h3>
                 <p className="text-[20px] text-[#555555]">
-                  Підбираємо вікна, двері та скління під конкретні потреби
-                  вашого проєкту{" "}
+                  Досвідчені майстри виконують монтаж точно, акуратно та в узгоджені терміни.
                 </p>
               </div>
             </div>
@@ -357,29 +356,59 @@ export default function Home() {
         <div className="mc flex py-[150px] justify-between">
           <div>
             <h2>Послідовність Замовлення</h2>
-            <Image src={WorkProcess} alt="Процес роботи" />
+            <Image src={WorkProcess} alt="Процес роботи" className="mt-[40px]" />
           </div>
 
-          <div className="flex gap-[70px] flex-col border-dashed border-l-2 pl-[40px] relative">
-            {[
-              "Заявка та консультація",
-              "Замір і прорахунок",
-              "Підписання договору",
-              "Виготовлення та монтаж",
-            ].map((title, index) => (
-              <div className="max-w-[350px] spa relative" key={index}>
-                <div className="absolute -left-[45px] top-[10px] w-[12px] h-[12px] bg-[#0F0F0F] rounded-full"></div>
-                <span className="absolute -left-[105px] top-[5px] text-[#0F0F0F] font-bold text-[16px] whitespace-nowrap">
-                  Крок {String(index + 1).padStart(2, "0")}
+          <div className="flex gap-[70px] flex-col border-dashed border-l-[1px] border-[#C7C6C2] pl-[40px] relative">
+            
+              <div className="max-w-[350px] spa relative" >
+                <div className="absolute -left-[47px] top-[10px] w-[12px] h-[12px] bg-[#0F0F0F] rounded-full"></div>
+                <span className="absolute -left-[106px] top-[5px] text-[#0F0F0F] font-bold text-[16px] whitespace-nowrap">
+                  Крок 1
                 </span>
 
-                <h3 className="text-[28px] text-[#0F0F0F]">{title}</h3>
+                <h3 className="text-[28px] text-[#0F0F0F]">Заявка та консультація</h3>
                 <p className="text-[18px] text-[#555555]">
                   Безкоштовний виїзд на замір і прорахунок вартості.
                   Індивідуальні поради щодо найкращих рішень для вашого будинку.
                 </p>
               </div>
-            ))}
+              <div className="max-w-[350px] spa relative" >
+                <div className="absolute -left-[46px] top-[10px] w-[12px] h-[12px] bg-[#0F0F0F] rounded-full"></div>
+                <span className="absolute -left-[106px] top-[5px] text-[#0F0F0F] font-bold text-[16px] whitespace-nowrap">
+                  Крок 2
+                </span>
+
+                <h3 className="text-[28px] text-[#0F0F0F]">Підтвердження та договір</h3>
+                <p className="text-[18px] text-[#555555]">
+                  Узгоджуємо замовлення, фіксуємо деталі та строки. Проводимо повторний замір перед підписанням договору.
+                </p>
+              </div>
+              <div className="max-w-[350px] spa relative" >
+                <div className="absolute -left-[46px] top-[10px] w-[12px] h-[12px] bg-[#0F0F0F] rounded-full"></div>
+                <span className="absolute -left-[106px] top-[5px] text-[#0F0F0F] font-bold text-[16px] whitespace-nowrap">
+                  Крок 3
+                </span>
+
+                <h3 className="text-[28px] text-[#0F0F0F]">Виготовлення та монтаж</h3>
+                <p className="text-[18px] text-[#555555]">
+                  Вироби виготовляються на заводі. Монтаж виконується сертифікованими спеціалістами з дотриманням усіх норм.
+                </p>
+              </div>
+              <div className="max-w-[350px] spa relative" >
+                <div className="absolute -left-[46px] top-[10px] w-[12px] h-[12px] bg-[#0F0F0F] rounded-full"></div>
+                <span className="absolute -left-[106px] top-[5px] text-[#0F0F0F] font-bold text-[16px] whitespace-nowrap">
+                  Крок 4
+                </span>
+
+                <h3 className="text-[28px] text-[#0F0F0F]">Гарантія та сервіс</h3>
+                <p className="text-[18px] text-[#555555]">
+                  Безкоштовний виїзд на замір і прорахунок вартості.
+                  Індивідуальні поради щодо найкращих рішень для вашого будинку.
+                </p>
+              </div>
+
+            
           </div>
         </div>
       </section>
@@ -432,7 +461,7 @@ export default function Home() {
             </div>
             <div className="">
               <h2 className="text-[45px] !capitalize mb-4">Фарбування</h2>
-              <p className="mb-6 max-w-xl text-[18px] text-[#555555]">
+              <p className="my-[70px] max-w-xl text-[18px] text-[#555555]">
                 Дозволяє надати ПВХ-профілю практично будь-який колір за шкалою
                 RAL, в тому числі і «металік». Застосовуються сучасні,
                 довговічні та екологічно безпечні фарби Zobel Chemie з високою

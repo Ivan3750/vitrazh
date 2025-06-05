@@ -125,7 +125,7 @@ useEffect(() => {
           <div className="flex gap-2">
             <Link
               href="/calc"
-              className="p-[10px] min-w-min bg-white text-black rounded-full text-[30px]"
+              className="p-[10px] min-w-min bg-white text-black rounded-full text-[30px] flex justify-center items-center"
             >
               <FaCalculator />
             </Link>
