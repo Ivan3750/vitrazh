@@ -1,7 +1,53 @@
 import ProductList from "@/app/components/ProductList";
-import b from "@/app/assets/bg-wds-6s.jpg";
+import b from "@/app/assets/images/products/mosquito/background.jpg";
+import s1 from "@/app/assets/images/products/mosquito/1.jpg";
+import s2 from "@/app/assets/images/products/mosquito/2.jpg";
+import s3 from "@/app/assets/images/products/mosquito/3.jpg";
+import s4 from "@/app/assets/images/products/mosquito/4.jpg";
+import s5 from "@/app/assets/images/products/mosquito/5.jpg";
+import s6 from "@/app/assets/images/products/mosquito/6.jpg";
+ 
+
 
 const WindowPage = () => {
+  const products = [
+  {
+    id: 1,
+    name: "Ролові Антимоскітн сітки",
+    img: s1,
+    link:"/"
+  },
+  {
+    id: 2,
+    name: "Антимоскітні сітки PLISSE",
+    img: s2,
+    link:"/"
+  },
+  {
+    id: 3,
+    name: "Дверні Атимоскитні Сітки",
+    img: s3,
+    link:"/"
+  },
+  {
+    id: 4,
+    name: "Відкатна Антимоскітна сітка",
+    img: s4,
+    link:"/"
+  },
+  {
+    id: 5,
+    name: "Сітка для Алюмінієвих вікон",
+    img: s5,
+    link:"/"
+  },
+  {
+    id: 6,
+    name: "Рамна Антимоскітна сітка",
+    img: s6,
+    link:"/"
+  }
+];
   return (
     <>
       <section className="relative h-[600px] flex items-center justify-center bg-black overflow-hidden">
@@ -16,7 +62,7 @@ const WindowPage = () => {
         </h1>
       </section>
 
-      <ProductList />
+      <ProductList products={products} />
     </>
   );
 };

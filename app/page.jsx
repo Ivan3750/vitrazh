@@ -105,7 +105,7 @@ export default function Home() {
       </div>
       <section className="bg-[#F8F7F0] py-[100px]">
         <div className="mc">
-          <h2 className="mb-[70px]">Каталог Товару</h2>
+          <h2 className="mb-[70px] text-[64px]">Каталог Товару</h2>
           <div className="flex flex-wrap gap-4 justify-between">
             <Link href="/category/windows">
               <Image
@@ -219,7 +219,7 @@ export default function Home() {
         <div className="mc">
           <div className="flex items-center">
             <div>
-              <h2>Чому обирають нас?</h2>
+              <h2 className="text-[64px]">Чому обирають нас?</h2>
             </div>
             <div>
               <Image
@@ -355,7 +355,7 @@ export default function Home() {
       <section className="bg-[#F8F7F0]">
         <div className="mc flex py-[150px] justify-between">
           <div>
-            <h2>Послідовність Замовлення</h2>
+            <h2 className="text-[64px]">Послідовність Замовлення</h2>
             <Image src={WorkProcess} alt="Процес роботи" className="mt-[40px]" />
           </div>
 
@@ -526,7 +526,7 @@ export default function Home() {
       </section>
       <section className="py-[100px]">
         <div className="mc">
-          <h2>Нестандартні вікна</h2>
+          <h2 className="text-[64px]">Нестандартні вікна</h2>
           <div className="flex justify-between gap-[20px]">
             <div>
               <Image

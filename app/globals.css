@@ -22,11 +22,11 @@ h1{
   line-height: 80px;
   text-transform: uppercase;
 }
-h2{
+/* h2{
   font-size: 64px;
   line-height: 72px;
   text-transform: uppercase;
-}
+} */
 
 .mc{
   max-width: 1200px;
@@ -53,4 +53,12 @@ h2{
 .scrollbar-hide {
   -ms-overflow-style: none; /* IE і Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+details summary {
+  list-style: none;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
 }

@@ -5,6 +5,7 @@ import { FaCalculator } from "react-icons/fa6";
 import Link from "next/link";
 import Image from "next/image";
 import { FaViber, FaWhatsapp, FaTelegram, FaInstagram } from "react-icons/fa";
+import { RiArrowDownSLine } from "react-icons/ri";
 
 import localFont from "next/font/local";
 
@@ -23,31 +24,30 @@ export default function RootLayout({ children }) {
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const categoryRef = useRef(null);
 
-useEffect(() => {
-  const handleClickOutside = (event) => {
-    if (categoryRef.current && !categoryRef.current.contains(event.target)) {
-      setIsCategoryOpen(false);
-    }
-  };
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (categoryRef.current && !categoryRef.current.contains(event.target)) {
+        setIsCategoryOpen(false);
+      }
+    };
 
-  document.addEventListener("mousedown", handleClickOutside);
-  return () => {
-    document.removeEventListener("mousedown", handleClickOutside);
-  };
-}, []);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
-useEffect(() => {
-  const handleScroll = () => {
-    setScrolled(window.scrollY > 20);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
 
-  // ✅ одразу перевіряємо при завантаженні
-  handleScroll();
+    // ✅ одразу перевіряємо при завантаженні
+    handleScroll();
 
-  window.addEventListener("scroll", handleScroll);
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
-
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <html lang="uk">
@@ -63,59 +63,55 @@ useEffect(() => {
 
           <nav className="hidden md:flex text-[18px] gap-[20px] uppercase">
             <Link href={"/"}>Головна</Link>
-            <Link href={"/about"}>Про нас</Link>
+            {/*             <Link href={"/about"}>Про нас</Link>
+             */}
+            <div className="relative group" ref={categoryRef}>
+              <button className="uppercase flex items-center gap-[5px ]">Категорії <RiArrowDownSLine className="text-[20px]"/></button>
 
-            {/* Категорії з випадаючим меню */}
-           <div className="relative group" ref={categoryRef}>
-  <button className="uppercase">
-    Категорії
-  </button>
-
-  <div
-    className={`absolute top-full left-0 mt-2 bg-[#1e1e1e] shadow-lg rounded-md overflow-hidden transition-all duration-300 z-50
+              <div
+                className={`absolute top-full left-0 mt-2 bg-[#1e1e1e] shadow-lg rounded-md overflow-hidden transition-all duration-300 z-50
       opacity-0 invisible -translate-y-2
       group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
     `}
-  >
-    <Link
-      href="/category/windows"
-      className="block px-4 py-2 hover:bg-[#333] whitespace-nowrap"
-    >
-      Вікна
-    </Link>
-    <Link
-      href="/category/window-blinds"
-      className="block px-4 py-2 hover:bg-[#333] whitespace-nowrap"
-    >
-      Віконні жалюзі
-    </Link>
-    <Link
-      href="/category/aluminium-systems"
-      className="block px-4 py-2 hover:bg-[#333] whitespace-nowrap"
-    >
-      Алюмінієві системи
-    </Link>
-    <Link
-      href="/category/gates-and-rolls"
-      className="block px-4 py-2 hover:bg-[#333] whitespace-nowrap"
-    >
-      Ворота та ролети
-    </Link>
-    <Link
-      href="/category/screens"
-      className="block px-4 py-2 hover:bg-[#333] whitespace-nowrap"
-    >
-      Сітки
-    </Link>
-    <Link
-      href="/category/facades"
-      className="block px-4 py-2 hover:bg-[#333] whitespace-nowrap"
-    >
-      Фасади
-    </Link>
-  </div>
-</div>
-
+              >
+                <Link
+                  href="/category/windows"
+                  className="block px-4 py-2 hover:bg-[#333] whitespace-nowrap"
+                >
+                  Вікна
+                </Link>
+                <Link
+                  href="/category/window-blinds"
+                  className="block px-4 py-2 hover:bg-[#333] whitespace-nowrap"
+                >
+                  Віконні жалюзі
+                </Link>
+                <Link
+                  href="/category/aluminium-systems"
+                  className="block px-4 py-2 hover:bg-[#333] whitespace-nowrap"
+                >
+                  Алюмінієві системи
+                </Link>
+                <Link
+                  href="/category/gates-and-rolls"
+                  className="block px-4 py-2 hover:bg-[#333] whitespace-nowrap"
+                >
+                  Ворота та ролети
+                </Link>
+                <Link
+                  href="/category/screens"
+                  className="block px-4 py-2 hover:bg-[#333] whitespace-nowrap"
+                >
+                  Сітки
+                </Link>
+                <Link
+                  href="/category/facades"
+                  className="block px-4 py-2 hover:bg-[#333] whitespace-nowrap"
+                >
+                  Фасади
+                </Link>
+              </div>
+            </div>
 
             <Link href={"/recovery"}>єВідновлення</Link>
             <Link href={"/service"}>Обслуговування</Link>
