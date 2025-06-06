@@ -83,7 +83,7 @@ const PriceList = () => {
         </h1>
       </section>
 
-      <div className="mc py-[100]">
+      <div className="mc py-[100] px-[20px]">
         <section className="mb-12">
           <h2 className="text-[54px] mb-4  captalize">
             Виїзд на адресу

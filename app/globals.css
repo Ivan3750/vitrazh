@@ -22,6 +22,45 @@ h1{
   line-height: 80px;
   text-transform: uppercase;
 }
+
+h1 {
+  font-size: 48px;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+@media (min-width: 240px) {
+  /* sm */
+  h1 {
+    font-size: 30px;
+    line-height: 1.2;
+  }
+}
+@media (min-width: 640px) {
+  /* sm */
+  h1 {
+    font-size: 40px;
+    line-height: 1.2;
+  }
+}
+
+@media (min-width: 768px) {
+  /* md */
+  h1 {
+    font-size: 72px;
+    line-height: 1.2;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* lg */
+  h1 {
+    font-size: 80px;
+    line-height: 1.2;
+  }
+}
+
+
 /* h2{
   font-size: 64px;
   line-height: 72px;

@@ -162,7 +162,7 @@ export default function Home() {
       </section>
 
       <section className="py-[100px]">
-        <div className="container mx-auto px-4">
+        <div className="mc">
           <div className="flex flex-col lg:flex-row items-center gap-8">
             <h2 className="text-[40px] sm:text-[48px] lg:text-[64px]  leading-tight">
               Чому обирають нас?

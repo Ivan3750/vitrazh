@@ -66,98 +66,84 @@ const Contact = () => {
         message={modalMessage}
       />
 
-      <section className="relative h-[600px] flex items-center justify-center bg-black overflow-hidden">
+      <section className="relative h-[400px] sm:h-[500px] md:h-[600px] flex items-center justify-center bg-black overflow-hidden">
+  <div
+    className="absolute inset-0 bg-cover bg-center opacity-40"
+    style={{ backgroundImage: `url(${b.src})` }}
+  />
+  <h1 className="relative text-white text-2xl sm:text-3xl md:text-4xl z-10 px-4 text-center">
+    Зв'яжіться з нами
+  </h1>
+</section>
+
+<section>
+  <div className="mc px-4 sm:px-6 md:px-10 max-w-[1200px] mx-auto">
+    <div className="flex flex-wrap justify-between gap-6 py-[80px] sm:py-[120px]">
+      {[
+        { icon: contact, label: "Тел. Номер", value: "+38 095 109 90 40" },
+        { icon: mail, label: "Пошта", value: "kyiv@vitrazh.com.ua" },
+        { icon: map, label: "Адреса", value: "Київ, проспект Академіка Глушкова, 30" },
+        { icon: time, label: "Розклад роботи", value: "9:00 - 12:00 Пн-Пт" },
+      ].map(({ icon, label, value }, idx) => (
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-40"
-          style={{ backgroundImage: `url(${b.src})` }}
-        />
-        <h1 className="relative text-white text-4xl font-bold z-10">
-          Зв'яжіться з нами
-        </h1>
-      </section>
-
-      <section>
-        <div className="mc">
-          <div className="flex justify-between gap-[15px] py-[150px] ">
-            {[
-              {
-                icon: contact,
-                label: "Тел. Номер",
-                value: "+38 095 109 90 40",
-              },
-              { icon: mail, label: "Пошта", value: "kyiv@vitrazh.com.ua" },
-              {
-                icon: map,
-                label: "Адреса",
-                value: "Київ, проспект Академіка Глушкова, 30",
-              },
-              {
-                icon: time,
-                label: "Розклад роботи",
-                value: "9:00 - 12:00 Пн-Пт",
-              },
-            ].map(({ icon, label, value }, idx) => (
-              <div
-                key={idx}
-                className="bg-[#F8F7F0] p-[32px] rounded-sm flex flex-col justify-between gap-[50px] w-[310px]"
-              >
-                <div>
-                  <Image src={icon} alt={label} />
-                </div>
-                <div>
-                  <p className="text-[#555] text-[16px]">{label}</p>
-                  <p className="text-[20px]">{value}</p>
-                </div>
-              </div>
-            ))}
+          key={idx}
+          className="bg-[#F8F7F0] p-6 rounded-sm flex flex-col justify-between gap-10 w-full sm:w-[45%] md:w-[22%]"
+        >
+          <div>
+            <Image src={icon} alt={label} />
           </div>
-
-          {/* 📨 Форма */}
-          <div className="bg-[#F8F7F0] py-[56px] px-[80px]">
-            <h2 className="text-[64px]">Напишіть нам</h2>
-            <form
-              onSubmit={handleSubmit}
-              className="flex flex-col gap-[24px] max-w-[600px]"
-            >
-              <input
-                type="text"
-                name="name"
-                placeholder="Ім'я"
-                className="bg-white py-[18px] px-[24px] rounded-sm"
-                required
-              />
-              <input
-                type="text"
-                name="phone"
-                placeholder="Телефон"
-                className="bg-white py-[18px] px-[24px] rounded-sm"
-                required
-              />
-              <textarea
-                name="message"
-                placeholder="Повідомлення"
-                className="bg-white py-[18px] px-[24px] rounded-sm"
-                required
-              />
-              <div className="flex items-center gap-[30px] flex-wrap">
-                <button
-                  type="submit"
-                  className="bg-[#D8F422] py-[18px] px-[24px] rounded-sm uppercase font-semibold flex min-w-[200px] gap-[5px] justify-between hover:bg-[#0f0f0f] hover:text-white"
-                >
-                  Надіслати
-                  <Image src={go} alt="go" />
-                </button>
-                <div className="flex gap-[15px] text-[35px] text-[#555]">
-                  <FaViber />
-                  <FaWhatsapp />
-                  <FaTelegram />
-                  <FaInstagram />
-                </div>
-              </div>
-            </form>
+          <div>
+            <p className="text-[#555] text-base">{label}</p>
+            <p className="text-lg ">{value}</p>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+
+    {/* Форма */}
+    <div className="bg-[#F8F7F0] py-10 px-6 sm:px-10 rounded-md max-w-[600px] mx-auto mb-[80px]">
+      <h2 className="text-[36px] sm:text-[48px] mb-8 text-center">Напишіть нам</h2>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+        <input
+          type="text"
+          name="name"
+          placeholder="Ім'я"
+          className="bg-white py-4 px-6 rounded-sm"
+          required
+        />
+        <input
+          type="text"
+          name="phone"
+          placeholder="Телефон"
+          className="bg-white py-4 px-6 rounded-sm"
+          required
+        />
+        <textarea
+          name="message"
+          placeholder="Повідомлення"
+          className="bg-white py-4 px-6 rounded-sm resize-none h-32"
+          required
+        />
+        <div className="flex flex-col sm:flex-row items-center gap-6">
+          <button
+            type="submit"
+            className="bg-[#D8F422] py-4 px-6 rounded-sm uppercase  flex items-center justify-center gap-2 min-w-[200px] hover:bg-[#0f0f0f] hover:text-white transition-colors"
+          >
+            Надіслати
+            <Image src={go} alt="go" />
+          </button>
+          <div className="flex gap-5 text-3xl text-[#555]">
+            <FaViber />
+            <FaWhatsapp />
+            <FaTelegram />
+            <FaInstagram />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
     </>
   );
 };
