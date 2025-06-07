@@ -139,9 +139,9 @@ export default function RootLayout({ children }) {
             </Link>
             <Link
               href="/contact"
-              className="px-[16px] py-[10px] rounded-sm bg-white text-black text-sm font-semibold"
+              className="px-[16px] py-[10px] rounded-sm bg-white text-black text-md uppercase"
             >
-              Подзвонити
+              Написати
             </Link>
           </div>
         </header>
@@ -160,7 +160,7 @@ export default function RootLayout({ children }) {
             <Link href="/service">Обслуговування</Link>
             <Link href="/faq">FAQ</Link>
             <Link href="/calc">Калькулятор</Link>
-            <Link href="/contact">Подзвонити</Link>
+            <Link href="/contact">Написати</Link>
           </div>
         )}
 

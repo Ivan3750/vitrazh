@@ -46,9 +46,9 @@ import window from "@/app/assets/images/homepage/window.jpg";
 import trekantwindow from "@/app/assets/images/homepage/trekantwindow.png";
 import cirklewindow from "@/app/assets/images/homepage/cirklewindow.png";
 import arrowwindow from "@/app/assets/images/homepage/arrowwindow.png";
-
 import { useState } from "react";
 import Link from "next/link";
+import Head from "next/head";
 export default function Home() {
   const [selectedImage, setSelectedImage] = useState(house1);
 
@@ -62,6 +62,26 @@ export default function Home() {
   ];
   return (
     <>
+    <Head>
+        <title>Вікна, двері, скління під ключ — VitraZH | Київ та область</title>
+        <meta name="description" content="Продаж та монтаж металопластикових вікон, дверей, балконів та аксесуарів у Києві та області. Замір, доставка, монтаж — все під ключ. Гарантія якості від VitraZH." />
+        <meta name="robots" content="index, follow" />
+        <meta name="keywords" content="вікна Київ, металопластикові вікна, двері, балкони, скління, VitraZH, встановлення вікон, замовити вікна" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="VitraZH — Вікна, двері, балкони під ключ у Києві" />
+        <meta property="og:description" content="Металопластикові вікна та двері з установкою. Гарантія, якість, сервіс. Безкоштовний замір!" />
+        <meta property="og:url" content="https://vitrazh.com.ua/" />
+        <meta property="og:site_name" content="VitraZH" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="VitraZH — Вікна, двері, балкони під ключ у Києві" />
+        <meta name="twitter:description" content="Продаж та монтаж вікон, дверей, балконів. Працюємо по Києву та області." />
+
+        <link rel="canonical" href="https://vitrazh.com.ua/" />
+
+      </Head>
       <section className="bg-[#0F0F0F] min-h-screen text-white pt-[100px] px-4 sm:px-6 md:px-10 flex flex-col lg:flex-row items-center justify-between gap-8">
         <div className="text-center lg:text-left max-w-3xl">
           <h1 className="text-[32px] sm:text-[40px] md:text-[48px] leading-tight  my-[20px]">

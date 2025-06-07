@@ -15,43 +15,43 @@ const WindowPage = () => {
     id: 1,
     name: "WDS 5S",
     img: wds5s,
-    link:"/"
+    link:"/category/windows/wds-5s"
   },
   {
     id: 2,
     name: "WDS 6S",
     img: wds6s,
-    link:"/"
+    link:"/category/windows/wds-6s"
   },
   {
     id: 3,
     name: "WDS 76AD",
     img: wds76ad,
-    link:"/"
+    link:"/category/windows/wds-76ad"
   },
   {
     id: 4,
     name: "WDS 76MD",
     img: wds76md,
-    link:"/"
+    link:"/category/windows/wds-76md"
   },
   {
     id: 5,
     name: "REHAU Euro-Design 60",
     img: rehauE60,
-    link:"/"
+    link:"/category/windows/rehau-euro-design-60"
   },
   {
     id: 6,
     name: "REHAU Euro-Design 70",
     img: rehauE70,
-    link:"/"
+    link:"/category/windows/rehau-euro-design-70"
   },
   {
     id: 7,
     name: "REHAU Synego MD",
     img: rehauSMD,
-    link:"/"
+    link:"/category/windows/rehau-synego"
   },
 ];
   return (

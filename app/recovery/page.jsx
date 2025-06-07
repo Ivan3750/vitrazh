@@ -59,7 +59,7 @@ const Recovery = () => {
           <h2 className="text-[64px] text-center mb-[50px]">Як ми можемо допомогти?</h2>
           <div className="bg-[#F8F7F0] flex flex-wrap">
             <div className="border-b border-r border-[#E7E7E7] p-[48px] flex flex-col gap-[100px] justify-between">
-              <div><Image src={consultation}/></div>
+              <div><Image src={consultation} alt="Консультація"/></div>
               <div>
                 <h3 className="text-[28px]">Консультація</h3>
                 <p className="text-[18px] text-[#555] w-[300px]">
@@ -69,7 +69,7 @@ const Recovery = () => {
               </div>
             </div>
             <div className="border-b border-r border-[#E7E7E7] p-[48px] flex flex-col gap-[100px] justify-between">
-              <div><Image src={length}/></div>
+              <div><Image src={length} alt="Вимірювання"/></div>
               <div>
                 <h3 className="text-[28px]">Точне вимірювання</h3>
                 <p className="text-[18px] text-[#555] w-[300px]">
@@ -78,7 +78,7 @@ const Recovery = () => {
               </div>
             </div>
             <div className="border-b  border-[#E7E7E7] p-[48px] flex flex-col gap-[100px] justify-between">
-              <div><Image src={document}/></div>
+              <div><Image src={document} alt="Документ"/></div>
               <div>
                 <h3 className="text-[28px]">Офіційні документи</h3>
                 <p className="text-[18px] text-[#555] w-[300px]">
@@ -87,7 +87,7 @@ const Recovery = () => {
               </div>
             </div>
             <div className="border-b border-r border-[#E7E7E7] p-[48px] flex flex-col gap-[100px] justify-between">
-              <div><Image src={delivery}/></div>
+              <div><Image src={delivery} alt="Доставка"/></div>
               <div>
                 <h3 className="text-[28px]">Повний сервіс</h3>
                 <p className="text-[18px] text-[#555] w-[300px]">
@@ -96,7 +96,7 @@ const Recovery = () => {
               </div>
             </div>
             <div className="border-b border-r border-[#E7E7E7] p-[48px] flex flex-col gap-[100px] justify-between">
-              <div><Image src={report}/></div>
+              <div><Image src={report} alt="Репорт"/></div>
               <div>
                 <h3 className="text-[28px]">Фото-звіт</h3>
                 <p className="text-[18px] text-[#555] w-[300px]">
@@ -105,7 +105,7 @@ const Recovery = () => {
               </div>
             </div>
             <div className="border-b  border-[#E7E7E7] p-[48px] flex flex-col gap-[100px] justify-between">
-              <div><Image src={relax}/></div>
+              <div><Image src={relax} alt="Відпочинок"/></div>
               <div>
                 <h3 className="text-[28px]"> Спокій та впевненість</h3>
                 <p className="text-[18px] text-[#555] w-[300px]">
