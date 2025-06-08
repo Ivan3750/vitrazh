@@ -8,6 +8,23 @@ import rehauE60 from "@/app/assets/images/products/windows/REHAU_Euro-Design_60-
 import rehauE70 from "@/app/assets/images/products/windows/REHAU_Euro-Design_70-t.png";
 import rehauSMD from "@/app/assets/images/products/windows/REHAU_Synego_MD-t.png";
 
+export const metadata = {
+  title: "Металопластикові вікна — широкий вибір та якість | Ваш бренд",
+  description: "Пропонуємо широкий вибір металопластикових вікон: WDS, REHAU та інші. Надійні вікна для дому та офісу за вигідною ціною.",
+  keywords: "металопластикові вікна, WDS 5S, WDS 6S, REHAU Euro-Design, пластикові вікна, вікна купити, якісні вікна",
+  openGraph: {
+    title: "Металопластикові вікна — широкий вибір та якість",
+    description: "Обирайте надійні металопластикові вікна WDS, REHAU за вигідною ціною. Якість, сервіс та швидка доставка.",
+    url: "https://vitrazh.com.ua/category/windows",
+   
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Металопластикові вікна — широкий вибір та якість",
+    description: "Обирайте надійні металопластикові вікна WDS, REHAU за вигідною ціною.",
+  },
+};
+
 
 const WindowPage = () => {
   const products = [

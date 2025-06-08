@@ -7,6 +7,22 @@ import a4 from "@/app/assets/images/products/aluminium/a41.jpg";
 import a5 from "@/app/assets/images/products/aluminium/a51.jpg";
 
 
+export const metadata = {
+  title: "Алюмінієві системи — сучасність і надійність | Вітраж",
+  description: "Високоякісні алюмінієві системи для фасадів, вікон і дверей. Легкість, міцність та естетика для будь-яких архітектурних рішень.",
+  keywords: "алюмінієві системи, алюмінієві фасади, алюмінієві вікна, алюмінієві двері, міцні алюмінієві конструкції",
+  openGraph: {
+    title: "Алюмінієві системи — сучасність і надійність",
+    description: "Обирайте алюмінієві системи для вікон, дверей та фасадів. Висока якість, довговічність та стильний дизайн.",
+    url: "https://vitrazh.com.ua/category/aluminium-systems",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Алюмінієві системи — сучасність і надійність",
+    description: "Надійні алюмінієві системи для будь-яких будівельних потреб за вигідною ціною.",
+  },
+};
+
 
 const WindowPage = () => {
   const products = [

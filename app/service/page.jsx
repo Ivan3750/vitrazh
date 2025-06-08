@@ -66,7 +66,52 @@ const prices = {
       price: "180 грн / м.пог",
     },
   ],
+
+  
 };
+
+export const metadata = {
+  title: "Прайс на ремонт вікон та дверей у Києві — Вітраж",
+  description:
+    "Актуальні ціни на ремонт пластикових вікон, дверей, склопакетів, ущільнювачів, виїзд майстра у Києві та області. Надійність та гарантія!",
+  keywords: [
+    "ремонт вікон Київ",
+    "ціни на ремонт вікон",
+    "виїзд майстра",
+    "заміна ущільнювача",
+    "регулювання вікон",
+    "сервіс вікон",
+    "ремонт склопакетів",
+  ],
+  robots: "index, follow",
+  openGraph: {
+    type: "website",
+    url: "https://vitrazh.com.ua/service",
+    title: "Ремонт вікон Київ — Актуальні ціни | Вітраж",
+    description:
+      "Дивіться актуальний прайс на ремонт вікон та дверей у Києві. Виїзд майстра, заміна ущільнювача, склопакетів, ручок — професійно та доступно!",
+    siteName: "VitraZH",
+    images: [
+      {
+        url: "https://vitrazh.com.ua/images/og-price.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Ціни на ремонт вікон у Києві — Вітраж",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ціни на ремонт вікон — Вітраж",
+    description:
+      "Перевірте ціни на ремонт вікон у Києві. Надійні майстри, доступні тарифи, оперативний виїзд.",
+    images: ["https://vitrazh.com.ua/images/og-price.jpg"],
+  },
+  alternates: {
+    canonical: "https://vitrazh.com.ua/service",
+  },
+};
+
 
 const PriceList = () => {
   return (

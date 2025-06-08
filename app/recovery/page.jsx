@@ -9,6 +9,49 @@ import report from "@/app/assets/images/icons/report.png"
 import length from "@/app/assets/images/icons/length.png"
 import Image from "next/image";
 
+export const metadata = {
+  title: "єВідновлення — Державна підтримка ремонту пошкоджених домівок",
+  description:
+    "Отримайте допомогу від державної програми єВідновлення для ремонту вікон, дверей, покрівлі та утеплення пошкодженого житла. Консультації, монтаж, офіційні документи.",
+  keywords: [
+    "єВідновлення",
+    "державна програма ремонт житла",
+    "ремонт вікон",
+    "ремонт дверей",
+    "покрівля ремонт",
+    "компенсація війна Україна",
+    "ремонт після війни",
+  ],
+  robots: "index, follow",
+  openGraph: {
+    title: "єВідновлення — допомога у ремонті житла після війни",
+    description:
+      "Дізнайтесь, як отримати державну підтримку для ремонту домівки через програму єВідновлення. Професійна консультація, заміри, монтаж та повний супровід.",
+    url: "https://vitrazh.com.ua/recovery",
+    siteName: "Твій сайт",
+    images: [
+      {
+        url: b.src,
+        width: 1200,
+        height: 630,
+        alt: "єВідновлення — ремонт житла після війни",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "єВідновлення — державна допомога ремонту житла",
+    description:
+      "Отримайте допомогу на ремонт житла через державну програму єВідновлення. Повний супровід від консультації до монтажу.",
+    images: [b.src],
+  },
+  alternates: {
+    canonical: "https://vitrazh.com.ua/recovery",
+  },
+};
+
+
 const Recovery = () => {
   return (
     <>
