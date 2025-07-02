@@ -11,7 +11,7 @@ const glassOptions = ["Енергозберігаюче", "Сонцезахис�
 const colorOptions = ["Білий", "Ламінація зовн.", "Ламінація внутр.", "Двостороння", "В масі"];
 const serviceOptions = ["Монтаж", "Демонтаж"];
 
-const WindowParameters = ({ data, setData, nextStep, prevStep }) => {
+const WindowParameters = ({ data, setData, }) => {
   const [form, setForm] = useState({
     shape: data.window.shape || "",
     width: data.window.width || "",
@@ -57,41 +57,52 @@ const WindowParameters = ({ data, setData, nextStep, prevStep }) => {
       </div>
 <div>
       {/* Розміри */}
+        <p className= "font-semibold block mb-2">Розмір вікна</p>
       <div className="flex gap-4">
         <div>
-          <label className="block font-semibold">Ширина (см):</label>
           <input
             type="number"
+            min={0}
+            max={500}
             value={form.width}
+            placeholder="Введіть ширину, см"  
             onChange={(e) => setForm({ ...form, width: e.target.value })}
-            className="border rounded p-2 w-full"
+            className="border-b border-[#CED3DB] p-2  focus:outline-0 w-[200px]"
           />
         </div>
         <div>
-          <label className="block font-semibold">Висота (см):</label>
           <input
             type="number"
+            min={0}
+            max={500}
             value={form.height}
+            placeholder="Введіть висоту, см"  
+
             onChange={(e) => setForm({ ...form, height: e.target.value })}
-            className="border rounded p-2 w-full"
-          />
+          className="border-b border-[#CED3DB] p-2  focus:outline-0 w-[200px]"          />
         </div>
       </div>
 
       {/* Фурнітура */}
-      <div>
-        <label className="font-semibold block mb-2">Фурнітура:</label>
-        <select
-          value={form.hardware}
+    <div>
+  <label className="font-semibold block mb-2">Фурнітура:</label>
+  <div className="flex gap-2">
+    {hardwareOptions.map((opt) => (
+      <label key={opt} className="flex items-center gap-2">
+        <input
+          type="radio"
+          name="hardware"
+          value={opt}
+          checked={form.hardware === opt}
           onChange={(e) => setForm({ ...form, hardware: e.target.value })}
-          className="border p-2 rounded w-full"
-        >
-          <option value="">Оберіть...</option>
-          {hardwareOptions.map((opt) => (
-            <option key={opt} value={opt}>{opt}</option>
-          ))}
-        </select>
-      </div>
+          className="accent-blue-600"
+        />
+        {opt}
+      </label>
+    ))}
+  </div>
+</div>
+
 
       {/* Енергопакет */}
       <div>
@@ -111,19 +122,25 @@ const WindowParameters = ({ data, setData, nextStep, prevStep }) => {
       </div>
 
       {/* Колір */}
-      <div>
-        <label className="font-semibold block mb-2">Колір:</label>
-        <select
-          value={form.color}
+     <div>
+  <label className="font-semibold block mb-2">Колір:</label>
+  <div className="flex gap-2">
+    {colorOptions.map((c) => (
+      <label key={c} className="flex items-center gap-2">
+        <input
+          type="radio"
+          name="color"
+          value={c}
+          checked={form.color === c}
           onChange={(e) => setForm({ ...form, color: e.target.value })}
-          className="border p-2 rounded w-full"
-        >
-          <option value="">Оберіть...</option>
-          {colorOptions.map((c) => (
-            <option key={c} value={c}>{c}</option>
-          ))}
-        </select>
-      </div>
+          className="accent-blue-600"
+        />
+        {c}
+      </label>
+    ))}
+  </div>
+</div>
+
 
       {/* Послуги */}
       <div>
@@ -142,11 +159,7 @@ const WindowParameters = ({ data, setData, nextStep, prevStep }) => {
         </div>
       </div>
 
-      {/* Кнопки */}
-      <div className="flex justify-between mt-6">
-        <button onClick={prevStep} className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">← Назад</button>
-        <button onClick={handleNext} className="px-4 py-2 bg-[#D8F422] rounded hover:bg-yellow-400">Далі →</button>
-      </div>
+   
       </div>
       </div>
     </section>

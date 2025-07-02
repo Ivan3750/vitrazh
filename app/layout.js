@@ -148,21 +148,34 @@ export default function RootLayout({ children }) {
 
         {/* Mobile menu */}
         {isMobileMenuOpen && (
-          <div className="absolute top-[100px] left-0 w-full bg-[#0F0F0F] flex flex-col gap-4 p-4 md:hidden text-white text-base z-40">
-            <Link href="/">Головна</Link>
-            <Link href="/category/windows">Вікна</Link>
-            <Link href="/category/window-blinds">Віконні жалюзі</Link>
-            <Link href="/category/aluminium-systems">Алюмінієві системи</Link>
-            <Link href="/category/gates-and-rolls">Ворота та ролети</Link>
-            <Link href="/category/screens">Сітки</Link>
-            <Link href="/category/facades">Фасади</Link>
-            <Link href="/recovery">єВідновлення</Link>
-            <Link href="/service">Обслуговування</Link>
-            <Link href="/faq">FAQ</Link>
-            <Link href="/calc">Калькулятор</Link>
-            <Link href="/contact">Написати</Link>
-          </div>
-        )}
+  <div className="fixed inset-0 bg-[#0F0F0F] z-[99] text-white flex flex-col items-left justify-center p-6 space-y-6 text-[20px] md:hidden overflow-y-auto">
+    {/* Закрити меню */}
+    <button
+      onClick={() => setIsMobileMenuOpen(false)}
+      className="absolute top-6 right-6 text-4xl"
+      aria-label="Закрити меню"
+    >
+      &times;
+    </button>
+
+    {/* Навігація */}
+    <nav className="flex flex-col items-left gap-4">
+      <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>Головна</Link>
+      <Link href="/category/windows" onClick={() => setIsMobileMenuOpen(false)}>Вікна</Link>
+      <Link href="/category/window-blinds" onClick={() => setIsMobileMenuOpen(false)}>Віконні жалюзі</Link>
+      <Link href="/category/aluminium-systems" onClick={() => setIsMobileMenuOpen(false)}>Алюмінієві системи</Link>
+      <Link href="/category/gates-and-rolls" onClick={() => setIsMobileMenuOpen(false)}>Ворота та ролети</Link>
+      <Link href="/category/screens" onClick={() => setIsMobileMenuOpen(false)}>Сітки</Link>
+      <Link href="/category/facades" onClick={() => setIsMobileMenuOpen(false)}>Фасади</Link>
+      <Link href="/recovery" onClick={() => setIsMobileMenuOpen(false)}>єВідновлення</Link>
+      <Link href="/service" onClick={() => setIsMobileMenuOpen(false)}>Обслуговування</Link>
+      <Link href="/faq" onClick={() => setIsMobileMenuOpen(false)}>FAQ</Link>
+      <Link href="/calc" onClick={() => setIsMobileMenuOpen(false)}>Калькулятор</Link>
+      <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>Написати</Link>
+    </nav>
+  </div>
+)}
+
 
         <main>{children}</main>
 

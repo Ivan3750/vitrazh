@@ -29,62 +29,62 @@ export const metadata = {
 
 
 const WindowPage = () => {
-  const products = [
-  {
-    id: 1,
-    name: "Алюмінієві жалюзі",
-    img: z1,
-    link:"/"
-  },
-  {
-    id: 2,
-    name: "Вертикальні тканьові жалюзі",
-    img: z2,
-    link:"/"
-  },
-  {
-    id: 3,
-    name: "Рулонні штори тканьові ролети",
-    img: z3,
-    link:"/"
-  },
-  {
-    id: 4,
-    name: "ДЕНЬ - НІЧ тканьові ролети",
-    img: z4,
-    link:"/"
-  },
-  {
-    id: 5,
-    name: "Преміум концепт",
-    img: z5,
-    link:"/"
-  },
-  {
-    id: 6,
-    name: "Дерев'яні жалюзі",
-    img: z6,
-    link:"/"
-  },
-  {
-    id: 7,
-    name: "Римскькі штори",
-    img: z7,
-    link:"/"
-  },
-  {
-    id: 8,
-    name: "Жалюзі Плиссе",
-    img: z8,
-    link:"/"
-  },
-  {
-    id: 9,
-    name: "Автоматика Жалюзі",
-    img: z9,
-    link:"/"
-  },
-];
+    const products = [
+    {
+      id: 1,
+      name: "Алюмінієві жалюзі",
+      img: z1,
+      link: "/category/window-blinds/alyuminiievi-zhalyuzi"
+    },
+    {
+      id: 2,
+      name: "Вертикальні тканьові жалюзі",
+      img: z2,
+      link: "/category/window-blinds/vertykalni-tkanovi-zhalyuzi"
+    },
+    {
+      id: 3,
+      name: "Рулонні штори тканьові ролети",
+      img: z3,
+      link: "/category/window-blinds/rulonni-shtory-tkanovi-rolete"
+    },
+    {
+      id: 4,
+      name: "ДЕНЬ - НІЧ тканьові ролети",
+      img: z4,
+      link: "/category/window-blinds/den-nich-tkanovi-rolete"
+    },
+    {
+      id: 5,
+      name: "Преміум концепт",
+      img: z5,
+      link: "/category/window-blinds/premium-kontsept"
+    },
+    {
+      id: 6,
+      name: "Дерев'яні жалюзі",
+      img: z6,
+      link: "/category/window-blinds/derevyani-zhalyuzi"
+    },
+    {
+      id: 7,
+      name: "Римскькі штори",
+      img: z7,
+      link: "/category/window-blinds/rymski-shtory"
+    },
+    {
+      id: 8,
+      name: "Жалюзі Плиссе",
+      img: z8,
+      link: "/category/window-blinds/zhalyuzi-plysse"
+    },
+    {
+      id: 9,
+      name: "Автоматика Жалюзі",
+      img: z9,
+      link: "/category/window-blinds/avtomatyka-zhalyuzi"
+    },
+  ];
   return (
     <>
       <section className="relative h-[600px] flex items-center justify-center bg-black overflow-hidden">
