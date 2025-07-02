@@ -4,18 +4,18 @@ const StepNavigation = ({ step, nextStep, prevStep  }) => {
   return (
     <>
       {/* Кнопки */}
-      <div className="flex justify-between mt-6">
+      <div className="flex justify-center gap-[20px] my-6 ">
         <button
           onClick={prevStep}
           className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
         >
-          ← Назад
+          Назад
         </button>
         <button
           onClick={nextStep}
           className="px-4 py-2 bg-[#D8F422] rounded hover:bg-yellow-400"
         >
-          Далі →
+          Далі
         </button>
       </div>
       <div className="flex mc border justify-between py-[10px] mb-[50px] px-[45px] border-[#edeef2] rounded-2xl">
