@@ -30,31 +30,31 @@ const WindowPage = () => {
     id: 1,
     name: "міжкімнатні перегородки",
     img: a1,
-    link:"/"
+    link:"/category/aluminium-systems/office-partitions"
   },
   {
     id: 2,
     name: "Розсувні системи без термомосту",
     img: a2,
-    link:"/"
+    link:"/category/aluminium-systems/sliding-cold"
   },
   {
     id: 3,
     name: "Розсувні системи з термомостом",
     img: a3,
-    link:"/"
+    link:"/category/aluminium-systems/sliding-thermal"
   },
   {
     id: 4,
     name: "Стійко-ригельні скління фасадів",
     img: a4,
-    link:"/"
+    link:"/category/aluminium-systems/facade-glazing"
   },
   {
     id: 5,
     name: "Вхідна группа",
     img: a5,
-    link:"/"
+    link:"/category/aluminium-systems/entrance-groups"
   }
 ];
   return (

@@ -2,7 +2,7 @@
 import Image from "next/image";
 import HeroImg from "../assets/medium-shot-man-holding-drill.jpg";
 import Mark from "@/app/assets/Marquee Icon.svg";
-const items = ["Вікна", "Двері", "Ролети", "Жалюзі", "Ворота"];
+const items = ["Вікна", "Сітки", "Ролети", "Жалюзі", "Ворота", "Алюмінієві системи", "Фурнітури"];
 import WDS from "@/app/assets/images/products/category/1.png";
 import w from "@/app/assets/images/products/category/window-cat.jpg";
 import al from "@/app/assets/images/products/category/2.jpg";

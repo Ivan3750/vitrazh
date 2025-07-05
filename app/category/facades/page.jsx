@@ -27,19 +27,19 @@ const Facades = () => {
       id: 1,
       name: "Фурнітура для вікон VORNE",
       img: f1,
-      link: "/",
+      link: "/category/facades/vorne",
     },
     {
       id: 2,
       name: "Фурнітура для вікон MACO",
       img: f2,
-      link: "/",
+      link: "/category/facades/maco",
     },
     {
       id: 3,
       name: "Фурнітура для вікон SIEGENIA",
       img: f3,
-      link: "/",
+      link: "/category/facades/siegenia",
     },
   ];
   return (

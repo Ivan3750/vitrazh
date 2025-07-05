@@ -4,12 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import { FaCalculator } from "react-icons/fa6";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  FaViber,
-  FaWhatsapp,
-  FaTelegram,
-  FaInstagram,
-} from "react-icons/fa";
+import { FaViber, FaWhatsapp, FaTelegram, FaInstagram } from "react-icons/fa";
 import { RiArrowDownSLine } from "react-icons/ri";
 
 import localFont from "next/font/local";
@@ -112,7 +107,7 @@ export default function RootLayout({ children }) {
                   href="/category/facades"
                   className="block px-4 py-2 hover:bg-[#333] whitespace-nowrap"
                 >
-                  Фасади
+                  Фурнітури
                 </Link>
               </div>
             </div>
@@ -148,34 +143,75 @@ export default function RootLayout({ children }) {
 
         {/* Mobile menu */}
         {isMobileMenuOpen && (
-  <div className="fixed inset-0 bg-[#0F0F0F] z-[99] text-white flex flex-col items-left justify-center p-6 space-y-6 text-[20px] md:hidden overflow-y-auto">
-    {/* Закрити меню */}
-    <button
-      onClick={() => setIsMobileMenuOpen(false)}
-      className="absolute top-6 right-6 text-4xl"
-      aria-label="Закрити меню"
-    >
-      &times;
-    </button>
+          <div className="fixed inset-0 bg-[#0F0F0F] z-[99] text-white flex flex-col items-left justify-center p-6 space-y-6 text-[20px] md:hidden overflow-y-auto">
+            {/* Закрити меню */}
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="absolute top-6 right-6 text-4xl"
+              aria-label="Закрити меню"
+            >
+              &times;
+            </button>
 
-    {/* Навігація */}
-    <nav className="flex flex-col items-left gap-4">
-      <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>Головна</Link>
-      <Link href="/category/windows" onClick={() => setIsMobileMenuOpen(false)}>Вікна</Link>
-      <Link href="/category/window-blinds" onClick={() => setIsMobileMenuOpen(false)}>Віконні жалюзі</Link>
-      <Link href="/category/aluminium-systems" onClick={() => setIsMobileMenuOpen(false)}>Алюмінієві системи</Link>
-      <Link href="/category/gates-and-rolls" onClick={() => setIsMobileMenuOpen(false)}>Ворота та ролети</Link>
-      <Link href="/category/screens" onClick={() => setIsMobileMenuOpen(false)}>Сітки</Link>
-      <Link href="/category/facades" onClick={() => setIsMobileMenuOpen(false)}>Фасади</Link>
-      <Link href="/recovery" onClick={() => setIsMobileMenuOpen(false)}>єВідновлення</Link>
-      <Link href="/service" onClick={() => setIsMobileMenuOpen(false)}>Обслуговування</Link>
-      <Link href="/faq" onClick={() => setIsMobileMenuOpen(false)}>FAQ</Link>
-      <Link href="/calc" onClick={() => setIsMobileMenuOpen(false)}>Калькулятор</Link>
-      <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>Написати</Link>
-    </nav>
-  </div>
-)}
-
+            {/* Навігація */}
+            <nav className="flex flex-col items-left gap-4">
+              <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
+                Головна
+              </Link>
+              <Link
+                href="/category/windows"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Вікна
+              </Link>
+              <Link
+                href="/category/window-blinds"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Віконні жалюзі
+              </Link>
+              <Link
+                href="/category/aluminium-systems"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Алюмінієві системи
+              </Link>
+              <Link
+                href="/category/gates-and-rolls"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Ворота та ролети
+              </Link>
+              <Link
+                href="/category/screens"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Сітки
+              </Link>
+              <Link
+                href="/category/facades"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Фурнітури
+              </Link>
+              <Link href="/recovery" onClick={() => setIsMobileMenuOpen(false)}>
+                єВідновлення
+              </Link>
+              <Link href="/service" onClick={() => setIsMobileMenuOpen(false)}>
+                Обслуговування
+              </Link>
+              <Link href="/faq" onClick={() => setIsMobileMenuOpen(false)}>
+                FAQ
+              </Link>
+              <Link href="/calc" onClick={() => setIsMobileMenuOpen(false)}>
+                Калькулятор
+              </Link>
+              <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                Написати
+              </Link>
+            </nav>
+          </div>
+        )}
 
         <main>{children}</main>
 
@@ -215,8 +251,8 @@ export default function RootLayout({ children }) {
                     </a>
                   </li>
                   <li>
-                    <a href="/about" className="hover:underline">
-                      Про нас
+                    <a href="/service" className="hover:underline">
+                      Обслуговування
                     </a>
                   </li>
                   <li>
@@ -226,16 +262,64 @@ export default function RootLayout({ children }) {
                   </li>
                 </ul>
               </div>
-
+              <div className="space-y-2 text-white text-base">
+                <p className="font-semibold">Категорії</p>
+                <ul className="space-y-1">
+                  <li>
+                    <a href="/category/window" className="hover:underline">
+                      Вікна
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/category/window-blinds" className="hover:underline">
+                      Віконні жалюзі
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/category/aluminium-system" className="hover:underline">
+                      Алюмінієві системи
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/category/gates-and-rolls" className="hover:underline">
+                      Ворота та ролети
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/category/screens" className="hover:underline">
+                      Сітки
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/category/facades" className="hover:underline">
+                      Фурнітури
+                    </a>
+                  </li>
+                </ul>
+              </div>
               <div className="space-y-4 text-white">
                 <p className="text-base font-semibold">Ми в соцмережах</p>
-                <div className="flex space-x-4 text-xl">
+                <div className="flex space-x-4 text-2xl">
                   <FaViber />
                   <FaWhatsapp />
                   <FaTelegram />
                   <FaInstagram />
                 </div>
+                
               </div>
+                 <div className="text-white space-y-2">
+    <p className="text-base font-semibold">Ми на мапі</p>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10180.20131706194!2d30.449779!3d50.365616!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4c8513a365d09%3A0x1e460aad6b3ad88e!2z0L_RgNC-0YHQv9C10LrRgiDQkNC60LDQtNC10LzRltC60LAg0JPQu9GD0YjQutC-0LLQsCwgMzAsINCa0LjRl9CyLCDQo9C60YDQsNGX0L3QsCwgMDIwMDA!5e0!3m2!1suk!2sdk!4v1751716113735!5m2!1suk!2sdk"
+      width="100%"
+      height="150"
+      style={{ border: 0 }}
+      allowFullScreen=""
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+      className="rounded-md"
+    ></iframe>
+  </div>
             </div>
           </div>
           <div className="text-center text-white border-t-2 py-10 border-[#171717] text-sm">
