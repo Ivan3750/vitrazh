@@ -1,10 +1,12 @@
-"use client"
+"use client";
 import { useState, useEffect } from "react";
 import StepNavigation from "../components/StepNavigation";
 import ProfileSelector from "../components/ProfileSelector";
 import WindowParameters from "../components/WindowParameters";
 import Summary from "../components/Summary";
-import prices from "../data/price.json";
+import prices from "../../data/price.json";
+import Price from "../components/Price";
+import bg from "../assets/images/hero/calc.jpg"
 
 const Calc = () => {
   const [step, setStep] = useState(1);
@@ -45,29 +47,26 @@ const Calc = () => {
 
   return (
     <>
+    
       <section className="relative h-[600px] flex items-center justify-center bg-black overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center opacity-40" />
-        <h1 className="relative text-white text-4xl font-bold z-10">
+              <div
+                className="absolute inset-0 bg-cover bg-center opacity-40"
+                style={{
+                  backgroundImage: `url(${bg.src})`,
+                }}
+              />
+              <h1 className="relative text-white text-4xl font-bold z-10">
           Розрахуйте вартість
-        </h1>
-      </section>
+              </h1>
+            </section>
 
       <section className="mc py-[50px]">
-        {step === 1 && (
-          <ProfileSelector data={data} setData={setData} nextStep={nextStep} />
-        )}
-        {step === 2 && (
-          <WindowParameters
-            data={data}
-            setData={setData}
-           
-          />
-        )}
-         {step === 3 && <Summary data={data} prevStep={prevStep} />}
-      <StepNavigation step={step}   nextStep={nextStep}
-            prevStep={prevStep}/>
-       </section>
-
+        {step === 1 && (<ProfileSelector data={data} setData={setData} nextStep={nextStep} />)}
+        {step === 2 && <WindowParameters data={data} setData={setData} />}
+        {step === 3 && <Summary data={data} prevStep={prevStep} />}
+        <StepNavigation step={step} nextStep={nextStep} prevStep={prevStep} />
+        <Price></Price>
+      </section>
     </>
   );
 };

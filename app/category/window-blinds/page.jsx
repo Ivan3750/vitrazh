@@ -9,6 +9,7 @@ import z6 from "@/app/assets/images/products/blinds/z6.jpg";
 import z7 from "@/app/assets/images/products/blinds/z7.jpg";
 import z8 from "@/app/assets/images/products/blinds/z8.jpg";
 import z9 from "@/app/assets/images/products/blinds/z9.jpg";
+import SectionContact from "@/app/components/SectionContact";
 
 
 export const metadata = {
@@ -100,6 +101,7 @@ const WindowPage = () => {
       </section>
 
       <ProductList products={products} />
+      <SectionContact/>
     </>
   );
 };

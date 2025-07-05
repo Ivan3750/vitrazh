@@ -8,6 +8,8 @@ import wds76md from "@/app/assets/images/products/windows/wds-76AD-t.png";
 import rehauE60 from "@/app/assets/images/products/windows/REHAU_Euro-Design_60-t.png";
 import rehauE70 from "@/app/assets/images/products/windows/REHAU_Euro-Design_70-t.png";
 import rehauSMD from "@/app/assets/images/products/windows/REHAU_Synego_MD-t.png";
+import SectionContact from "@/app/components/SectionContact";
+
 const windowsData = {
   "wds-5s": {
     title: "WDS",
@@ -114,7 +116,6 @@ description: `REHAU SYNEGO — це високотехнологічна сис�
     ],
   },
 };
-
 export async function generateStaticParams() {
   return Object.keys(windowsData).map((key) => ({ window: key }));
 }
@@ -140,46 +141,43 @@ export default function WindowPage({ params }) {
           </div>
         </div>
 
-        <div className="mt-10">
-          <h3 className="text-xl mb-4">Технічні характеристики</h3>
-          <table className="w-full border border-gray-300 text-left text-sm">
-            <thead>
-              <tr>
-                <th className="border-b border-b-[#555555]    px-4 py-2 text-[18px]">
-                  Параметр
-                </th>
-                <th className="border-b border-b-[#555555]    px-4 py-2 text-[18px]">
-                  Значення
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.specs.map((row, i) => (
-                <tr key={i}>
-                  <td className="border-b  border-b-[#555555]  px-4 py-2 text-[18px]">
-                    {row.key}
-                  </td>
-                  <td className="border-b border-b-[#555555]   px-4 py-2 text-[18px]">
-                    {row.value}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <div className="mt-10 overflow-x-auto rounded-md  max-w-full">
+  <h3 className="text-xl my-4 font-semibold text-center">Технічні характеристики</h3>
+  <table className="w-full min-w-[320px] text-left text-base">
+    <thead className="bg-gray-100">
+      <tr>
+        <th className="px-5 py-3 text-gray-700 font-semibold border-b border-gray-300">
+          Параметр
+        </th>
+        <th className="px-5 py-3 text-gray-700 font-semibold border-b border-gray-300">
+          Значення
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {data.specs.map((row, i) => (
+        <tr
+          key={i}
+          className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}
+        >
+          <td className="px-5 py-3 border-b border-gray-200 text-gray-800">
+            {row.key}
+          </td>
+          <td className="px-5 py-3 border-b border-gray-200 text-gray-800">
+            {row.value}
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
       </section>
 
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            "гладка поверхня, що легко очищається",
-            "система профілів екологічна, підлягає вторинній переробці",
-            "скошений фальц рами і тулки, що забезпечує довідведення;",
-          ].map((title, i) => (
-            <div
-              key={i}
-              className="flex bg-[#F8F7F0] py-[60px] px-[40px] gap-5 rounded-md"
-            >
+          {["гладка поверхня, що легко очищається", "система профілів екологічна, підлягає вторинній переробці", "скошений фальц рами і тулки, що забезпечує довідведення"].map((title, i) => (
+            <div key={i} className="flex bg-[#F8F7F0] py-[60px] px-[40px] gap-5 rounded-md">
               <div className="p-2 rounded-full bg-[#D8F422] w-9 h-9 flex items-center justify-center">
                 <Image src={check} alt="Перевага" width={22} height={22} />
               </div>
@@ -191,38 +189,33 @@ export default function WindowPage({ params }) {
 
       <section className="px-6 py-12 gap-[30px] justify-between mc mx-auto text-sm flex space-y-6">
         <div>
-          <h2 className="text-xl  mb-2">{data.name}</h2>
+          <h2 className="text-xl mb-2">{data.name}</h2>
           <p className="text-[#555555] text-[18px] max-w-[500px] mb-5">
-            Профіль REHAU Euro-Design 60 має трьохкамерну будову з монтажною
-            глибиною 60 мм. За вимогами ДСТУ система рекомендована до
-            застосування в ІІ температурній зоні України (Південь країни та
-            Закарпаття). В І температурній зоні така система застосовується для
-            технічних та нежитлових приміщень.
+            Профіль REHAU Euro-Design 60 має трьохкамерну будову з монтажною глибиною 60 мм. За вимогами ДСТУ система рекомендована до застосування в ІІ температурній зоні України (Південь країни та Закарпаття). В І температурній зоні така система застосовується для технічних та нежитлових приміщень.
           </p>
-            <div className="flex gap-5">
+          <div className="flex gap-5">
             <div className="flex items-center gap-2">
               <div className="bg-transperant p-[8px] border-[#d8f422] border-2 rounded-full">
-                <div className="w-[29px] h-[29px] bg-[#D8F422]  rounded-full" />
+                <div className="w-[29px] h-[29px] bg-[#D8F422] rounded-full" />
               </div>
               <p className="text-[16px]">EURO-DESIGN 70</p>
             </div>
             <div className="flex items-center gap-2">
               <div className="bg-transperant p-[8px] border-[#F8F7F0] border-2 rounded-full">
-                <div className="w-[29px] h-[29px] bg-[#F8F7F0]  rounded-full" />
+                <div className="w-[29px] h-[29px] bg-[#F8F7F0] rounded-full" />
               </div>
               <p className="text-[16px]">EURO-DESIGN 60</p>
             </div>
           </div>
         </div>
 
-        <div className="flex   gap-4 items-center">
-        
+        <div className="flex gap-4 items-center">
           <div>
             <Image src={Ukraine} alt="Карта України" width={690} height={460} />
           </div>
         </div>
       </section>
-      
+      <SectionContact />
     </>
   );
 }

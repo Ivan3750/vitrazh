@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "name": "Одностулкове вікно - Економ",
+    "size": "800х1300 мм",
+    "profile": "3-х камерний WDS Classic",
+    "glass": "1-камерний 24 мм",
+    "hardware": "Axor (Україна)",
+    "price": "3 005 грн",
+    "installment": "Розстрочка на 10 міс. 300 грн",
+    "imgKey": "wds5s",
+    "link": "/category/windows/wds-5s"
+  },
+  {
+    "id": 2,
+    "name": "Одностулкове вікно - Стандарт",
+    "size": "800х1300 мм",
+    "profile": "6-ти камерний WDS 6s",
+    "glass": "2-камерний, 32 мм енерго",
+    "hardware": "Axor (Україна)",
+    "price": "3 995 грн",
+    "installment": "Розстрочка на 10 міс. 399 грн",
+    "imgKey": "wds6s",
+    "link": "/category/windows/wds-6s"
+  },
+  {
+    "id": 3,
+    "name": "Одностулкове вікно - Преміум",
+    "size": "800х1300 мм",
+    "profile": "5-ти камерний Rehau70",
+    "glass": "2-камерний, 40 мм енерго",
+    "hardware": "Siegenia (Німеччина)",
+    "price": "5 115 грн",
+    "installment": "Розстрочка на 10 міс. 511 грн",
+    "imgKey": "rehauE70",
+    "link": "/category/windows/rehau-euro-design-70"
+  },
+  {
+    "id": 4,
+    "name": "Двостулкове вікно - Економ",
+    "size": "1300х1100 мм",
+    "profile": "3-х камерний WDS Classic",
+    "glass": "1-камерний, 24 мм",
+    "hardware": "Axor (Україна)",
+    "price": "3 715 грн",
+    "installment": "Розстрочка на 10 міс. 371 грн",
+    "imgKey": "wds76md",
+    "link": "/category/windows/wds-76md"
+  },
+  {
+    "id": 5,
+    "name": "Двостулкове вікно - Стандарт",
+    "size": "1300х1100 мм",
+    "profile": "6-ти камерний WDS 6s",
+    "glass": "2-камерний, 32 мм енерго",
+    "hardware": "Axor (Україна)",
+    "price": "4 995 грн",
+    "installment": "Розстрочка на 10 міс. 499 грн",
+    "imgKey": "wds76ad",
+    "link": "/category/windows/wds-76ad"
+  },
+  {
+    "id": 6,
+    "name": "Двостулкове вікно - Преміум",
+    "size": "1300х1100 мм",
+    "profile": "5-ти камерний Rehau70",
+    "glass": "2-камерний, 40 мм енерго",
+    "hardware": "Siegenia (Німеччина)",
+    "price": "6 391 грн",
+    "installment": "Розстрочка на 10 міс. 639 грн",
+    "imgKey": "rehauE70",
+    "link": "/category/windows/rehau-euro-design-70"
+  },
+  {
+    "id": 7,
+    "name": "Трьохстулкове вікно - Економ",
+    "size": "1300х1700 мм",
+    "profile": "3-х камерний WDS Classic",
+    "glass": "1-камерний, 24 мм",
+    "hardware": "Axor (Україна)",
+    "price": "5 048 грн",
+    "installment": "Розстрочка на 10 міс. 504 грн",
+    "imgKey": "wds5s",
+    "link": "/category/windows/wds-5s"
+  },
+  {
+    "id": 8,
+    "name": "Трьохстулкове вікно - Стандарт",
+    "size": "1300х1700 мм",
+    "profile": "6-ти камерний WDS 6s",
+    "glass": "2-камерний, 32 мм енерго",
+    "hardware": "Axor (Україна)",
+    "price": "6 905 грн",
+    "installment": "Розстрочка на 10 міс. 690 грн",
+    "imgKey": "wds6s",
+    "link": "/category/windows/wds-6s"
+  },
+  {
+    "id": 9,
+    "name": "Трьохстулкове вікно - Преміум",
+    "size": "1300х1700 мм",
+    "profile": "5-ти камерний Rehau70",
+    "glass": "2-камерний, 40 мм енерго",
+    "hardware": "Siegenia (Німеччина)",
+    "price": "8 730 грн",
+    "installment": "Розстрочка на 10 міс. 873 грн",
+    "imgKey": "rehauSMD",
+    "link": "/category/windows/rehau-synego"
+  }
+]

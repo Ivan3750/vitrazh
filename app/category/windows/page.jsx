@@ -7,6 +7,7 @@ import wds76md from "@/app/assets/images/products/windows/wds-76AD-t.png";
 import rehauE60 from "@/app/assets/images/products/windows/REHAU_Euro-Design_60-t.png";
 import rehauE70 from "@/app/assets/images/products/windows/REHAU_Euro-Design_70-t.png";
 import rehauSMD from "@/app/assets/images/products/windows/REHAU_Synego_MD-t.png";
+import SectionContact from "@/app/components/SectionContact";
 
 export const metadata = {
   title: "Металопластикові вікна — широкий вибір та якість | Вітраж",

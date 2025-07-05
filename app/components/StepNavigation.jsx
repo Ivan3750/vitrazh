@@ -1,37 +1,63 @@
-const StepNavigation = ({ step, nextStep, prevStep  }) => {
+import { motion } from 'framer-motion';
+
+const StepNavigation = ({ step, nextStep, prevStep }) => {
   const steps = ["Тип профілю", "Параметри вікна", "Підсумок"];
+
+  const isFirst = step === 1;
+  const isLast = step === steps.length;
 
   return (
     <>
-      {/* Кнопки */}
-      <div className="flex justify-center gap-[20px] my-6 ">
-        <button
-          onClick={prevStep}
-          className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
-        >
-          Назад
-        </button>
-        <button
-          onClick={nextStep}
-          className="px-4 py-2 bg-[#D8F422] rounded hover:bg-yellow-400"
-        >
-          Далі
-        </button>
+      <div className="flex justify-center gap-5 my-6">
+        {!isFirst && (
+          <motion.button
+            onClick={prevStep}
+            className="px-6 py-3 bg-gray-300 rounded-md hover:scale-[0.995] transition-all"
+            whileHover={{ scale: 1.05 }}
+          >
+             Назад
+          </motion.button>
+        )}
+
+        {!isLast && (
+          <motion.button
+            onClick={nextStep}
+            className="px-6 py-3 bg-[#D8F422] rounded-md hover:scale-[0.995] transition-all"
+            whileHover={{ scale: 1.05 }}
+          >
+            Далі 
+          </motion.button>
+        )}
       </div>
-      <div className="flex mc border justify-between py-[10px] mb-[50px] px-[45px] border-[#edeef2] rounded-2xl">
+
+      <motion.div
+        className="mc border justify-between py-[10px] mb-[50px] px-[45px] border-[#edeef2] rounded-2xl md:flex hidden"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
         {steps.map((label, index) => (
-          <div key={index} className="flex gap-[15px] items-center">
-            <div
-              className={`w-[50px] h-[50px] rounded-full flex items-center justify-center text-[25px] ${
+          <motion.div
+            key={index}
+            className="flex gap-[15px] items-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: step === index + 1 ? 1 : 0.6 }}
+            transition={{ duration: 0.4 }}
+          >
+            <motion.div
+              className={`w-[50px] h-[50px] rounded-full flex items-center justify-center text-[25px] font-semibold ${
                 step === index + 1 ? "bg-[#D8F422]" : "bg-gray-300"
               }`}
+              transition={{ duration: 0.3 }}
             >
-              <p>{index + 1}</p>
-            </div>
-            <p className="text-[22px]">{label}</p>
-          </div>
+              {index + 1}
+            </motion.div>
+            <p className={`text-[22px] ${step === index + 1 ? "text-black" : "text-gray-500"}`}>
+              {label}
+            </p>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </>
   );
 };
