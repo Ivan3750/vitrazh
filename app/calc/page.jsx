@@ -9,7 +9,7 @@ import Price from "../components/Price";
 import bg from "../assets/images/hero/calc.jpg"
 
 const Calc = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(0);
   const [data, setData] = useState({
     profile: null,
     window: {
@@ -61,6 +61,7 @@ const Calc = () => {
             </section>
 
       <section className="mc py-[50px]">
+        {step === 0 && (<ProfileSelector data={data} setData={setData} nextStep={nextStep} />)}
         {step === 1 && (<ProfileSelector data={data} setData={setData} nextStep={nextStep} />)}
         {step === 2 && <WindowParameters data={data} setData={setData} />}
         {step === 3 && <Summary data={data} prevStep={prevStep} />}

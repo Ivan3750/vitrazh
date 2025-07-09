@@ -30,39 +30,41 @@ const WindowPage = () => {
     id: 1,
     name: "Ролові Антимоскітн сітки",
     img: s1,
-    link:"/"
+    link: "/category/screens/rolovi-sitky"
   },
   {
     id: 2,
     name: "Антимоскітні сітки PLISSE",
     img: s2,
-    link:"/"
+    link: "/category/screens/plisse-sitky"
   },
   {
     id: 3,
     name: "Дверні Атимоскитні Сітки",
     img: s3,
-    link:"/"
+    link: "/category/screens/dverni-sitky"
   },
   {
     id: 4,
     name: "Відкатна Антимоскітна сітка",
     img: s4,
-    link:"/"
+    link: "/category/screens/vidkatna-sitka"
   },
   {
     id: 5,
     name: "Сітка для Алюмінієвих вікон",
     img: s5,
-    link:"/"
+    link: "/category/screens/alyuminiievi-sitky"
   },
   {
     id: 6,
     name: "Рамна Антимоскітна сітка",
     img: s6,
-    link:"/"
+    link: "/category/screens/ramna-sitka"
   }
-];
+]
+
+
   return (
     <>
       <section className="relative h-[600px] flex items-center justify-center bg-black overflow-hidden">
