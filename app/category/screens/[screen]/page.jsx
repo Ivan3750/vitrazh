@@ -17,7 +17,9 @@ import black from "@/app/assets/images/products/mosquito/Rollo_profil_anthracite
 import anthracite from "@/app/assets/images/products/mosquito/Rollo_profil_anthracite.png"
 import hImg from "@/app/assets/images/products/mosquito/ROLLO_horyzontalni.gif"
 import vImg from "@/app/assets/images/products/mosquito/ROLLO_vertykalni.gif"
-
+import size1 from "@/app/assets/images/products/mosquito/size1-roletni.jpg" 
+import size2 from "@/app/assets/images/products/mosquito/size2-roletni.jpg" 
+import size3 from "@/app/assets/images/products/mosquito/size3-roletni.jpg" 
 
 import DynamicCalculator from "@/app/components/DynamicCalculator";
 import Link from "next/link";
@@ -199,7 +201,11 @@ export default function WindowPage({ params }) {
             </div>
           </div>
         </div>
-
+ <div className="flex max-w-4xl gap-20px justify-between my-10 mx-auto">
+          <Image src={size1} alt="Розміри" width={300} height={300}></Image>
+          <Image src={size2} alt="Розміри" width={300} height={300}></Image>
+          <Image src={size3} alt="Розміри" width={300} height={300}></Image>
+      </div>
         {/* Вертикальна */}
         <div className="mb-16">
           <h3 className="text-[36px] md:text-[42px] mb-4 text-center">Ролетна Вертикальна</h3>
@@ -253,6 +259,11 @@ export default function WindowPage({ params }) {
             </div>
           </div>
         </div>
+         <div className="flex max-w-4xl gap-20px justify-between my-10 mx-auto">
+          <Image src={size1} alt="Розміри" width={300} height={300}></Image>
+          <Image src={size2} alt="Розміри" width={300} height={300}></Image>
+          <Image src={size3} alt="Розміри" width={300} height={300}></Image>
+      </div>
       </section>
 
       <section className="px-6 py-12 max-w-6xl mx-auto">
