@@ -102,6 +102,19 @@ export default function DynamicCalculator({ productType }) {
                 <option value="brown">Чорний матовий</option>
               </select>
             </div>
+            <div className="flex flex-col">
+              <label htmlFor="color">Тип сітки</label>
+              <select
+                name="color"
+                value={form.color}
+                onChange={handleChange}
+                className="p-2 border rounded"
+              >
+                <option value="white">Вертикальна</option>
+                <option value="brown">Горизонтальна</option>
+                
+              </select>
+            </div>
 
             <div className="flex items-center gap-2">
               <input

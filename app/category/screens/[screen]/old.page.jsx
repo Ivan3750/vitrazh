@@ -6,20 +6,18 @@ import s3 from "@/app/assets/images/products/mosquito/3.jpg";
 import s4 from "@/app/assets/images/products/mosquito/4.jpg";
 import s5 from "@/app/assets/images/products/mosquito/5.jpg";
 import s6 from "@/app/assets/images/products/mosquito/6.jpg";
+import fiberglass from "@/app/assets/images/gallery/Fiberglass.webp";
+import ultraView from "@/app/assets/images/gallery/UltraView.webp";
+import antipul from "@/app/assets/images/gallery/antipul.webp";
+import anticat from "@/app/assets/images/gallery/anticat.webp";
+import SectionContact from "@/app/components/SectionContact";
 import j1 from "@/app/assets/images/jobs/screens/1.png";
 import j2 from "@/app/assets/images/jobs/screens/2.png";
 import j3 from "@/app/assets/images/jobs/screens/3.png";
 import j4 from "@/app/assets/images/jobs/screens/4.png";
 import j5 from "@/app/assets/images/jobs/screens/5.png";
-import white from "@/app/assets/images/products/mosquito/Rollo_profil_white.png"
-import brown from "@/app/assets/images/products/mosquito/Rollo_profil_brown.png"
-import black from "@/app/assets/images/products/mosquito/Rollo_profil_anthracite (1).png"
-import anthracite from "@/app/assets/images/products/mosquito/Rollo_profil_anthracite.png"
-import hImg from "@/app/assets/images/products/mosquito/ROLLO_horyzontalni.gif"
-import vImg from "@/app/assets/images/products/mosquito/ROLLO_vertykalni.gif"
-
-
 import DynamicCalculator from "@/app/components/DynamicCalculator";
+import RolletCalc from "@/app/components/RolletCalc";
 import Link from "next/link";
 
 const windowsData = {
@@ -108,6 +106,7 @@ const windowsData = {
   },
 };
 
+
 export async function generateStaticParams() {
   return Object.keys(windowsData).map((key) => ({ screen: key }));
 }
@@ -122,138 +121,25 @@ export default function WindowPage({ params }) {
         <h1 className="relative text-white text-4xl z-10">{data.title}</h1>
       </section>
 
-      <section className="px-6 py-12 max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row gap-8 items-start">
-          <div className="flex-1">
-            <div className="w-[300px] h-[400px] relative">
-              <Image
-                src={data.image}
-                alt={data.name}
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-          <div className="flex-1">
-            <h2 className="text-[36px] md:text-[42px] mb-4">{data.name}</h2>
-            <p className="text-[#555555] text-[18px] leading-relaxed">
-              {data.description}
-            </p>
-          </div>
-        </div>
-      </section>
-      <section className="px-6 py-12 max-w-6xl mx-auto">        
+<section className="px-6 py-12 max-w-6xl mx-auto">
+  <div className="flex flex-col md:flex-row gap-8 items-start">
+    <div className="flex-1">
+      <div className="w-[300px] h-[400px] relative">
+        <Image
+          src={data.image}
+          alt={data.name}
+          fill
+          className="object-cover"
+        />
+      </div>
+    </div>
+    <div className="flex-1">
+      <h2 className="text-[36px] md:text-[42px] mb-4">{data.name}</h2>
+      <p className="text-[#555555] text-[18px] leading-relaxed">{data.description}</p>
+    </div>
+  </div>
+</section>
 
-        {/* Горизонтальна */}
-        <div className="mb-16 ">
-          <h3 className="text-[36px] md:text-[42px] mb-4 text-center">Ролетна Горизонтальна</h3>
-          <div className="flex flex-col md:flex-row gap-6 justify-between">
-            <Image
-              src={hImg}
-              alt="ROLLO Горизонтальна"
-              width={400}
-              height={500}
-              className="rounded-xl object-contain border"
-            />
-
-            <div className="flex-1 space-y-6 max-w-[450px]">
-              <div>
-                <h5 className="">Доступні кольори профілів:</h5>
-                <div className="flex gap-4 mt-2">
-                  {[
-                    { src: white, label: "Білий" },
-                    { src: brown, label: "Коричневий" },
-                    { src: anthracite, label: "Антрацит" },
-                  ].map(({ src, label }) => (
-                    <div key={label} className="text-center">
-                      <Image
-                        src={src}
-                        alt={label}
-                        width={75}
-                        height={75}
-                        className="mx-auto"
-                      />
-                      <p className="text-sm mt-1">{label}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h5 className="">Доступні кольори фурнітури:</h5>
-                <div className="flex gap-4 mt-2">
-                  <div className="text-center">
-                    <Image
-                      src={black}
-                      alt="Чорний"
-                      width={75}
-                      height={75}
-                      className="mx-auto"
-                    />
-                    <p className="text-sm mt-1">Чорний</p>
-                  </div>
-                </div>
-              </div>
-
-              
-            </div>
-          </div>
-        </div>
-
-        {/* Вертикальна */}
-        <div className="mb-16">
-          <h3 className="text-[36px] md:text-[42px] mb-4 text-center">Ролетна Вертикальна</h3>
-          <div className="flex flex-col md:flex-row gap-6 justify-between">
-            <Image
-              src={vImg}
-              alt="ROLLO Вертикальна"
-              width={400}
-              height={500}
-              className="rounded-xl object-contain "
-            />
-
-            <div className="flex-1 space-y-6 max-w-[450px]">
-              <div>
-                <h5 className="">Доступні кольори профілів:</h5>
-                <div className="flex gap-4 mt-2 flex-wrap">
-                    {[
-                    { src: white, label: "Білий" },
-                    { src: brown, label: "Коричневий" },
-                    { src: anthracite, label: "Антрацит" },
-                  ].map(({ src, label }) => (
-                    <div key={label} className="text-center">
-                      <Image
-                        src={src}
-                        alt={label}
-                        width={75}
-                        height={75}
-                        className="mx-auto"
-                      />
-                      <p className="text-sm mt-1">{label}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h5 className="">Доступні кольори фурнітури:</h5>
-                <div className="flex gap-4 mt-2">
-                  <div className="text-center">
-                    <Image
-                      src={black}
-                      alt="Чорний"
-                      width={75}
-                      height={75}
-                      className="mx-auto"
-                    />
-                    <p className="text-sm mt-1">Чорний</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -275,7 +161,7 @@ export default function WindowPage({ params }) {
         </div>
       </section>
 
-      {/*     <section className="px-6 py-12 max-w-6xl mx-auto">
+  {/*     <section className="px-6 py-12 max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-[48px]  mb-10 text-center">
           Типи полотна
         </h2>
@@ -339,41 +225,41 @@ export default function WindowPage({ params }) {
           </div>
         </div>
       </section> */}
-      {
-        <section className="px-6 py-12 mx-auto">
-          <h2 className="text-4xl md:text-[48px] mb-10 text-center ">
-            Типи москітних сіток
-          </h2>
+    {  <section className="px-6 py-12 mx-auto">
+        <h2 className="text-4xl md:text-[48px] mb-10 text-center ">
+          Типи москітних сіток
+        </h2>
 
-          <div className="flex flex-col md:flex-row flex-wrap justify-center gap-6 mx-auto">
-            {[j1, j2, j3, j4, j5].map((img, index) => {
-              // Відповідні класи translate-y з md:
-              const translateClasses = [
-                "md:translate-y-0",
-                "md:-translate-y-7", // -28px приблизно
-                "md:translate-y-5", // 20px
-                "md:-translate-y-4", // -16px
-                "md:translate-y-6", // 24px
-              ];
+        <div className="flex flex-col md:flex-row flex-wrap justify-center gap-6 mx-auto">
+          {[j1, j2, j3, j4, j5].map((img, index) => {
+            // Відповідні класи translate-y з md:
+            const translateClasses = [
+              "md:translate-y-0",
+              "md:-translate-y-7", // -28px приблизно
+              "md:translate-y-5", // 20px
+              "md:-translate-y-4", // -16px
+              "md:translate-y-6", // 24px
+            ];
 
-              return (
-                <Link href="/" key={index}>
-                  <div
-                    className={`rounded-md transform transition-transform duration-300 hover:scale-[0.995] ${translateClasses[index]}`}
-                  >
-                    <Image
-                      src={img}
-                      alt={`j${index + 1}`}
-                      className="h-[250px] md:h-[300px] xl:h-[350px] w-auto max-w-none object-cover rounded-md"
-                    />
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </section>
-      }
+            return (
+              <Link href="/">
+              <div
+                key={index}
+                className={`rounded-md transform transition-transform duration-300 hover:scale-[0.995] ${translateClasses[index]}`}
+              >
+                <Image
+                  src={img}
+                  alt={`j${index + 1}`}
+                  className="h-[250px] md:h-[300px] xl:h-[350px] w-auto max-w-none object-cover rounded-md"
+                />
+              </div>
+              </Link>
+            );
+          })}
+        </div>
+      </section>}
       <DynamicCalculator productType={params.screen}></DynamicCalculator>
+    
     </>
   );
 }
