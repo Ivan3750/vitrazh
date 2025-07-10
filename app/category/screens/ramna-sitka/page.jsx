@@ -13,7 +13,11 @@ import white2 from "@/app/assets/images/products/mosquito/ramna/Lux_profil_white
 import anthracite2 from "@/app/assets/images/products/mosquito/ramna/Lux_profil_anthracite.png";
 import brown2 from "@/app/assets/images/products/mosquito/ramna/Lux_profil_brown.png";
 import gold2 from "@/app/assets/images/products/mosquito/ramna/Lux_profil_gold_oak.png";
-
+import fiberglass from "@/app/assets/images/gallery/Fiberglass.webp";
+import ultraView from "@/app/assets/images/gallery/UltraView.webp";
+import antipul from "@/app/assets/images/gallery/antipul.webp";
+import anticat from "@/app/assets/images/gallery/anticat.webp";
+import SectionContact from "@/app/components/SectionContact";
 import whiteF from "@/app/assets/images/products/mosquito/ramna/White.png";
 import brownF from "@/app/assets/images/products/mosquito/ramna/Brown.png";
 import anthraciteF from "@/app/assets/images/products/mosquito/ramna/Anthracite.png";

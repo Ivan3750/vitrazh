@@ -1,11 +1,9 @@
 import ProductList from "@/app/components/ProductList";
 import b from "@/app/assets/images/products/mosquito/background.jpg";
-import s1 from "@/app/assets/images/products/mosquito/1.jpg";
-import s2 from "@/app/assets/images/products/mosquito/2.jpg";
-import s3 from "@/app/assets/images/products/mosquito/3.jpg";
-import s4 from "@/app/assets/images/products/mosquito/4.jpg";
-import s5 from "@/app/assets/images/products/mosquito/5.jpg";
-import s6 from "@/app/assets/images/products/mosquito/6.jpg";
+import g1 from "@/app/assets/images/products/gates/gates-sectional.png";
+import g2 from "@/app/assets/images/products/gates/protective-rolls.jpg";
+import g3 from "@/app/assets/images/products/gates/roll-gates.jpg";
+
  
 
 
@@ -13,40 +11,22 @@ const WindowPage = () => {
   const products = [
   {
     id: 1,
-    name: "Ролові Антимоскітн сітки",
-    img: s1,
-    link:"/"
+    name: "Гаражні ворота",
+    img: g1,
+    link:"/category/gates-and-rolls/gates-sectional"
   },
   {
     id: 2,
-    name: "Антимоскітні сітки PLISSE",
-    img: s2,
-    link:"/"
+    name: "Захисні ролети на вікна",
+    img: g2,
+    link:"/category/gates-and-rolls/protective-rolls"
   },
   {
     id: 3,
-    name: "Дверні Атимоскитні Сітки",
-    img: s3,
-    link:"/"
+    name: "Ролетні ворота",
+    img: g3,
+    link:"/category/gates-and-rolls/roll-gates"
   },
-  {
-    id: 4,
-    name: "Відкатна Антимоскітна сітка",
-    img: s4,
-    link:"/"
-  },
-  {
-    id: 5,
-    name: "Сітка для Алюмінієвих вікон",
-    img: s5,
-    link:"/"
-  },
-  {
-    id: 6,
-    name: "Рамна Антимоскітна сітка",
-    img: s6,
-    link:"/"
-  }
 ];
   return (
     <>
@@ -58,7 +38,7 @@ const WindowPage = () => {
           }}
         />
         <h1 className="relative text-white text-4xl font-bold z-10">
-          Москітні сітки
+          Ворота та ролети
         </h1>
       </section>
 
