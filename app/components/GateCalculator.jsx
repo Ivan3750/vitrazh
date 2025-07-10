@@ -67,7 +67,7 @@ export default function GateCalculator() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-4 bg-white shadow-md rounded-lg mt-6">
+    <div className="bg-[#f8f7f0] px-6 py-10 rounded-md max-w-2xl mx-auto mt-10">
       <h2 className="text-2xl font-bold mb-4">Калькулятор воріт</h2>
 
       <div className="mb-4">
@@ -175,23 +175,12 @@ export default function GateCalculator() {
         ))}
       </div>
 
-      <div className="mb-4">
-        <label className="block font-medium mb-1">Коментар</label>
-        <textarea
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-          className="w-full border border-gray-300 p-2 rounded"
-          rows={3}
-          placeholder="Ваші побажання або запитання"
-        />
-      </div>
-
-      <button
-        onClick={handleSubmit}
-        className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
-      >
-        Надіслати
-      </button>
+     <button
+          onClick={handleSubmit}
+          className="bg-[#D8F422] py-[18px] px-[24px] rounded-sm uppercase font-semibold flex min-w-[200px] max-w-[250px] gap-[5px] justify-between hover:bg-[#0f0f0f] hover:text-white"
+        >
+          Передзвоніть мені
+        </button>
     </div>
   );
 }

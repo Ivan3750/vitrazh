@@ -26,7 +26,7 @@ const montages = [
   { id: "outset", name: "На проєм", img: outset},
 ];
 
-export default function RolletCalculator() {
+export default function RolletCalc() {
   const [width, setWidth] = useState(2000);
   const [height, setHeight] = useState(2000);
   const [profile, setProfile] = useState("TAP39");
@@ -36,7 +36,7 @@ export default function RolletCalculator() {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-4 space-y-4 bg-white rounded-xl shadow-xl">
+    <div className="bg-[#f8f7f0] px-6 py-10 rounded-md max-w-2xl mx-auto mt-10">
       <h2 className="text-xl font-bold text-center">Калькулятор роллет</h2>
 
       <div>
@@ -45,7 +45,7 @@ export default function RolletCalculator() {
           type="number"
           value={width}
           onChange={(e) => setWidth(+e.target.value)}
-          className="w-full border rounded p-2"
+          className="w-full border-b border-[#CED3DB] p-2 focus:outline-0"
         />
       </div>
 
@@ -55,7 +55,7 @@ export default function RolletCalculator() {
           type="number"
           value={height}
           onChange={(e) => setHeight(+e.target.value)}
-          className="w-full border rounded p-2"
+          className="border-b border-[#CED3DB] p-2 focus:outline-0 w-full"
         />
       </div>
 
@@ -63,7 +63,7 @@ export default function RolletCalculator() {
         <label className="block mb-2">Тип профілю:</label>
         <div className="grid grid-cols-3 gap-3">
           {profiles.map((p) => (
-            <label key={p.id} className="cursor-pointer border rounded p-2 flex flex-col items-center">
+            <label key={p.id} className="cursor-pointer  p-2 flex flex-col items-center">
               <input
                 type="radio"
                 name="profile"
@@ -83,7 +83,7 @@ export default function RolletCalculator() {
         <label className="block mb-2">Вид монтажу:</label>
         <div className="grid grid-cols-2 gap-4">
           {montages.map((m) => (
-            <label key={m.id} className="cursor-pointer border rounded p-2 flex flex-col items-center">
+            <label key={m.id} className="cursor-pointer flex flex-col items-center">
               <input
                 type="radio"
                 name="montage"
@@ -102,7 +102,7 @@ export default function RolletCalculator() {
       <div className="text-center mt-6">
         <button
           onClick={handleSubmit}
-          className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full text-lg"
+          className="bg-[#D8F422] py-[18px] px-[24px] rounded-sm uppercase font-semibold flex min-w-[200px] max-w-[250px] gap-[5px] justify-between hover:bg-[#0f0f0f] hover:text-white"
         >
           Передзвоніть мені
         </button>

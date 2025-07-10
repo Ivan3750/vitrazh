@@ -1,166 +1,154 @@
 import Image from "next/image";
 import Link from "next/link";
+import white from "@/app/assets/images/products/mosquito/Rollo_profil_white.png";
+import brown from "@/app/assets/images/products/mosquito/Rollo_profil_brown.png";
+import black from "@/app/assets/images/products/mosquito/Rollo_profil_anthracite (1).png";
+import anthracite from "@/app/assets/images/products/mosquito/Rollo_profil_anthracite.png";
+const colors = [
+  { src: white, label: "Білий глянець" },
+  { src: brown, label: "Коричневий глянець" },
+  { src: black, label: "Антрацит глянець" },
+  { src: anthracite, label: "Золотий дуб структурний" },
+];
 
-export default function RolloScreens() {
+const furniture = [
+  { src: "/images/gallery/Antymoskitni%20sitky/Sitky%20Roletni/Black.png", label: "Чорний" },
+];
+
+const mesh = [
+  { src: "/images/gallery/Antymoskitni%20sitky/Sitky%20Plise/plisse_sitka.jpg", label: "Сітка PLISSE" },
+];
+
+const profiles = [
+  {
+    id: "PL5",
+    img: "/images/gallery/Antymoskitni%20sitky/Sitky%20Plise/PL_5.gif",
+    description:
+      "Система призначена для закривання вікон простої форми. PL5 має однаково великі профілі в правій та лівій частині конструкції. Відкривання відбувається у вертикальному напрямку.",
+  },
+  {
+    id: "PL4",
+    img: "/images/gallery/Antymoskitni%20sitky/Sitky%20Plise/PL_4.gif",
+    description:
+      "Система призначена для закривання вікон простої форми. PL4 має однаково великі профілі в нижній та верхній частині конструкції. Відкривання відбувається в горизонтальному напрямі (дві стулки).",
+  },
+  {
+    id: "PL3",
+    img: "/images/gallery/Antymoskitni%20sitky/Sitky%20Plise/PL_3.gif",
+    description:
+      "Система призначена для закривання вікон простої форми. PL3 має невеликий поріг в нижній частині конструкції, що дозволяє використовувати її для дверних проємів. Відкривання відбувається в горизонтальному напрямі (дві стулки).",
+  },
+  {
+    id: "PL2",
+    img: "/images/gallery/Antymoskitni%20sitky/Sitky%20Plise/PL_2.gif",
+    description:
+      "Система призначена для закривання вікон простої форми. PL2 має однаково великі профілі в нижній та верхній частині конструкції. Відкривання відбувається в горизонтальному напрямі.",
+  },
+  {
+    id: "PL1",
+    img: "/images/gallery/Antymoskitni%20sitky/Sitky%20Plise/PL_1.gif",
+    description:
+      "Система призначена для закривання вікон простої форми. PL1 має невеликий поріг в нижній частині конструкції, що дозволяє використовувати її для дверних проємів. Відкривання відбувається в горизонтальному напрямі.",
+  },
+];
+
+export default function PlisseScreens() {
   return (
-    <section className="px-6 py-12 max-w-6xl mx-auto">
-      <h2 className="text-3xl md:text-5xl font-bold mb-8 text-center">
-        ROLLO АНТИМОСКІТНІ СІТКИ
+    <div className="max-w-5xl mx-auto p-4">
+      <h2 className="text-2xl font-semibold text-center mb-6">
+        PLISSE АНТИМОСКІТНІ СІТКИ
       </h2>
-
-      <p className="text-lg text-[#555] leading-relaxed mb-12">
-        Ролетна антимоскітна сітка – це сучасне та практичне рішення для захисту приміщення від комах. Полотно сітки розміщується в компактному алюмінієвому коробі та за потреби опускається вниз або вбік (залежно від моделі) за допомогою пружинного механізму. Встановлюється як на вікна, так і на дверні прорізи, проста у використанні та догляді. Завдяки своїй конструкції дозволяє швидко прибирати сітку в короб, коли вона не потрібна, що забезпечує додаткову зручність і довговічність виробу.
+      <p className="mb-4">
+        Антимоскітні сітки <strong>PLISSE</strong> — це зручна розсувна антимоскітна
+        система для вікон, дверних проємів, балконів і альтанок.
+      </p>
+      <p className="mb-8">
+        Конструкція складається з рами з алюмінієвих профілів, в якій переміщується
+        плісоване полотно сітки. Полотно складається "гармошкою" і ховається в
+        непомітний паз профілів. Конструкція займає мало місця і легко керується з
+        обох сторін. Профілі щільно прилягають завдяки магнітам. Не потребує
+        демонтажу на зиму.
       </p>
 
-      {/* Горизонтальна */}
-      <div className="mb-16">
-        <h3 className="text-2xl font-semibold mb-4">Ролетна Горизонтальна</h3>
-        <div className="flex flex-col md:flex-row gap-6">
-          <Image
-            src="/images/gallery/Antymoskitni%20sitky/Sitky%20Roletni/ROLLO_horyzontalni.gif"
-            alt="ROLLO Горизонтальна"
-            width={300}
-            height={400}
-            className="rounded-xl object-contain border"
-          />
-
-          <div className="flex-1 space-y-6">
+      {profiles.map((item) => (
+        <div key={item.id} className="mb-10 border p-4 rounded-xl shadow-sm">
+          <h3 className="text-xl font-bold mb-2">{item.id}</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Image src={item.img} alt={item.id} width={300} height={300} className="rounded-lg" />
             <div>
-              <h5 className="font-semibold">Доступні кольори профілів:</h5>
-              <div className="flex gap-4 mt-2">
-                {[
-                  { src: "Rollo_profil_white.png", label: "Білий" },
-                  { src: "Rollo_profil_brown.png", label: "Коричневий" },
-                  { src: "Rollo_profil_anthracite.png", label: "Антрацит" },
-                ].map(({ src, label }) => (
-                  <div key={label} className="text-center">
-                    <Image
-                      src={`/images/gallery/Antymoskitni%20sitky/Sitky%20Roletni/${src}`}
-                      alt={label}
-                      width={50}
-                      height={50}
-                      className="mx-auto"
-                    />
-                    <p className="text-sm mt-1">{label}</p>
+              <h4 className="font-semibold">Доступні кольори профілів:</h4>
+              <div className="flex flex-wrap gap-4 mt-2">
+                {colors.map((color, i) => (
+                  <div key={i} className="text-center w-24">
+                    <Image src={color.src} alt={color.label} width={64} height={64} />
+                    <p className="text-sm mt-1">{color.label}</p>
                   </div>
                 ))}
               </div>
-            </div>
-
-            <div>
-              <h5 className="font-semibold">Доступні кольори фурнітури:</h5>
-              <div className="flex gap-4 mt-2">
-                <div className="text-center">
-                  <Image
-                    src="/images/gallery/Antymoskitni%20sitky/Sitky%20Roletni/Black.png"
-                    alt="Чорний"
-                    width={50}
-                    height={50}
-                    className="mx-auto"
-                  />
-                  <p className="text-sm mt-1">Чорний</p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h5 className="font-semibold">Розміри профілів:</h5>
-              <div className="flex gap-4 mt-2">
-                {["3.jpg", "2.jpg", "1.jpg"].map((file, i) => (
-                  <Image
-                    key={i}
-                    src={`/images/gallery/Antymoskitni%20sitky/Sitky%20Roletni/${file}`}
-                    alt={`Розміри профілю ${i + 1}`}
-                    width={100}
-                    height={100}
-                    className="rounded-lg border"
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Вертикальна */}
-      <div className="mb-16">
-        <h3 className="text-2xl font-semibold mb-4">Ролетна Вертикальна</h3>
-        <div className="flex flex-col md:flex-row gap-6">
-          <Image
-            src="/images/gallery/Antymoskitni%20sitky/Sitky%20Roletni/ROLLO_vertykalni.gif"
-            alt="ROLLO Вертикальна"
-            width={300}
-            height={400}
-            className="rounded-xl object-contain border"
-          />
-
-          <div className="flex-1 space-y-6">
-            <div>
-              <h5 className="font-semibold">Доступні кольори профілів:</h5>
-              <div className="flex gap-4 mt-2 flex-wrap">
-                {[
-                  { src: "Rollo_profil_white.png", label: "Білий глянець" },
-                  { src: "Rollo_profil_brown.png", label: "Коричневий глянець" },
-                  { src: "Rollo_profil_black.png", label: "Чорний матовий" },
-                  { src: "Rollo_profil_anthracite.png", label: "Антрацит глянець" },
-                ].map(({ src, label }) => (
-                  <div key={label} className="text-center">
-                    <Image
-                      src={`/images/gallery/Antymoskitni%20sitky/Sitky%20Roletni/${src}`}
-                      alt={label}
-                      width={50}
-                      height={50}
-                      className="mx-auto"
-                    />
-                    <p className="text-sm mt-1">{label}</p>
+              <p className="text-center text-sm mt-3">
+                <b>Доступне фарбування профіля під замовлення:</b><br />
+                емальоване за системою RAL або з текстурою дерева
+              </p>
+              <div className="grid grid-cols-2 gap-4 mt-6">
+                <div>
+                  <h5 className="font-medium">Кольори фурнітури:</h5>
+                  <div className="flex justify-center mt-2">
+                    {furniture.map((f, i) => (
+                      <div key={i} className="text-center w-20">
+                        <Image src={f.src} alt={f.label} width={50} height={50} />
+                        <p className="text-sm mt-1">{f.label}</p>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h5 className="font-semibold">Доступні кольори фурнітури:</h5>
-              <div className="flex gap-4 mt-2">
-                <div className="text-center">
-                  <Image
-                    src="/images/gallery/Antymoskitni%20sitky/Sitky%20Roletni/Black.png"
-                    alt="Чорний"
-                    width={50}
-                    height={50}
-                    className="mx-auto"
-                  />
-                  <p className="text-sm mt-1">Чорний</p>
+                </div>
+                <div>
+                  <h5 className="font-medium">Полотна сіток:</h5>
+                  <div className="flex justify-center mt-2">
+                    {mesh.map((m, i) => (
+                      <div key={i} className="text-center w-24">
+                        <Image src={m.src} alt={m.label} width={64} height={64} />
+                        <p className="text-sm mt-1">{m.label}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-
-            <div>
-              <h5 className="font-semibold">Розміри профілів:</h5>
-              <div className="flex gap-4 mt-2">
-                {["3.jpg", "2.jpg", "1.jpg"].map((file, i) => (
-                  <Image
-                    key={i}
-                    src={`/images/gallery/Antymoskitni%20sitky/Sitky%20Roletni/${file}`}
-                    alt={`Розміри профілю ${i + 1}`}
-                    width={100}
-                    height={100}
-                    className="rounded-lg border"
-                  />
-                ))}
+              <div className="mt-4">
+                <h5 className="font-medium">Розміри профілів:</h5>
+                <Image
+                  src="/images/gallery/Antymoskitni%20sitky/Sitky%20Plise/Rozmir.png"
+                  alt="Розміри профілю"
+                  width={300}
+                  height={80}
+                />
               </div>
+              <p className="mt-3 text-sm">{item.description}</p>
             </div>
           </div>
         </div>
-      </div>
+      ))}
 
-      <div className="text-center">
+      <div className="text-center mt-8">
         <Link
           href="/ua/kataloh-materialiv/antimoskitni-sitki"
-          className="inline-block bg-yellow-400 hover:bg-yellow-300 text-black px-6 py-3 rounded-md font-medium transition"
+          className="bg-yellow-400 hover:bg-yellow-300 text-black px-6 py-3 rounded-lg text-lg font-semibold"
         >
           ДОСТУПНІ ВАРІАНТИ ПОЛОТЕН СІТОК
         </Link>
       </div>
-    </section>
+
+      <div className="mt-8 space-y-3">
+        <h3 className="text-lg font-semibold">
+          <Link href="/ua/hotova-produktsiia/antimoskitni-sitki/plisovani-antimoskitni-sitki/287-skhemi-antimoskitni-sitki-plisovani">
+            Схеми антимоскітні сітки PLISSE
+          </Link>
+        </h3>
+        <h3 className="text-lg font-semibold">
+          <Link href="/ua/hotova-produktsiia/antimoskitni-sitki/plisovani-antimoskitni-sitki/288-rekomendovani-rozmiri-antimoskitnikh-sitok-plisovani">
+            Рекомендовані розміри антимоскітних сіток PLISSE
+          </Link>
+        </h3>
+      </div>
+    </div>
   );
 }

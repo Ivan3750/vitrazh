@@ -11,18 +11,18 @@ import j2 from "@/app/assets/images/jobs/screens/2.png";
 import j3 from "@/app/assets/images/jobs/screens/3.png";
 import j4 from "@/app/assets/images/jobs/screens/4.png";
 import j5 from "@/app/assets/images/jobs/screens/5.png";
-import white from "@/app/assets/images/products/mosquito/Rollo_profil_white.png"
-import brown from "@/app/assets/images/products/mosquito/Rollo_profil_brown.png"
-import black from "@/app/assets/images/products/mosquito/Rollo_profil_anthracite (1).png"
-import anthracite from "@/app/assets/images/products/mosquito/Rollo_profil_anthracite.png"
-import hImg from "@/app/assets/images/products/mosquito/ROLLO_horyzontalni.gif"
-import vImg from "@/app/assets/images/products/mosquito/ROLLO_vertykalni.gif"
-import size1 from "@/app/assets/images/products/mosquito/size1-roletni.jpg" 
-import size2 from "@/app/assets/images/products/mosquito/size2-roletni.jpg" 
-import size3 from "@/app/assets/images/products/mosquito/size3-roletni.jpg" 
-
+import white from "@/app/assets/images/products/mosquito/Rollo_profil_white.png";
+import brown from "@/app/assets/images/products/mosquito/Rollo_profil_brown.png";
+import black from "@/app/assets/images/products/mosquito/Rollo_profil_anthracite (1).png";
+import anthracite from "@/app/assets/images/products/mosquito/Rollo_profil_anthracite.png";
+import hImg from "@/app/assets/images/products/mosquito/ROLLO_horyzontalni.gif";
+import vImg from "@/app/assets/images/products/mosquito/ROLLO_vertykalni.gif";
+import size1 from "@/app/assets/images/products/mosquito/size1-roletni.jpg";
+import size2 from "@/app/assets/images/products/mosquito/size2-roletni.jpg";
+import size3 from "@/app/assets/images/products/mosquito/size3-roletni.jpg";
 import DynamicCalculator from "@/app/components/DynamicCalculator";
 import Link from "next/link";
+import PlisseScreens from "@/app/components/PlisseScreens";
 
 const windowsData = {
   "rolovi-sitky": {
@@ -144,11 +144,12 @@ export default function WindowPage({ params }) {
           </div>
         </div>
       </section>
-      <section className="px-6 py-12 max-w-6xl mx-auto">        
-
+    <section className="px-6 py-12 max-w-6xl mx-auto">
         {/* Горизонтальна */}
         <div className="mb-16 ">
-          <h3 className="text-[36px] md:text-[42px] mb-4 text-center">Ролетна Горизонтальна</h3>
+          <h3 className="text-[36px] md:text-[42px] mb-4 text-center">
+            Ролетна Горизонтальна
+          </h3>
           <div className="flex flex-col md:flex-row gap-6 justify-between">
             <Image
               src={hImg}
@@ -160,7 +161,7 @@ export default function WindowPage({ params }) {
 
             <div className="flex-1 space-y-6 max-w-[450px]">
               <div>
-                <h5 className="">Доступні кольори профілів:</h5>
+                <h3 className="">Доступні кольори профілів:</h3>
                 <div className="flex gap-4 mt-2">
                   {[
                     { src: white, label: "Білий" },
@@ -175,14 +176,14 @@ export default function WindowPage({ params }) {
                         height={75}
                         className="mx-auto"
                       />
-                      <p className="text-sm mt-1">{label}</p>
+                      <p className="text-md mt-1">{label}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
               <div>
-                <h5 className="">Доступні кольори фурнітури:</h5>
+                <h3 className="">Доступні кольори фурнітури:</h3>
                 <div className="flex gap-4 mt-2">
                   <div className="text-center">
                     <Image
@@ -192,23 +193,23 @@ export default function WindowPage({ params }) {
                       height={75}
                       className="mx-auto"
                     />
-                    <p className="text-sm mt-1">Чорний</p>
+                    <p className="text-md mt-1">Чорний</p>
                   </div>
                 </div>
               </div>
-
-              
             </div>
           </div>
         </div>
- <div className="flex max-w-4xl gap-20px justify-between my-10 mx-auto">
+        <div className="flex max-w-4xl gap-20px justify-between my-10 mx-auto">
           <Image src={size1} alt="Розміри" width={300} height={300}></Image>
           <Image src={size2} alt="Розміри" width={300} height={300}></Image>
           <Image src={size3} alt="Розміри" width={300} height={300}></Image>
-      </div>
+        </div>
         {/* Вертикальна */}
         <div className="mb-16">
-          <h3 className="text-[36px] md:text-[42px] mb-4 text-center">Ролетна Вертикальна</h3>
+          <h3 className="text-[36px] md:text-[42px] mb-4 text-center">
+            Ролетна Вертикальна
+          </h3>
           <div className="flex flex-col md:flex-row gap-6 justify-between">
             <Image
               src={vImg}
@@ -220,12 +221,13 @@ export default function WindowPage({ params }) {
 
             <div className="flex-1 space-y-6 max-w-[450px]">
               <div>
-                <h5 className="">Доступні кольори профілів:</h5>
+                <h3 className="text-[36px] md:text-[px]">Доступні кольори профілів:</h3>
                 <div className="flex gap-4 mt-2 flex-wrap">
-                    {[
+                  {[
                     { src: white, label: "Білий" },
                     { src: brown, label: "Коричневий" },
                     { src: anthracite, label: "Антрацит" },
+                    { src: black, label: "Чорний" },
                   ].map(({ src, label }) => (
                     <div key={label} className="text-center">
                       <Image
@@ -235,14 +237,14 @@ export default function WindowPage({ params }) {
                         height={75}
                         className="mx-auto"
                       />
-                      <p className="text-sm mt-1">{label}</p>
+                      <p className="text-md mt-1">{label}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
               <div>
-                <h5 className="">Доступні кольори фурнітури:</h5>
+                <h3 className="">Доступні кольори фурнітури:</h3>
                 <div className="flex gap-4 mt-2">
                   <div className="text-center">
                     <Image
@@ -252,20 +254,19 @@ export default function WindowPage({ params }) {
                       height={75}
                       className="mx-auto"
                     />
-                    <p className="text-sm mt-1">Чорний</p>
+                    <p className="text-md mt-1">Чорний</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-         <div className="flex max-w-4xl gap-20px justify-between my-10 mx-auto">
+        <div className="flex max-w-4xl gap-20px justify-between my-10 mx-auto">
           <Image src={size1} alt="Розміри" width={300} height={300}></Image>
           <Image src={size2} alt="Розміри" width={300} height={300}></Image>
           <Image src={size3} alt="Розміри" width={300} height={300}></Image>
-      </div>
+        </div>
       </section>
-
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
@@ -285,73 +286,7 @@ export default function WindowPage({ params }) {
           ))}
         </div>
       </section>
-
-      {/*     <section className="px-6 py-12 max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-[48px]  mb-10 text-center">
-          Типи полотна
-        </h2>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="flex flex-col items-center text-center">
-            <Image
-              src={fiberglass}
-              alt="Сітка Fiberglass"
-              className="w-full h-auto  mb-1 object-contain"
-            />
-            <h3 className="text-xl font-normal mb-2">Стандарт «Fiberglass»</h3>
-            <p className="text-[#555555] text-[16px]">
-              Базовий оптимальний варіант, який пропонує високе співвідношення
-              якості та ціни, а також має високі характеристики міцності. Ця
-              москітна сітка підходить для всіх систем, забезпечуючи надійний
-              захист від комах.
-            </p>
-          </div>
-
-          <div className="flex flex-col items-center text-center">
-            <Image
-              src={ultraView}
-              alt="Сітка Ultra View"
-              className="w-full h-auto  mb-1 object-contain"
-            />
-            <h3 className="text-xl font-normal mb-2">Невидимка «Ultra View»</h3>
-            <p className="text-[#555555] text-[16px]">
-              Ця сітка має тоншу нитку, що робить її прозорою та майже невидимою
-              на вікнах. Вона пропускає на 25% більше світла та повітряного
-              потоку.
-            </p>
-          </div>
-
-          <div className="flex flex-col items-center text-center">
-            <Image
-              src={antipul}
-              alt="Сітка Антипил"
-              className="w-full h-auto  mb-1 object-contain"
-            />
-            <h3 className="text-xl font-normal mb-2">Антипил</h3>
-            <p className="text-[#555555] text-[16px]">
-              Забезпечує надійний захист від великого та дрібного пилу, а також
-              від комарів та інших комах. Застосовується на нижніх поверхах
-              житлових приміщень.
-            </p>
-          </div>
-
-          <div className="flex flex-col items-center text-center">
-            <Image
-              src={anticat}
-              alt="Сітка Антикішка"
-              className="w-full h-auto  mb-1 object-contain"
-            />
-            <h3 className="text-xl font-normal mb-2">Антикішка</h3>
-            <p className="text-[#555555] text-[16px]">
-              Замість звичайного полотна використовується металева сітка, яка
-              виступає перешкодою для птахів та домашніх тварин. Її міцність
-              дозволяє витримати навіть вагу невеликої тварини.
-            </p>
-          </div>
-        </div>
-      </section> */}
-      {
-        <section className="px-6 py-12 mx-auto">
+      <section className="px-6 py-12 mx-auto">
           <h2 className="text-4xl md:text-[48px] mb-10 text-center ">
             Типи москітних сіток
           </h2>
@@ -382,8 +317,7 @@ export default function WindowPage({ params }) {
               );
             })}
           </div>
-        </section>
-      }
+      </section>
       <DynamicCalculator productType={params.screen}></DynamicCalculator>
     </>
   );

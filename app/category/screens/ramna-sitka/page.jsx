@@ -1,0 +1,225 @@
+import Image from "next/image";
+import check from "@/app/assets/images/icons/check.svg";
+import s2 from "@/app/assets/images/products/mosquito/2.jpg";
+import j1 from "@/app/assets/images/jobs/screens/1.png";
+import j2 from "@/app/assets/images/jobs/screens/2.png";
+import j3 from "@/app/assets/images/jobs/screens/3.png";
+import j4 from "@/app/assets/images/jobs/screens/4.png";
+import j5 from "@/app/assets/images/jobs/screens/5.png";
+import white1 from "@/app/assets/images/products/mosquito/ramna/11x32_profil_white.png";
+import anthracite1 from "@/app/assets/images/products/mosquito/ramna/11x32_profil_anthracite.png";
+import brown1 from "@/app/assets/images/products/mosquito/ramna/11x32_profil_brown.png";
+import white2 from "@/app/assets/images/products/mosquito/ramna/Lux_profil_white.png";
+import anthracite2 from "@/app/assets/images/products/mosquito/ramna/Lux_profil_anthracite.png";
+import brown2 from "@/app/assets/images/products/mosquito/ramna/Lux_profil_brown.png";
+import gold2 from "@/app/assets/images/products/mosquito/ramna/Lux_profil_gold_oak.png";
+
+import whiteF from "@/app/assets/images/products/mosquito/ramna/White.png";
+import brownF from "@/app/assets/images/products/mosquito/ramna/Brown.png";
+import anthraciteF from "@/app/assets/images/products/mosquito/ramna/Anthracite.png";
+import profil1 from "@/app/assets/images/products/mosquito/ramna/11x32_ram.jpg"
+import profil2 from "@/app/assets/images/products/mosquito/ramna/Lux_ram.jpg"
+import size1 from "@/app/assets/images/products/mosquito/ramna/11x32_rozmir_profil.png";
+import size2 from "@/app/assets/images/products/mosquito/ramna/Lux_rozmir_profil.png";
+import DynamicCalculator from "@/app/components/DynamicCalculator";
+import Link from "next/link";
+import PlisseScreens from "@/app/components/PlisseScreens";
+
+export default function WindowPage({ params }) {
+  return (
+    <>
+      <section className="relative h-[400px] flex items-center justify-center bg-black overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center opacity-40" />
+        <h1 className="relative text-white text-4xl z-10">Рамна Сітка</h1>
+      </section>
+      <section className="px-6 py-12 max-w-6xl mx-auto">
+        <div className="flex flex-col md:flex-row gap-8 items-start">
+          <div className="flex-1">
+            <div className="w-[300px] h-[400px] relative">
+              <Image
+                src={s2}
+                alt="Дверні Антимоскітні Сітки"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+          <div className="flex-1">
+            <h2 className="text-[36px] md:text-[42px] mb-4">
+              Рамна Антимоскітна Сітка{" "}
+            </h2>
+            <p className="text-[#555555] text-[18px] leading-relaxed">
+              Сітка рамного типу являє собою рамку з алюмінієвого профілю та
+              натягнутим на неї полотном сітки. Такий тип сіток дуже легко
+              встановлюється, зручний в експлуатації та простой в
+              обслуговуванні. Доступна ціна та монтаж на будь який тип вікон
+              робить їх найбільш популярним серед антимоскітних сіток. У
+              модельному ряду рамного типу сіток представлені вироби з наступних
+              профілів:
+            </p>
+          </div>
+        </div>
+      </section>
+      <PlisseScreens
+        profileColors={[
+          { src: white1, label: "Білий" },
+          { src: brown1, label: "Коричневий " },
+          { src: anthracite1, label: "Антрацит" },
+        ]}
+        furnitureColors={[
+          { src: whiteF, label: "Білий" },
+          { src: brownF, label: "Коричневий" },
+          { src: anthraciteF, label: "Антрацит" },
+        ]}
+        products={[
+          {
+            id: "ПРОФІЛЬ 11x32",
+            img: profil1,
+          },
+        ]}
+      />
+      <div className="flex max-w-4xl gap-20px justify-between my-10 mx-auto">
+        <Image src={size1} alt="Розміри" width={1000} height={300}></Image>
+      </div>
+      <PlisseScreens
+        profileColors={[
+          { src: white2, label: "Білий" },
+          { src: brown2, label: "Коричневий " },
+          { src: anthracite2, label: "Антрацит" },
+          { src: gold2, label: "Золотий дуб" },
+        ]}
+        furnitureColors={[
+          { src: whiteF, label: "Білий" },
+          { src: brownF, label: "Коричневий" },
+          { src: anthraciteF, label: "Антрацит" },
+        ]}
+        products={[
+          {
+            id: "ПРОФІЛЬ LUX",
+            img: profil2,
+          },
+        ]}
+      />
+      <div className="flex max-w-4xl gap-20px justify-between my-10 mx-auto">
+        <Image src={size2} alt="Розміри" width={1000} height={300}></Image>
+      </div>
+
+      <section className="px-6 py-12 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            "Ідеальне рішення для дверей і великих прорізів",
+            "Захист від комах без втрати комфорту",
+            "Надійність і довговічність",
+          ].map((title, i) => (
+            <div
+              key={i}
+              className="flex bg-[#F8F7F0] py-[60px] px-[40px] gap-5 rounded-md"
+            >
+              <div className="p-2 rounded-full bg-[#D8F422] w-9 h-9 flex items-center justify-center">
+                <Image src={check} alt="Перевага" width={22} height={22} />
+              </div>
+              <p className="text-[16px] md:text-[18px]">{title}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="px-6 py-12 mx-auto">
+        <h2 className="text-4xl md:text-[48px] mb-10 text-center ">
+          Типи москітних сіток
+        </h2>
+
+        <div className="flex flex-col md:flex-row flex-wrap justify-center gap-6 mx-auto">
+          {[j1, j2, j3, j4, j5].map((img, index) => {
+            // Відповідні класи translate-y з md:
+            const translateClasses = [
+              "md:translate-y-0",
+              "md:-translate-y-7", // -28px приблизно
+              "md:translate-y-5", // 20px
+              "md:-translate-y-4", // -16px
+              "md:translate-y-6", // 24px
+            ];
+
+            return (
+              <Link href="/" key={index}>
+                <div
+                  className={`rounded-md transform transition-transform duration-300 hover:scale-[0.995] ${translateClasses[index]}`}
+                >
+                  <Image
+                    src={img}
+                    alt={`j${index + 1}`}
+                    className="h-[250px] md:h-[300px] xl:h-[350px] w-auto max-w-none object-cover rounded-md"
+                  />
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+      <section className="px-6 py-12 max-w-6xl mx-auto">
+        <h2 className="text-4xl md:text-[48px]  mb-10 text-center">
+          Типи полотна
+        </h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="flex flex-col items-center text-center">
+            <Image
+              src={fiberglass}
+              alt="Сітка Fiberglass"
+              className="w-full h-auto  mb-1 object-contain"
+            />
+            <h3 className="text-xl font-normal mb-2">Стандарт «Fiberglass»</h3>
+            <p className="text-[#555555] text-[16px]">
+              Базовий оптимальний варіант, який пропонує високе співвідношення
+              якості та ціни, а також має високі характеристики міцності. Ця
+              москітна сітка підходить для всіх систем, забезпечуючи надійний
+              захист від комах.
+            </p>
+          </div>
+
+          <div className="flex flex-col items-center text-center">
+            <Image
+              src={ultraView}
+              alt="Сітка Ultra View"
+              className="w-full h-auto  mb-1 object-contain"
+            />
+            <h3 className="text-xl font-normal mb-2">Невидимка «Ultra View»</h3>
+            <p className="text-[#555555] text-[16px]">
+              Ця сітка має тоншу нитку, що робить її прозорою та майже невидимою
+              на вікнах. Вона пропускає на 25% більше світла та повітряного
+              потоку.
+            </p>
+          </div>
+
+          <div className="flex flex-col items-center text-center">
+            <Image
+              src={antipul}
+              alt="Сітка Антипил"
+              className="w-full h-auto  mb-1 object-contain"
+            />
+            <h3 className="text-xl font-normal mb-2">Антипил</h3>
+            <p className="text-[#555555] text-[16px]">
+              Забезпечує надійний захист від великого та дрібного пилу, а також
+              від комарів та інших комах. Застосовується на нижніх поверхах
+              житлових приміщень.
+            </p>
+          </div>
+
+          <div className="flex flex-col items-center text-center">
+            <Image
+              src={anticat}
+              alt="Сітка Антикішка"
+              className="w-full h-auto  mb-1 object-contain"
+            />
+            <h3 className="text-xl font-normal mb-2">Антикішка</h3>
+            <p className="text-[#555555] text-[16px]">
+              Замість звичайного полотна використовується металева сітка, яка
+              виступає перешкодою для птахів та домашніх тварин. Її міцність
+              дозволяє витримати навіть вагу невеликої тварини.
+            </p>
+          </div>
+        </div>
+      </section>
+      <DynamicCalculator productType={"ramna-sitka"}></DynamicCalculator>
+    </>
+  );
+}

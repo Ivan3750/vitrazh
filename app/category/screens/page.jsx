@@ -2,10 +2,10 @@ import ProductList from "@/app/components/ProductList";
 import b from "@/app/assets/images/products/mosquito/background.jpg";
 import s1 from "@/app/assets/images/products/mosquito/1.jpg";
 import s2 from "@/app/assets/images/products/mosquito/2.jpg";
-import s3 from "@/app/assets/images/products/mosquito/3.jpg";
+import s3 from "@/app/assets/images/products/mosquito/3-new.jpg";
 import s4 from "@/app/assets/images/products/mosquito/4.jpg";
 import s5 from "@/app/assets/images/products/mosquito/5.jpg";
-import s6 from "@/app/assets/images/products/mosquito/6.jpg";
+import s6 from "@/app/assets/images/products/mosquito/6-new.jpg";
  
 export const metadata = {
   title: "Москітні сітки — захист та свіжість у вашому домі | Вітраж",
