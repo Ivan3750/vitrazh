@@ -232,40 +232,7 @@ export default function WindowPage({ params }) {
             </div>
           ))}
         </div>
-      </section>
-      <section className="px-6 py-12 mx-auto">
-        <h2 className="text-4xl md:text-[48px] mb-10 text-center ">
-          Типи москітних сіток
-        </h2>
-
-        <div className="flex flex-col md:flex-row flex-wrap justify-center gap-6 mx-auto">
-          {[j1, j2, j3, j4, j5].map((img, index) => {
-            // Відповідні класи translate-y з md:
-            const translateClasses = [
-              "md:translate-y-0",
-              "md:-translate-y-7", // -28px приблизно
-              "md:translate-y-5", // 20px
-              "md:-translate-y-4", // -16px
-              "md:translate-y-6", // 24px
-            ];
-
-            return (
-              <Link href="/" key={index}>
-                <div
-                  className={`rounded-md transform transition-transform duration-300 hover:scale-[0.995] ${translateClasses[index]}`}
-                >
-                  <Image
-                    src={img}
-                    alt={`j${index + 1}`}
-                    className="h-[250px] md:h-[300px] xl:h-[350px] w-auto max-w-none object-cover rounded-md"
-                  />
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-      </section>
-      <section className="px-6 py-12 max-w-6xl mx-auto">
+      </section>      <section className="px-6 py-12 max-w-6xl mx-auto">
               <h2 className="text-4xl md:text-[48px]  mb-10 text-center">
                 Типи полотна
               </h2>
@@ -329,6 +296,39 @@ export default function WindowPage({ params }) {
                 </div>
               </div>
             </section>
+      <section className="px-6 py-12 mx-auto">
+        <h2 className="text-4xl md:text-[48px] mb-10 text-center ">
+          Типи москітних сіток
+        </h2>
+
+        <div className="flex flex-col md:flex-row flex-wrap justify-center gap-6 mx-auto">
+          {[j1, j2, j3, j4, j5].map((img, index) => {
+            // Відповідні класи translate-y з md:
+            const translateClasses = [
+              "md:translate-y-0",
+              "md:-translate-y-7", // -28px приблизно
+              "md:translate-y-5", // 20px
+              "md:-translate-y-4", // -16px
+              "md:translate-y-6", // 24px
+            ];
+
+            return (
+              <Link href="/" key={index}>
+                <div
+                  className={`rounded-md transform transition-transform duration-300 hover:scale-[0.995] ${translateClasses[index]}`}
+                >
+                  <Image
+                    src={img}
+                    alt={`j${index + 1}`}
+                    className="h-[250px] md:h-[300px] xl:h-[350px] w-auto max-w-none object-cover rounded-md"
+                  />
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
       <DynamicCalculator productType={"alyuminiievi-sitky"}></DynamicCalculator>
     </>
   );
