@@ -34,19 +34,19 @@ const WindowPage = () => {
   },
   {
     id: 2,
-    name: "Антимоскітні сітки PLISSE",
+    name: "Москітні сітки PLISSE",
     img: s2,
     link: "/category/screens/plisse-sitky"
   },
   {
     id: 3,
-    name: "Дверні Атимоскитні Сітки",
+    name: "Дверні Москітні Сітки",
     img: s3,
     link: "/category/screens/dverni-sitky"
   },
   {
     id: 4,
-    name: "Відкатна Антимоскітна сітка",
+    name: "Відкатна Москітна сітка",
     img: s4,
     link: "/category/screens/vidkatna-sitka"
   },
@@ -58,7 +58,7 @@ const WindowPage = () => {
   },
   {
     id: 6,
-    name: "Рамна Антимоскітна сітка",
+    name: "Рамна Москітна сітка",
     img: s6,
     link: "/category/screens/ramna-sitka"
   }
@@ -79,7 +79,7 @@ const WindowPage = () => {
         </h1>
       </section>
 
-      <ProductList products={products} />
+      <ProductList products={products} gridN={3} />
     </>
   );
 };

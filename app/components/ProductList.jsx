@@ -3,10 +3,10 @@ import Product from "./Product";
 
 
 
-const ProductList = ({products}) => {
+const ProductList = ({products,gridN=4}) => {
   return (
 <div className="w-full bg-white py-10">
-  <div className="grid grid-cols-1 sm:grid-cols-2 justify-items-center sm:justify-items-normal md:grid-cols-3 lg:grid-cols-4 gap-8 px-4 sm:px-6 md:px-10 max-w-[1400px] mx-auto">
+  <div className={`grid grid-cols-1 sm:grid-cols-2 justify-items-center sm:justify-items-normal md:grid-cols-3 lg:grid-cols-${gridN} gap-8 px-4 sm:px-6 md:px-10 max-w-[1400px] mx-auto`}>
     {products.length > 0 ? (
       products.map((product) => (
         <Product
