@@ -127,7 +127,7 @@ export default function RolletCalc() {
             onClick={handleSubmit}
             className="bg-[#D8F422] text-black py-4 px-6 rounded-md text-lg font-semibold uppercase hover:bg-black hover:text-white transition"
           >
-            Передзвоніть мені
+            Надіслати
           </button>
         </div>
       </div>

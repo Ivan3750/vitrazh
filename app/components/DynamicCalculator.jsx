@@ -9,13 +9,16 @@ export default function DynamicCalculator({ productType }) {
     quantity: 1,
     meshType: "standard",
     color: "white",
+    type: "istZ",
     hasBrake: false,
   });
 
   const isFrame = productType === "ramni-sitky";
   const isDoorMesh = productType === "dverni-sitky";
+  const isAlyumin = productType === "alyuminiievi-sitky";
   const isPlisse = productType === "plisse-sitky";
   const isRollet = productType === "rolovi-sitky";
+  const isVidkatna = productType === "vidkatna-sitka";
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -81,8 +84,23 @@ export default function DynamicCalculator({ productType }) {
           />
         </div>
 
-        {/* Mesh Type */}
-        {(isFrame || isDoorMesh) && (
+        {/* Type */}
+        {(isVidkatna) && (
+          <div className="flex flex-col">
+            <label htmlFor="type">Тип</label>
+            <select
+              name="type"
+              value={form.type}
+              onChange={handleChange}
+              className="p-2 border rounded"
+            >
+              <option value="istZ">Slide IST Z</option>
+              <option value="istE">Slide IST E</option>
+
+            </select>
+          </div>
+        )}
+        {(isVidkatna) && (
           <div className="flex flex-col">
             <label htmlFor="meshType">Тип полотна:</label>
             <select
@@ -94,12 +112,13 @@ export default function DynamicCalculator({ productType }) {
               <option value="standard">Стандарт</option>
               <option value="nevidymka">Невидимка</option>
               <option value="antypyl">Антипил</option>
+              <option value="antycat">Антикішка</option>
             </select>
           </div>
         )}
 
         {/* Color */}
-        {(isFrame || isDoorMesh) && (
+        {(isFrame || isDoorMesh || isAlyumin || isVidkatna) && (
           <div className="flex flex-col">
             <label htmlFor="color">Колір:</label>
             <select
@@ -201,12 +220,14 @@ export default function DynamicCalculator({ productType }) {
           </>
         )}
 
-        <button
-          type="submit"
-          className="mt-4 bg-black text-white py-2 px-4 rounded hover:bg-gray-800"
-        >
-          Відправити
-        </button>
+        <div className="text-center">
+          <button
+            onClick={handleSubmit}
+            className="bg-[#D8F422] text-black py-4 px-6 rounded-md text-lg font-semibold uppercase hover:bg-black hover:text-white transition"
+          >
+            Надіслати
+          </button>
+        </div>
       </form>
     </div>
   );

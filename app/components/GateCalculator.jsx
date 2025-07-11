@@ -244,7 +244,7 @@ export default function GateCalculator() {
           onClick={handleSubmit}
           className="bg-[#D8F422] py-[18px] px-[24px] rounded-sm uppercase font-semibold flex min-w-[200px] max-w-[250px] gap-[5px] justify-center hover:bg-[#0f0f0f] hover:text-white transition-colors duration-200"
         >
-          Передзвоніть мені
+          Надіслати
         </button>
       </div>
     </div>
