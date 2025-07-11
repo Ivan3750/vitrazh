@@ -11,8 +11,6 @@ import j2 from "@/app/assets/images/jobs/screens/2.png";
 import j3 from "@/app/assets/images/jobs/screens/3.png";
 import j4 from "@/app/assets/images/jobs/screens/4.png";
 import j5 from "@/app/assets/images/jobs/screens/5.png";
-import j6 from "@/app/assets/images/products/mosquito/10.png";
-import j7 from "@/app/assets/images/products/mosquito/11.png";
 import DynamicCalculator from "@/app/components/DynamicCalculator";
 import Link from "next/link";
 import z from "@/app/assets/images/products/mosquito/vidkatna/ist-z.jpg.webp"
