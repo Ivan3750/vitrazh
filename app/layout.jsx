@@ -219,7 +219,7 @@ export default function RootLayout({ children }) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
             <div className="flex flex-col md:flex-row justify-between items-center border-b-2 pb-10 gap-6">
               <h3 className="text-3xl md:text-5xl text-center md:text-left text-white">
-                Якість, якій нам довіряють
+                Якість - якій Довіряють
               </h3>
               <Button link="/contact" name="Напишіть нам" />
             </div>

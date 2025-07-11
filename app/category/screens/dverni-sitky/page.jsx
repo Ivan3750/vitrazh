@@ -11,6 +11,8 @@ import j2 from "@/app/assets/images/jobs/screens/2.png";
 import j3 from "@/app/assets/images/jobs/screens/3.png";
 import j4 from "@/app/assets/images/jobs/screens/4.png";
 import j5 from "@/app/assets/images/jobs/screens/5.png";
+import j6 from "@/app/assets/images/products/mosquito/10.jpg";
+import j7 from "@/app/assets/images/products/mosquito/11.jpg";
 import white from "@/app/assets/images/products/mosquito/dverni/Profil_White.png";
 import brown from "@/app/assets/images/products/mosquito/dverni/Profil_Brown.png";
 import anthracite from "@/app/assets/images/products/mosquito/dverni/Profil_Antrachite.png";
@@ -112,7 +114,7 @@ export default function WindowPage({ params }) {
         furnitureColors={[{ src: whiteF, label: "Білий" }, { src: brownF, label: "Коричневий" }, { src: anthraciteF, label: "Антрацит" }]}
         products={[
           {
-            id: "ПРОФІЛЬ 11*32",
+            id: "ПРОФІЛЬ 13*32",
             img: ramka,
           },
         ]}
@@ -210,7 +212,7 @@ export default function WindowPage({ params }) {
         </h2>
 
         <div className="flex flex-col md:flex-row flex-wrap justify-center gap-6 mx-auto">
-          {[j1, j2, j3, j4, j5].map((img, index) => {
+          {[j6, j2, j3, j7, j5].map((img, index) => {
             // Відповідні класи translate-y з md:
             const translateClasses = [
               "md:translate-y-0",
@@ -222,15 +224,17 @@ export default function WindowPage({ params }) {
 
             return (
               <Link href="/" key={index}>
-                <div
-                  className={`rounded-md transform transition-transform duration-300 hover:scale-[0.995] ${translateClasses[index]}`}
-                >
-                  <Image
-                    src={img}
-                    alt={`j${index + 1}`}
-                    className="h-[250px] md:h-[300px] xl:h-[350px] w-auto max-w-none object-cover rounded-md"
-                  />
-                </div>
+          <div
+  className={`w-[250px] rounded-md transform transition-transform duration-300 hover:scale-[0.995] ${translateClasses[index]}`}
+>
+  <Image
+    src={img}
+    alt={`j${index + 1}`}
+    className="w-[250px] h-[250px] md:h-[300px] xl:h-[350px] object-cover rounded-md"
+  />
+</div>
+
+
               </Link>
             );
           })}
