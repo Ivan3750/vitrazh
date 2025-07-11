@@ -28,7 +28,7 @@ const WindowPage = () => {
   const products = [
   {
     id: 1,
-    name: "Ролові Антимоскітн сітки",
+    name: "Ролові Антимоскітні сітки",
     img: s1,
     link: "/category/screens/rolovi-sitky"
   },

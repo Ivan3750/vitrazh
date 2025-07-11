@@ -100,7 +100,7 @@ export default function DynamicCalculator({ productType }) {
             </select>
           </div>
         )}
-        {(isVidkatna) && (
+        {(isFrame || isDoorMesh || isAlyumin || isVidkatna) && (
           <div className="flex flex-col">
             <label htmlFor="meshType">Тип полотна:</label>
             <select

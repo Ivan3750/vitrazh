@@ -2,10 +2,10 @@ import Image from "next/image";
 import check from "@/app/assets/images/icons/check.svg";
 import s1 from "@/app/assets/images/products/mosquito/1.jpg";
 import s2 from "@/app/assets/images/products/mosquito/2.jpg";
-import s3 from "@/app/assets/images/products/mosquito/3.jpg";
+import s3 from "@/app/assets/images/products/mosquito/3-new.jpg";
 import s4 from "@/app/assets/images/products/mosquito/4.jpg";
-import s5 from "@/app/assets/images/products/mosquito/5.jpg";
-import s6 from "@/app/assets/images/products/mosquito/6.jpg";
+import s5 from "@/app/assets/images/products/mosquito/5-new.jpg";
+import s6 from "@/app/assets/images/products/mosquito/6-new.jpg";
 import j1 from "@/app/assets/images/jobs/screens/1.png";
 import j2 from "@/app/assets/images/jobs/screens/2.png";
 import j3 from "@/app/assets/images/jobs/screens/3.png";
@@ -83,7 +83,7 @@ export default function WindowPage({ params }) {
           <div className="flex-1">
             <div className="w-[300px] h-[400px] relative">
               <Image
-                src={s2}
+                src={s3}
                 alt="Дверні Антимоскітні Сітки"
                 fill
                 className="object-cover"
