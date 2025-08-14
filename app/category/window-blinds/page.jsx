@@ -56,12 +56,6 @@ const WindowPage = () => {
       link: "/category/window-blinds/den-nich-tkanovi-rolete"
     },
     {
-      id: 5,
-      name: "Преміум концепт",
-      img: z5,
-      link: "/category/window-blinds/premium-kontsept"
-    },
-    {
       id: 6,
       name: "Дерев'яні жалюзі",
       img: z6,
@@ -96,11 +90,11 @@ const WindowPage = () => {
           }}
         />
         <h1 className="relative text-white text-4xl font-bold z-10">
-          Віконні жалюзі та ролети
+          Сонцезахисні системи
         </h1>
       </section>
 
-      <ProductList products={products} />
+      <ProductList gridN={3} products={products} />
       <SectionContact/>
     </>
   );

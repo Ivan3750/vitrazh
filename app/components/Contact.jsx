@@ -102,7 +102,7 @@ const Contact = () => {
                 className="bg-[#F8F7F0] p-6 rounded-sm flex flex-col justify-between gap-10 w-full sm:w-[45%] md:w-[22%]"
               >
                 <div>
-                  <Image src={icon} alt={label} />
+                  <img src={icon.src} alt={label} />
                 </div>
                 <div>
                   <p className="text-[#555] text-base">{label}</p>
@@ -147,7 +147,7 @@ const Contact = () => {
                   className="bg-[#D8F422] py-4 px-6 rounded-sm uppercase  flex items-center justify-center gap-2 min-w-[200px] hover:bg-[#0f0f0f] hover:text-white transition-colors"
                 >
                   Надіслати
-                  <Image src={go} alt="go" />
+                  <img src={go.src} alt="go" />
                 </button>
                 <div className="flex gap-5 text-3xl text-[#555]">
                   <FaViber />

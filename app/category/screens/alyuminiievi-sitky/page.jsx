@@ -6,11 +6,11 @@ import s3 from "@/app/assets/images/products/mosquito/3-new.jpg";
 import s4 from "@/app/assets/images/products/mosquito/4.jpg";
 import s5 from "@/app/assets/images/products/mosquito/5-new.jpg";
 import s6 from "@/app/assets/images/products/mosquito/6-new.jpg";
-import j1 from "@/app/assets/images/jobs/screens/1.png";
-import j2 from "@/app/assets/images/jobs/screens/2.png";
-import j3 from "@/app/assets/images/jobs/screens/3.png";
-import j4 from "@/app/assets/images/jobs/screens/4.png";
-import j5 from "@/app/assets/images/jobs/screens/5.png";
+import j1 from "@/app/assets/images/jobs/screens/aj1.jpg";
+import j2 from "@/app/assets/images/jobs/screens/aj2.jpg";
+import j3 from "@/app/assets/images/jobs/screens/aj3.jpg";
+import j4 from "@/app/assets/images/jobs/screens/aj4.jpg";
+import j5 from "@/app/assets/images/jobs/screens/aj5.jpg";
 import white from "@/app/assets/images/products/mosquito/rollo/Rollo_profil_white.png";
 import brown from "@/app/assets/images/products/mosquito/rollo/Rollo_profil_brown.png";
 import black from "@/app/assets/images/products/mosquito/rollo/Rollo_profil_anthracite (1).png";
@@ -126,8 +126,8 @@ export default function WindowPage({ params }) {
         <div className="flex flex-col md:flex-row gap-8 items-start">
           <div className="flex-1">
             <div className="w-[300px] h-[400px] relative">
-              <Image
-                src={s5}
+              <img
+                src={s5.src}
                 alt="Сітка для Алюмінієвих Вікон"
                 fill
                 className="object-cover"
@@ -226,7 +226,7 @@ export default function WindowPage({ params }) {
               className="flex bg-[#F8F7F0] py-[60px] px-[40px] gap-5 rounded-md"
             >
               <div className="p-2 rounded-full bg-[#D8F422] w-9 h-9 flex items-center justify-center">
-                <Image src={check} alt="Перевага" width={22} height={22} />
+                <img src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>
             </div>
@@ -239,8 +239,8 @@ export default function WindowPage({ params }) {
       
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div className="flex flex-col items-center text-center">
-                  <Image
-                    src={fiberglass}
+                  <img
+                    src={fiberglass.src}
                     alt="Сітка Fiberglass"
                     className="w-full h-auto  mb-1 object-contain"
                   />
@@ -254,8 +254,8 @@ export default function WindowPage({ params }) {
                 </div>
       
                 <div className="flex flex-col items-center text-center">
-                  <Image
-                    src={ultraView}
+                  <img
+                    src={ultraView.src}
                     alt="Сітка Ultra View"
                     className="w-full h-auto  mb-1 object-contain"
                   />
@@ -268,8 +268,8 @@ export default function WindowPage({ params }) {
                 </div>
       
                 <div className="flex flex-col items-center text-center">
-                  <Image
-                    src={antipul}
+                  <img
+                    src={antipul.src}
                     alt="Сітка Антипил"
                     className="w-full h-auto  mb-1 object-contain"
                   />
@@ -282,8 +282,8 @@ export default function WindowPage({ params }) {
                 </div>
       
                 <div className="flex flex-col items-center text-center">
-                  <Image
-                    src={anticat}
+                  <img
+                    src={anticat.src}
                     alt="Сітка Антикішка"
                     className="w-full h-auto  mb-1 object-contain"
                   />
@@ -317,8 +317,8 @@ export default function WindowPage({ params }) {
                 <div
                   className={`rounded-md transform transition-transform duration-300 hover:scale-[0.995] ${translateClasses[index]}`}
                 >
-                  <Image
-                    src={img}
+                  <img
+                    src={img.src}
                     alt={`j${index + 1}`}
                     className="h-[250px] md:h-[300px] xl:h-[350px] w-auto max-w-none object-cover rounded-md"
                   />

@@ -64,7 +64,6 @@ export default function GateCalculator() {
   const [liftType, setLiftType] = useState("");
   const [color, setColor] = useState("");
   const [extras, setExtras] = useState({});
-  const [comment, setComment] = useState("");
 
   const selectedGate = gateTypes.find((g) => g.value === gateType);
 
@@ -73,19 +72,37 @@ export default function GateCalculator() {
     setExtras((prev) => ({ ...prev, [name]: checked }));
   };
 
-  const handleSubmit = () => {
-    const formData = {
-      width,
-      height,
-      gateType,
-      liftType,
-      color,
-      extras,
-      comment,
+const handleSubmit = () => {
+    const gateData = {
+        width,
+        height,
+        gateType,
+        liftType,
+        color,
+        extras
     };
-    console.log("Submitted Data:", formData);
-    alert("Дані відправлені. З вами зв'яжемося!");
-  };
+
+    fetch('/order_gates.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(gateData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            window.location.href = data.redirect; // редірект на "Дякую"
+        } else {
+            alert('Сталася помилка: ' + data.message);
+        }
+    })
+    .catch(err => {
+        console.error(err);
+        alert('Помилка при відправці заявки.');
+    });
+};
+
 
   return (
     <section className="p-5">
@@ -136,7 +153,7 @@ export default function GateCalculator() {
                 }}
                 className="hidden"
               />
-              <img src={img} alt={label} className="w-36 h-36 object-cover rounded mb-3" />
+              <img src={img.src} alt={label} className="w-36 h-36 object-cover rounded mb-3" />
               <span className="text-sm font-medium text-center">{label}</span>
             </label>
           ))}
@@ -163,7 +180,7 @@ export default function GateCalculator() {
                   onChange={() => setLiftType(label)}
                   className="hidden"
                 />
-                <img src={img} alt={label} className="w-32 h-32 object-cover rounded mb-3" />
+                <img src={img.src} alt={label} className="w-32 h-32 object-cover rounded mb-3" />
                 <span className="text-sm font-medium text-center">{label}</span>
               </label>
             ))}

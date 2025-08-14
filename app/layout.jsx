@@ -57,7 +57,7 @@ export default function RootLayout({ children }) {
           ${scrolled ? "bg-[#0F0F0F]" : "bg-transparent"}`}
         >
           <Link href={"/"}>
-            <Image src={Logo} alt="Лого" width={180} height={80} />
+            <img src={Logo.src} alt="Лого" width={180} height={80} />
           </Link>
 
           <nav className="hidden md:flex text-[16px] gap-[20px] uppercase">
@@ -226,7 +226,7 @@ export default function RootLayout({ children }) {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 text-sm">
               <div className="space-y-4 text-white text-base">
-                <Image src={Logo} alt="Лого" width={180} height={80} />
+                <img src={Logo.src} alt="Лого" width={180} height={80} />
                 <div>
                   <p>Адреса:</p>
                   <p>Київ, проспект Академіка Глушкова, 30</p>

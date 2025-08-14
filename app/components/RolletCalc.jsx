@@ -13,18 +13,18 @@ import { useState } from "react";
 import Image from "next/image";
 
 const profiles = [
-  { id: "TAP39", name: "TAP39", img: tap39 },
-  { id: "TAP55", name: "TAP55", img: tap55 },
-  { id: "TAP77", name: "TAP77", img: tap77 },
-  { id: "SE45S", name: "SE45S", img: se45s },
-  { id: "SL100", name: "SL100", img: sl100 },
+  { id: "TAP39", name: "TAP39", img: tap39.src },
+  { id: "TAP55", name: "TAP55", img: tap55.src },
+  { id: "TAP77", name: "TAP77", img: tap77.src },
+  { id: "SE45S", name: "SE45S", img: se45s.src },
+  { id: "SL100", name: "SL100", img: sl100.src },
   { id: "TAX55S", name: "TAX55S", img: tax55s },
   { id: "GG56", name: "GG56", img: gg56 },
 ];
 
 const montages = [
-  { id: "inset", name: "Вмонтований", img: inset },
-  { id: "outset", name: "На проєм", img: outset },
+  { id: "inset", name: "Вмонтований", img: inset.src },
+  { id: "outset", name: "На проєм", img: outset.src },
 ];
 
 export default function RolletCalc() {
@@ -34,8 +34,34 @@ export default function RolletCalc() {
   const [montage, setMontage] = useState("inset");
 
   const handleSubmit = () => {
-    // Тут має бути логіка обробки
-    console.log("Заявка відправлена");
+ const rolletData = {
+    width,
+    height,
+    profile,
+    montage
+};
+
+fetch('/order_mosquito.php', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(mosquitoData)
+})
+.then(response => response.json())
+.then(data => {
+    if (data.success) {
+        window.location.href = data.redirect; // Перекидаємо на сторінку "Дякую"
+    } else {
+        alert('Помилка відправки: ' + data.message);
+    }
+})
+.catch(err => {
+    console.error(err);
+    alert('Помилка при відправці форми.');
+});
+
+
   };
 
   return (
@@ -86,7 +112,7 @@ export default function RolletCalc() {
                   onChange={() => setProfile(p.id)}
                   className="hidden"
                 />
-                <Image src={p.img} alt={p.name} width={60} height={60} />
+                <img src={p.img.src} alt={p.name} width={60} height={60} />
                 <span className="mt-2 text-sm">{p.name}</span>
               </label>
             ))}
@@ -114,7 +140,7 @@ export default function RolletCalc() {
                   onChange={() => setMontage(m.id)}
                   className="hidden"
                 />
-                <Image src={m.img} alt={m.name} width={80} height={80} />
+                <img src={m.img.src} alt={m.name} width={80} height={80} />
                 <span className="mt-2 text-sm">{m.name}</span>
               </label>
             ))}

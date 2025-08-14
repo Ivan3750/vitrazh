@@ -1,4 +1,3 @@
-import Image from "next/image";
 import check from "@/app/assets/images/icons/check.svg";
 import a1 from "@/app/assets/images/products/aluminium/a11.jpg";
 import a2 from "@/app/assets/images/products/aluminium/a21.jpg";
@@ -114,8 +113,8 @@ export default function AluminumPage({ params }) {
   <div className="flex flex-col md:flex-row gap-10 items-start justify-between">
     {/* Image Block */}
     <div className="w-full md:max-w-[320px] flex-shrink-0">
-      <Image
-  src={data.img}
+      <img
+  src={data.img.src}
   alt={data.name}
   width={500}
   height={350}
@@ -167,7 +166,7 @@ export default function AluminumPage({ params }) {
               className="flex bg-[#F8F7F0] py-[40px] px-[30px] gap-5 rounded-md shadow-sm"
             >
               <div className="p-2 rounded-full bg-[#D8F422] w-9 h-9 flex items-center justify-center">
-                <Image src={check} alt="Перевага" width={22} height={22} />
+                <img src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>
             </div>

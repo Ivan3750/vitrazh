@@ -6,8 +6,8 @@ const Product = ({ img, name, link = "/" }) => {
     <Link href={link} passHref>
       <div className="w-full max-w-[320px] transition-transform duration-300 hover:scale-[1.03]  cursor-pointer">
         <div className="bg-[#F8F7F0] aspect-square flex items-center justify-center overflow-hidden rounded">
-          <Image
-            src={img}
+          <img
+            src={img.src}
             alt={name}
             width={320}
             height={320}

@@ -22,8 +22,8 @@ export default function PlisseScreens({
 
           <div className="grid md:grid-cols-2 gap-8 items-center">
             {product.img && (
-              <Image
-                src={product.img}
+              <img
+                src={product.img.src}
                 alt={product.id || 'product image'}
                 width={500}
                 height={500}
@@ -40,7 +40,7 @@ export default function PlisseScreens({
                   <div className="flex flex-wrap gap-4 mb-6">
                     {profileColors.map((color, i) => (
                       <div key={i} className="text-center w-24">
-                        <Image
+                        <img
                           src={color.src}
                           alt={color.label}
                           width={100}
@@ -62,7 +62,7 @@ export default function PlisseScreens({
                       <div className="flex flex-wrap justify-start gap-4">
                         {furnitureColors.map((item, i) => (
                           <div key={i} className="text-center w-24">
-                            <Image
+                            <img
                               src={item.src}
                               alt={item.label}
                               width={100}
@@ -82,7 +82,7 @@ export default function PlisseScreens({
                       <div className="flex flex-wrap justify-start gap-4">
                         {meshOptions.map((item, i) => (
                           <div key={i} className="text-center w-24">
-                            <Image
+                            <img
                               src={item.src}
                               alt={item.label}
                               width={100}

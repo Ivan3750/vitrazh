@@ -74,7 +74,7 @@ const WindowParameters = ({ data, setData }) => {
                   activeMain === conf ? "border-[#D8F422]" : "border-transparent"
                 }`}
               >
-                <Image
+                <img
                   src={`/calc/windows_sprite_${configs[conf][0]}.png`}
                   alt="Конфігурація"
                   width={70}
@@ -105,7 +105,7 @@ const WindowParameters = ({ data, setData }) => {
                       : "border-transparent"
                   }`}
                 >
-                  <Image
+                  <img
                     src={`/calc/windows_sprite_${num}.png`}
                     alt="Конфігурація"
                     width={70}

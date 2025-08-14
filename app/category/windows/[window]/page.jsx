@@ -133,7 +133,7 @@ export default function WindowPage({ params }) {
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row gap-8 items-start">
           <div className="flex-1">
-            <Image src={data.image} alt={data.name} width={300} height={100} />
+            <img src={data.image.src} alt={data.name} width={300} height={100} />
           </div>
           <div className="flex-1">
             <h2 className="text-[50px] mb-4">{data.name}</h2>
@@ -179,7 +179,7 @@ export default function WindowPage({ params }) {
           {["гладка поверхня, що легко очищається", "система профілів екологічна, підлягає вторинній переробці", "скошений фальц рами і тулки, що забезпечує довідведення"].map((title, i) => (
             <div key={i} className="flex bg-[#F8F7F0] py-[60px] px-[40px] gap-5 rounded-md">
               <div className="p-2 rounded-full bg-[#D8F422] w-9 h-9 flex items-center justify-center">
-                <Image src={check} alt="Перевага" width={22} height={22} />
+                <img src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>
             </div>
@@ -211,7 +211,7 @@ export default function WindowPage({ params }) {
 
         <div className="flex gap-4 items-center">
           <div>
-            <Image src={Ukraine} alt="Карта України" width={690} height={460} />
+            <img src={Ukraine.src} alt="Карта України" width={690} height={460} />
           </div>
         </div>
       </section>

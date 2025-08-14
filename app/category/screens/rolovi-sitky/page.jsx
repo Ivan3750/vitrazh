@@ -1,16 +1,11 @@
 import Image from "next/image";
 import check from "@/app/assets/images/icons/check.svg";
 import s1 from "@/app/assets/images/products/mosquito/1.jpg";
-import s2 from "@/app/assets/images/products/mosquito/2.jpg";
-import s3 from "@/app/assets/images/products/mosquito/3-new.jpg";
-import s4 from "@/app/assets/images/products/mosquito/4.jpg";
-import s5 from "@/app/assets/images/products/mosquito/5-new.jpg";
-import s6 from "@/app/assets/images/products/mosquito/6-new.jpg";
-import j1 from "@/app/assets/images/jobs/screens/1.png";
-import j2 from "@/app/assets/images/jobs/screens/2.png";
-import j3 from "@/app/assets/images/jobs/screens/3.png";
-import j4 from "@/app/assets/images/jobs/screens/4.png";
-import j5 from "@/app/assets/images/jobs/screens/5.png";
+import j1 from "@/app/assets/images/jobs/screens/rj1.jpg";
+import j2 from "@/app/assets/images/jobs/screens/rj2.jpg";
+import j3 from "@/app/assets/images/jobs/screens/rj3.jpg";
+import j4 from "@/app/assets/images/jobs/screens/rj4.jpg";
+import j5 from "@/app/assets/images/jobs/screens/rj5.jpg";
 import white from "@/app/assets/images/products/mosquito/rollo/Rollo_profil_white.png";
 import brown from "@/app/assets/images/products/mosquito/rollo/Rollo_profil_brown.png";
 import black from "@/app/assets/images/products/mosquito/rollo/Rollo_profil_anthracite (1).png";
@@ -23,107 +18,22 @@ import size3 from "@/app/assets/images/products/mosquito/rollo/size3-roletni.jpg
 import DynamicCalculator from "@/app/components/DynamicCalculator";
 import Link from "next/link";
 import PlisseScreens from "@/app/components/PlisseScreens";
-import blackF from "@/app/assets/images/products/mosquito/rollo/Black.png"
-const windowsData = {
-  "rolovi-sitky": {
-    title: "Ролетні Сітки",
-    name: "Ролові Антимоскітні Сітки",
-    image: s1,
-    description: `Ролетна антимоскітна сітка – зручне рішення, яке ховається в алюмінієвий короб, коли не використовується. Механізм працює вертикально або горизонтально, сітка опускається за допомогою пружинного механізму. Підходить для вікон і дверей. Захищає від комах, легко чиститься і не займає багато місця.`,
-    specs: [
-      { key: "Тип відкривання", value: "Вертикальне/горизонтальне" },
-      { key: "Короб", value: "Алюмінієвий, компактний" },
-      { key: "Управління", value: "Пружинний механізм" },
-      { key: "Колір", value: "Білий, коричневий, антрацит" },
-      { key: "Монтаж", value: "На вікна та двері" },
-    ],
-  },
-
-  "plisse-sitky": {
-    title: "PLISSE Сітки",
-    name: "Антимоскітні сітки PLISSE",
-    image: s2,
-    description: ``,
-    specs: [
-      { key: "Тип конструкції", value: "Гармошка (пліссе)" },
-      { key: "Керування", value: "З обох сторін" },
-      { key: "Матеріал профілю", value: "Алюміній" },
-      { key: "Монтаж", value: "Без демонтажу на зиму" },
-      { key: "Колір", value: "Білий, антрацит, на замовлення" },
-    ],
-  },
-
-  "dverni-sitky": {
-    title: "Дверні Сітки",
-    name: "Дверні Антимоскітні Сітки",
-    image: s3,
-    description: `Дверна антимоскітна сітка – це алюмінієва рамна конструкція з петлями, імпостом та магнітами. Встановлюється на дверні прорізи, легко відкривається і щільно фіксується. Популярна в приватних будинках, забезпечує ефективний захист від комах.`,
-    specs: [
-      { key: "Тип конструкції", value: "Рамна з петлями" },
-      { key: "Фіксація", value: "Магнітна + щітка по периметру" },
-      { key: "Матеріал", value: "Алюміній + сітка з фібергласу" },
-      { key: "Колір", value: "Білий, коричневий, інші під замовлення" },
-      { key: "Монтаж", value: "На дверні прорізи" },
-    ],
-  },
-
-  "vidkatna-sitka": {
-    title: "Відкатні Сітки",
-    name: "Відкатна Антимоскітна Сітка",
-    image: s4,
-    description: `Відкатна антимоскітна сітка — ідеальна для великих прорізів, терас, балконів. Рухається по напрямних, як розсувні двері. Надійна, довговічна, не заважає огляду. Працює плавно, витримує інтенсивне використання.`,
-    specs: [
-      { key: "Тип відкривання", value: "Розсувна (вбік)" },
-      { key: "Профіль", value: "Алюміній" },
-      { key: "Механізм", value: "Роликові направляючі" },
-      { key: "Застосування", value: "Балкони, тераси, двері" },
-      { key: "Колір", value: "Антрацит, білий, на замовлення" },
-    ],
-  },
-
-  "alyuminiievi-sitky": {
-    title: "Для Алюмінієвих Вікон",
-    name: "Сітка для Алюмінієвих Вікон",
-    image: s5,
-    description: `Антимоскітна сітка для алюмінієвих вікон — це легка рамна конструкція, яка щільно прилягає до вікна. Спеціально адаптована для алюмінієвих систем. Легка в монтажі, забезпечує надійний захист без втрати естетики.`,
-    specs: [
-      { key: "Тип", value: "Рамна" },
-      { key: "Матеріал", value: "Алюмінієвий профіль + фіберглас" },
-      { key: "Кріплення", value: "Зовнішнє, з фіксаторами" },
-      { key: "Сумісність", value: "Алюмінієві вікна" },
-      { key: "Колір", value: "Під замовлення" },
-    ],
-  },
-
-  "ramna-sitka": {
-    title: "Рамна Сітка",
-    name: "Рамна Антимоскітна Сітка",
-    image: s6,
-    description: `Класична рамна антимоскітна сітка — просте, надійне та економічне рішення для захисту від комах. Встановлюється зовні вікна за допомогою поворотних кріплень. Підходить для пластикових і дерев'яних вікон.`,
-    specs: [
-      { key: "Тип", value: "Рамна" },
-      { key: "Матеріал", value: "Профіль + сітка з фібергласу" },
-      { key: "Монтаж", value: "Зовнішній" },
-      { key: "Сумісність", value: "ПВХ, дерево" },
-      { key: "Колір", value: "Білий, коричневий" },
-    ],
-  },
-};
+import blackF from "@/app/assets/images/products/mosquito/rollo/Black.png";
 
 export default function WindowPage({ params }) {
   return (
     <>
       <section className="relative h-[400px] flex items-center justify-center bg-black overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center opacity-40" />
-        <h1 className="relative text-white text-4xl z-10">PLISSE Сітки</h1>
+        <h1 className="relative text-white text-4xl z-10">ROLLO Сітки</h1>
       </section>
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row gap-8 items-start">
           <div className="flex-1">
             <div className="w-[300px] h-[400px] relative">
-              <Image
-                src={s1}
-                alt="Антимоскітні сітки PLISSE"
+              <img
+                src={s1.src}
+                alt="Антимоскітні сітки ROLLO"
                 fill
                 className="object-cover"
               />
@@ -131,61 +41,61 @@ export default function WindowPage({ params }) {
           </div>
           <div className="flex-1">
             <h2 className="text-[36px] md:text-[42px] mb-4">
-              Антимоскітні сітки PLISSE
+              Антимоскітні сітки ROLLO
             </h2>
             <p className="text-[#555555] text-[18px] leading-relaxed">
-              PLISSE – це гармошкоподібна антимоскітна сітка, яка розсувається
-              вбік. Профіль із алюмінію, легка конструкція, що ідеально
-              підходить для балконів, дверей і великих прорізів. Сітка
-              складається в непомітний паз і не потребує зняття взимку.{" "}
+              Ролетна антимоскітна сітка – це сучасне та практичне рішення для
+              захисту приміщення від комах. Полотно сітки розміщується в
+              компактному алюмінієвому коробі та за потреби опускається вниз або
+              вбік (залежно від моделі) за допомогою пружинного механізму.
+              Встановлюється як на вікна, так і на дверні прорізи, проста у
+              використанні та догляді. Завдяки своїй конструкції дозволяє швидко
+              прибирати сітку в короб, коли вона не потрібна, що забезпечує
+              додаткову зручність і довговічність виробу.
             </p>
           </div>
         </div>
       </section>
-    <section className="px-6 py-12 max-w-6xl mx-auto">
-
-      <PlisseScreens
-            profileColors={[
-                          { src: white, label: "Білий" },
-                          { src: brown, label: "Коричневий" },
-                          { src: anthracite, label: "Антрацит" },
-                        ]}
-            furnitureColors={[{ src: blackF, label: 'Чорний' }]}
-            products={[
-              {
-                id: 'Ролетна Горизонтальна',
-                img: hImg,
-              },
-            ]}
-  
-          />
-          <div className="flex max-w-4xl gap-20px justify-between my-10 mx-auto">
-          <Image src={size1} alt="Розміри" width={300} height={300}></Image>
-          <Image src={size2} alt="Розміри" width={300} height={300}></Image>
-          <Image src={size3} alt="Розміри" width={300} height={300}></Image>
-        </div>  
-      <PlisseScreens
-            profileColors={[
-                    { src: white, label: "Білий" },
-                    { src: brown, label: "Коричневий" },
-                    { src: anthracite, label: "Антрацит" },
-                    { src: black, label: "Чорний" },
-                  ]}
-            furnitureColors={[{ src: blackF, label: 'Чорний' }]}
-            products={[
-              {
-                id: 'Ролетна Вертикальна',
-                img: vImg,
-              },
-            ]}
-  
-          />  
-          <div className="flex max-w-4xl gap-20px justify-between my-10 mx-auto">
-          <Image src={size1} alt="Розміри" width={300} height={300}></Image>
-          <Image src={size2} alt="Розміри" width={300} height={300}></Image>
-          <Image src={size3} alt="Розміри" width={300} height={300}></Image>
+      <section className="px-6 py-12 max-w-6xl mx-auto">
+        <PlisseScreens
+          profileColors={[
+            { src: white, label: "Білий" },
+            { src: brown, label: "Коричневий" },
+            { src: anthracite, label: "Антрацит" },
+          ]}
+          furnitureColors={[{ src: blackF, label: "Чорний" }]}
+          products={[
+            {
+              id: "Ролетна Горизонтальна",
+              img: hImg,
+            },
+          ]}
+        />
+        <div className="flex max-w-4xl gap-20px justify-between my-10 mx-auto">
+          <img src={size1.src} alt="Розміри" width={300} height={300} />
+          <img src={size2.src} alt="Розміри" width={300} height={300} />
+          <img src={size3.src} alt="Розміри" width={300} height={300} />
         </div>
-      
+        <PlisseScreens
+          profileColors={[
+            { src: white, label: "Білий" },
+            { src: brown, label: "Коричневий" },
+            { src: anthracite, label: "Антрацит" },
+            { src: black, label: "Чорний" },
+          ]}
+          furnitureColors={[{ src: blackF, label: "Чорний" }]}
+          products={[
+            {
+              id: "Ролетна Вертикальна",
+              img: vImg,
+            },
+          ]}
+        />
+        <div className="flex max-w-4xl gap-20px justify-between my-10 mx-auto">
+          <img src={size1.src} alt="Розміри" width={300} height={300} />
+          <img src={size2.src} alt="Розміри" width={300} height={300} />
+          <img src={size3.src} alt="Розміри" width={300} height={300} />
+        </div>
       </section>
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -199,7 +109,7 @@ export default function WindowPage({ params }) {
               className="flex bg-[#F8F7F0] py-[60px] px-[40px] gap-5 rounded-md"
             >
               <div className="p-2 rounded-full bg-[#D8F422] w-9 h-9 flex items-center justify-center">
-                <Image src={check} alt="Перевага" width={22} height={22} />
+                <img src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>
             </div>
@@ -227,8 +137,8 @@ export default function WindowPage({ params }) {
                 <div
                   className={`rounded-md transform transition-transform duration-300 hover:scale-[0.995] ${translateClasses[index]}`}
                 >
-                  <Image
-                    src={img}
+                  <img
+                    src={img.src}
                     alt={`j${index + 1}`}
                     className="h-[250px] md:h-[300px] xl:h-[350px] w-auto max-w-none object-cover rounded-md"
                   />
@@ -242,4 +152,3 @@ export default function WindowPage({ params }) {
     </>
   );
 }
-  

@@ -1,15 +1,11 @@
 import Image from "next/image";
 import check from "@/app/assets/images/icons/check.svg";
-import s1 from "@/app/assets/images/products/mosquito/1.jpg";
-import s2 from "@/app/assets/images/products/mosquito/2.jpg";
-import s3 from "@/app/assets/images/products/mosquito/3-new.jpg";
-import s4 from "@/app/assets/images/products/mosquito/4.jpg";
-import s5 from "@/app/assets/images/products/mosquito/5-new.jpg";
-import s6 from "@/app/assets/images/products/mosquito/6-new.jpg";import j1 from "@/app/assets/images/jobs/screens/1.png";
-import j2 from "@/app/assets/images/jobs/screens/2.png";
-import j3 from "@/app/assets/images/jobs/screens/3.png";
-import j4 from "@/app/assets/images/jobs/screens/4.png";
-import j5 from "@/app/assets/images/jobs/screens/5.png";
+import s6 from "@/app/assets/images/products/mosquito/6-new.jpg";
+import j1 from "@/app/assets/images/jobs/screens/mj1.jpg";
+import j2 from "@/app/assets/images/jobs/screens/mj2.jpg";
+import j3 from "@/app/assets/images/jobs/screens/mj3.jpg";
+import j4 from "@/app/assets/images/jobs/screens/mj4.jpg";
+import j5 from "@/app/assets/images/jobs/screens/mj5.jpg";
 import white1 from "@/app/assets/images/products/mosquito/ramna/11x32_profil_white.png";
 import anthracite1 from "@/app/assets/images/products/mosquito/ramna/11x32_profil_anthracite.png";
 import brown1 from "@/app/assets/images/products/mosquito/ramna/11x32_profil_brown.png";
@@ -21,7 +17,6 @@ import fiberglass from "@/app/assets/images/gallery/Fiberglass.webp";
 import ultraView from "@/app/assets/images/gallery/UltraView.webp";
 import antipul from "@/app/assets/images/gallery/antipul.webp";
 import anticat from "@/app/assets/images/gallery/anticat.webp";
-import SectionContact from "@/app/components/SectionContact";
 import whiteF from "@/app/assets/images/products/mosquito/ramna/White.png";
 import brownF from "@/app/assets/images/products/mosquito/ramna/Brown.png";
 import anthraciteF from "@/app/assets/images/products/mosquito/ramna/Anthracite.png";
@@ -44,8 +39,8 @@ export default function WindowPage({ params }) {
         <div className="flex flex-col md:flex-row gap-8 items-start">
           <div className="flex-1">
             <div className="w-[300px] h-[400px] relative">
-              <Image
-                src={s6}
+              <img
+                src={s6.src}
                 alt="Дверні Антимоскітні Сітки"
                 fill
                 className="object-cover"
@@ -87,7 +82,7 @@ export default function WindowPage({ params }) {
         ]}
       />
       <div className="flex max-w-4xl gap-20px justify-between my-10 mx-auto">
-        <Image src={size1} alt="Розміри" width={1000} height={300}></Image>
+        <img src={size1.src} alt="Розміри" width={1000} height={300}/>
       </div>
       <PlisseScreens
         profileColors={[
@@ -109,7 +104,7 @@ export default function WindowPage({ params }) {
         ]}
       />
       <div className="flex max-w-4xl gap-20px justify-between my-10 mx-auto">
-        <Image src={size2} alt="Розміри" width={1000} height={300}></Image>
+        <img src={size2.src} alt="Розміри" width={1000} height={300}/>
       </div>
 
       <section className="px-6 py-12 max-w-6xl mx-auto">
@@ -124,7 +119,7 @@ export default function WindowPage({ params }) {
               className="flex bg-[#F8F7F0] py-[60px] px-[40px] gap-5 rounded-md"
             >
               <div className="p-2 rounded-full bg-[#D8F422] w-9 h-9 flex items-center justify-center">
-                <Image src={check} alt="Перевага" width={22} height={22} />
+                <img src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>
             </div>
@@ -138,8 +133,8 @@ export default function WindowPage({ params }) {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="flex flex-col items-center text-center">
-            <Image
-              src={fiberglass}
+            <img
+              src={fiberglass.src}
               alt="Сітка Fiberglass"
               className="w-full h-auto  mb-1 object-contain"
             />
@@ -153,8 +148,8 @@ export default function WindowPage({ params }) {
           </div>
 
           <div className="flex flex-col items-center text-center">
-            <Image
-              src={ultraView}
+            <img
+              src={ultraView.src}
               alt="Сітка Ultra View"
               className="w-full h-auto  mb-1 object-contain"
             />
@@ -167,8 +162,8 @@ export default function WindowPage({ params }) {
           </div>
 
           <div className="flex flex-col items-center text-center">
-            <Image
-              src={antipul}
+            <img
+              src={antipul.src}
               alt="Сітка Антипил"
               className="w-full h-auto  mb-1 object-contain"
             />
@@ -181,8 +176,8 @@ export default function WindowPage({ params }) {
           </div>
 
           <div className="flex flex-col items-center text-center">
-            <Image
-              src={anticat}
+            <img
+              src={anticat.src}
               alt="Сітка Антикішка"
               className="w-full h-auto  mb-1 object-contain"
             />
@@ -205,10 +200,10 @@ export default function WindowPage({ params }) {
             // Відповідні класи translate-y з md:
             const translateClasses = [
               "md:translate-y-0",
-              "md:-translate-y-7", // -28px приблизно
-              "md:translate-y-5", // 20px
-              "md:-translate-y-4", // -16px
-              "md:translate-y-6", // 24px
+              "md:-translate-y-7", // -28px 
+              "md:translate-y-5", // 
+              "md:-translate-y-4", // -
+              "md:translate-y-6", 
             ];
 
             return (
@@ -216,8 +211,8 @@ export default function WindowPage({ params }) {
                 <div
                   className={`rounded-md transform transition-transform duration-300 hover:scale-[0.995] ${translateClasses[index]}`}
                 >
-                  <Image
-                    src={img}
+                  <img
+                    src={img.src}
                     alt={`j${index + 1}`}
                     className="h-[250px] md:h-[300px] xl:h-[350px] w-auto max-w-none object-cover rounded-md"
                   />

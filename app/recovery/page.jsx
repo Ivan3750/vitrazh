@@ -81,8 +81,8 @@ const Recovery = () => {
               </p>
             </div>
             <div className="flex-1">
-              <Image
-                src={dh}
+              <img
+                src={dh.src}
                 alt="Пошкодженне майно"
                 width={680}
                 height={380}
@@ -107,7 +107,7 @@ const Recovery = () => {
               { icon: relax, title: "Спокій та впевненість", text: "Прозора співпраця, якісні матеріали та жодних прихованих витрат." }]
               .map((item, i) => (
               <div key={i} className="border border-[#E7E7E7] p-6 md:p-[48px] flex flex-col gap-[40px] justify-between">
-                <div><Image src={item.icon} alt={item.title} /></div>
+                <div><img src={item.icon.src} alt={item.title} /></div>
                 <div>
                   <h3 className="text-[24px] md:text-[28px]">{item.title}</h3>
                   <p className="text-[16px] md:text-[18px] text-[#555]">{item.text}</p>
@@ -122,8 +122,8 @@ const Recovery = () => {
         <div className="mc max-w-[1200px] mx-auto flex flex-col lg:flex-row py-[80px] md:py-[150px] gap-10">
           <div className="flex-1">
             <h2 className="text-[36px] md:text-[48px] lg:text-[64px]">Послідовність Замовлення</h2>
-            <Image
-              src={card}
+            <img
+              src={card.src}
               width={600}
               height={450}
               alt="Процес роботи"

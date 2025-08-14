@@ -92,8 +92,8 @@ const ProfileSelector = ({ data, setData, nextStep }) => {
               aria-label={`Вибрати профіль ${name}`}
             >
               <div className="bg-[#F8F7F0] aspect-square rounded flex items-center justify-center overflow-hidden">
-                <Image
-                  src={img}
+                <img
+                  src={img.src}
                   alt={name}
                   width={280}
                   height={280}

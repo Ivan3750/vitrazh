@@ -6,11 +6,11 @@ import s3 from "@/app/assets/images/products/mosquito/3-new.jpg";
 import s4 from "@/app/assets/images/products/mosquito/4.jpg";
 import s5 from "@/app/assets/images/products/mosquito/5-new.jpg";
 import s6 from "@/app/assets/images/products/mosquito/6-new.jpg";
-import j1 from "@/app/assets/images/jobs/screens/1.png";
-import j2 from "@/app/assets/images/jobs/screens/2.png";
-import j3 from "@/app/assets/images/jobs/screens/3.png";
-import j4 from "@/app/assets/images/jobs/screens/4.png";
-import j5 from "@/app/assets/images/jobs/screens/5.png";
+import j1 from "@/app/assets/images/jobs/screens/pj1.jpg";
+import j2 from "@/app/assets/images/jobs/screens/pj2.jpg";
+import j3 from "@/app/assets/images/jobs/screens/pj3.jpg";
+import j4 from "@/app/assets/images/jobs/screens/pj4.jpg";
+import j5 from "@/app/assets/images/jobs/screens/pj5.jpg";
 import gold from "@/app/assets/images/products/mosquito/plise/Plisse_profil_gold_oak.png";
 import white from "@/app/assets/images/products/mosquito/plise/Plisse_profil_white.png";
 import brown from "@/app/assets/images/products/mosquito/plise/Plisse_profil_brown.png";
@@ -125,8 +125,8 @@ export default function WindowPage({ params }) {
         <div className="flex flex-col md:flex-row gap-8 items-start">
           <div className="flex-1">
             <div className="w-[300px] h-[400px] relative">
-              <Image
-                src={s2}
+              <img
+                src={s2.src}
                 alt="Антимоскітні сітки PLISSE"
                 fill
                 className="object-cover"
@@ -165,7 +165,7 @@ export default function WindowPage({ params }) {
         ]}
       />
        <div className="flex max-w-4xl gap-20px justify-between my-10 mx-auto">
-                <Image src={size1} alt="Розміри" width={1000} height={300}></Image>
+                <img src={size1.src} alt="Розміри" width={1000} height={300}/>
         </div>  
       <PlisseScreens
         profileColors={[
@@ -186,7 +186,7 @@ export default function WindowPage({ params }) {
         ]}
       />
       <div className="flex max-w-4xl gap-20px justify-between my-10 mx-auto">
-                <Image src={size1} alt="Розміри" width={1000} height={300}></Image>
+                <img src={size1.src} alt="Розміри" width={1000} height={300}/>
         </div>  
       <PlisseScreens
         profileColors={[
@@ -207,7 +207,7 @@ export default function WindowPage({ params }) {
         ]}
       />
       <div className="flex max-w-4xl gap-20px justify-between my-10 mx-auto">
-                <Image src={size1} alt="Розміри" width={1000} height={300}></Image>
+                <img src={size1.src} alt="Розміри" width={1000} height={300}/>
         </div>  
       <PlisseScreens
         profileColors={[
@@ -228,7 +228,7 @@ export default function WindowPage({ params }) {
         ]}
       />
       <div className="flex max-w-4xl gap-20px justify-between my-10 mx-auto">
-                <Image src={size1} alt="Розміри" width={1000} height={300}></Image>
+                <img src={size1.src} alt="Розміри" width={1000} height={300}/>
         </div>  
       <PlisseScreens
         profileColors={[
@@ -249,7 +249,7 @@ export default function WindowPage({ params }) {
         ]}
       />
       <div className="flex max-w-4xl gap-20px justify-between my-10 mx-auto">
-                <Image src={size1} alt="Розміри" width={1000} height={300}></Image>
+                <img src={size1.src} alt="Розміри" width={1000} height={300}/>
         </div>  
 
       <section className="px-6 py-12 max-w-6xl mx-auto">
@@ -264,7 +264,7 @@ export default function WindowPage({ params }) {
               className="flex bg-[#F8F7F0] py-[60px] px-[40px] gap-5 rounded-md"
             >
               <div className="p-2 rounded-full bg-[#D8F422] w-9 h-9 flex items-center justify-center">
-                <Image src={check} alt="Перевага" width={22} height={22} />
+                <img src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>
             </div>
@@ -292,8 +292,8 @@ export default function WindowPage({ params }) {
                 <div
                   className={`rounded-md transform transition-transform duration-300 hover:scale-[0.995] ${translateClasses[index]}`}
                 >
-                  <Image
-                    src={img}
+                  <img
+                    src={img.src}
                     alt={`j${index + 1}`}
                     className="h-[250px] md:h-[300px] xl:h-[350px] w-auto max-w-none object-cover rounded-md"
                   />

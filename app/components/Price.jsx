@@ -51,8 +51,8 @@ const Price = () => {
                 
                   <div className="w-full max-w-[300px] ">
                     <div className="bg-[#F8F7F0] aspect-square flex items-center justify-center overflow-hidden rounded">
-                      <Image
-                        src={img}
+                      <img
+                        src={img.src}
                         alt={name}
                         width={320}
                         height={320}

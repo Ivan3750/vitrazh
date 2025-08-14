@@ -103,8 +103,8 @@ export default function FurniturePage({ params }) {
 
       <section className="px-6 py-12 max-w-6xl mx-auto flex flex-col md:flex-row gap-8 items-center">
         <div className="flex-1">
-          <Image
-            src={data.image}
+          <img
+            src={data.image.src}
             alt={data.name}
             width={350}
             height={250}
@@ -153,7 +153,7 @@ export default function FurniturePage({ params }) {
               className="flex bg-[#F8F7F0] py-[60px] px-[40px] gap-5 rounded-md"
             >
               <div className="p-2 rounded-full bg-[#D8F422] w-9 h-9 flex items-center justify-center">
-                <Image src={check} alt="Перевага" width={22} height={22} />
+                <img src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{adv}</p>
             </div>

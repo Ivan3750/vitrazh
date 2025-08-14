@@ -9,16 +9,31 @@ export default function DynamicCalculator({ productType }) {
     quantity: 1,
     meshType: "standard",
     color: "white",
-    type: "istZ",
+    type: "",
     hasBrake: false,
+    fabricTransparency: "",
+    fabricStructure: "",
+    motorType: "",
+    fabricType: "",
+    lamellaSize: "",
+    canvasType: "",
   });
 
+  // Категорії
   const isFrame = productType === "ramna-sitka";
   const isDoorMesh = productType === "dverni-sitky";
   const isAlyumin = productType === "alyuminiievi-sitky";
   const isPlisse = productType === "plisse-sitky";
   const isRollet = productType === "rolovi-sitky";
   const isVidkatna = productType === "vidkatna-sitka";
+  const isZhalizi = productType === "alyuminiievi-zhalyuzi";
+  const isVertykalni = productType === "vertykalni-tkanovi-zhalyuzi";
+  const isTkanevi = productType === "rulonni-shtory-tkanovi-rolete";
+  const isDeniNich = productType === "den-nich-tkanovi-rolete";
+  const isDoorZhalizi = productType === "derevyani-zhalyuzi";
+  const isRamka = productType === "rymski-shtory";
+  const isPlisseNew = productType === "zhalyuzi-plysse";
+  const isAutomatica = productType === "avtomatyka-zhalyuzi";
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -30,8 +45,16 @@ export default function DynamicCalculator({ productType }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Відправлено форму:", form);
-    alert("Дякуємо! Ми з вами зв'яжемося найближчим часом.");
+
+    fetch("/order_mosquito.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) alert("Заявка відправлена!");
+      });
   };
 
   const renderColors = (options) =>
@@ -43,209 +66,385 @@ export default function DynamicCalculator({ productType }) {
 
   return (
     <section className="p-4">
-    <div className="bg-[#f8f7f0] px-6 py-10 rounded-md max-w-2xl mx-auto mt-10">
-      <h3 className="text-2xl mb-6 text-center">Розрахувати замовлення</h3>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        {/* Width */}
-        <div className="flex flex-col">
-          <label htmlFor="width">Ширина (мм):</label>
-          <input
-            type="number"
-            name="width"
-            value={form.width}
-            onChange={handleChange}
-            className="p-2 border rounded"
-            required
-          />
-        </div>
+      <div className="bg-[#f8f7f0] px-4 sm:px-6 py-8 sm:py-10 rounded-md max-w-2xl mx-auto mt-10">
+        <h3 className="text-xl sm:text-2xl mb-6 text-center">
+          Розрахувати замовлення
+        </h3>
 
-        {/* Height */}
-        <div className="flex flex-col">
-          <label htmlFor="height">Висота (мм):</label>
-          <input
-            type="number"
-            name="height"
-            value={form.height}
-            onChange={handleChange}
-            className="p-2 border rounded"
-            required
-          />
-        </div>
-
-        {/* Quantity */}
-        <div className="flex flex-col">
-          <label htmlFor="quantity">Кількість:</label>
-          <input
-            type="number"
-            name="quantity"
-            value={form.quantity}
-            onChange={handleChange}
-            className="p-2 border rounded"
-            min={1}
-          />
-        </div>
-
-        {/* Type */}
-        {(isVidkatna) && (
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          {/* Width */}
           <div className="flex flex-col">
-            <label htmlFor="type">Тип</label>
-            <select
-              name="type"
-              value={form.type}
+            <label>Ширина (мм):</label>
+            <input
+              type="number"
+              name="width"
+              value={form.width}
               onChange={handleChange}
               className="p-2 border rounded"
-            >
-              <option value="istZ">Slide IST Z</option>
-              <option value="istE">Slide IST E</option>
-
-            </select>
+              required
+            />
           </div>
-        )}
-        {(isFrame || isDoorMesh || isAlyumin || isVidkatna) && (
+
+          {/* Height */}
           <div className="flex flex-col">
-            <label htmlFor="meshType">Тип полотна:</label>
-            <select
-              name="meshType"
-              value={form.meshType}
+            <label>Висота (мм):</label>
+            <input
+              type="number"
+              name="height"
+              value={form.height}
               onChange={handleChange}
               className="p-2 border rounded"
-            >
-              <option value="standard">Стандарт</option>
-              <option value="nevidymka">Невидимка</option>
-              <option value="antypyl">Антипил</option>
-              <option value="antycat">Антикішка</option>
-            </select>
+              required
+            />
           </div>
-        )}
 
-        {/* Color */}
-        {(isFrame || isDoorMesh || isAlyumin || isVidkatna) && (
+          {/* Quantity */}
           <div className="flex flex-col">
-            <label htmlFor="color">Колір:</label>
-            <select
-              name="color"
-              value={form.color}
+            <label>Кількість:</label>
+            <input
+              type="number"
+              name="quantity"
+              value={form.quantity}
               onChange={handleChange}
               className="p-2 border rounded"
-            >
-              {renderColors([
-                { value: "white", label: "Білий" },
-                { value: "brown", label: "Коричневий" },
-                { value: "anthracite", label: "Антрацит" },
-              ])}
-            </select>
+              min={1}
+            />
           </div>
-        )}
-        {(isFrame) && (
-          <div className="flex flex-col">
-            <label htmlFor="type">Тип:</label>
-            <select
-              name="type"
-              value={form.type}
-              onChange={handleChange}
-              className="p-2 border rounded"
-            >
-                <option value="11x32">11x32</option>
-              <option value="lux">lux</option>
-  
-            </select>
-          </div>
-        )}
 
-        {/* PLISSE */}
-        {isPlisse && (
-          <>
+          {/* ===================== Категорії ===================== */}
+
+          {/* Vidkatna */}
+          {isVidkatna && (
             <div className="flex flex-col">
-              <label htmlFor="meshType">Тип сітки:</label>
+              <label>Тип</label>
               <select
-                name="meshType"
-                value={form.meshType}
+                name="type"
+                value={form.type}
                 onChange={handleChange}
                 className="p-2 border rounded"
               >
-                {["PL1", "PL2", "PL3", "PL4", "PL5"].map((pl) => (
-                  <option key={pl} value={pl}>
-                    {pl}
-                  </option>
-                ))}
+                <option value="istZ">Slide IST Z</option>
+                <option value="istE">Slide IST E</option>
               </select>
             </div>
-            <div className="flex flex-col">
-              <label htmlFor="color">Колір:</label>
-              <select
-                name="color"
-                value={form.color}
-                onChange={handleChange}
-                className="p-2 border rounded"
-              >
-                {renderColors([
-                  { value: "white-glossy", label: "Білий глянець" },
-                  { value: "brown", label: "Коричневий" },
-                  { value: "anthracite", label: "Антрацит" },
-                  { value: "golden-oak", label: "Золотий дуб структурний" },
-                  { value: "black-matte", label: "Чорний матовий" },
-                ])}
-              </select>
-            </div>
-          </>
-        )}
+          )}
 
-        {/* Rollet */}
-        {isRollet && (
-          <>
-            <div className="flex flex-col">
-              <label htmlFor="meshType">Тип сітки:</label>
-              <select
-                name="meshType"
-                value={form.meshType}
-                onChange={handleChange}
-                className="p-2 border rounded"
-              >
-                <option value="vertical">Вертикальна</option>
-                <option value="horizontal">Горизонтальна</option>
-              </select>
-            </div>
+          {/* Frame / DoorMesh / Alyumin / Vidkatna */}
+          {(isFrame || isDoorMesh || isAlyumin || isVidkatna) && (
+            <>
+              <div className="flex flex-col">
+                <label>Тип полотна:</label>
+                <select
+                  name="meshType"
+                  value={form.meshType}
+                  onChange={handleChange}
+                  className="p-2 border rounded"
+                >
+                  <option value="standard">Стандарт</option>
+                  <option value="nevidymka">Невидимка</option>
+                  <option value="antypyl">Антипил</option>
+                  <option value="antycat">Антикішка</option>
+                </select>
+              </div>
 
-            <div className="flex flex-col">
-              <label htmlFor="color">Колір:</label>
-              <select
-                name="color"
-                value={form.color}
-                onChange={handleChange}
-                className="p-2 border rounded"
-              >
-                {renderColors([
-                  { value: "white", label: "Білий" },
-                  { value: "brown", label: "Коричневий" },
-                  { value: "anthracite", label: "Антрацит" },
-                  { value: "golden-oak", label: "Золотий дуб структурний" },
-                  { value: "black-matte", label: "Чорний матовий" },
-                ])}
-              </select>
-            </div>
+              <div className="flex flex-col">
+                <label>Колір:</label>
+                <select
+                  name="color"
+                  value={form.color}
+                  onChange={handleChange}
+                  className="p-2 border rounded"
+                >
+                  {renderColors([
+                    { value: "white", label: "Білий" },
+                    { value: "brown", label: "Коричневий" },
+                    { value: "anthracite", label: "Антрацит" },
+                  ])}
+                </select>
+              </div>
+            </>
+          )}
 
-            <div className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                name="hasBrake"
-                checked={form.hasBrake}
-                onChange={handleChange}
-              />
-              <label htmlFor="hasBrake">Гальмо</label>
-            </div>
-          </>
-        )}
+          {/* Alyuminiievi Zhalyuzi */}
+          {isZhalizi && (
+            <>
+              <div className="flex flex-col">
+                <label>Тип:</label>
+                <select
+                  name="type"
+                  value={form.type}
+                  onChange={handleChange}
+                  className="p-2 border rounded"
+                >
+                  <option value="mini">MINI</option>
+                  <option value="mini-standart">MINI STANDART</option>
+                  <option value="standart">STANDART</option>
+                  <option value="venus">VENUS</option>
+                  <option value="magnus">MAGNUS</option>
+                </select>
+              </div>
+              <div className="flex flex-col">
+                <label>Тип полотна:</label>
+                <select
+                  name="canvasType"
+                  value={form.canvasType}
+                  onChange={handleChange}
+                  className="p-2 border rounded"
+                >
+                  <option value="16mm">16мм</option>
+                  <option value="25mm">25мм</option>
+                </select>
+              </div>
+              <div className="flex flex-col">
+                <label>Колір:</label>
+                <select
+                  name="color"
+                  value={form.color}
+                  onChange={handleChange}
+                  className="p-2 border rounded"
+                >
+                  {renderColors([
+                    { value: "white", label: "Білий" },
+                    { value: "color", label: "Кольоровий" },
+                  ])}
+                </select>
+              </div>
+            </>
+          )}
 
-        <div className="text-center">
-          <button
-            onClick={handleSubmit}
-            className="bg-[#D8F422] text-black py-4 px-6 rounded-md text-lg font-semibold uppercase hover:bg-black hover:text-white transition"
-          >
-            Надіслати
-          </button>
-        </div>
-      </form>
-    </div>
+          {/* Vertykalni Tkanovi Zhalyuzi */}
+          {isVertykalni && (
+            <>
+              <div className="flex flex-col">
+                <label>Тип:</label>
+                <select
+                  name="type"
+                  value={form.type}
+                  onChange={handleChange}
+                  className="p-2 border rounded"
+                >
+                  <option value="budget">Вертикальні жалюзі Бюджет</option>
+                  <option value="tulle">Вертикальні жалюзі ТЮЛЬС</option>
+                </select>
+              </div>
+              <div className="flex flex-col">
+                <label>Ламель:</label>
+                <select
+                  name="lamellaSize"
+                  value={form.lamellaSize}
+                  onChange={handleChange}
+                  className="p-2 border rounded"
+                >
+                  <option value="89mm">89мм</option>
+                  <option value="127mm">127мм</option>
+                </select>
+              </div>
+            </>
+          )}
+
+          {/* Tkanevi & Day-Night */}
+          {(isTkanevi || isDeniNich) && (
+            <>
+              <div className="flex flex-col">
+                <label>Тип:</label>
+                <select
+                  name="type"
+                  value={form.type}
+                  onChange={handleChange}
+                  className="p-2 border rounded"
+                >
+                  <option value="open">Відкрита система</option>
+                  <option value="box">Коробкова система</option>
+                </select>
+              </div>
+              <div className="flex flex-col">
+                <label>Колір:</label>
+                <select
+                  name="color"
+                  value={form.color}
+                  onChange={handleChange}
+                  className="p-2 border rounded"
+                >
+                  {renderColors([
+                    { value: "white", label: "Білий" },
+                    { value: "brown", label: "Коричневий" },
+                    ...(isTkanevi
+                      ? [{ value: "grey", label: "Сірий" }]
+                      : []),
+                  ])}
+                </select>
+              </div>
+              <div className="flex flex-col">
+                <label>Тканина:</label>
+                <select
+                  name="fabricType"
+                  value={form.fabricType}
+                  onChange={handleChange}
+                  className="p-2 border rounded"
+                >
+                  <option value="plain">Однотонна</option>
+                  <option value="pattern">З малюнком</option>
+                  <option value="blackout">Black-out</option>
+                </select>
+              </div>
+            </>
+          )}
+
+          {/* Door Zhalyuzi */}
+          {isDoorZhalizi && (
+            <>
+              <div className="flex flex-col">
+                <label>Тип:</label>
+                <select
+                  name="type"
+                  value={form.type}
+                  onChange={handleChange}
+                  className="p-2 border rounded"
+                >
+                  <option value="bamboo">Бамбук</option>
+                  <option value="wood">Дерево</option>
+                  <option value="paulownia">Павлонія</option>
+                </select>
+              </div>
+              <div className="flex flex-col">
+                <label>Тип полотна:</label>
+                <select
+                  name="canvasType"
+                  value={form.canvasType}
+                  onChange={handleChange}
+                  className="p-2 border rounded"
+                >
+                  <option value="25mm">25мм</option>
+                  <option value="50mm">50мм</option>
+                </select>
+              </div>
+              <div className="flex flex-col">
+                <label>Колір:</label>
+                <select
+                  name="color"
+                  value={form.color}
+                  onChange={handleChange}
+                  className="p-2 border rounded"
+                >
+                  {renderColors([
+                    { value: "natural", label: "Natural" },
+                    { value: "white", label: "White" },
+                    { value: "grey", label: "Grey" },
+                    { value: "wenge", label: "Wenge" },
+                  ])}
+                </select>
+              </div>
+            </>
+          )}
+
+          {/* Ramka */}
+          {isRamka && (
+            <>
+              <div className="flex flex-col">
+                <label>Тип:</label>
+                <select
+                  name="type"
+                  value={form.type}
+                  onChange={handleChange}
+                  className="p-2 border rounded"
+                >
+                  <option value="classic">Classic</option>
+                  <option value="elegance">Elegance</option>
+                </select>
+              </div>
+              <div className="flex flex-col">
+                <label>Колір:</label>
+                <select
+                  name="color"
+                  value={form.color}
+                  onChange={handleChange}
+                  className="p-2 border rounded"
+                >
+                  {renderColors([
+                    { value: "white", label: "White" },
+                    { value: "natural", label: "Natural" },
+                    { value: "grey", label: "Grey" },
+                  ])}
+                </select>
+              </div>
+            </>
+          )}
+
+          {/* Plisse New */}
+          {isPlisseNew && (
+            <>
+              <div className="flex flex-col">
+                <label>Світлопропускна здатність:</label>
+                <select
+                  name="fabricTransparency"
+                  value={form.fabricTransparency}
+                  onChange={handleChange}
+                  className="p-2 border rounded"
+                >
+                  <option value="transparent">Прозора</option>
+                  <option value="semi-transparent">Напівпрозора</option>
+                  <option value="dim">Затемнююча</option>
+                  <option value="opaque">Непрозора</option>
+                </select>
+              </div>
+              <div className="flex flex-col">
+                <label>Будова тканини:</label>
+                <select
+                  name="fabricStructure"
+                  value={form.fabricStructure}
+                  onChange={handleChange}
+                  className="p-2 border rounded"
+                >
+                  <option value="single">Одношарова</option>
+                  <option value="honeycomb">Сотова тканина</option>
+                </select>
+              </div>
+            </>
+          )}
+
+          {/* Automatica */}
+          {isAutomatica && (
+            <>
+              <div className="flex flex-col">
+                <label>Двигун:</label>
+                <select
+                  name="motorType"
+                  value={form.motorType}
+                  onChange={handleChange}
+                  className="p-2 border rounded"
+                >
+                  <option value="france">France</option>
+                  <option value="china">China</option>
+                </select>
+              </div>
+              <div className="flex flex-col">
+                <label>Тканина:</label>
+                <select
+                  name="fabricTransparency"
+                  value={form.fabricTransparency}
+                  onChange={handleChange}
+                  className="p-2 border rounded"
+                >
+                  <option value="transparent">Прозора</option>
+                  <option value="semi-transparent">Напівпрозора</option>
+                  <option value="dim">Затемнююча</option>
+                  <option value="opaque">Непрозора</option>
+                </select>
+              </div>
+            </>
+          )}
+
+          {/* Кнопка */}
+          <div className="text-center">
+            <button
+              type="submit"
+              className="bg-[#D8F422] text-black py-3 px-6 rounded-md text-lg font-semibold uppercase hover:bg-black hover:text-white transition"
+            >
+              Надіслати
+            </button>
+          </div>
+        </form>
+      </div>
     </section>
   );
 }

@@ -28,29 +28,28 @@ const Summary = ({ data, prevStep }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const name = form.name.value;
-    const phone = form.phone.value;
-    const message = form.message.value;
+   const windowsData = {
+    profile,
+    window
+};
 
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, phone, message }),
-    });
-
-    const result = await res.json();
-
-    if (result.success) {
-      setModalMessage("Повідомлення надіслано успішно! Очікуйте");
-      form.reset();
+fetch('/order_windows.php', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(windowsData)
+})
+.then(response => response.json())
+.then(data => {
+    if (data.success) {
+        window.location.href = data.redirect; // Редірект у фронтенді
     } else {
-      setModalMessage("Сталася помилка. Спробуйте ще раз.");
+        alert('Помилка відправки: ' + data.message);
     }
-    setShowModal(true);
+});
+
+
   };
 
 
@@ -128,7 +127,7 @@ const Summary = ({ data, prevStep }) => {
               className="bg-[#D8F422] py-4 px-6 rounded-sm uppercase flex items-center justify-center gap-2 min-w-[200px] hover:bg-[#0f0f0f] hover:text-white transition-colors"
             >
               Надіслати
-              <Image src={go} alt="go" />
+              <img src={go.src} alt="go" />
             </button>
           </form>
         </div>

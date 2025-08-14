@@ -14,16 +14,12 @@ import fix from "@/app/assets/images/products/category/7.jpg";
 import blinds from "@/app/assets/images/products/category/8.jpg";
 import gates from "@/app/assets/images/products/category/9.jpg";
 import check from "@/app/assets/images/icons/check.svg";
-import job1 from "@/app/assets/images/jobs/1.jpg";
-import job2 from "@/app/assets/images/jobs/2.jpg";
-import job3 from "@/app/assets/images/jobs/3.jpg";
-import job4 from "@/app/assets/images/jobs/4.jpg";
-import job5 from "@/app/assets/images/jobs/5.jpg";
-import job6 from "@/app/assets/images/jobs/6.jpg";
-import job7 from "@/app/assets/images/jobs/7.jpg";
-import job8 from "@/app/assets/images/jobs/8.jpg";
-import job9 from "@/app/assets/images/jobs/9.jpg";
-import HorizontalScroll from "@/app/components/HorizontalScroll";
+import job1 from "@/app/assets/images/jobs/job (1).jpg";
+import job2 from "@/app/assets/images/jobs/job (2).jpg";
+import job3 from "@/app/assets/images/jobs/job (3).jpg";
+import job4 from "@/app/assets/images/jobs/job (4).jpg";
+
+import AutoSlider from "@/app/components/AutoSlider";
 import WorkProcess from "@/app/assets/images/homepage/Work Process Banner.png";
 import color1 from "@/app/assets/images/homepage/color1.png";
 import color2 from "@/app/assets/images/homepage/color2.png";
@@ -83,8 +79,8 @@ export default function Home() {
         </div>
 
         <div className="w-full max-w-[400px] sm:max-w-[500px] lg:max-w-[537px]">
-          <Image
-            src={HeroImg}
+          <img
+            src={HeroImg.src}
             alt="Вікна"
             width={537}
             height={590}
@@ -97,13 +93,12 @@ export default function Home() {
         <div className="flex animate-marquee whitespace-nowrap">
           {[...items, ...items].map((text, idx) => (
             <div key={idx} className="flex items-center gap-[20px] px-[70px]">
-              <Image
-                src={Mark}
+              <img
+                src={Mark.src}
                 alt="Marquee Icon"
                 width={25}
                 height={25}
                 className="marquee-icon"
-                priority
               />
               <p className="marquee-title text-black  uppercase text-lg md:text-2xl">
                 {text}
@@ -128,8 +123,8 @@ export default function Home() {
     { href: "/category/gates-and-rolls", src: gates, title: "Гаражні ворота" },
   ].map(({ href, src, title }, i) => (
     <Link href={href} key={i} className="relative group">
-      <Image
-        src={src}
+      <img
+        src={src.src}
         alt={`Зображення: ${title}`}
         width={380}
         height={380}
@@ -179,8 +174,8 @@ export default function Home() {
             <h2 className="text-[40px] sm:text-[48px] lg:text-[64px]  leading-tight">
               Чому обирають нас?
             </h2>
-            <Image
-              src={gates}
+            <img
+              src={gates.src}
               width={645}
               height={375}
               alt="Чому нас"
@@ -208,8 +203,8 @@ export default function Home() {
                 className="flex bg-[#F8F7F0] p-6 gap-5 rounded-sm"
               >
                 <div className="p-[7px] rounded-full bg-[#D8F422] w-9 h-9 flex items-center justify-center">
-                  <Image
-                    src={check}
+                  <img
+                    src={check.src}
                     alt="Перевага"
                     width={22}
                     height={22}
@@ -229,34 +224,21 @@ export default function Home() {
       </section>
 
       <section className="w-full py-16">
-        <HorizontalScroll>
-          {[job3, job4, job5, job6, job7, job8, job9, job2, job1].map(
-            (img, index) => {
-              const isTall = index % 2 === 1;
-
-              return (
-                <div
-                  key={index}
-                  className={`
-            relative
-            flex-shrink-0
-            min-w-[240px] sm:min-w-[300px] md:min-w-[360px] lg:min-w-[456px]
-            ${isTall ? "aspect-[456/520]" : "aspect-[456/360]"}
-          `}
-                >
-                  <Image
-                    src={img}
-                    alt="Робота"
-                    fill
-                    className="object-cover rounded-sm"
-                    sizes="(max-width: 768px) 80vw, 456px"
-                  />
-                </div>
-              );
-            }
-          )}
-        </HorizontalScroll>
-      </section>
+  <AutoSlider speed={100}>
+    {[job1, job2, job3, job4].map((img, i) => (
+      <div
+        key={i}
+        className="relative flex-shrink-0 min-w-[300px] aspect-[4/3]"
+      >
+        <img
+          src={img.src}
+          alt="Робота"
+          className=" w-full h-[500px]"
+        />
+      </div>
+    ))}
+  </AutoSlider>
+</section>
 
       <section className="bg-[#F8F7F0]">
         <div className="mc flex flex-col lg:flex-row py-[100px] gap-[60px] lg:gap-[100px] px-4 sm:px-6 md:px-10">
@@ -264,8 +246,8 @@ export default function Home() {
             <h2 className="text-[36px] sm:text-[48px] lg:text-[64px] leading-tight">
               Послідовність Замовлення
             </h2>
-            <Image
-              src={WorkProcess}
+            <img
+              src={WorkProcess.src}
               alt="Процес роботи"
               className="mt-[40px] w-full max-w-[600px] mx-auto lg:mx-0"
             />
@@ -317,9 +299,9 @@ export default function Home() {
 
               <div className="flex gap-2 flex-wrap justify-center lg:justify-start mb-4">
                 {colors.map((color, index) => (
-                  <Image
+                  <img
                     key={index}
-                    src={color.thumb}
+                    src={color.thumb.src}
                     alt={`Колір ${index + 1}`}
                     width={54}
                     height={54}
@@ -338,8 +320,8 @@ export default function Home() {
               </p>
             </div>
             <div className="w-full lg:w-auto">
-              <Image
-                src={selectedImage}
+              <img
+                src={selectedImage.src}
                 alt="Дім з вибраним кольором ламінації"
                 width={600}
                 height={400}
@@ -350,8 +332,8 @@ export default function Home() {
 
           <div className="flex flex-col-reverse lg:flex-row justify-between gap-[40px] items-center">
             <div className="w-full lg:w-auto">
-              <Image
-                src={painting}
+              <img
+                src={painting.src}
                 width={600}
                 height={400}
                 alt="Фарбування"
@@ -372,8 +354,8 @@ export default function Home() {
               <div className="flex flex-wrap justify-center lg:justify-start gap-6">
                 {[adv1, adv2, adv3, adv4].map((img, i) => (
                   <div className="w-[100px] text-center" key={i}>
-                    <Image
-                      src={img}
+                    <img
+                      src={img.src}
                       width={60}
                       height={60}
                       alt={`adv-${i}`}
@@ -417,8 +399,8 @@ export default function Home() {
               </p>
             </div>
             <div className="w-full lg:w-auto">
-              <Image
-                src={window}
+              <img
+                src={window.src}
                 width={600}
                 height={400}
                 alt="Декор скла"
@@ -436,8 +418,8 @@ export default function Home() {
           </h2>
           <div className="flex flex-col lg:flex-row justify-between gap-[40px] items-center lg:items-stretch">
             <div className="text-center lg:text-left">
-              <Image
-                src={trekantwindow}
+              <img
+                src={trekantwindow.src}
                 width={425}
                 height={360}
                 className="mx-auto lg:mx-0 max-w-full h-auto"
@@ -452,8 +434,8 @@ export default function Home() {
               </p>
             </div>
             <div className="text-center lg:text-left">
-              <Image
-                src={cirklewindow}
+              <img
+                src={cirklewindow.src}
                 width={425}
                 height={360}
                 className="mx-auto lg:mx-0 max-w-full h-auto"
@@ -468,8 +450,8 @@ export default function Home() {
               </p>
             </div>
             <div className="text-center lg:text-left">
-              <Image
-                src={arrowwindow}
+              <img
+                src={arrowwindow.src}
                 width={425}
                 height={360}
                 className="mx-auto lg:mx-0 max-w-full h-auto"
