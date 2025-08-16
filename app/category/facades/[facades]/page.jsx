@@ -1,6 +1,4 @@
-import Image from "next/image";
 import check from "@/app/assets/images/icons/check.svg";
-import Ukraine from "@/app/assets/images/products/decor/Ukraine.svg";
 import vorneImage from "@/app/assets/images/products/facades/vorne-logo.png";
 import macoImage from "@/app/assets/images/products/facades/maco-logo.png";
 import siegeniaImage from "@/app/assets/images/products/facades/siegenia-logo.png";
@@ -8,7 +6,58 @@ import macabg from "@/app/assets/images/hero/maca-bg.jpg";
 import siegeniabg from "@/app/assets/images/hero/siegenia-bg.jpg";
 import vornebg from "@/app/assets/images/hero/vorne-bg.jpg";
 import SectionContact from "@/app/components/SectionContact";
+import facadesHero from "@/app/assets/images/hero/furnitura.jpg"
 
+export async function generateMetadata({ params }) {
+  const furnitureData = {
+    vorne: {
+      title: "VORNE – фурнітура для металопластикових вікон",
+      description:
+        "Сучасна фурнітура VORNE – висока якість, надійність і доступна ціна. Ідеально підходить для житлових і комерційних приміщень.",
+      keywords: [
+        "VORNE",
+        "фурнітура VORNE",
+        "металопластикові вікна",
+        "поворотно-відкидна фурнітура",
+        "антикорозійне покриття"
+      ],
+    },
+    maco: {
+      title: "MACO – австрійська фурнітура преміум якості",
+      description:
+        "Фурнітура MACO з Австрії – інноваційність, надійність і безпека. Підходить для металопластикових та дерев’яних вікон.",
+      keywords: [
+        "MACO",
+        "австрійська фурнітура",
+        "фурнітура для вікон",
+        "поворотно-відкидна",
+        "розсувна фурнітура"
+      ],
+    },
+    siegenia: {
+      title: "SIEGENIA – німецька фурнітура преміум класу",
+      description:
+        "Фурнітура SIEGENIA – високотехнологічні рішення з Німеччини. Підвищена безпека, енергоефективність та довговічність.",
+      keywords: [
+        "SIEGENIA",
+        "німецька фурнітура",
+        "преміальна фурнітура",
+        "захист від злому",
+        "мікровентиляція"
+      ],
+    },
+  };
+
+  const item = furnitureData[params.facades] || {};
+
+  return {
+    title: item.title || "Фурнітура для вікон",
+    description: item.description || "Великий вибір якісної віконної фурнітури.",
+    keywords: item.keywords?.join(", ") || "фурнітура, вікна, двері",
+
+  };
+}
+  
 
 const furnitureData = {
   vorne: {
@@ -95,7 +144,7 @@ export default function FurniturePage({ params }) {
               <div
                 className="absolute inset-0 bg-cover bg-center opacity-40"
                 style={{
-                  backgroundImage: `url(${data.hero.src})`,
+                  backgroundImage: `url(${facadesHero.src})`,
                 }}
               />
         <h1 className="relative text-white text-4xl z-10">{data.title}</h1>

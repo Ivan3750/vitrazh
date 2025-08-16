@@ -7,6 +7,40 @@ import g2 from "@/app/assets/images/products/gates/protective-rolls.jpg";
 import g3 from "@/app/assets/images/products/gates/roll-gates.jpg";
 import RolletCalc from "@/app/components/RolletCalc";
 import GateCalculator from "@/app/components/GateCalculator";
+import protectiveHero from "@/app/assets/images/hero/protective-rolls.jpg"
+import sectionalHero from "@/app/assets/images/hero/gates-sectional.jpg"
+import rollHero from "@/app/assets/images/hero/roll-gates.jpg"
+
+
+export async function generateMetadata({ params }) {
+  const data = windowsData[params.gatesandrolls];
+
+  if (!data) {
+    return {
+      title: "Ворота та ролети – GANT",
+      description:
+        "Гаражні ворота, ролетні системи та захисні ролети від GANT. Монтаж та продаж в Україні.",
+      keywords: "ворота, ролети, гараж, секційні ворота, ролетні ворота, захисні ролети",
+      alternates: {
+        canonical: `https://yourwebsite.com/gatesandrolls/${params.gatesandrolls}`,
+      },
+    };
+  }
+
+  return {
+    title: `${data.name} – ${data.title}`,
+    description: data.description,
+    keywords: [
+      data.name.toLowerCase(),
+      "ворота",
+      "ролети",
+      "гараж",
+      "монтаж",
+      "GANT",
+    ].join(", "),
+    
+  };
+}
 
 
 const windowsData = {
@@ -24,6 +58,7 @@ const windowsData = {
       { key: "Кольори", value: "білий, срібло, коричневий, дуб, венге, антрацит, графіт" },
       { key: "Переваги", value: "Європейські комплектуючі, 25 000 циклів, сендвіч-панелі" },
     ],
+    hero: sectionalHero,
   },
 
   "protective-rolls": {
@@ -39,6 +74,7 @@ const windowsData = {
       { key: "Профілі", value: "RH77M, екструдований профіль" },
       { key: "Переваги", value: "енергозбереження, захист від шуму, сонця, злому" },
     ],
+    hero: protectiveHero,
   },
 
   "roll-gates": {
@@ -54,6 +90,7 @@ const windowsData = {
       { key: "Монтаж", value: "накладний / вбудований" },
       { key: "Переваги", value: "економія простору, антивандальність, шумоізоляція" },
     ],
+    hero: rollHero,
   },
 };
 
@@ -66,11 +103,15 @@ export default function WindowPage({ params }) {
 
   return (
     <>
-      <section className="relative h-[400px] flex items-center justify-center bg-black overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center opacity-40" />
-        <h1 className="relative text-white text-4xl z-10">{data.title}</h1>
-      </section>
-
+    <section className="relative h-[600px] flex items-center justify-center bg-black overflow-hidden">
+                  <div
+                    className="absolute inset-0 bg-cover bg-center opacity-40"
+                    style={{
+                      backgroundImage: `url(${data.hero.src})`,
+                    }}
+                  />
+            <h1 className="relative text-white text-4xl z-10">{data.title}</h1>
+          </section>
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row gap-8 items-start">
           <div className="flex-1">

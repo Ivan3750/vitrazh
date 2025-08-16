@@ -61,6 +61,35 @@ import h8 from "@/app/assets/images/hero/plisse.jpg";
 import h9 from "@/app/assets/images/hero/automatica.jpg";
 
 
+import { Metadata } from "next";
+
+export async function generateMetadata({ params }) {
+  const data = blindsData[params.windowblinds];
+
+  if (!data) {
+    return {
+      title: "Жалюзі — Ваш надійний вибір",
+      description: "Великий вибір жалюзі для дому та офісу: алюмінієві, дерев'яні, тканинні, автоматичні.",
+    };
+  }
+
+  return {
+    title: `${data.name} | ${data.title} — Купити в Україні`,
+    description: data.description.slice(0, 160),
+    keywords: [
+      "жалюзі", 
+      "ролети", 
+      "алюмінієві жалюзі", 
+      "дерев'яні жалюзі", 
+      "тканинні ролети", 
+      "ДЕНЬ-НІЧ", 
+      "римські штори", 
+      data.name
+    ].join(", "),
+  
+  };
+}
+
 
 const blindsData = {
   "alyuminiievi-zhalyuzi": {
@@ -284,7 +313,7 @@ export default function WindowPage({ params }) {
       <div
         className={`rounded-md transform transition-transform duration-300 hover:scale-[0.995] ${translateClasses[index]}`}
         key={index}
-        style={{ width: "250px", height: "380px" }} // фіксовані розміри блоку
+        style={{ width: "250px", height: "380px" }}
       >
         <img
           src={img.src}

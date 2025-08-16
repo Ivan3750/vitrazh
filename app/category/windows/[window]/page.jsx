@@ -9,6 +9,30 @@ import rehauE60 from "@/app/assets/images/products/windows/REHAU_Euro-Design_60-
 import rehauE70 from "@/app/assets/images/products/windows/REHAU_Euro-Design_70-t.png";
 import rehauSMD from "@/app/assets/images/products/windows/REHAU_Synego_MD-t.png";
 import SectionContact from "@/app/components/SectionContact";
+import rehauHero from "@/app/assets/images/hero/rehau.jpg";
+import wdsHero from "@/app/assets/images/hero/wds.jpg";
+
+export async function generateMetadata({ params }) {
+  const data = windowsData[params.window];
+
+  if (!data) {
+    return {
+      title: "Вікна — Каталог",
+      description: "Оберіть сучасні енергоефективні вікна для вашого дому чи офісу.",
+    };
+  }
+
+  const metaTitle = `${data.name} | ${data.title} — Купити в Україні`;
+  const metaDescription = data.description.slice(0, 160);
+
+  
+  return {
+    title: metaTitle,
+    description: metaDescription,
+    
+  };
+}
+
 
 const windowsData = {
   "wds-5s": {
@@ -24,6 +48,8 @@ description: `WDS 5S — це універсальна п’ятикамерна
       { key: "Склопакет", value: "до 32 мм" },
       
     ],
+    hero: wdsHero
+    
   },
 
   "wds-6s": {
@@ -39,6 +65,7 @@ description: `WDS 6S — вдосконалена шестикамерна си�
       { key: "Склопакет", value: "до 40 мм" },
       
     ],
+    hero: wdsHero
   },
 
   "wds-76ad": {
@@ -54,6 +81,7 @@ description: `WDS 76AD — це сучасна п’ятикамерна про�
       { key: "Склопакет", value: "до 48 мм" },
       
     ],
+    hero: wdsHero
   },
 
   "wds-76md": {
@@ -69,6 +97,7 @@ description: `WDS 76MD — преміальна шестикамерна сис�
       { key: "Склопакет", value: "до 48 мм" },
       
     ],
+    hero: wdsHero
   },
 
   "rehau-euro-design-60": {
@@ -84,6 +113,7 @@ description: `REHAU Euro-Design 60 — класична трикамерна с�
       { key: "Склопакет", value: "до 32 мм" },
       
     ],
+    hero: rehauHero
   },
 
   "rehau-euro-design-70": {
@@ -99,6 +129,7 @@ description: `REHAU Euro-Design 70 — це енергозберігаюча п�
       { key: "Склопакет", value: "до 40 мм" },
       
     ],
+    hero: rehauHero
   },
 
   "rehau-synego": {
@@ -114,6 +145,7 @@ description: `REHAU SYNEGO — це високотехнологічна сис�
       { key: "Склопакет", value: "до 51 мм" },
       
     ],
+    hero: rehauHero
   },
 };
 export async function generateStaticParams() {
@@ -125,10 +157,16 @@ export default function WindowPage({ params }) {
 
   return (
     <>
-      <section className="relative h-[400px] flex items-center justify-center bg-black overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center opacity-40" />
-        <h1 className="relative text-white text-4xl z-10">{data.title}</h1>
-      </section>
+    <section className="relative h-[600px] flex items-center justify-center bg-black overflow-hidden">
+                  <div
+                    className="absolute inset-0 bg-cover bg-center opacity-40"
+                    style={{
+                      backgroundImage: `url(${data.hero.src})`,
+                    }}
+                  />
+            <h1 className="relative text-white text-4xl z-10">{data.title}</h1>
+          </section>
+    
 
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row gap-8 items-start">
