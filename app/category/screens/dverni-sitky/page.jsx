@@ -1,15 +1,10 @@
-import Image from "next/image";
 import check from "@/app/assets/images/icons/check.svg";
-import s1 from "@/app/assets/images/products/mosquito/1.jpg";
-import s2 from "@/app/assets/images/products/mosquito/2.jpg";
 import s3 from "@/app/assets/images/products/mosquito/3-new.jpg";
 import s4 from "@/app/assets/images/products/mosquito/4.jpg";
 import s5 from "@/app/assets/images/products/mosquito/5-new.jpg";
 import s6 from "@/app/assets/images/products/mosquito/6-new.jpg";
-import j1 from "@/app/assets/images/jobs/screens/dj1.jpg";
 import j2 from "@/app/assets/images/jobs/screens/dj2.jpg";
 import j3 from "@/app/assets/images/jobs/screens/dj3.jpg";
-import j4 from "@/app/assets/images/jobs/screens/dj4.jpg";
 import j5 from "@/app/assets/images/jobs/screens/dj5.jpg";
 import j6 from "@/app/assets/images/products/mosquito/10.jpg";
 import j7 from "@/app/assets/images/products/mosquito/11.jpg";
@@ -28,58 +23,22 @@ import fiberglass from "@/app/assets/images/gallery/Fiberglass.webp";
 import ultraView from "@/app/assets/images/gallery/UltraView.webp";
 import antipul from "@/app/assets/images/gallery/antipul.webp";
 import anticat from "@/app/assets/images/gallery/anticat.webp";
-import SectionContact from "@/app/components/SectionContact";
-const windowsData = {
-  "vidkatna-sitka": {
-    title: "Відкатні Сітки",
-    name: "Відкатна Антимоскітна Сітка",
-    image: s4,
-    description: `Відкатна антимоскітна сітка — ідеальна для великих прорізів, терас, балконів. Рухається по напрямних, як розсувні двері. Надійна, довговічна, не заважає огляду. Працює плавно, витримує інтенсивне використання.`,
-    specs: [
-      { key: "Тип відкривання", value: "Розсувна (вбік)" },
-      { key: "Профіль", value: "Алюміній" },
-      { key: "Механізм", value: "Роликові направляючі" },
-      { key: "Застосування", value: "Балкони, тераси, двері" },
-      { key: "Колір", value: "Антрацит, білий, на замовлення" },
-    ],
-  },
+import hero from "@/app/assets/images/hero/dverna_sitka.jpg"
 
-  "alyuminiievi-sitky": {
-    title: "Для Алюмінієвих Вікон",
-    name: "Сітка для Алюмінієвих Вікон",
-    image: s5,
-    description: `Антимоскітна сітка для алюмінієвих вікон — це легка рамна конструкція, яка щільно прилягає до вікна. Спеціально адаптована для алюмінієвих систем. Легка в монтажі, забезпечує надійний захист без втрати естетики.`,
-    specs: [
-      { key: "Тип", value: "Рамна" },
-      { key: "Матеріал", value: "Алюмінієвий профіль + фіберглас" },
-      { key: "Кріплення", value: "Зовнішнє, з фіксаторами" },
-      { key: "Сумісність", value: "Алюмінієві вікна" },
-      { key: "Колір", value: "Під замовлення" },
-    ],
-  },
-
-  "ramna-sitka": {
-    title: "Рамна Сітка",
-    name: "Рамна Антимоскітна Сітка",
-    image: s6,
-    description: `Класична рамна антимоскітна сітка — просте, надійне та економічне рішення для захисту від комах. Встановлюється зовні вікна за допомогою поворотних кріплень. Підходить для пластикових і дерев'яних вікон.`,
-    specs: [
-      { key: "Тип", value: "Рамна" },
-      { key: "Матеріал", value: "Профіль + сітка з фібергласу" },
-      { key: "Монтаж", value: "Зовнішній" },
-      { key: "Сумісність", value: "ПВХ, дерево" },
-      { key: "Колір", value: "Білий, коричневий" },
-    ],
-  },
-};
-
-export default function WindowPage({ params }) {
+export default function WindowPage() {
   return (
     <>
-      <section className="relative h-[400px] flex items-center justify-center bg-black overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center opacity-40" />
-        <h1 className="relative text-white text-4xl z-10">Дверні Сітки</h1>
-      </section>
+  
+              <section className="relative h-[600px] flex items-center justify-center bg-black overflow-hidden">
+              <div
+                className="absolute inset-0 bg-cover bg-center opacity-40"
+                style={{
+                  backgroundImage: `url(${hero.src})`,
+                }}
+              />
+              <h1 className="relative text-white text-4xl font-bold z-10">
+Дверні Сітки              </h1>
+            </section>
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row gap-8 items-start">
           <div className="flex-1">

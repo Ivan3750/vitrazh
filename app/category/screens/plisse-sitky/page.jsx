@@ -27,100 +27,23 @@ import size1 from "@/app/assets/images/products/mosquito/plise/Rozmir (1).png"
 import DynamicCalculator from "@/app/components/DynamicCalculator";
 import Link from "next/link";
 import PlisseScreens from "@/app/components/PlisseScreens";
+import hero from "@/app/assets/images/hero/plisse_sitka.jpg"
 
-const windowsData = {
-  "rolovi-sitky": {
-    title: "Ролетні Сітки",
-    name: "Ролові Антимоскітні Сітки",
-    image: s1,
-    description: `Ролетна антимоскітна сітка – зручне рішення, яке ховається в алюмінієвий короб, коли не використовується. Механізм працює вертикально або горизонтально, сітка опускається за допомогою пружинного механізму. Підходить для вікон і дверей. Захищає від комах, легко чиститься і не займає багато місця.`,
-    specs: [
-      { key: "Тип відкривання", value: "Вертикальне/горизонтальне" },
-      { key: "Короб", value: "Алюмінієвий, компактний" },
-      { key: "Управління", value: "Пружинний механізм" },
-      { key: "Колір", value: "Білий, коричневий, антрацит" },
-      { key: "Монтаж", value: "На вікна та двері" },
-    ],
-  },
 
-  "plisse-sitky": {
-    title: "PLISSE Сітки",
-    name: "Антимоскітні сітки PLISSE",
-    image: s2,
-    description: ``,
-    specs: [
-      { key: "Тип конструкції", value: "Гармошка (пліссе)" },
-      { key: "Керування", value: "З обох сторін" },
-      { key: "Матеріал профілю", value: "Алюміній" },
-      { key: "Монтаж", value: "Без демонтажу на зиму" },
-      { key: "Колір", value: "Білий, антрацит, на замовлення" },
-    ],
-  },
-
-  "dverni-sitky": {
-    title: "Дверні Сітки",
-    name: "Дверні Антимоскітні Сітки",
-    image: s3,
-    description: `Дверна антимоскітна сітка – це алюмінієва рамна конструкція з петлями, імпостом та магнітами. Встановлюється на дверні прорізи, легко відкривається і щільно фіксується. Популярна в приватних будинках, забезпечує ефективний захист від комах.`,
-    specs: [
-      { key: "Тип конструкції", value: "Рамна з петлями" },
-      { key: "Фіксація", value: "Магнітна + щітка по периметру" },
-      { key: "Матеріал", value: "Алюміній + сітка з фібергласу" },
-      { key: "Колір", value: "Білий, коричневий, інші під замовлення" },
-      { key: "Монтаж", value: "На дверні прорізи" },
-    ],
-  },
-
-  "vidkatna-sitka": {
-    title: "Відкатні Сітки",
-    name: "Відкатна Антимоскітна Сітка",
-    image: s4,
-    description: `Відкатна антимоскітна сітка — ідеальна для великих прорізів, терас, балконів. Рухається по напрямних, як розсувні двері. Надійна, довговічна, не заважає огляду. Працює плавно, витримує інтенсивне використання.`,
-    specs: [
-      { key: "Тип відкривання", value: "Розсувна (вбік)" },
-      { key: "Профіль", value: "Алюміній" },
-      { key: "Механізм", value: "Роликові направляючі" },
-      { key: "Застосування", value: "Балкони, тераси, двері" },
-      { key: "Колір", value: "Антрацит, білий, на замовлення" },
-    ],
-  },
-
-  "alyuminiievi-sitky": {
-    title: "Для Алюмінієвих Вікон",
-    name: "Сітка для Алюмінієвих Вікон",
-    image: s5,
-    description: `Антимоскітна сітка для алюмінієвих вікон — це легка рамна конструкція, яка щільно прилягає до вікна. Спеціально адаптована для алюмінієвих систем. Легка в монтажі, забезпечує надійний захист без втрати естетики.`,
-    specs: [
-      { key: "Тип", value: "Рамна" },
-      { key: "Матеріал", value: "Алюмінієвий профіль + фіберглас" },
-      { key: "Кріплення", value: "Зовнішнє, з фіксаторами" },
-      { key: "Сумісність", value: "Алюмінієві вікна" },
-      { key: "Колір", value: "Під замовлення" },
-    ],
-  },
-
-  "ramna-sitka": {
-    title: "Рамна Сітка",
-    name: "Рамна Антимоскітна Сітка",
-    image: s6,
-    description: `Класична рамна антимоскітна сітка — просте, надійне та економічне рішення для захисту від комах. Встановлюється зовні вікна за допомогою поворотних кріплень. Підходить для пластикових і дерев'яних вікон.`,
-    specs: [
-      { key: "Тип", value: "Рамна" },
-      { key: "Матеріал", value: "Профіль + сітка з фібергласу" },
-      { key: "Монтаж", value: "Зовнішній" },
-      { key: "Сумісність", value: "ПВХ, дерево" },
-      { key: "Колір", value: "Білий, коричневий" },
-    ],
-  },
-};
 
 export default function WindowPage({ params }) {
   return (
     <>
-      <section className="relative h-[400px] flex items-center justify-center bg-black overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center opacity-40" />
-        <h1 className="relative text-white text-4xl z-10">PLISSE Сітки</h1>
-      </section>
+            <section className="relative h-[600px] flex items-center justify-center bg-black overflow-hidden">
+                    <div
+                      className="absolute inset-0 bg-cover bg-center opacity-40"
+                      style={{
+                        backgroundImage: `url(${hero.src})`,
+                      }}
+                    />
+                    <h1 className="relative text-white text-4xl font-bold z-10">
+  PLISSE Сітки            </h1>
+                  </section>
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row gap-8 items-start">
           <div className="flex-1">

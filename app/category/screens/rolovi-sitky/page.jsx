@@ -19,14 +19,22 @@ import DynamicCalculator from "@/app/components/DynamicCalculator";
 import Link from "next/link";
 import PlisseScreens from "@/app/components/PlisseScreens";
 import blackF from "@/app/assets/images/products/mosquito/rollo/Black.png";
+import hero from "@/app/assets/images/hero/rolle_sitka.jpg"
 
 export default function WindowPage({ params }) {
   return (
     <>
-      <section className="relative h-[400px] flex items-center justify-center bg-black overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center opacity-40" />
-        <h1 className="relative text-white text-4xl z-10">ROLLO Сітки</h1>
-      </section>
+          <section className="relative h-[600px] flex items-center justify-center bg-black overflow-hidden">
+              <div
+                className="absolute inset-0 bg-cover bg-center opacity-40"
+                style={{
+                  backgroundImage: `url(${hero.src})`,
+                }}
+              />
+              <h1 className="relative text-white text-4xl font-bold z-10">
+ROLLO Сітки           </h1>
+            </section>
+    
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row gap-8 items-start">
           <div className="flex-1">
