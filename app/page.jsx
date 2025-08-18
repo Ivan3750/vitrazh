@@ -1,6 +1,7 @@
 import Home from "./components/Home";
 
 
+
 export const metadata = {
   title: "Вікна, двері, скління під ключ — VitraZH | Київ та область",
   description: "Продаж та монтаж металопластикових вікон, дверей, балконів та аксесуарів у Києві та області. Замір, доставка, монтаж — все під ключ. Гарантія якості від VitraZH.",
@@ -26,7 +27,10 @@ export const metadata = {
 
 
 const HomePage = () => {
-  return ( <><Home></Home></> );
+  return ( <><Home></Home>     
+</>
+    
+   );
 }
  
 export default HomePage;

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import check from "@/app/assets/images/icons/check.svg";
 import Ukraine from "@/app/assets/images/products/decor/Ukraine.svg";
-import SectionContact from "@/app/components/SectionContact";
 import g1 from "@/app/assets/images/products/gates/gates-sectional.png";
 import g2 from "@/app/assets/images/products/gates/protective-rolls.jpg";
 import g3 from "@/app/assets/images/products/gates/roll-gates.jpg";
@@ -10,7 +9,6 @@ import GateCalculator from "@/app/components/GateCalculator";
 import protectiveHero from "@/app/assets/images/hero/protective-rolls.jpg"
 import sectionalHero from "@/app/assets/images/hero/gates-sectional.jpg"
 import rollHero from "@/app/assets/images/hero/roll-gates.jpg"
-
 
 export async function generateMetadata({ params }) {
   const data = windowsData[params.gatesandrolls];

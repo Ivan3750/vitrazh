@@ -1,11 +1,8 @@
-import Image from "next/image";
 import check from "@/app/assets/images/icons/check.svg";
-import Ukraine from "@/app/assets/images/products/decor/Ukraine.svg";
 import z1 from "@/app/assets/images/products/blinds/z1.jpg";
 import z2 from "@/app/assets/images/products/blinds/z2.jpg";
 import z3 from "@/app/assets/images/products/blinds/z3.jpg";
 import z4 from "@/app/assets/images/products/blinds/z4.jpg";
-import z5 from "@/app/assets/images/products/blinds/z5.jpg";
 import z6 from "@/app/assets/images/products/blinds/z6.jpg";
 import z7 from "@/app/assets/images/products/blinds/z7.jpg";
 import z8 from "@/app/assets/images/products/blinds/z8.jpg";
@@ -59,9 +56,13 @@ import h6 from "@/app/assets/images/hero/derevjani.jpg";
 import h7 from "@/app/assets/images/hero/rumski.jpg";
 import h8 from "@/app/assets/images/hero/plisse.jpg";
 import h9 from "@/app/assets/images/hero/automatica.jpg";
+import FabricGrid from "@/app/components/FabricGrid";
+import plisse from "@/data/plisse.json"
+import derevyani from "@/data/derevyani.json"
+import tkanynni from "@/data/tkanynni.json"
+import rumski from "@/data/rumski.json"
 
 
-import { Metadata } from "next";
 
 export async function generateMetadata({ params }) {
   const data = blindsData[params.windowblinds];
@@ -119,6 +120,8 @@ const blindsData = {
       { key: "Ширина ламелей", value: "89 мм / 127 мм" },
     ],
     jobs: [vj1, vj2, vj3, vj4, vj5],
+          materials: tkanynni
+
   },
 
   "rulonni-shtory-tkanovi-rolete": {
@@ -133,6 +136,7 @@ const blindsData = {
       { key: "Колір", value: "Великий вибір" },
     ],
     jobs: [tj1, tj2, tj3, tj4, tj5],
+      materials: tkanynni
   },
 
   "den-nich-tkanovi-rolete": {
@@ -146,6 +150,7 @@ const blindsData = {
       { key: "Ширина смуг", value: "50 мм / 75 мм" },
     ],
     jobs: [dj1, dj2, dj3, dj4, dj5],
+      materials: tkanynni
   },
 
   "derevyani-zhalyuzi": {
@@ -159,6 +164,7 @@ const blindsData = {
       { key: "Ширина ламелей", value: "25 мм / 50 мм" },
     ],
     jobs: [dej1, dej2, dej3, dej4, dej5],
+      materials: derevyani
   },
 
   "rymski-shtory": {
@@ -172,6 +178,7 @@ const blindsData = {
       { key: "Управління", value: "Ланцюг або мотор" },
     ],
     jobs: [rj1, rj2, rj3, rj4, rj5],
+      materials: rumski
   },
 
   "zhalyuzi-plysse": {
@@ -185,6 +192,7 @@ const blindsData = {
       { key: "Монтаж", value: "На штапик або раму" },
     ],
     jobs: [pj1, pj2, pj3, pj4, pj5],
+    materials: plisse
   },
 
 "avtomatyka-zhalyuzi": {
@@ -234,7 +242,6 @@ export default function WindowPage({ params }) {
             <img
               src={data.image.src}
               alt={data.name}
-              fill
               style={{ objectFit: "cover" }}
               sizes="(min-width: 768px) 400px, 100vw"
             />
@@ -327,6 +334,7 @@ export default function WindowPage({ params }) {
 
       </section>
       <DynamicCalculator productType={params.windowblinds}></DynamicCalculator>
+      {data.materials && <FabricGrid products={data.materials}></FabricGrid>} 
     </>
   );
 }
