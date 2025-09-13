@@ -243,34 +243,7 @@ export default function WindowPage({ params }) {
         </div>
       </section>
 
-      <section className="px-6 py-12 gap-[30px] justify-between mc mx-auto text-sm flex space-y-6">
-        <div>
-          <h2 className="text-xl mb-2">{data.name}</h2>
-          <p className="text-[#555555] text-[18px] max-w-[500px] mb-5">
-            Профіль REHAU Euro-Design 60 має трьохкамерну будову з монтажною глибиною 60 мм. За вимогами ДСТУ система рекомендована до застосування в ІІ температурній зоні України (Південь країни та Закарпаття). В І температурній зоні така система застосовується для технічних та нежитлових приміщень.
-          </p>
-          <div className="flex gap-5">
-            <div className="flex items-center gap-2">
-              <div className="bg-transperant p-[8px] border-[#d8f422] border-2 rounded-full">
-                <div className="w-[29px] h-[29px] bg-[#D8F422] rounded-full" />
-              </div>
-              <p className="text-[16px]">EURO-DESIGN 70</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="bg-transperant p-[8px] border-[#F8F7F0] border-2 rounded-full">
-                <div className="w-[29px] h-[29px] bg-[#F8F7F0] rounded-full" />
-              </div>
-              <p className="text-[16px]">EURO-DESIGN 60</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex gap-4 items-center">
-          <div>
-            <img src={Ukraine.src} alt="Карта України" width={690} height={460} />
-          </div>
-        </div>
-      </section>
+    
 
 <section className="px-6 py-12 max-w-6xl mx-auto">
   <div className="relative flex flex-col md:flex-row bg-white rounded-2xl  overflow-hidden">

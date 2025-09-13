@@ -153,7 +153,7 @@ const handleSubmit = () => {
                 }}
                 className="hidden"
               />
-              <img src={img.src} alt={label} className="w-36 h-36 object-cover rounded mb-3" />
+              <img src={img} alt={label} className="w-36 h-36 object-cover rounded mb-3" />
               <span className="text-sm font-medium text-center">{label}</span>
             </label>
           ))}
@@ -180,7 +180,7 @@ const handleSubmit = () => {
                   onChange={() => setLiftType(label)}
                   className="hidden"
                 />
-                <img src={img.src} alt={label} className="w-32 h-32 object-cover rounded mb-3" />
+                <img src={img} alt={label} className="w-32 h-32 object-cover rounded mb-3" />
                 <span className="text-sm font-medium text-center">{label}</span>
               </label>
             ))}

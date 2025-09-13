@@ -28,7 +28,7 @@ const WindowPage = () => {
   const products = [
   {
     id: 1,
-    name: "міжкімнатні перегородки",
+    name: "Міжкімнатні перегородки",
     img: a1,
     link:"/category/aluminium-systems/office-partitions"
   },

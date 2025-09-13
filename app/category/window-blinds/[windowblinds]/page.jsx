@@ -303,7 +303,7 @@ export default function WindowPage({ params }) {
       </section>
       <section className="px-6 py-12 mx-auto">
         <h2 className="text-4xl md:text-[48px] mb-10 text-center ">
-          Типи москітних сіток
+          Приклад робіт
         </h2>
 
       <div className="flex flex-col md:flex-row flex-wrap justify-center gap-6 mx-auto">

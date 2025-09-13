@@ -51,7 +51,7 @@ const WindowPage = () => {
         </h1>
       </section>
 
-      <ProductList products={products} />
+      <ProductList products={products} gridN={3}/>
     </>
   );
 };

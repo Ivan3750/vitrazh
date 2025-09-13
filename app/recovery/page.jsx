@@ -127,7 +127,7 @@ const Recovery = () => {
               width={600}
               height={450}
               alt="Процес роботи"
-              className="mt-[40px] w-full h-auto object-contain"
+              className="mt-[40px] w-full h-auto object-contain max-w-[300px]"
             />
           </div>
 

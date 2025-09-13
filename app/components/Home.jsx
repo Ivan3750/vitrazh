@@ -4,16 +4,14 @@ const items = ["Вікна", "Сітки", "Ролети", "Жалюзі", "Во
 import w from "@/app/assets/images/products/category/window-cat.jpg";
 import al from "@/app/assets/images/products/category/2.jpg";
 import fw from "@/app/assets/images/products/category/4.png";
-import r from "@/app/assets/images/products/category/5.jpg";
-import blinds from "@/app/assets/images/products/category/8.jpg";
+import r from "@/app/assets/images/products/category/8.jpg";
+import blinds from "@/app/assets/images/products/category/5.jpg";
 import gates from "@/app/assets/images/products/category/9.jpg";
 import check from "@/app/assets/images/icons/check.svg";
 import job1 from "@/app/assets/images/jobs/job (1).jpg";
 import job2 from "@/app/assets/images/jobs/job (2).jpg";
 import job3 from "@/app/assets/images/jobs/job (3).jpg";
 import job4 from "@/app/assets/images/jobs/job (4).jpg";
-import CountUp from "react-countup";
-
 import AutoSlider from "@/app/components/AutoSlider";
 import WorkProcess from "@/app/assets/images/homepage/Work Process Banner.png";
 import color1 from "@/app/assets/images/homepage/color1.png";
@@ -92,7 +90,7 @@ export default function Home() {
       {[
         { href: "/category/windows", src: w, title: "Вікна" },
         { href: "/category/aluminium-systems", src: al, title: "Алюмінієві системи" },
-        { href: "/category/facades", src: fw, title: "Фасади" },
+        { href: "/category/facades", src: fw, title: "Фурнітура" },
         { href: "/category/gates-and-rolls", src: r, title: "Ролети та ворота" },
         { href: "/category/window-blinds", src: blinds, title: "Жалюзі" },
         { href: "/category/gates-and-rolls", src: gates, title: "Гаражні ворота" },

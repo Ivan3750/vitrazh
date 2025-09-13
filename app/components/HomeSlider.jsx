@@ -10,26 +10,26 @@ import img4 from "@/app/assets/images/gallery/home/4.jpg";
  
 const slides = [
   {
-    heading: "Жалюзі та ролети",
-    subheading: "Стильне рішення для вашого вікна",
+    heading: "Вікна та Двері WDS",
+    subheading: "Надійність, стиль та енергоефективність для вашого дому",
     link: "/category/window-blinds",
     image: img1,
   },
   {
-    heading: "Алюмінієві системи",
-    subheading: "Надійні та сучасні розсувні двері",
+    heading: "Жалюзі вертикальні тканинні",
+    subheading: "Практичне рішення для захисту від сонця та створення затишку",
     link: "/category/aluminium-systems",
     image: img2,
   },
   {
-    heading: "Москітні сітки",
-    subheading: "Захист від комах та комфорт у вашому домі",
+    heading: "Тканинні Ролети на вікна",
+    subheading: "Сучасний дизайн та просте керування світлом у кімнаті",
     link: "/category/screens",
     image: img3,
   },
   {
     heading: "Енергозберігаючі вікна",
-    subheading: "Тепло та затишок у будь-яку пору року",
+    subheading: "Зменшення тепловтрат та економія на опаленні",
     link: "/category/windows",
     image: img4,
   },
