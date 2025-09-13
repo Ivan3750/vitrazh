@@ -1,16 +1,10 @@
 "use client";
-import Image from "next/image";
-import HeroImg from "../assets/medium-shot-man-holding-drill.jpg";
 import Mark from "@/app/assets/Marquee Icon.svg";
 const items = ["Вікна", "Сітки", "Ролети", "Жалюзі", "Ворота", "Алюмінієві системи", "Фурнітури"];
-import WDS from "@/app/assets/images/products/category/1.png";
 import w from "@/app/assets/images/products/category/window-cat.jpg";
 import al from "@/app/assets/images/products/category/2.jpg";
-import rehau from "@/app/assets/images/products/category/3.jpg";
 import fw from "@/app/assets/images/products/category/4.png";
 import r from "@/app/assets/images/products/category/5.jpg";
-import it from "@/app/assets/images/products/category/6.png";
-import fix from "@/app/assets/images/products/category/7.jpg";
 import blinds from "@/app/assets/images/products/category/8.jpg";
 import gates from "@/app/assets/images/products/category/9.jpg";
 import check from "@/app/assets/images/icons/check.svg";
@@ -18,6 +12,7 @@ import job1 from "@/app/assets/images/jobs/job (1).jpg";
 import job2 from "@/app/assets/images/jobs/job (2).jpg";
 import job3 from "@/app/assets/images/jobs/job (3).jpg";
 import job4 from "@/app/assets/images/jobs/job (4).jpg";
+import CountUp from "react-countup";
 
 import AutoSlider from "@/app/components/AutoSlider";
 import WorkProcess from "@/app/assets/images/homepage/Work Process Banner.png";
@@ -44,7 +39,8 @@ import cirklewindow from "@/app/assets/images/homepage/cirklewindow.png";
 import arrowwindow from "@/app/assets/images/homepage/arrowwindow.png";
 import { useState } from "react";
 import Link from "next/link";
-import Head from "next/head";
+import HomeSlider from "./HomeSlider";
+import StatsSection from "./StatsSection";
 
 
 
@@ -65,29 +61,8 @@ export default function Home() {
   ];
   return (
     <>
+<HomeSlider/>
 
-      <section className="bg-[#0F0F0F] min-h-screen text-white pt-[100px] px-4 sm:px-6 md:px-10 flex flex-col lg:flex-row items-center justify-between gap-8">
-        <div className="text-center lg:text-left max-w-3xl">
-          <h1 className="text-[32px] sm:text-[40px] md:text-[48px] leading-tight  my-[20px]">
-            Вікна, двері та ворота під ключ
-          </h1>
-          <p className="text-[16px] sm:text-[18px] md:text-[20px] max-w-xl mx-auto lg:mx-0">
-            Пропонуємо енергоефективні вікна, надійні двері та сучасні фасадні
-            системи з професійним монтажем. Працюємо по всій Україні для
-            приватних будинків, квартир та бізнес-об’єктів.
-          </p>
-        </div>
-
-        <div className="w-full max-w-[400px] sm:max-w-[500px] lg:max-w-[537px]">
-          <img
-            src={HeroImg.src}
-            alt="Вікна"
-            width={537}
-            height={590}
-            className="rounded-sm w-full h-auto"
-          />
-        </div>
-      </section>
 
       <div className="relative overflow-hidden w-full h-[90px] bg-[#d8f422] flex items-center">
         <div className="flex animate-marquee whitespace-nowrap">
@@ -107,66 +82,44 @@ export default function Home() {
           ))}
         </div>
       </div>
-      <section className="bg-[#F8F7F0] py-[100px]">
-        <div className="mc">
-          <h2 className="mb-[70px] text-[42px] sm:text-[56px] md:text-[64px]">
-            Каталог Товару
-          </h2>
+<section className="bg-[#F8F7F0] py-[100px]">
+  <div className="mc">
+    <h2 className="mb-[70px] text-[42px] sm:text-[56px] md:text-[64px]">
+      Каталог Товару
+    </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
-  {[
-    { href: "/category/windows", src: w, title: "Вікна" },
-    { href: "/category/aluminium-systems", src: al, title: "Алюмінієві системи" },
-    { href: "/category/facades", src: fw, title: "Фасади" },
-    { href: "/category/gates-and-rolls", src: r, title: "Ролети та ворота" },
-    { href: "/category/window-blinds", src: blinds, title: "Жалюзі" },
-    { href: "/category/gates-and-rolls", src: gates, title: "Гаражні ворота" },
-  ].map(({ href, src, title }, i) => (
-    <Link href={href} key={i} className="relative group">
-      <img
-        src={src.src}
-        alt={`Зображення: ${title}`}
-        width={380}
-        height={380}
-        className="w-full h-[300px] sm:h-[340px] lg:h-[380px] object-cover rounded-sm hover:scale-[0.98] transition-transform cursor-pointer"
-      />
-      <div className="absolute inset-0 bg-[#00000085] bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-sm">
-        <span className="text-white text-xl font-semibold">{title}</span>
-      </div>
-    </Link>
-  ))}
-</div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+      {[
+        { href: "/category/windows", src: w, title: "Вікна" },
+        { href: "/category/aluminium-systems", src: al, title: "Алюмінієві системи" },
+        { href: "/category/facades", src: fw, title: "Фасади" },
+        { href: "/category/gates-and-rolls", src: r, title: "Ролети та ворота" },
+        { href: "/category/window-blinds", src: blinds, title: "Жалюзі" },
+        { href: "/category/gates-and-rolls", src: gates, title: "Гаражні ворота" },
+      ].map(({ href, src, title }, i) => (
+        <Link href={href} key={i} className="group block rounded-sm overflow-hidden">
+          <div className="relative">
+            <img
+              src={src.src}
+              alt={`Зображення: ${title}`}
+              width={380}
+              height={380}
+              className="w-full h-[300px] sm:h-[340px] lg:h-[380px] object-cover rounded-sm transition-transform group-hover:scale-[0.98]"
+            />
+            {/* Легка затемнення при наведенні */}
+            <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-30 transition-opacity rounded-sm"></div>
+          </div>
+          {/* Текст під фото */}
+          <div className="mt-3 text-center">
+            <span className="text-xl sm:text-xl font-semibold text-gray-900">{title}</span>
+          </div>
+        </Link>
+      ))}
+    </div>
+  </div>
+</section>
 
-        </div>
-      </section>
-
-      <section className="bg-black">
-        <div className="mc flex flex-col sm:flex-row flex-wrap justify-between py-[70px] px-[15px] gap-y-8 sm:gap-y-0">
-          {[
-            { number: "13", suffix: "тис", text: "завершених проектів" },
-            { number: "10", suffix: "тис", text: "задоволених клієнтів" },
-            { number: "94%", suffix: "", text: "рівень успішності" },
-            { number: "150+", suffix: "", text: "професіоналів" },
-          ].map(({ number, suffix, text }, i) => (
-            <div
-              key={i}
-              className="flex flex-col items-center sm:items-start sm:w-[22%]"
-            >
-              <h3 className="text-[48px] sm:text-[70px] leading-[1] text-white ">
-                {number}
-                {suffix && (
-                  <span className="text-[20px] sm:text-[30px]  ml-1">
-                    {suffix}
-                  </span>
-                )}
-              </h3>
-              <p className="text-white uppercase text-base sm:text-xl mt-2 text-center sm:text-left">
-                {text}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
+<StatsSection/>
 
       <section className="py-[100px]">
         <div className="mc">

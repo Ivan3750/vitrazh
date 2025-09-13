@@ -19,11 +19,11 @@ const profiles = [
     name: "WDS 5S",
     img: wds5s,
   },
-  {
+/*   {
     id: 2,
     name: "WDS 6S",
     img: wds6s,
-  },
+  }, */
   {
     id: 3,
     name: "WDS 76AD",

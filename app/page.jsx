@@ -27,8 +27,8 @@ export const metadata = {
 
 
 const HomePage = () => {
-  return ( <><Home></Home>     
-</>
+  return (<Home/> 
+
     
    );
 }
