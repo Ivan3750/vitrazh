@@ -3,7 +3,23 @@ import b from "@/app/assets/images/products/mosquito/background.jpg";
 import g1 from "@/app/assets/images/products/gates/gates-sectional.png";
 import g2 from "@/app/assets/images/products/gates/protective-rolls.jpg";
 import g3 from "@/app/assets/images/products/gates/roll-gates.jpg";
-import Head from "next/head"; // Для класичного підходу
+
+
+export const metadata = {
+  title: "Ворота та ролети | Купити гаражні та ролетні ворота в Україні",
+  description: " Продаж гаражних воріт, ролетних воріт та захисних ролет на вікна. Якісні ворота від провідних виробників для дому та бізнесу.",
+  keywords: "ворота, гаражні ворота, ролетні ворота, захисні ролети, купити ворота, Україна",
+  openGraph: {
+    title: "Ворота та ролети | Купити гаражні та ролетні ворота в Україні",
+    description: "родаж гаражних воріт, ролетних воріт та захисних ролет на вікна. ",
+    url: "https://vitrazh.com.ua/category/window-blinds",
+  },
+  twitter: {
+    title: "Ворота та ролети | Купити гаражні та ролетні ворота в Україні",
+    description: "родаж гаражних воріт, ролетних воріт та захисних ролет на вікна. ",
+  },
+};
+
 
 const WindowPage = () => {
   const products = [
@@ -27,17 +43,11 @@ const WindowPage = () => {
     },
   ];
 
+
+  
   return (
     <>
-      <Head>
-        <title>Ворота та ролети | Купити гаражні та ролетні ворота в Україні</title>
-        <meta name="description" content="Продаж гаражних воріт, ролетних воріт та захисних ролет на вікна. Якісні ворота від провідних виробників для дому та бізнесу." />
-        <meta name="keywords" content="ворота, гаражні ворота, ролетні ворота, захисні ролети, купити ворота, Україна" />
-        <meta property="og:title" content="Ворота та ролети | Купити гаражні та ролетні ворота в Україні" />
-        <meta property="og:description" content="Продаж гаражних воріт, ролетних воріт та захисних ролет на вікна. Якісні ворота від провідних виробників для дому та бізнесу." />
-        <meta property="og:image" content={b.src} />
-        <meta property="og:type" content="website" />
-      </Head>
+  
 
       <section className="relative h-[600px] flex items-center justify-center bg-black overflow-hidden">
         <div

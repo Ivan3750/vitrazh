@@ -19,6 +19,27 @@ import antipul from "@/app/assets/images/gallery/antipul.webp";
 import anticat from "@/app/assets/images/gallery/anticat.webp";
 import hero from "@/app/assets/images/hero/aluminium_sitka.jpg"
 
+
+export const metadata = {
+  title: "Москітні сітки для алюмінієвих вікон | Aluprof Україна",
+  description:
+    "Купити москітні сітки для алюмінієвих вікон. Aluprof — надійні алюмінієві профілі, полотна Fiberglass, UltraView, Антипил, Антикішка. Захист від комах та пилу.",
+  keywords:
+    "москітні сітки, алюмінієві вікна, москітні сітки Aluprof, алюмінієві москітні сітки, сітки від комах, купити москітні сітки Україна",
+  openGraph: {
+    title: "Москітні сітки для алюмінієвих вікон | Aluprof Україна",
+    description:
+      "Фіксовані алюмінієві москітні сітки MRSZ з полотнами: Fiberglass, UltraView, Антипил, Антикішка. Довговічність і надійний захист.",
+    url: "https://vitrazh.com.ua/category/alyuminiievi-sitky",
+  },
+  twitter: {
+    title: "Москітні сітки для алюмінієвих вікон | Aluprof Україна",
+    description:
+      "Алюмінієві москітні сітки для вікон. Якісні профілі Aluprof, кілька типів полотна, захист від комах та пилу.",
+  },
+};
+
+
 export default function WindowPage() {
   return (
     <>
@@ -111,11 +132,11 @@ export default function WindowPage() {
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <PlisseScreens
           profileColors={[
-            { src: white, label: "Білий" },
-            { src: brown, label: "Коричневий" },
-            { src: anthracite, label: "Антрацит" },
+            { src: white.src, label: "Білий" },
+            { src: brown.src, label: "Коричневий" },
+            { src: anthracite.src, label: "Антрацит" },
           ]}
-          furnitureColors={[{ src: blackF, label: "Чорний" }]}
+          furnitureColors={[{ src: blackF.src, label: "Чорний" }]}
           products={[
             {
               id: "MRSZ — фіксована сітка.",

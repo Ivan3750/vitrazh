@@ -29,6 +29,26 @@ import Link from "next/link";
 import PlisseScreens from "@/app/components/PlisseScreens";
 import hero from "@/app/assets/images/hero/ramna_sitka.jpg"
 
+export const metadata = {
+  title: "Рамні Сітки | Антимоскітні сітки для вікон та дверей",
+  description:
+    "Купити рамні антимоскітні сітки для вікон та дверей. Легке встановлення, міцна алюмінієва рамка, захист від комах та пилу. Надійні рішення для дому та офісу.",
+  keywords:
+    "рамні сітки, антимоскітні сітки, сітки для вікон, сітки для дверей, алюмінієві сітки, купити рамні сітки, Україна",
+  openGraph: {
+    title: "Рамні Сітки | Антимоскітні сітки для вікон та дверей",
+    description:
+      "Рамні сітки з алюмінієвим профілем та натягнутим полотном сітки. Легке встановлення, зручна експлуатація, ефективний захист від комах.",
+    url: "https://vitrazh.com.ua/category/ramna-sitka",
+  },
+  twitter: {
+    title: "Рамні Сітки | Антимоскітні сітки для вікон та дверей",
+    description:
+      "Купити рамні антимоскітні сітки. Міцна алюмінієва рамка, захист від комах та пилу, легке встановлення та обслуговування.",
+  },
+};
+
+
 export default function WindowPage() {
   return (
     <>
@@ -73,14 +93,14 @@ export default function WindowPage() {
       </section>
       <PlisseScreens
         profileColors={[
-          { src: white1, label: "Білий" },
-          { src: brown1, label: "Коричневий " },
-          { src: anthracite1, label: "Антрацит" },
+          { src: white1.src, label: "Білий" },
+          { src: brown1.src, label: "Коричневий " },
+          { src: anthracite1.src, label: "Антрацит" },
         ]}
         furnitureColors={[
-          { src: whiteF, label: "Білий" },
-          { src: brownF, label: "Коричневий" },
-          { src: anthraciteF, label: "Антрацит" },
+          { src: whiteF.src, label: "Білий" },
+          { src: brownF.src, label: "Коричневий" },
+          { src: anthraciteF.src, label: "Антрацит" },
         ]}
         products={[
           {
@@ -94,15 +114,15 @@ export default function WindowPage() {
       </div>
       <PlisseScreens
         profileColors={[
-          { src: white2, label: "Білий" },
-          { src: brown2, label: "Коричневий " },
-          { src: anthracite2, label: "Антрацит" },
-          { src: gold2, label: "Золотий дуб" },
+          { src: white2.src, label: "Білий" },
+          { src: brown2.src, label: "Коричневий " },
+          { src: anthracite2.src, label: "Антрацит" },
+          { src: gold2.src, label: "Золотий дуб" },
         ]}
         furnitureColors={[
-          { src: whiteF, label: "Білий" },
-          { src: brownF, label: "Коричневий" },
-          { src: anthraciteF, label: "Антрацит" },
+          { src: whiteF.src, label: "Білий" },
+          { src: brownF.src, label: "Коричневий" },
+          { src: anthraciteF.src, label: "Антрацит" },
         ]}
         products={[
           {

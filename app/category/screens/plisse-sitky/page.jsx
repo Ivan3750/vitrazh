@@ -29,6 +29,24 @@ import Link from "next/link";
 import PlisseScreens from "@/app/components/PlisseScreens";
 import hero from "@/app/assets/images/hero/plisse_sitka.jpg"
 
+export const metadata = {
+  title: "PLISSE Сітки | Антимоскітні сітки для дверей та балконів",
+  description:
+    "Купити PLISSE сітки для дверей та балконів. Гармошкоподібні антимоскітні сітки з алюмінієвим профілем. Надійний захист від комах і пилу.",
+  keywords:
+    "PLISSE сітки, антимоскітні сітки, сітки гармошка, сітки для дверей, сітки для балконів, купити PLISSE, Україна",
+  openGraph: {
+    title: "PLISSE Сітки | Антимоскітні сітки для дверей та балконів",
+    description:
+      "Гармошкоподібні PLISSE сітки з алюмінієвим профілем для дверей та балконів. Легка конструкція, що легко складається в паз, ефективний захист від комах.",
+    url: "https://vitrazh.com.ua/category/plisse-sitky",
+  },
+  twitter: {
+    title: "PLISSE Сітки | Антимоскітні сітки для дверей та балконів",
+    description:
+      "PLISSE сітки для дверей та балконів. Гармошкоподібні, алюмінієвий профіль, захист від комах. Легке відкривання і компактне зберігання.",
+  },
+};
 
 
 export default function WindowPage({ params }) {
@@ -71,14 +89,14 @@ export default function WindowPage({ params }) {
       </section>
       <PlisseScreens
         profileColors={[
-          { src: white, label: "Білий глянець" },
-          { src: brown, label: "Коричневий глянець" },
-          { src: black, label: "Чорний матовий" },
-          { src: anthracite, label: "Антрацит глянець" },
-          { src: gold, label: "Золотий дуб структурний" },
+          { src: white.src, label: "Білий глянець" },
+          { src: brown.src, label: "Коричневий глянець" },
+          { src: black.src, label: "Чорний матовий" },
+          { src: anthracite.src, label: "Антрацит глянець" },
+          { src: gold.src, label: "Золотий дуб структурний" },
         ]}
-        furnitureColors={[{ src: blackF, label: "Чорний" }]}
-        meshOptions={[{ src: screen, label: "Сітка PLISSE" }]}
+        furnitureColors={[{ src: blackF.src, label: "Чорний" }]}
+        meshOptions={[{ src: screen.src, label: "Сітка PLISSE" }]}
         products={[
           {
             id: "PL5",
@@ -92,14 +110,14 @@ export default function WindowPage({ params }) {
         </div>  
       <PlisseScreens
         profileColors={[
-          { src: white, label: "Білий глянець" },
-          { src: brown, label: "Коричневий глянець" },
-          { src: black, label: "Чорний матовий" },
-          { src: anthracite, label: "Антрацит глянець" },
-          { src: gold, label: "Золотий дуб структурний" },
+          { src: white.src, label: "Білий глянець" },
+          { src: brown.src, label: "Коричневий глянець" },
+          { src: black.src, label: "Чорний матовий" },
+          { src: anthracite.src, label: "Антрацит глянець" },
+          { src: gold.src, label: "Золотий дуб структурний" },
         ]}
-        furnitureColors={[{ src: blackF, label: "Чорний" }]}
-        meshOptions={[{ src: screen, label: "Сітка PLISSE" }]}
+        furnitureColors={[{ src: blackF.src, label: "Чорний" }]}
+        meshOptions={[{ src: screen.src, label: "Сітка PLISSE" }]}
         products={[
           {
             id: "PL4",
@@ -113,14 +131,14 @@ export default function WindowPage({ params }) {
         </div>  
       <PlisseScreens
         profileColors={[
-          { src: white, label: "Білий глянець" },
-          { src: brown, label: "Коричневий глянець" },
-          { src: black, label: "Чорний матовий" },
-          { src: anthracite, label: "Антрацит глянець" },
-          { src: gold, label: "Золотий дуб структурний" },
+          { src: white.src, label: "Білий глянець" },
+          { src: brown.src, label: "Коричневий глянець" },
+          { src: black.src, label: "Чорний матовий" },
+          { src: anthracite.src, label: "Антрацит глянець" },
+          { src: gold.src, label: "Золотий дуб структурний" },
         ]}
-        furnitureColors={[{ src: blackF, label: "Чорний" }]}
-        meshOptions={[{ src: screen, label: "Сітка PLISSE" }]}
+        furnitureColors={[{ src: blackF.src, label: "Чорний" }]}
+        meshOptions={[{ src: screen.src, label: "Сітка PLISSE" }]}
         products={[
           {
             id: "PL3",
@@ -134,14 +152,14 @@ export default function WindowPage({ params }) {
         </div>  
       <PlisseScreens
         profileColors={[
-          { src: white, label: "Білий глянець" },
-          { src: brown, label: "Коричневий глянець" },
-          { src: black, label: "Чорний матовий" },
-          { src: anthracite, label: "Антрацит глянець" },
-          { src: gold, label: "Золотий дуб структурний" },
+          { src: white.src, label: "Білий глянець" },
+          { src: brown.src, label: "Коричневий глянець" },
+          { src: black.src, label: "Чорний матовий" },
+          { src: anthracite.src, label: "Антрацит глянець" },
+          { src: gold.src, label: "Золотий дуб структурний" },
         ]}
-        furnitureColors={[{ src: blackF, label: "Чорний" }]}
-        meshOptions={[{ src: screen, label: "Сітка PLISSE" }]}
+        furnitureColors={[{ src: blackF.src, label: "Чорний" }]}
+        meshOptions={[{ src: screen.src, label: "Сітка PLISSE" }]}
         products={[
           {
             id: "PL2",
@@ -155,14 +173,14 @@ export default function WindowPage({ params }) {
         </div>  
       <PlisseScreens
         profileColors={[
-          { src: white, label: "Білий глянець" },
-          { src: brown, label: "Коричневий глянець" },
-          { src: black, label: "Чорний матовий" },
-          { src: anthracite, label: "Антрацит глянець" },
-          { src: gold, label: "Золотий дуб структурний" },
+          { src: white.src, label: "Білий глянець" },
+          { src: brown.src, label: "Коричневий глянець" },
+          { src: black.src, label: "Чорний матовий" },
+          { src: anthracite.src, label: "Антрацит глянець" },
+          { src: gold.src, label: "Золотий дуб структурний" },
         ]}
-        furnitureColors={[{ src: blackF, label: "Чорний" }]}
-        meshOptions={[{ src: screen, label: "Сітка PLISSE" }]}
+        furnitureColors={[{ src: blackF.src, label: "Чорний" }]}
+        meshOptions={[{ src: screen.src, label: "Сітка PLISSE" }]}
         products={[
           {
             id: "PL1",

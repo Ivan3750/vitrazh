@@ -21,6 +21,27 @@ import PlisseScreens from "@/app/components/PlisseScreens";
 import blackF from "@/app/assets/images/products/mosquito/rollo/Black.png";
 import hero from "@/app/assets/images/hero/rolle_sitka.jpg"
 
+export const metadata = {
+  title: "ROLLO Сітки | Ролетні антимоскітні сітки для вікон та дверей",
+  description:
+    "Купити ролетні антимоскітні сітки ROLLO для вікон та дверей. Компактний алюмінієвий короб, вертикальне або горизонтальне відкривання, легка експлуатація та догляд.",
+  keywords:
+    "ролетні сітки, ROLLO сітки, антимоскітні сітки, сітки для вікон, сітки для дверей, купити ролети, Україна",
+  openGraph: {
+    title: "ROLLO Сітки | Ролетні антимоскітні сітки для вікон та дверей",
+    description:
+      "Ролетні антимоскітні сітки з алюмінієвим коробом та пружинним механізмом. Вертикальне або горизонтальне відкривання, захист від комах, легка установка.",
+    url: "https://vitrazh.com.ua/category/rollo-sitky",
+  },
+  twitter: {
+    title: "ROLLO Сітки | Ролетні антимоскітні сітки для вікон та дверей",
+    description:
+      "ROLLO сітки – компактне та сучасне рішення для захисту від комах. Просте встановлення, довговічна конструкція, легке обслуговування.",
+  },
+};
+
+
+
 export default function WindowPage({ params }) {
   return (
     <>
@@ -67,11 +88,11 @@ ROLLO Сітки           </h1>
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <PlisseScreens
           profileColors={[
-            { src: white, label: "Білий" },
-            { src: brown, label: "Коричневий" },
-            { src: anthracite, label: "Антрацит" },
+            { src: white.src, label: "Білий" },
+            { src: brown.src, label: "Коричневий" },
+            { src: anthracite.src, label: "Антрацит" },
           ]}
-          furnitureColors={[{ src: blackF, label: "Чорний" }]}
+          furnitureColors={[{ src: blackF.src, label: "Чорний" }]}
           products={[
             {
               id: "Ролетна Горизонтальна",
@@ -86,12 +107,12 @@ ROLLO Сітки           </h1>
         </div>
         <PlisseScreens
           profileColors={[
-            { src: white, label: "Білий" },
-            { src: brown, label: "Коричневий" },
-            { src: anthracite, label: "Антрацит" },
-            { src: black, label: "Чорний" },
+            { src: white.src, label: "Білий" },
+            { src: brown.src, label: "Коричневий" },
+            { src: anthracite.src, label: "Антрацит" },
+            { src: black.src, label: "Чорний" },
           ]}
-          furnitureColors={[{ src: blackF, label: "Чорний" }]}
+          furnitureColors={[{ src: blackF.src, label: "Чорний" }]}
           products={[
             {
               id: "Ролетна Вертикальна",

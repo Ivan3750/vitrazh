@@ -25,6 +25,27 @@ import antipul from "@/app/assets/images/gallery/antipul.webp";
 import anticat from "@/app/assets/images/gallery/anticat.webp";
 import hero from "@/app/assets/images/hero/dverna_sitka.jpg"
 
+
+export const metadata = {
+  title: "Дверні москітні сітки | Купити антимоскітні сітки для дверей",
+  description:
+    "Продаж дверних антимоскітних сіток. Надійні алюмінієві рамні конструкції з петлями, імпостом та магнітами. Захист від комах для дому та бізнесу.",
+  keywords:
+    "дверні сітки, антимоскітні сітки, москітні сітки для дверей, сітки на двері, купити сітки, Україна",
+  openGraph: {
+    title: "Дверні москітні сітки | Купити антимоскітні сітки для дверей",
+    description:
+      "Алюмінієві дверні сітки з магнітним замком та петлями. Ефективний захист від комах для приватних будинків та офісів.",
+    url: "https://vitrazh.com.ua/category/dverni-sitky",
+  },
+  twitter: {
+    title: "Дверні москітні сітки | Купити антимоскітні сітки для дверей",
+    description:
+      "Надійні дверні антимоскітні сітки для дому та бізнесу. Легко встановлюються, захищають від комах.",
+  },
+};
+
+
 export default function WindowPage() {
   return (
     <>
@@ -66,11 +87,11 @@ export default function WindowPage() {
       </section>
       <PlisseScreens
         profileColors={[
-          { src: white, label: "Білий" },
-          { src: brown, label: "Коричневий " },
-          { src: anthracite, label: "Антрацит" },
+          { src: white.src, label: "Білий" },
+          { src: brown.src, label: "Коричневий " },
+          { src: anthracite.src, label: "Антрацит" },
         ]}
-        furnitureColors={[{ src: whiteF, label: "Білий" }, { src: brownF, label: "Коричневий" }, { src: anthraciteF, label: "Антрацит" }]}
+        furnitureColors={[{ src: whiteF.src, label: "Білий" }, { src: brownF.src, label: "Коричневий" }, { src: anthraciteF.src, label: "Антрацит" }]}
         products={[
           {
             id: "ПРОФІЛЬ 13*32",

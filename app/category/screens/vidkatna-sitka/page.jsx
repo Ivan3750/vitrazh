@@ -17,11 +17,39 @@ import z from "@/app/assets/images/products/mosquito/vidkatna/ist-z.jpg.webp"
 import e from "@/app/assets/images/products/mosquito/vidkatna/ist-e.jpg.webp"
 import hero from "@/app/assets/images/hero/vidkatna_sitka.jpg"
 
+export const metadata = {
+  title: "Відкатні Сітки | Антимоскітні сітки для балконів, терас та великих вікон",
+  description:
+    "Відкатні антимоскітні сітки для балконів, терас, зимових садів і великих вікон. Надійний захист від комах, різноманіття систем Slide IST Z та IST E, легка експлуатація та довговічність.",
+  keywords:
+    "відкатні сітки, антимоскітні сітки, москітні сітки для балконів, сітки для терас, RZ Z, RZ E, купити сітку відкатну, захист від комах",
+  openGraph: {
+    title: "Відкатні Сітки | Антимоскітні сітки для балконів, терас та великих вікон",
+    description:
+      "Сітки Slide IST Z та IST E – розсувні системи для великих прорізів, зручне встановлення та ефективний захист від комах.",
+    url: "https://vitrazh.com.ua/category/vidkatni-sitky",
+    images: [
+      {
+        url: hero.src,
+        width: 1200,
+        height: 630,
+        alt: "Відкатні антимоскітні сітки",
+      },
+    ],
+  },
+  twitter: {
+    title: "Відкатні Сітки | Антимоскітні сітки для балконів та великих вікон",
+    description:
+      "Відкатні антимоскітні сітки – надійний захист від комах для великих прорізів. Slide IST Z та IST E системи.",
+    card: "summary_large_image",
+  },
+};
+
 
   const systems = [
     {
       title: "Розсувна система Slide з основою IST Z",
-      image: z.src,
+      image: z,
       description: `Раму сітки можна використовувати для підйомно-зсувних конструкцій, дверей зимових садів, балконів та багатосекційних вікон. Ефективний захист, що практично невидимий. Доступний у різних виконаннях.`,
       sizes: {
         minWidth: 1200,
@@ -33,7 +61,7 @@ import hero from "@/app/assets/images/hero/vidkatna_sitka.jpg"
     },
     {
       title: "Розсувна система Slide з направляючими IST E",
-      image: e.src,
+      image: e,
       description: `Ідеально інтегрована сітка для вікон, балконів, зимових садів і складних склопакетів. Не потребує ручок. Надійний захист при мінімальній видимості.`,
       sizes: {
         minWidth: 600,
