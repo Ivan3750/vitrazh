@@ -132,9 +132,9 @@ export default function RootLayout({ children }) {
           </button>
 
           <div className="hidden md:flex gap-2">
-            <Link
+              <Link
               href="/calc"
-              className="p-[10px] bg-white text-black rounded-full text-[24px] flex justify-center items-center"
+              className="px-[16px] py-[10px] rounded-sm bg-white text-black text-md uppercase"
             >
               Калькулятор
             </Link>
