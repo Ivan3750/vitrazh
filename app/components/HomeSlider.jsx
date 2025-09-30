@@ -24,7 +24,7 @@ const slides = [
   {
     heading: "Тканинні Ролети на вікна",
     subheading: "Сучасний дизайн та просте керування світлом у кімнаті",
-    link: "/category/screens",
+    link: "/category/gates-and-rolls",
     image: img3,
   },
   {

@@ -89,7 +89,7 @@ export default function RootLayout({ children }) {
                   href="/category/aluminium-systems"
                   className="block px-4 py-2 hover:bg-[#333] whitespace-nowrap"
                 >
-                  Алюмінієві системи
+                  Офісні перегородки
                 </Link>
                 <Link
                   href="/category/gates-and-rolls"
@@ -108,6 +108,12 @@ export default function RootLayout({ children }) {
                   className="block px-4 py-2 hover:bg-[#333] whitespace-nowrap"
                 >
                   Фурнітури
+                </Link>
+                <Link
+                  href="/"
+                  className="block px-4 py-2 hover:bg-[#333] whitespace-nowrap"
+                >
+                  Вітражні Вікна
                 </Link>
               </div>
             </div>
@@ -130,7 +136,7 @@ export default function RootLayout({ children }) {
               href="/calc"
               className="p-[10px] bg-white text-black rounded-full text-[24px] flex justify-center items-center"
             >
-              <FaCalculator />
+              Калькулятор
             </Link>
             <Link
               href="/contact"
