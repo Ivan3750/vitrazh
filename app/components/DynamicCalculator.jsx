@@ -4,6 +4,9 @@ import { useState } from "react";
 
 export default function DynamicCalculator({ productType }) {
   const [form, setForm] = useState({
+        name: "",
+    phone: "",
+    email: "",
     width: "",
     height: "",
     quantity: 1,
@@ -45,7 +48,14 @@ export default function DynamicCalculator({ productType }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+   if (!form.phone.trim()) {
+      alert("Вкажіть номер телефону!");
+      return;
+    }
+    if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      alert("Вкажіть коректний e-mail!");
+      return;
+    }
     fetch("/order_mosquito.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -72,6 +82,39 @@ export default function DynamicCalculator({ productType }) {
         </h3>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+           <div className="flex flex-col">
+              <label>Ім’я:</label>
+              <input
+                type="text"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                className="p-2 border rounded"
+                required
+              />
+            </div>
+            <div className="flex flex-col">
+              <label>Телефон:</label>
+              <input
+                type="tel"
+                name="phone"
+                value={form.phone}
+                onChange={handleChange}
+                className="p-2 border rounded"
+                required
+              />
+            </div>
+            <div className="flex flex-col">
+              <label>E-mail:</label>
+              <input
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                className="p-2 border rounded"
+              />
+            </div>
+ 
           {/* Width */}
           <div className="flex flex-col">
             <label>Ширина (мм):</label>

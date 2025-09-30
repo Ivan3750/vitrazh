@@ -32,42 +32,79 @@ export default function RolletCalc() {
   const [height, setHeight] = useState(2000);
   const [profile, setProfile] = useState("TAP39");
   const [montage, setMontage] = useState("inset");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
 
   const handleSubmit = () => {
- const rolletData = {
-    width,
-    height,
-    profile,
-    montage
-};
+    const rolletData = {
+      width,
+      height,
+      profile,
+      montage,
+      name,
+      phone,
+      email,
+    };
 
-fetch('/order_mosquito.php', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(mosquitoData)
-})
-.then(response => response.json())
-.then(data => {
-    if (data.success) {
-        window.location.href = data.redirect; // Перекидаємо на сторінку "Дякую"
-    } else {
-        alert('Помилка відправки: ' + data.message);
-    }
-})
-.catch(err => {
-    console.error(err);
-    alert('Помилка при відправці форми.');
-});
-
-
+    fetch("/order_mosquito.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(rolletData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          window.location.href = data.redirect;
+        } else {
+          alert("Помилка відправки: " + data.message);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        alert("Помилка при відправці форми.");
+      });
   };
 
   return (
     <section className="px-6 py-12 max-w-6xl mx-auto">
       <div className="bg-[#F8F7F0] p-10 rounded-md ">
-        <h2 className="text-3xl font-bold mb-6 text-center uppercase">Калькулятор роллет</h2>
+        <h2 className="text-3xl font-bold mb-6 text-center uppercase">
+          Калькулятор роллет
+        </h2>
+
+        {/* Контактні дані */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
+          <div>
+            <label className="block mb-2 font-medium">Ім’я:</label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-[#D8F422]"
+            />
+          </div>
+          <div>
+            <label className="block mb-2 font-medium">Телефон:</label>
+            <input
+              type="tel"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              className="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-[#D8F422]"
+            />
+          </div>
+          <div>
+            <label className="block mb-2 font-medium">E-mail:</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-[#D8F422]"
+            />
+          </div>
+        </div>
 
         {/* Розміри */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">

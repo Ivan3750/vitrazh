@@ -82,8 +82,7 @@ const Price = () => {
                 <p className="mt-4 text-3xl font-extrabold text-[#bed62f]">
                   {price}
                 </p>
-                <p className="text-sm text-gray-600">{installment}</p>
-              </div>
+               </div>
                 </Link>
             );
           }
