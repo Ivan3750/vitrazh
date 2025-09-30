@@ -1,6 +1,5 @@
 import Button from "./Button";
-import Link from "next/link";
-
+ 
 const SectionContact = ({ title = "Хочете дізнатися точну вартість?", text, name = "Розрахувати" }) => {
   return (
     <section className="my-10">
@@ -8,9 +7,7 @@ const SectionContact = ({ title = "Хочете дізнатися точну в
         <p className="text-4xl font-semibold">{title}</p>
         {text && <p className="mt-4 text-lg">{text}</p>}
         <div className="flex justify-center mt-6">
-          <Link href="/calc">
-            <Button name={name} />
-          </Link>
+            <Button name={name} link="/calc" />
         </div>
       </div>
     </section>
