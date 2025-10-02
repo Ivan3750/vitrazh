@@ -12,13 +12,13 @@ const slides = [
   {
     heading: "Вікна та Двері WDS",
     subheading: "Надійність, стиль та енергоефективність для вашого дому",
-    link: "/category/window-blinds",
+    link: "/category/windows",
     image: img1,
   },
   {
     heading: "Жалюзі вертикальні тканинні",
     subheading: "Практичне рішення для захисту від сонця та створення затишку",
-    link: "/category/aluminium-systems",
+    link: "/category/window-blinds",
     image: img2,
   },
   {

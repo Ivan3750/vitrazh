@@ -179,7 +179,7 @@ export default function RootLayout({ children }) {
                 href="/category/aluminium-systems"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Алюмінієві системи
+                Офісні перегородки
               </Link>
               <Link
                 href="/category/gates-and-rolls"

@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
 
-const StepNavigation = ({ step, nextStep, prevStep }) => {
-  const steps = ["Тип профілю", "Параметри вікна", "Підсумок"];
+const StepNavigation = ({ step, nextStep, prevStep, canGoNext }) => {
+  const steps = ["Тип профілю", "Параметри вікна", "Підсумок", "Ціна"];
 
-  const isFirst = step === 1;
-  const isLast = step === steps.length;
+  const isFirst = step === 0;
+  const isLast = step === steps.length - 1;
 
   return (
     <>
@@ -15,17 +15,22 @@ const StepNavigation = ({ step, nextStep, prevStep }) => {
             className="px-6 py-3 bg-gray-300 rounded-md hover:scale-[0.995] transition-all"
             whileHover={{ scale: 1.05 }}
           >
-             Назад
+            Назад
           </motion.button>
         )}
 
         {!isLast && (
           <motion.button
-            onClick={nextStep}
-            className="px-6 py-3 bg-[#D8F422] rounded-md hover:scale-[0.995] transition-all"
-            whileHover={{ scale: 1.05 }}
+            onClick={canGoNext ? nextStep : undefined}
+            disabled={!canGoNext}
+            className={`px-6 py-3 rounded-md hover:scale-[0.995] transition-all ${
+              canGoNext
+                ? "bg-[#D8F422] text-black"
+                : "bg-gray-300 text-gray-500 cursor-not-allowed"
+            }`}
+            whileHover={canGoNext ? { scale: 1.05 } : {}}
           >
-            Далі 
+            Далі
           </motion.button>
         )}
       </div>
@@ -41,18 +46,22 @@ const StepNavigation = ({ step, nextStep, prevStep }) => {
             key={index}
             className="flex gap-[15px] items-center"
             initial={{ opacity: 0 }}
-            animate={{ opacity: step === index + 1 ? 1 : 0.6 }}
+            animate={{ opacity: step === index ? 1 : 0.6 }}
             transition={{ duration: 0.4 }}
           >
             <motion.div
               className={`w-[50px] h-[50px] rounded-full flex items-center justify-center text-[25px] font-semibold ${
-                step === index + 1 ? "bg-[#D8F422]" : "bg-gray-300"
+                step === index ? "bg-[#D8F422]" : "bg-gray-300"
               }`}
               transition={{ duration: 0.3 }}
             >
               {index + 1}
             </motion.div>
-            <p className={`text-[22px] ${step === index + 1 ? "text-black" : "text-gray-500"}`}>
+            <p
+              className={`text-[22px] ${
+                step === index ? "text-black" : "text-gray-500"
+              }`}
+            >
               {label}
             </p>
           </motion.div>

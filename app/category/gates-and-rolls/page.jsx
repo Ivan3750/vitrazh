@@ -1,5 +1,5 @@
 import ProductList from "@/app/components/ProductList";
-import b from "@/app/assets/images/products/mosquito/background.jpg";
+import b from "@/app/assets/images/products/gates/protective-rolls.jpg";
 import g1 from "@/app/assets/images/products/gates/gates-sectional.png";
 import g2 from "@/app/assets/images/products/gates/protective-rolls.jpg";
 import g3 from "@/app/assets/images/products/gates/roll-gates.jpg";
