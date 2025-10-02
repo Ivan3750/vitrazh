@@ -109,7 +109,7 @@ export default function HeroSlider() {
           </p>
           <a
             href={slides[current].link}
-            className="bg-white text-black px-6 sm:px-8 py-3 sm:py-4 text-md sm:text-lg md:text-xl rounded-full font-medium shadow-md hover:bg-gray-200 transition"
+            className="bg-white text-black px-6 sm:px-8 py-3 sm:py-4 text-md sm:text-lg md:text-xl rounded-md font-medium shadow-md hover:bg-gray-200 transition"
           >
             Дізнатися більше
           </a>

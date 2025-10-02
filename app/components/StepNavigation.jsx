@@ -23,9 +23,9 @@ const StepNavigation = ({ step, nextStep, prevStep, canGoNext }) => {
           <motion.button
             onClick={canGoNext ? nextStep : undefined}
             disabled={!canGoNext}
-            className={`px-6 py-3 rounded-md hover:scale-[0.995] transition-all ${
+            className={`px-6 py-3 rounded-md transition-all ${
               canGoNext
-                ? "bg-[#D8F422] text-black"
+                ? "bg-[#D8F422] text-black hover:scale-[0.995]"
                 : "bg-gray-300 text-gray-500 cursor-not-allowed"
             }`}
             whileHover={canGoNext ? { scale: 1.05 } : {}}

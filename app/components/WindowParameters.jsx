@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 const configs = {
@@ -15,7 +14,7 @@ const glassOptions = ["Енергозберігаюче", "Сонцезахис�
 const colorOptions = ["Білий", "Ламінація зовн.", "Ламінація внутр.", "Двостороння", "В масі"];
 const serviceOptions = ["Монтаж", "Демонтаж"];
 
-const WindowParameters = ({ data, setData }) => {
+const WindowParameters = ({ data, setData, setValid }) => {
   const [form, setForm] = useState({
     shape: data.window.shape || "",
     width: data.window.width || "",
@@ -44,9 +43,19 @@ const WindowParameters = ({ data, setData }) => {
     });
   };
 
+   const isComplete =
+    form.config &&
+    form.width &&
+    form.height &&
+    form.hardware &&
+    form.glass.length > 0 &&
+    form.color &&
+    form.services.length > 0;
+
   useEffect(() => {
     setData((prev) => ({ ...prev, window: form }));
-  }, [form]);
+    setValid?.(isComplete); 
+  }, [form, isComplete]);
 
   return (
     <section className="space-y-6 mx-6">
@@ -54,7 +63,6 @@ const WindowParameters = ({ data, setData }) => {
         className="text-4xl font-bold mb-10 text-center"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
       >
         Вибір параметрів вікна
       </motion.h2>
@@ -149,11 +157,7 @@ const WindowParameters = ({ data, setData }) => {
             <label className="font-semibold block mb-2">Фурнітура:</label>
             <div className="flex gap-2 flex-wrap">
               {hardwareOptions.map((opt) => (
-                <motion.label
-                  key={opt}
-                  className="flex items-center gap-2"
-                  whileTap={{ scale: 0.95 }}
-                >
+                <motion.label key={opt} className="flex items-center gap-2" whileTap={{ scale: 0.95 }}>
                   <input
                     type="radio"
                     name="hardware"
@@ -190,11 +194,7 @@ const WindowParameters = ({ data, setData }) => {
             <label className="font-semibold block mb-2">Колір:</label>
             <div className="flex gap-2 flex-wrap">
               {colorOptions.map((c) => (
-                <motion.label
-                  key={c}
-                  className="flex items-center gap-2"
-                  whileTap={{ scale: 0.95 }}
-                >
+                <motion.label key={c} className="flex items-center gap-2" whileTap={{ scale: 0.95 }}>
                   <input
                     type="radio"
                     name="color"
@@ -225,6 +225,10 @@ const WindowParameters = ({ data, setData }) => {
               ))}
             </div>
           </div>
+
+           {!isComplete && (
+            <p className="text-red-600 font-semibold mt-4">⚠ Заповніть усі параметри!</p>
+          )}
         </div>
       </div>
     </section>

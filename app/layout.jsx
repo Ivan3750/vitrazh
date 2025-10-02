@@ -6,12 +6,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaViber, FaWhatsapp, FaTelegram, FaInstagram } from "react-icons/fa";
 import { RiArrowDownSLine } from "react-icons/ri";
-
 import localFont from "next/font/local";
-
 import Logo from "../public/logo.png";
 import "./globals.css";
 import Button from "./components/Button";
+import Loader from "./components/Loader";
 
 const lalithabai = localFont({
   src: "./assets/fonts/Lalithabai.ttf",
@@ -23,6 +22,9 @@ export default function RootLayout({ children }) {
   const [scrolled, setScrolled] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+ 
+ 
   const categoryRef = useRef(null);
 
   useEffect(() => {
