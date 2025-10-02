@@ -80,10 +80,22 @@ export default function RootLayout({ children }) {
                   Вікна
                 </Link>
                 <Link
+                  href="/category/screens"
+                  className="block px-4 py-2 hover:bg-[#333] whitespace-nowrap"
+                >
+                  Сітки
+                </Link>
+                <Link
                   href="/category/window-blinds"
                   className="block px-4 py-2 hover:bg-[#333] whitespace-nowrap"
                 >
                   Віконні жалюзі
+                </Link>
+                <Link
+                  href="/"
+                  className="block px-4 py-2 hover:bg-[#333] whitespace-nowrap"
+                >
+                  Вітражні Вікна
                 </Link>
                 <Link
                   href="/category/aluminium-systems"
@@ -97,30 +109,22 @@ export default function RootLayout({ children }) {
                 >
                   Ворота та ролети
                 </Link>
-                <Link
-                  href="/category/screens"
-                  className="block px-4 py-2 hover:bg-[#333] whitespace-nowrap"
-                >
-                  Сітки
-                </Link>
+                
                 <Link
                   href="/category/facades"
                   className="block px-4 py-2 hover:bg-[#333] whitespace-nowrap"
                 >
-                  Фурнітури
+                Фурнітура для вікон
                 </Link>
-                <Link
-                  href="/"
-                  className="block px-4 py-2 hover:bg-[#333] whitespace-nowrap"
-                >
-                  Вітражні Вікна
-                </Link>
+                
               </div>
             </div>
 
             <Link href={"/recovery"}>єВідновлення</Link>
             <Link href={"/service"}>Обслуговування</Link>
             <Link href={"/faq"}>FAQ</Link>
+            <Link href={"/calc"}>Калькулятор</Link>
+
           </nav>
 
           {/* Mobile toggle button */}
@@ -132,12 +136,7 @@ export default function RootLayout({ children }) {
           </button>
 
           <div className="hidden md:flex gap-2">
-              <Link
-              href="/calc"
-              className="px-[16px] py-[10px] rounded-sm bg-white text-black text-md uppercase"
-            >
-              Калькулятор
-            </Link>
+          
             <Link
               href="/contact"
               className="px-[16px] py-[10px] rounded-sm bg-white text-black text-md uppercase"
@@ -198,7 +197,7 @@ export default function RootLayout({ children }) {
                 href="/category/facades"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Фурнітури
+                Фурнітура для вікон
               </Link>
               <Link href="/recovery" onClick={() => setIsMobileMenuOpen(false)}>
                 єВідновлення
@@ -277,13 +276,23 @@ export default function RootLayout({ children }) {
                     </a>
                   </li>
                   <li>
+                    <a href="/category/screens" className="hover:underline">
+                      Сітки
+                    </a>
+                  </li>
+                  <li>
                     <a href="/category/window-blinds" className="hover:underline">
                       Віконні жалюзі
                     </a>
                   </li>
                   <li>
+                    <a href="/" className="hover:underline">
+                      Вітражні вікна
+                    </a>
+                  </li>
+                  <li>
                     <a href="/category/aluminium-system" className="hover:underline">
-                      Алюмінієві системи
+                    Офісні перегородки
                     </a>
                   </li>
                   <li>
@@ -292,13 +301,8 @@ export default function RootLayout({ children }) {
                     </a>
                   </li>
                   <li>
-                    <a href="/category/screens" className="hover:underline">
-                      Сітки
-                    </a>
-                  </li>
-                  <li>
                     <a href="/category/facades" className="hover:underline">
-                      Фурнітури
+                Фурнітура для вікон
                     </a>
                   </li>
                 </ul>

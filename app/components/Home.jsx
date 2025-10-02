@@ -61,25 +61,6 @@ export default function Home() {
     <>
 <HomeSlider/>
 
-
-      <div className="relative overflow-hidden w-full h-[90px] bg-[#d8f422] flex items-center">
-        <div className="flex animate-marquee whitespace-nowrap">
-          {[...items, ...items].map((text, idx) => (
-            <div key={idx} className="flex items-center gap-[20px] px-[70px]">
-              <img
-                src={Mark.src}
-                alt="Marquee Icon"
-                width={25}
-                height={25}
-                className="marquee-icon"
-              />
-              <p className="marquee-title text-black  uppercase text-lg md:text-2xl">
-                {text}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
 <section className="bg-[#F8F7F0] py-[100px]">
   <div className="mc">
     <h2 className="mb-[70px] text-[42px] sm:text-[56px] md:text-[64px]">
