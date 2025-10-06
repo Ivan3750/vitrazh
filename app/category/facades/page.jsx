@@ -56,7 +56,7 @@ const Facades = () => {
         </h1>
       </section>
 
-      <ProductList products={products} />
+      <ProductList products={products} gridN={3} />
     </>
   );
 };
