@@ -33,48 +33,29 @@ const WindowPage = () => {
     link:"/category/aluminium-systems/office-partitions"
   }, */
   {
-  id: 1,
-  name: "Пластикові перегородки",
-  img: a2,
-  link: "/category/partitions-plastic",
-},
-{
-  id: 2,
-  name: "Алюмінієві перегородки",
-  img: a3,
-  link: "/category/partitions-aluminium",
-},
-{
-  id: 3,
-  name: "Скляні перегородки",
-  img: a4,
-  link: "/category/partitions-glass",
-},
-
-/*   {
-    id: 22,
+    id: 2,
     name: "Розсувні системи без термомосту",
     img: a2,
     link:"/category/aluminium-systems/sliding-cold"
   },
   {
-    id: 32,
+    id: 3,
     name: "Розсувні системи з термомостом",
     img: a3,
     link:"/category/aluminium-systems/sliding-thermal"
   },
   {
-    id: 42,
+    id: 4,
     name: "Стійко-ригельні скління фасадів",
     img: a4,
     link:"/category/aluminium-systems/facade-glazing"
   },
   {
-    id: 52,
+    id: 5,
     name: "Вхідна группа",
     img: a5,
     link:"/category/aluminium-systems/entrance-groups"
-  } */
+  }
 ];
   return (
     <>
@@ -90,7 +71,7 @@ const WindowPage = () => {
         </h1>
       </section>
 
-      <ProductList products={products} gridN={3} />
+      <ProductList products={products} />
     </>
   );
 };
