@@ -120,3 +120,31 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+
+
+/* --- СТИЛІ ДЛЯ SWIPER --- */
+
+/* Колір стрілок */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ffffff !important; /* свій колір */
+  transition: color 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #ffffff !important; /* колір при наведенні */
+}
+
+/* Колір точок пагінації */
+.swiper-pagination-bullet {
+  background: #ffffff !important; /* базовий колір */
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background: #ffffff !important; /* активна точка */
+  opacity: 1;
+}

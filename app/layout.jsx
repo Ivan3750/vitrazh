@@ -94,7 +94,7 @@ export default function RootLayout({ children }) {
                   Віконні жалюзі
                 </Link>
                 <Link
-                  href="/"
+                  href="/category/vitrazh-windows"
                   className="block px-4 py-2 hover:bg-[#333] whitespace-nowrap"
                 >
                   Вітражні Вікна
