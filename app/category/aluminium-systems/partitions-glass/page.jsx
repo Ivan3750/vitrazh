@@ -4,6 +4,18 @@ import g2 from "@/app/assets/images/products/aluminium/glass (2).jpg";
 import g3 from "@/app/assets/images/products/aluminium/glass (3).jpg";
 import g4 from "@/app/assets/images/products/aluminium/glass (4).jpg";
 import g5 from "@/app/assets/images/products/aluminium/glass (5).jpg";
+import gGraphite from "@/app/assets/images/products/aluminium/glass/xgrafit.jpg";
+import gBronze from "@/app/assets/images/products/aluminium/glass/xbronza.jpg";
+import gFloat from "@/app/assets/images/products/aluminium/glass/xclasic-float.jpg";
+import gDiamond from "@/app/assets/images/products/aluminium/glass/diamont.jpg";
+import gTriplex from "@/app/assets/images/products/aluminium/glass/tripleks.jpg";
+import gCryzet from "@/app/assets/images/products/aluminium/glass/kryzet.jpg";
+import gGraphiteSatyn from "@/app/assets/images/products/aluminium/glass/grafit-satyn.jpg";
+import gBronzeSatyn from "@/app/assets/images/products/aluminium/glass/bronza-satyn.jpg";
+import gMatte from "@/app/assets/images/products/aluminium/glass/slassic-matte.jpg";
+import gArtistic from "@/app/assets/images/products/aluminium/glass/artistic-matting.jpg";
+import gFlutes from "@/app/assets/images/products/aluminium/glass/glass-flutes.jpg";
+import gArmored from "@/app/assets/images/products/aluminium/glass/armored.jpg";
 
 import {
   FaBuilding,
@@ -140,6 +152,45 @@ export default function GlassPartitionsPage() {
           без втрати освітлення та комфорту.
         </p>
       </section>
+{/* Варіанти скла */}
+<section className="px-6 py-16 bg-white">
+  <div className="max-w-6xl mx-auto text-center">
+    <h2 className="text-3xl md:text-4xl font-semibold mb-10">
+      Варіанти скла
+    </h2>
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {[
+        { title: "Графіт", img: gGraphite },
+        { title: "Бронза", img: gBronze },
+        { title: "Класичне флоат", img: gFloat },
+        { title: 'Надпрозоре "Діамант"', img: gDiamond },
+        { title: "Триплекс", img: gTriplex },
+        { title: "Скло Кризет", img: gCryzet },
+        { title: "Графіт Сатин", img: gGraphiteSatyn },
+        { title: "Бронза Сатин", img: gBronzeSatyn },
+        { title: "Класичне матове", img: gMatte },
+        { title: "Художнє матування", img: gArtistic },
+        { title: "Скло Флутс", img: gFlutes },
+        { title: "Армоване", img: gArmored },
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="overflow-hidden rounded-xl shadow-sm hover:shadow-md transition-all duration-300 bg-[#F8F7F0]"
+        >
+          <img
+            src={item.img.src}
+            alt={item.title}
+            className="w-full h-[200px] md:h-[220px] object-cover"
+          />
+          <h5 className="text-lg font-medium text-gray-800 py-4">
+            {item.title}
+          </h5>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Характерні переваги */}
       <section className="bg-white px-6 py-16 max-w-6xl mx-auto">
