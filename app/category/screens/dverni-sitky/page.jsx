@@ -187,7 +187,7 @@ export default function WindowPage() {
         </div>
       </section>
       <section className="px-6 py-12 mx-auto">
-        <h2 className="text-4xl md:text-[48px] mb-10 text-center ">
+        <h2 className="text-3xl font-semibold mb-8 text-center ">
           Типи москітних сіток
         </h2>
 

@@ -58,7 +58,7 @@ ROLLO Сітки           </h1>
     
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row gap-8 items-start">
-          <div className="flex-1">
+          <div className="flex-1 overflow-hidden">
             <div className="w-[300px] h-[400px] relative">
               <img
                 src={s1.src}
@@ -146,7 +146,7 @@ ROLLO Сітки           </h1>
         </div>
       </section>
       <section className="px-6 py-12 mx-auto">
-        <h2 className="text-4xl md:text-[48px] mb-10 text-center ">
+        <h2 className="text-3xl font-semibold mb-8 text-center ">
           Типи москітних сіток
         </h2>
 

@@ -91,7 +91,7 @@ export default function WindowPage() {
           </div>
         </div>
           <div className="mt-10 overflow-x-auto rounded-md  max-w-full">
-  <h3 className="text-xl my-4 font-semibold text-center">Технічні характеристики</h3>
+  <h3 className="text-3xl font-semibold mb-8 text-center">Технічні характеристики</h3>
   <table className="w-full min-w-[320px] text-left text-base">
     <thead className="bg-gray-100">
       <tr>
@@ -230,7 +230,7 @@ export default function WindowPage() {
               </div>
             </section>
       <section className="px-6 py-12 mx-auto">
-        <h2 className="text-4xl md:text-[48px] mb-10 text-center ">
+        <h2 className="text-3xl font-semibold mb-8 text-center ">
           Типи москітних сіток
         </h2>
 

@@ -198,7 +198,7 @@ export default function WindowPage({ params }) {
         </div>
 
         <div className="mt-10 overflow-x-auto rounded-md  max-w-full">
-  <h3 className="text-xl my-4 font-semibold text-center">Технічні характеристики</h3>
+  <h3 className="text-3xl font-semibold mb-8 text-center">Технічні характеристики</h3>
   <table className="w-full min-w-[320px] text-left text-base">
     <thead className="bg-gray-100">
       <tr>
@@ -298,7 +298,7 @@ export default function WindowPage({ params }) {
 
 
      <section className="px-6 py-12 max-w-6xl mx-auto">
-  <h3 className="text-2xl mb-4 font-semibold">Додаткова інформація</h3>
+  <h3 className="text-3xl font-semibold mb-8 text-center">Додаткова інформація</h3>
   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
     {data.extraPoints.map((item, i) => (
       <div key={i} className="flex gap-3 bg-[#F8F7F0] p-6 rounded-md">
