@@ -288,7 +288,7 @@ export default function RootLayout({ children }) {
                     </a>
                   </li>
                   <li>
-                    <a href="/" className="hover:underline">
+                    <a href="/category/vitrazh-windows" className="hover:underline">
                       Вітражні вікна
                     </a>
                   </li>
