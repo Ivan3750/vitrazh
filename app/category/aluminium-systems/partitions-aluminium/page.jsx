@@ -13,6 +13,7 @@ import j2 from  "@/app/assets/images/products/aluminium/aliminium (2).jpg"
 import j3 from  "@/app/assets/images/products/aluminium/aliminium (3).jpg"
 import j4 from  "@/app/assets/images/products/aluminium/aliminium (4).jpg"
 import j5 from  "@/app/assets/images/products/aluminium/aliminium (5).jpg"
+import j6 from  "@/app/assets/images/products/aluminium/aliminium (6).jpg"
 import Link from "next/link";
 
 export const metadata = {
@@ -247,7 +248,7 @@ export default function AluminumPartitionsPage() {
   </h2>
 
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-    {[j1, j2, j3, j4, j5].map((img, index) => (
+    {[j1, j2, j3, j4, j5, j6].map((img, index) => (
       <div
         key={index}
         className="overflow-hidden rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"

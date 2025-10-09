@@ -4,6 +4,7 @@ import g2 from "@/app/assets/images/products/aluminium/glass (2).jpg";
 import g3 from "@/app/assets/images/products/aluminium/glass (3).jpg";
 import g4 from "@/app/assets/images/products/aluminium/glass (4).jpg";
 import g5 from "@/app/assets/images/products/aluminium/glass (5).jpg";
+import g6 from "@/app/assets/images/products/aluminium/glass (6).jpg";
 import gGraphite from "@/app/assets/images/products/aluminium/glass/xgrafit.jpg";
 import gBronze from "@/app/assets/images/products/aluminium/glass/xbronza.jpg";
 import gFloat from "@/app/assets/images/products/aluminium/glass/xclasic-float.jpg";
@@ -265,7 +266,7 @@ export default function GlassPartitionsPage() {
           Фото робіт
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {[g1, g2, g3, g4, g5].map((img, index) => (
+          {[g1, g2, g3, g4, g5, g6].map((img, index) => (
             <div
               key={index}
               className="overflow-hidden rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
