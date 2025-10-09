@@ -1,6 +1,5 @@
 import check from "@/app/assets/images/icons/check.svg";
-import a5 from "@/app/assets/images/products/aluminium/a51.jpg";
-import {
+ import {
   FaBuilding,
   FaUtensils,
   FaHome,
@@ -14,7 +13,7 @@ import j3 from  "@/app/assets/images/products/aluminium/aliminium (3).jpg"
 import j4 from  "@/app/assets/images/products/aluminium/aliminium (4).jpg"
 import j5 from  "@/app/assets/images/products/aluminium/aliminium (5).jpg"
 import j6 from  "@/app/assets/images/products/aluminium/aliminium (6).jpg"
-import Link from "next/link";
+import p from "@/app/assets/images/products/aluminium/alm.jpg";
 
 export const metadata = {
   title: "Алюмінієві перегородки – продаж та монтаж",
@@ -46,7 +45,7 @@ export default function AluminumPartitionsPage() {
         value: "вікна і двері з різними типами відкривання",
       },
     ],
-    img: a5,
+    img: p,
   };
 
   const items = [

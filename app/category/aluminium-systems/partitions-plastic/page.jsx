@@ -14,6 +14,7 @@ import j3 from "@/app/assets/images/products/aluminium/plactic (3).jpg";
 import j4 from "@/app/assets/images/products/aluminium/plactic (4).jpg";
 import j5 from "@/app/assets/images/products/aluminium/plactic (5).jpg";
 import j6 from "@/app/assets/images/products/aluminium/plactic (6).jpg";
+import p from "@/app/assets/images/products/aluminium/plastic.jpg";
 
 
 export const metadata = {
@@ -32,7 +33,7 @@ export default function PlasticPartitionsPage() {
       `Пластикові перегородки — перевірена альтернатива іншим матеріалам. Вони прості у монтажі, мають високу шумоізоляцію та міцність, а головне — доступну ціну.`,
       `Такі перегородки використовуються для зонування офісів, створення окремих приміщень, додаткового теплозахисту при вході або вітражних рішеннях. Пластик не схильний до корозії, простий у догляді й може поєднуватися зі склопакетами для ще кращої тепло- і звукоізоляції.`,
     ],
-    img: p1,
+    img: p,
   };
 
   const items = [

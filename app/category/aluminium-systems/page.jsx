@@ -1,10 +1,9 @@
 import ProductList from "@/app/components/ProductList";
-import b from "@/app/assets/images/products/aluminium/background.jpg";
-import a1 from "@/app/assets/images/products/aluminium/a11.jpg";
-import a2 from "@/app/assets/images/products/aluminium/a21.jpg";
-import a3 from "@/app/assets/images/products/aluminium/a31.jpg";
-import a4 from "@/app/assets/images/products/aluminium/a41.jpg";
-import a5 from "@/app/assets/images/products/aluminium/a51.jpg";
+import b from "@/app/assets/images/hero/alm-f.jpg";
+import a1 from "@/app/assets/images/products/aluminium/plastic.jpg";
+import a2 from "@/app/assets/images/products/aluminium/alm.jpg";
+import a3 from "@/app/assets/images/products/aluminium/glass.jpg";
+
 
 
 export const metadata = {
@@ -35,19 +34,19 @@ const WindowPage = () => {
   {
   id: 1,
   name: "Пластикові перегородки",
-  img: a2,
+  img: a1,
   link: "/category/aluminium-systems/partitions-plastic",
 },
 {
   id: 2,
   name: "Алюмінієві перегородки",
-  img: a3,
+  img: a2,
   link: "/category/aluminium-systems/partitions-aluminium",
 },
 {
   id: 3,
   name: "Скляні перегородки",
-  img: a4,
+  img: a3,
   link: "/category/aluminium-systems/partitions-glass",
 },
 

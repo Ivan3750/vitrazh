@@ -17,7 +17,7 @@ import gMatte from "@/app/assets/images/products/aluminium/glass/slassic-matte.j
 import gArtistic from "@/app/assets/images/products/aluminium/glass/artistic-matting.jpg";
 import gFlutes from "@/app/assets/images/products/aluminium/glass/glass-flutes.jpg";
 import gArmored from "@/app/assets/images/products/aluminium/glass/armored.jpg";
-
+import p from "@/app/assets/images/products/aluminium/glass.jpg";
 import {
   FaBuilding,
   FaUtensils,
@@ -43,7 +43,7 @@ export default function GlassPartitionsPage() {
       `Скляна перегородка – це сучасна, універсальна і багатофункціональна конструкція, яка дозволяє створювати відкритий простір, зберігаючи при цьому індивідуальність кожної зони.`,
       `Вони активно використовуються в офісах, торгових центрах, салонах краси, житлових приміщеннях і навіть у ресторанах. Скляні перегородки чудово поєднують естетику, функціональність і надійність.`,
     ],
-    img: g1,
+    img: p,
   };
 
   const items = [
