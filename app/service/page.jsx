@@ -1,40 +1,43 @@
 import React from "react";
+import b from "@/app/assets/images/hero/bg-service.jpg"
+
 
 const prices = {
   visits: [
     {
       description:
         "Виїзд техніка, діагностика, кошторис по м Київ (з 9.00 до 18.00 в робочі дні)",
-      price: "500 грн",
+      price: "1000 грн",
     },
     {
       description:
         "Виїзд техніка та діагностика по м Київ (у вихідні та святкові дні, а так само після 18.00 в робочі дні)",
-      price: "1000 грн",
+      price: "1500 грн",
     },
     {
       description:
         "Виїзд техніка та діагностика за м Київ (з 9.00 до 18.00 в робочі дні, до 50км)",
-      price: "1000 грн",
+      price: "2000 грн",
     },
   ],
+
   windowRepair: [
     {
       description: "Регулювання металопластикового вікна (проста)",
-      price: "100 грн",
+      price: "200 грн",
     },
-    { description: "Мастило вузлів фурнітури", price: "50 грн" },
+    { description: "Мастило вузлів фурнітури", price: "100 грн" },
     {
       description: "Заміна ущільнювача (із матеріалом)",
-      price: "60 грн / м.пог",
+      price: "100 грн / м.пог",
     },
     {
       description: "Заміна віконної ручки (з матеріалом)",
-      price: "від 400 грн",
+      price: "від 500 грн",
     },
     {
       description: "Ремонт вікна із заміною фурнітури (без матеріалу)",
-      price: "від 800 грн",
+      price: "від 2000 грн",
     },
     {
       description:
@@ -43,31 +46,69 @@ const prices = {
     },
     {
       description: "Заміна склопакета (стулка, без матеріалу, S ≤ 1.0 кв.м.)",
-      price: "800 грн*",
-    },
-    {
-      description: "Складне регулювання / ремонт фурнітури",
+
+
+
+
       price: "1000 грн*",
     },
-    {
-      description: "Установка металевого обмежувача відкриття",
-      price: "800 грн",
-    },
-    { description: "Установка балконної клямки", price: "від 500 грн" },
-    { description: "Встановлення додаткової петелі", price: "800 грн" },
-    { description: "Москітна сітка Anwis (внутрішня)", price: "100 грн" },
-    { description: "Москітна сітка Sinax (зовнішня)", price: "800 грн" },
+    { description: "Складне регулювання стулки", price: "1000 грн*" },
+    { description: "Встановлення додаткової середньої петлі", price: "800 грн" },
+
+
+
+
+
+
     { description: "Установка відливу (без матеріалу)", price: "250 грн*" },
     { description: "Установка козирка (без матеріалу)", price: "600 грн*" },
-    { description: "Установка підвіконня (без матеріалу)", price: "400 грн*" },
-    { description: "Герметизація підвіконня", price: "50 грн / м.пог" },
+    { description: "Установка підвіконня (без матеріалу)", price: "500 грн*" },
+
     {
-      description: "Герметизація зовнішнього монтажного шва",
-      price: "180 грн / м.пог",
+      description: "Герметизація зовнішнього монтажного шва герметиком",
+      price: "200 грн / м.пог",
+    },
+    {
+      description: "Герметизація внутрішнього монтажного шва герметиком",
+      price: "300 грн / м.пог",
     },
   ],
 
-  
+  doorRepair: [
+    {
+      description: "Встановлення доводчика (без матеріалу)",
+      price: "300 грн / стулка",
+    },
+    {
+      description: "Регулювання вхідних дверей ПВХ або Алюміній",
+      price: "1500 грн / стулка",
+    },
+    {
+      description: "Заміна замка (без матеріалу)",
+      price: "1000 грн / шт",
+    },
+    {
+      description: "Заміна фурнітури (без матеріалу)",
+      price: "1000 грн / стулка",
+    },
+    {
+      description: "Заміна циліндра (без матеріалу)",
+      price: "500 грн / шт",
+    },
+    {
+      description:
+        "Заміна або переустановлення склопакета на двері (без матеріалу, S ≤ 1.0 кв.м.)",
+      price: "1000 грн* / м²",
+    },
+    {
+      description: "Заміна ущільнювача (із матеріалом)",
+      price: "100 грн / м.пог",
+    },
+    {
+      description: "Заміна петель (без матеріалу)",
+      price: "2000 грн / стулка",
+    },
+  ],
 };
 
 export const metadata = {
@@ -119,9 +160,9 @@ const PriceList = () => {
       <section className="relative h-[600px] flex items-center justify-center bg-black overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-40"
-          /* style={{
+          style={{
                backgroundImage: `url(${b.src})`,
-             }} */
+             }} 
         />
         <h1 className="relative text-white text-4xl font-bold z-10">
           Ремонт і Обслуговування
@@ -152,6 +193,26 @@ const PriceList = () => {
           </h2>
           <ul className="space-y-4">
             {prices.windowRepair.map((item, idx) => (
+              <li
+                key={idx}
+                className="flex justify-between items-start border-b border-gray-300 pb-3"
+              >
+                <span className="text-base md:text-lg font-medium">
+                  {item.description}
+                </span>
+                <span className="text-[#bed62f] font-bold text-lg whitespace-nowrap">
+                  {item.price}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+        <section>
+          <h2 className="text-[54px] mb-4  captalize">
+            Ремонт вхідної групи
+          </h2>
+          <ul className="space-y-4">
+            {prices.doorRepair.map((item, idx) => (
               <li
                 key={idx}
                 className="flex justify-between items-start border-b border-gray-300 pb-3"
