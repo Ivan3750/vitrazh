@@ -273,7 +273,7 @@ export default function RootLayout({ children }) {
                 <p className="font-semibold">Категорії</p>
                 <ul className="space-y-1">
                   <li>
-                    <a href="/category/windows" className="hover:underline">
+                    <a href="/category/window" className="hover:underline">
                       Вікна
                     </a>
                   </li>
@@ -293,7 +293,7 @@ export default function RootLayout({ children }) {
                     </a>
                   </li>
                   <li>
-                    <a href="/category/aluminium-systems" className="hover:underline">
+                    <a href="/category/aluminium-system" className="hover:underline">
                     Офісні перегородки
                     </a>
                   </li>
