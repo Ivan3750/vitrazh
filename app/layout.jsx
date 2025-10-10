@@ -312,10 +312,18 @@ export default function RootLayout({ children }) {
               <div className="space-y-4 text-white">
                 <p className="text-base font-semibold">Ми в соцмережах</p>
                 <div className="flex space-x-4 text-2xl">
-                  <FaViber />
-                  <FaWhatsapp />
+                  <a href="https://t.me/+380951099040">
                   <FaTelegram />
+                  </a>
+                  <a href="https://wa.me/380951099040">
+                  <FaWhatsapp />
+                  </a>
+                  <a href="viber://chat?number=+380951099040">
+                  <FaViber />
+                  </a>
+                  <a href="https://www.instagram.com/vitrazh.com.ua/">
                   <FaInstagram />
+                  </a>
                 </div>
                 
               </div>

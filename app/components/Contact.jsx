@@ -150,10 +150,18 @@ const Contact = () => {
                   <img src={go.src} alt="go" />
                 </button>
                 <div className="flex gap-5 text-3xl text-[#555]">
-                  <FaViber />
-                  <FaWhatsapp />
+                    <a href="https://t.me/+380951099040">
                   <FaTelegram />
+                  </a>
+                  <a href="https://wa.me/380951099040">
+                  <FaWhatsapp />
+                  </a>
+                  <a href="viber://chat?number=+380951099040">
+                  <FaViber />
+                  </a>
+                  <a href="https://www.instagram.com/vitrazh.com.ua/">
                   <FaInstagram />
+                  </a>
                 </div>
               </div>
             </form>
