@@ -26,6 +26,7 @@ import {
   FaIndustry,
   FaSpa,
 } from "react-icons/fa";
+import b from "@/app/assets/images/hero/glass-a-bg.jpg"
 
 export const metadata = {
   title: "Скляні перегородки – продаж та монтаж",
@@ -97,10 +98,15 @@ export default function GlassPartitionsPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[300px] md:h-[400px] flex items-center justify-center bg-black overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center opacity-40" />
-        <h1 className="relative text-white text-3xl md:text-4xl z-10 text-center">
-          {data.title}
+<section className="relative h-[600px] flex items-center justify-center bg-black overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-40"
+          style={{
+            backgroundImage: `url(${b.src})`,
+          }}
+        />
+        <h1 className="relative text-white text-4xl font-bold z-10">
+              {data.title}
         </h1>
       </section>
 

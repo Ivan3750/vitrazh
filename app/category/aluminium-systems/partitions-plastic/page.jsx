@@ -15,6 +15,7 @@ import j4 from "@/app/assets/images/products/aluminium/plactic (4).jpg";
 import j5 from "@/app/assets/images/products/aluminium/plactic (5).jpg";
 import j6 from "@/app/assets/images/products/aluminium/plactic (6).jpg";
 import p from "@/app/assets/images/products/aluminium/plastic.jpg";
+import b from "@/app/assets/images/hero/plastic-a-bg.jpg"
 
 
 export const metadata = {
@@ -75,12 +76,17 @@ export default function PlasticPartitionsPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[300px] md:h-[400px] flex items-center justify-center bg-black overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center opacity-40" />
-        <h1 className="relative text-white text-3xl md:text-4xl z-10 text-center">
-          {data.title}
-        </h1>
-      </section>
+  <section className="relative h-[600px] flex items-center justify-center bg-black overflow-hidden">
+          <div
+            className="absolute inset-0 bg-cover bg-center opacity-40"
+            style={{
+              backgroundImage: `url(${b.src})`,
+            }}
+          />
+          <h1 className="relative text-white text-4xl font-bold z-10">
+                {data.title}
+          </h1>
+        </section>
 
       {/* Content Section */}
       <section className="px-6 py-12 max-w-6xl mx-auto">

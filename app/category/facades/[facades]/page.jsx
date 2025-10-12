@@ -144,7 +144,7 @@ export default function FurniturePage({ params }) {
               <div
                 className="absolute inset-0 bg-cover bg-center opacity-40"
                 style={{
-                  backgroundImage: `url(${facadesHero.src})`,
+                  backgroundImage: `url(${data.hero.src})`,
                 }}
               />
         <h1 className="relative text-white text-4xl z-10">{data.title}</h1>
