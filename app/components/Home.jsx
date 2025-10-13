@@ -1,10 +1,9 @@
 "use client";
-import Mark from "@/app/assets/Marquee Icon.svg";
-const items = ["Вікна", "Сітки", "Ролети", "Жалюзі", "Ворота", "Офісні перегородки", "Фурнітури"];
 import w from "@/app/assets/images/products/category/window-cat.jpg";
 import al from "@/app/assets/images/products/category/2.jpg";
 import fw from "@/app/assets/images/products/category/4.png";
 import r from "@/app/assets/images/products/category/8.jpg";
+import vitrazh from "@/app/assets/images/hero/vitrazhi-banner.jpg";
 import blinds from "@/app/assets/images/products/category/5.jpg";
 import gates from "@/app/assets/images/products/category/9.jpg";
 import check from "@/app/assets/images/icons/check.svg";
@@ -70,6 +69,7 @@ export default function Home() {
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
       {[
         { href: "/category/windows", src: w, title: "Вікна" },
+        { href: "/category/vitrazh-windows", src: vitrazh, title: "Вітражні вікна" }, 
         { href: "/category/aluminium-systems", src: al, title: "Офісні перегородки" },
         { href: "/category/facades", src: fw, title: "Фурнітура" },
         { href: "/category/gates-and-rolls", src: r, title: "Ролети та ворота" },

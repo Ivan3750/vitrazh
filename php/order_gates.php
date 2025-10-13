@@ -26,6 +26,6 @@ mail("kohan3750@gmail.com", "Заявка на ворота", $message);
 
 echo json_encode([
     'success' => true,
-    'redirect' => '/thank-you.html'
+    'redirect' => '/thanks'
 ]);
 exit;

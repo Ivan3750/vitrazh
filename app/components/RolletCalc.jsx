@@ -10,21 +10,21 @@ import gg56 from "@/app/assets/images/calc/gg56.png";
 import inset from "@/app/assets/images/calc/rollet_mounting_inset.png";
 import outset from "@/app/assets/images/calc/rollet_mounting_outset.png";
 import { useState } from "react";
-import Image from "next/image";
+
 
 const profiles = [
-  { id: "TAP39", name: "TAP39", img: tap39.src },
-  { id: "TAP55", name: "TAP55", img: tap55.src },
-  { id: "TAP77", name: "TAP77", img: tap77.src },
-  { id: "SE45S", name: "SE45S", img: se45s.src },
-  { id: "SL100", name: "SL100", img: sl100.src },
+  { id: "TAP39", name: "TAP39", img: tap39 },
+  { id: "TAP55", name: "TAP55", img: tap55 },
+  { id: "TAP77", name: "TAP77", img: tap77 },
+  { id: "SE45S", name: "SE45S", img: se45s },
+  { id: "SL100", name: "SL100", img: sl100 },
   { id: "TAX55S", name: "TAX55S", img: tax55s },
   { id: "GG56", name: "GG56", img: gg56 },
 ];
 
 const montages = [
-  { id: "inset", name: "Вмонтований", img: inset.src },
-  { id: "outset", name: "На проєм", img: outset.src },
+  { id: "inset", name: "Вмонтований", img: inset },
+  { id: "outset", name: "На проєм", img: outset },
 ];
 
 export default function RolletCalc() {
@@ -47,7 +47,7 @@ export default function RolletCalc() {
       email,
     };
 
-    fetch("/order_mosquito.php", {
+    fetch("/api/order_rollets.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

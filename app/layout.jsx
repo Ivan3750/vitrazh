@@ -171,6 +171,15 @@ export default function RootLayout({ children }) {
               >
                 Вікна
               </Link>
+              
+              <Link
+                href="/category/vitrazh-windows"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                      Вітражні вікна
+                  
+              </Link>
+              
               <Link
                 href="/category/window-blinds"
                 onClick={() => setIsMobileMenuOpen(false)}

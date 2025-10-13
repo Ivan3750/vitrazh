@@ -6,25 +6,9 @@ import contact from "@/app/assets/images/icons/Contact Icon.svg";
 import mail from "@/app/assets/images/icons/mail.svg";
 import map from "@/app/assets/images/icons/map.svg";
 import time from "@/app/assets/images/icons/time.svg";
-import Image from "next/image";
 import { FaViber, FaWhatsapp, FaTelegram, FaInstagram } from "react-icons/fa";
+import Modal from "@/app/components/Modal";
 
-const Modal = ({ show, onClose, message }) => {
-  if (!show) return null;
-  return (
-    <div className="fixed inset-0 flex items-center justify-center bg-[#0a0a0ab8] bg-opacity-50 z-50">
-      <div className="bg-white p-6 rounded-lg shadow-xl max-w-sm w-full">
-        <p className="text-lg text-center mb-4">{message}</p>
-        <button
-          onClick={onClose}
-          className="block mx-auto bg-black text-white px-4 py-2 rounded hover:bg-gray-800"
-        >
-          Закрити
-        </button>
-      </div>
-    </div>
-  );
-};
 
 const Contact = () => {
   const [showModal, setShowModal] = useState(false);
@@ -38,7 +22,7 @@ const Contact = () => {
     const phone = form.phone.value;
     const message = form.message.value;
 
-    const res = await fetch("/api/contact", {
+    const res = await fetch("/api/contact.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

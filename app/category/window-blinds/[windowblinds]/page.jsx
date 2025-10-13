@@ -48,7 +48,7 @@ import avj3 from "@/app/assets/images/jobs/blinds/avj3.jpg";
 import avj4 from "@/app/assets/images/jobs/blinds/avj4.jpg";
 import avj5 from "@/app/assets/images/jobs/blinds/avj5.jpg";
 import DynamicCalculator from "@/app/components/DynamicCalculator";
-import h1 from "@/app/assets/images/hero/alyuminiievi.jpg";
+import h1 from "@/app/assets/images/hero/aluminium-b.jpg";
 import h2 from "@/app/assets/images/hero/vertical.jpg";
 import h3 from "@/app/assets/images/hero/rulloni.jpg";
 import h4 from "@/app/assets/images/hero/daynight.jpg";

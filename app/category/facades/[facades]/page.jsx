@@ -51,7 +51,7 @@ export async function generateMetadata({ params }) {
   const item = furnitureData[params.facades] || {};
 
   return {
-    title: item.title || "Фурнітура для вікон",
+    title: "Фурнітура для вікон",
     description: item.description || "Великий вибір якісної віконної фурнітури.",
     keywords: item.keywords?.join(", ") || "фурнітура, вікна, двері",
 
@@ -219,7 +219,7 @@ export default function FurniturePage({ params }) {
       </section>
       {/* Порівняння брендів */}
       <section className="px-6 py-12 max-w-6xl mx-auto">
-        <h3 className="text-3xlmb-8 text-center">
+        <h3 className="text-3xl mb-8 text-center">
           Порівняння фурнітури
         </h3>
         <div className="overflow-x-auto">
@@ -294,8 +294,7 @@ export default function FurniturePage({ params }) {
         </div>
       </section>
 
-      {/* Контакти */}
-      <SectionContact/>
+    
     </>
   );
 }

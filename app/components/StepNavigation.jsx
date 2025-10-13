@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 
 const StepNavigation = ({ step, nextStep, prevStep, canGoNext }) => {
-  const steps = ["Тип профілю", "Параметри вікна", "Підсумок", "Ціна"];
+  const steps = ["Тип профілю", "Параметри вікна", "Підсумок"];
 
   const isFirst = step === 0;
   const isLast = step === steps.length - 1;

@@ -9,6 +9,7 @@ import liftVertical from "@/app/assets/images/calc/gate_lift_vertical.jpg"
 import liftLow from "@/app/assets/images/calc/gate_lift_low.jpg"
 import liftStandard from "@/app/assets/images/calc/gate_lift_standart.jpg"
 import liftHigh from "@/app/assets/images/calc/gate_lift_high.jpg"
+import Modal from "@/app/components/Modal";
 
 const gateTypes = [
   {
@@ -71,12 +72,13 @@ export default function GateCalculator() {
   const [email, setEmail] = useState("");
 
   const selectedGate = gateTypes.find((g) => g.value === gateType);
-
-  const handleCheckboxChange = (e) => {
-    const { name, checked } = e.target;
-    setExtras((prev) => ({ ...prev, [name]: checked }));
-  };
-
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState("Сталася помилка.");
+const handleCheckboxChange = (e) => {
+  const { name, dataset, checked } = e.target;
+  const labelValue = dataset.label; 
+  setExtras((prev) => ({ ...prev, [labelValue]: checked }));
+};
   const handleSubmit = () => {
     const gateData = {
       width,
@@ -90,7 +92,7 @@ export default function GateCalculator() {
       email,
     };
 
-    fetch('/order_gates.php', {
+    fetch('/api/order_gates.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -101,15 +103,18 @@ export default function GateCalculator() {
     .then(data => {
       if (data.success) {
         window.location.href = data.redirect;
+        e.target.reset(); 
       } else {
-        alert('Сталася помилка: ' + data.message);
-      }
-    })
+        setModalMessage(data.message || "Сталася помилка. Спробуйте ще раз.");
+        setShowModal(true);
+   } })
     .catch(err => {
-      console.error(err);
-      alert('Помилка при відправці заявки.');
+  setModalMessage("Сталася помилка з сервером.");
+      setShowModal(true);
     });
   };
+
+
 
   return (
     <section className="p-5">
@@ -253,48 +258,50 @@ export default function GateCalculator() {
         </div>
 
         {/* Додаткові опції */}
-        <div className="mb-8">
-          <h3 className="font-semibold mb-4 text-lg">Додаткові опції</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-            {[{ name: "integrated_sectional_door_70", label: "Хвіртка з порогом 25 мм для воріт шириною до 3500 мм" },
-              { name: "integrated_sectional_door_25", label: "Хвіртка з порогом 25 мм для воріт шириною від 3501 мм" },
-              { name: "switching_set_for_connecting_open_wicket_contact", label: "Датчик відкритої хвіртки" },
-              { name: "increased_lift_190_1370", label: "Підвищений підйом (вал зверху), HR перемичка (притолока) від 600 до 1300мм" },
-              { name: "vertical_lift_3000", label: "Вертикальний підйом при висоті воріт до 4500мм" },
-              { name: "painting_panoramic_panel", label: "Панорамна панель фарбована, шт" },
-              { name: "reinforcing_profile_4000", label: "Дельта-профіль підсилюючий L=5020 (шт.) *Рекомедуємо для воріт шириною від 4500 до 5000 мм" },
-              { name: "reinforcing_profile_4000_6020", label: "Дельта-профіль підсилюючий L=6020 (шт.) *Рекомедуємо для воріт шириною від 5000 до 6000 мм" },
-              { name: "garage_handle", label: "Ручка врізна додатково (є в базовій комплектації)" },
-              { name: "rope_break_protection", label: "Захист від розриву тросу додатково (є в базовій комплектації при S воріт від 12 кв.м.)" },
-              { name: "mounting_bracket", label: "Додатковий монтажний куток (3,06 м), м.п." },
-              { name: "mounting_bracket_15", label: "Додатковий монтажний куток (від 15 м), м.п." },
-              { name: "exterior_painting", label: "Фарбування зовнішньої сторони панелей RAL" },
-              { name: "increased_lift_1370_2300", label: "Підвищений підйом (вал зверху), HR перемичка (притолока) від 2301 до 3000мм" },
-              { name: "increased_lift_1370_1800", label: "Підвищений підйом (вал зверху), HR перемичка (притолока) від 1301 до 2300мм" },
-              { name: "switching_selection", label: "Комутаційний набір" },
-              { name: "window", label: "Вікно акрилове 635 * 330" },
-              { name: "panoramic_panel", label: "Панорамна панель, шт" },
-              { name: "remote_lower_shaft", label: "Додаткова опція до підвищеного або вертикального підйому - виносний нижній вал" },
-              { name: "manual_chain_drive", label: "Ручний ланцюговий привід до 25 м кв (бокова відстань 350мм)" },
-              { name: "hand_chain", label: "Ланцюг для ручного ланцюгового приводу додатково (м.п.)" },
-              { name: "door_lock_kit", label: "Комплект замка для гаражних воріт односторонній" },
-              { name: "collar_cord_set", label: "Комплект шнура воротного" },
-              { name: "set_of_hardware", label: "Комплект метизів для кріплення до проєму додатково (є в базовій комплектації)" },
-              { name: "bolt", label: "Засув додатково (є в базовій комплектації)" },
-              { name: "interior_painting", label: "Фарбування внутрішньої сторони панелей RAL" },
-            ].map(({ name, label }) => (
-              <label key={name} className="flex items-center space-x-2">
-                <input
-                  type="checkbox"
-                  name={name}
-                  checked={extras[name] || false}
-                  onChange={handleCheckboxChange}
-                />
-                <span>{label}</span>
-              </label>
-            ))}
-          </div>
-        </div>
+       <div className="mb-8">
+  <h3 className="font-semibold mb-4 text-lg">Додаткові опції</h3>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+    {[
+      { name: "integrated_sectional_door_70", label: "Хвіртка з порогом 25 мм (до 3500 мм)" },
+      { name: "integrated_sectional_door_25", label: "Хвіртка з порогом 25 мм (від 3501 мм)" },
+      { name: "switching_set_for_connecting_open_wicket_contact", label: "Датчик відкритої хвіртки" },
+      { name: "increased_lift_190_1370", label: "Підвищений підйом HR (600–1300 мм)" },
+      { name: "vertical_lift_3000", label: "Вертикальний підйом (до 4500 мм)" },
+      { name: "painting_panoramic_panel", label: "Панорамна панель фарбована" },
+      { name: "reinforcing_profile_4000", label: "Підсилюючий профіль L=5020 мм" },
+      { name: "reinforcing_profile_4000_6020", label: "Підсилюючий профіль L=6020 мм" },
+      { name: "garage_handle", label: "Ручка врізна" },
+      { name: "rope_break_protection", label: "Захист від розриву тросу" },
+      { name: "mounting_bracket", label: "Монтажний куток 3 м" },
+      { name: "mounting_bracket_15", label: "Монтажний куток від 15 м" },
+      { name: "exterior_painting", label: "Фарбування зовнішнє RAL" },
+      { name: "increased_lift_1370_2300", label: "Підвищений підйом HR (2301–3000 мм)" },
+      { name: "increased_lift_1370_1800", label: "Підвищений підйом HR (1301–2300 мм)" },
+      { name: "switching_selection", label: "Комутаційний набір" },
+      { name: "window", label: "Акрилове вікно 635x330" },
+      { name: "panoramic_panel", label: "Панорамна панель" },
+      { name: "remote_lower_shaft", label: "Виносний нижній вал" },
+      { name: "manual_chain_drive", label: "Ручний ланцюговий привід до 25 м²" },
+      { name: "hand_chain", label: "Ланцюг для ручного приводу" },
+      { name: "door_lock_kit", label: "Комплект замка" },
+      { name: "collar_cord_set", label: "Комплект шнура" },
+      { name: "set_of_hardware", label: "Комплект метизів" },
+      { name: "bolt", label: "Засув" },
+      { name: "interior_painting", label: "Фарбування внутрішнє RAL" },
+    ].map(({ name, label }) => (
+      <label key={name} className="flex items-center space-x-2">
+        <input
+          type="checkbox"
+          name={name}
+          data-label={label}
+          checked={extras[label] || false}
+          onChange={handleCheckboxChange}
+        />
+        <span>{label}</span>
+      </label>
+    ))}
+  </div>
+</div>
 
         <div className="flex justify-center">
           <button

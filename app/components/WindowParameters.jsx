@@ -29,12 +29,15 @@ const WindowParameters = ({ data, setData, setValid }) => {
   const [activeMain, setActiveMain] = useState("conf3");
   const [selected, setSelected] = useState(data.window.config || null);
 
+  // Обробник вибору конфігурації
   const handleSelect = (conf, index) => {
-    const newSelected = `${conf}.${index + 1}`;
-    setSelected(newSelected);
-    setForm((prev) => ({ ...prev, config: newSelected }));
+    const selectedNum = configs[conf][index];
+    const newSelectedUrl = `/calc/windows_sprite_${selectedNum}.png`;
+    setSelected(newSelectedUrl);
+    setForm((prev) => ({ ...prev, config: newSelectedUrl }));
   };
 
+  // Обробник чекбоксів
   const handleCheckbox = (field, value) => {
     setForm((prev) => {
       const current = new Set(prev[field]);
@@ -43,19 +46,22 @@ const WindowParameters = ({ data, setData, setValid }) => {
     });
   };
 
-   const isComplete =
+  // Перевірка чи заповнена вся форма
+  const isComplete =
     form.config &&
-    form.width &&
-    form.height &&
+    form.width > 0 &&
+    form.height > 0 &&
     form.hardware &&
     form.glass.length > 0 &&
     form.color &&
     form.services.length > 0;
 
+  // Синхронізація з батьківським компонентом
   useEffect(() => {
-    setData((prev) => ({ ...prev, window: form }));
-    setValid?.(isComplete); 
-  }, [form, isComplete]);
+    if (!setData) return;
+    setData((prev) => ({ ...prev, window: { ...form } }));
+    setValid?.(isComplete);
+  }, [form, isComplete, setData, setValid]);
 
   return (
     <section className="space-y-6 mx-6">
@@ -84,7 +90,7 @@ const WindowParameters = ({ data, setData, setValid }) => {
               >
                 <img
                   src={`/calc/windows_sprite_${configs[conf][0]}.png`}
-                  alt="Конфігурація"
+                  alt={`Конфігурація ${configs[conf][0]}`}
                   width={70}
                   height={70}
                 />
@@ -101,26 +107,22 @@ const WindowParameters = ({ data, setData, setValid }) => {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
             >
-              {configs[activeMain]?.map((num, index) => (
-                <motion.li
-                  key={index}
-                  onClick={() => handleSelect(activeMain, index)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`cursor-pointer border-2 rounded-md p-2 ${
-                    selected === `${activeMain}.${index + 1}`
-                      ? "border-[#D8F422]"
-                      : "border-transparent"
-                  }`}
-                >
-                  <img
-                    src={`/calc/windows_sprite_${num}.png`}
-                    alt="Конфігурація"
-                    width={70}
-                    height={70}
-                  />
-                </motion.li>
-              ))}
+              {configs[activeMain]?.map((num, index) => {
+                const imgUrl = `/calc/windows_sprite_${num}.png`;
+                return (
+                  <motion.li
+                    key={index}
+                    onClick={() => handleSelect(activeMain, index)}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`cursor-pointer border-2 rounded-md p-2 ${
+                      selected === imgUrl ? "border-[#D8F422]" : "border-transparent"
+                    }`}
+                  >
+                    <img src={imgUrl} alt={`Конфігурація ${num}`} width={70} height={70} />
+                  </motion.li>
+                );
+              })}
             </motion.ul>
           </AnimatePresence>
         </div>
@@ -137,7 +139,7 @@ const WindowParameters = ({ data, setData, setValid }) => {
                 max="500"
                 value={form.width}
                 placeholder="Ширина, см"
-                onChange={(e) => setForm({ ...form, width: e.target.value })}
+                onChange={(e) => setForm({ ...form, width: Number(e.target.value) })}
                 className="border-b border-[#CED3DB] p-2 focus:outline-0 w-full"
               />
               <input
@@ -146,7 +148,7 @@ const WindowParameters = ({ data, setData, setValid }) => {
                 max="500"
                 value={form.height}
                 placeholder="Висота, см"
-                onChange={(e) => setForm({ ...form, height: e.target.value })}
+                onChange={(e) => setForm({ ...form, height: Number(e.target.value) })}
                 className="border-b border-[#CED3DB] p-2 focus:outline-0 w-full"
               />
             </div>
@@ -226,7 +228,8 @@ const WindowParameters = ({ data, setData, setValid }) => {
             </div>
           </div>
 
-           {!isComplete && (
+          {/* Повідомлення про незаповнені поля */}
+          {!isComplete && (
             <p className="text-red-600 font-semibold mt-4">⚠ Заповніть усі параметри!</p>
           )}
         </div>

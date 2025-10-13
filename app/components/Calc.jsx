@@ -36,9 +36,12 @@ const Calc = () => {
   const calculateTotal = () => {
     const { profile, window } = data;
     if (!profile || !window.type || !window.width || !window.height) return;
+
     const profilePrice = prices.profiles[profile] || 0;
     const typePrice = prices.types[window.type] || 0;
-    const area = (window.width * window.height) / 10000;
+    const area = Number(window.width) * Number(window.height) / 10000;
+    if (isNaN(area) || area <= 0) return;
+
     const total = Math.round((profilePrice + typePrice) * area);
     setData((prev) => ({ ...prev, total }));
   };
@@ -55,9 +58,7 @@ const Calc = () => {
       <section className="relative h-[600px] flex items-center justify-center bg-black overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-40"
-          style={{
-            backgroundImage: `url(${bg.src})`,
-          }}
+          style={{ backgroundImage: `url(${bg.src})` }}
         />
         <h1 className="relative text-white text-4xl font-bold z-10">
           Розрахуйте вартість
@@ -68,14 +69,14 @@ const Calc = () => {
         {step === 0 && <ProfileSelector data={data} setData={setData} />}
         {step === 1 && <WindowParameters data={data} setData={setData} />}
         {step === 2 && <Summary data={data} setData={setData} />}
-        {step === 3 && <Price data={data} />}
-        
+
         <StepNavigation
           step={step}
           nextStep={nextStep}
           prevStep={prevStep}
           canGoNext={canGoNext()}
         />
+        <Price></Price>
       </section>
     </>
   );

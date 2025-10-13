@@ -1,59 +1,60 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import go from "@/app/assets/images/icons/go.svg";
-
-
-const Modal = ({ show, onClose, message }) => {
-  if (!show) return null;
-  return (
-    <div className="fixed inset-0 flex items-center justify-center bg-[#0a0a0ab8] bg-opacity-50 z-50">
-      <div className="bg-white p-6 rounded-lg shadow-xl max-w-sm w-full">
-        <p className="text-lg text-center mb-4">{message}</p>
-        <button
-          onClick={onClose}
-          className="block mx-auto bg-black text-white px-4 py-2 rounded hover:bg-gray-800"
-        >
-          Закрити
-        </button>
-      </div>
-    </div>
-  );
-};
+import Modal from "@/app/components/Modal";
 
 const Summary = ({ data, prevStep }) => {
-  const { profile, window } = data;
-  const [modalMessage, setModalMessage] = useState("");
+  const { profile, window: windowConfig } = data; // rename to avoid shadowing
+
+  const [userData, setUserData] = useState({
+    name: "",
+    phone: "",
+    message: "",
+  });
+
   const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState("Сталася помилка.");
 
-  const handleSubmit = async (e) => {
-   const windowsData = {
-    profile,
-    window
-};
-
-fetch('/order_windows.php', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(windowsData)
-})
-.then(response => response.json())
-.then(data => {
-    if (data.success) {
-        window.location.href = data.redirect; // Редірект у фронтенді
-    } else {
-        alert('Помилка відправки: ' + data.message);
-    }
-});
-
-
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
+    const windowsData = {
+      profile,
+      windowData: windowConfig, // send renamed window data
+      user: userData,
+    };
 
+    try {
+      const res = await fetch("/api/order_windows.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(windowsData),
+      });
+
+      const resData = await res.json();
+
+      if (resData.success) {
+        if (typeof window !== "undefined") {
+          window.location.href = resData.redirect;  
+        }
+      } else {
+        setModalMessage(resData.message || "Сталася помилка. Спробуйте ще раз.");
+        setShowModal(true);
+      }
+    } catch (error) {
+      setModalMessage("Сталася помилка з сервером.");
+      setShowModal(true);
+      console.error(error);
+    }
+  };
 
   return (
     <div className="space-y-6 relative px-6">
@@ -65,37 +66,38 @@ fetch('/order_windows.php', {
 
           {[
             ["Профіль", profile?.name],
-            ["Форма вікна", window.shape],
-            ["Розміри", `${window.width} x ${window.height} см`],
-            ["Фурнітура", window.hardware],
-            ["Колір", window.color],
+            ["Форма вікна", windowConfig.config],
+            ["Розміри", `${windowConfig.width} x ${windowConfig.height} см`],
+            ["Фурнітура", windowConfig.hardware],
+            ["Колір", windowConfig.color],
           ].map(([label, value]) => (
             <div key={label} className="p-2 flex justify-between border-b border-gray-200">
               <h3 className="font-semibold">{label}:</h3>
-              <p>{value || "—"}</p>
+              <div>
+                {label === "Форма вікна" && value ? (
+                  <img src={value} alt={label} className="w-16 h-16 object-contain" />
+                ) : (
+                  <p>{value || "—"}</p>
+                )}
+              </div>
             </div>
           ))}
 
           <div className="p-2 border-b border-gray-200">
             <h3 className="font-semibold mb-1">Склопакет:</h3>
             <ul className="list-disc ml-5 text-sm">
-              {window.glass?.length
-                ? window.glass.map((g, i) => <li key={i}>{g}</li>)
-                : <li>—</li>}
+              {windowConfig.glass?.length ? windowConfig.glass.map((g, i) => <li key={i}>{g}</li>) : <li>—</li>}
             </ul>
           </div>
 
           <div className="p-2 border-b border-gray-200">
             <h3 className="font-semibold mb-1">Послуги:</h3>
             <ul className="list-disc ml-5 text-sm">
-              {window.services?.length
-                ? window.services.map((s, i) => <li key={i}>{s}</li>)
-                : <li>—</li>}
+              {windowConfig.services?.length ? windowConfig.services.map((s, i) => <li key={i}>{s}</li>) : <li>—</li>}
             </ul>
           </div>
         </div>
 
-        {/* Форма */}
         <div className="bg-[#F8F7F0] py-10 px-6 sm:px-10 rounded-md w-full">
           <h2 className="text-[30px] sm:text-[28px] mb-4">Напишіть нам</h2>
 
@@ -104,6 +106,8 @@ fetch('/order_windows.php', {
               type="text"
               name="name"
               placeholder="Ім'я"
+              value={userData.name}
+              onChange={handleChange}
               className="bg-white py-4 px-6 rounded-sm"
               required
             />
@@ -113,12 +117,16 @@ fetch('/order_windows.php', {
               placeholder="Телефон"
               pattern="^\+38\s?\d{10}$"
               title="Формат: +38 095 109 9040"
+              value={userData.phone}
+              onChange={handleChange}
               required
               className="bg-white py-4 px-6 rounded-sm"
             />
             <textarea
               name="message"
               placeholder="Повідомлення"
+              value={userData.message}
+              onChange={handleChange}
               className="bg-white py-4 px-6 rounded-sm resize-none h-32"
               required
             />
@@ -133,7 +141,7 @@ fetch('/order_windows.php', {
         </div>
       </div>
 
-    <Modal
+      <Modal
         show={showModal}
         onClose={() => setShowModal(false)}
         message={modalMessage}
