@@ -72,10 +72,9 @@ export default function Home() {
         { href: "/category/vitrazh-windows", src: vitrazh, title: "Вітражні вікна" }, 
         { href: "/category/aluminium-systems", src: al, title: "Офісні перегородки" },
         { href: "/category/facades", src: fw, title: "Фурнітура" },
-        { href: "/category/gates-and-rolls", src: r, title: "Ролети та ворота" },
+        { href: "/category/gates-and-rolls", src: gates, title: "Ролети та ворота" },
         { href: "/category/window-blinds", src: blinds, title: "Жалюзі" },
-        { href: "/category/gates-and-rolls", src: gates, title: "Гаражні ворота" },
-      ].map(({ href, src, title }, i) => (
+       ].map(({ href, src, title }, i) => (
         <Link href={href} key={i} className="group block rounded-sm overflow-hidden">
           <div className="relative">
             <img
