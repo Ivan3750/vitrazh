@@ -1,13 +1,14 @@
 import ProductList from "@/app/components/ProductList";
 import b from "@/app/assets/bg-wds-6s.jpg";
 import wds5s from "@/app/assets/images/products/windows/wds-5s-t.png";
-import wds76ad from "@/app/assets/images/products/windows/wds-76MD-t.png";
-import wds76md from "@/app/assets/images/products/windows/wds-76AD-t.png";
+import wds76md from "@/app/assets/images/products/windows/wds-76MD-t.png";
+import wds76ad from "@/app/assets/images/products/windows/wds-76AD-t.png";
 import rehauE60 from "@/app/assets/images/products/windows/REHAU_Euro-Design_60-t.png";
 import rehauE70 from "@/app/assets/images/products/windows/REHAU_Euro-Design_70-t.png";
 import rehauSMD from "@/app/assets/images/products/windows/REHAU_Synego_MD-t.png";
 import wds from "@/app/assets/images/icons/wds.png";
 import rehau from "@/app/assets/images/icons/rehau.png";
+
 
 export const metadata = {
   title: "Металопластикові вікна — широкий вибір та якість | Вітраж",

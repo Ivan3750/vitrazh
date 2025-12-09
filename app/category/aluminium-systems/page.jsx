@@ -25,12 +25,6 @@ export const metadata = {
 
 const WindowPage = () => {
   const products = [
-/*   {
-    id: 1,
-    name: "Міжкімнатні перегородки",
-    img: a1,
-    link:"/category/aluminium-systems/office-partitions"
-  }, */
   {
   id: 1,
   name: "Пластикові перегородки",

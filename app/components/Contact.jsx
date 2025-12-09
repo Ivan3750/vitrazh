@@ -9,7 +9,6 @@ import time from "@/app/assets/images/icons/time.svg";
 import { FaViber, FaWhatsapp, FaTelegram, FaInstagram } from "react-icons/fa";
 import Modal from "@/app/components/Modal";
 
-
 const Contact = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("Сталася помилка.");
@@ -96,7 +95,6 @@ const Contact = () => {
             ))}
           </div>
 
-          {/* Форма */}
           <div className="bg-[#F8F7F0] py-10 px-6 sm:px-10 rounded-md max-w-[600px] mx-auto mb-[80px]">
             <h2 className="text-[36px] sm:text-[48px] mb-8 text-center">
               Напишіть нам

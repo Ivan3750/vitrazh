@@ -1,13 +1,14 @@
 import check from "@/app/assets/images/icons/check.svg";
-import Ukraine from "@/app/assets/images/products/decor/Ukraine.svg";
 import wds5s from "@/app/assets/images/products/windows/wds-5s-t.png";
-import wds76ad from "@/app/assets/images/products/windows/wds-76MD-t.png";
-import wds76md from "@/app/assets/images/products/windows/wds-76AD-t.png";
+import wds6s from "@/app/assets/images/products/windows/wds-6s-t.png";
+import wds76md from "@/app/assets/images/products/windows/wds-76MD-t.png";
+import wds76ad from "@/app/assets/images/products/windows/wds-76AD-t.png";
 import SectionContact from "@/app/components/SectionContact";
 import wdsHero from "@/app/assets/images/hero/wds.jpg";
 import wdsC5s from "@/app/assets/images/products/windows/5s.png"
 import wdsCAD from "@/app/assets/images/products/windows/ad.png";
 import wdsCMD from "@/app/assets/images/products/windows/md.png";
+import FreeSize  from "@/app/components/FreeSize";
 
 
 
@@ -79,6 +80,54 @@ const windowsData = {
     {
       title: "Доступна ціна",
       text: "Оптимальне співвідношення вартості та якості при високих експлуатаційних показниках."
+    }
+  ]
+}
+,
+"6s": {
+  title: "WDS",
+  name: "WDS 6S",
+  image: wds6s,
+  description: `WDS 6S — це сучасна шестикамерна профільна система з покращеною теплоізоляцією та підвищеною жорсткістю конструкції. Монтажна ширина 70 мм і можливість встановлення склопакетів товщиною до 40 мм роблять її оптимальним рішенням для приватних будинків і енергоефективних квартир.`,
+  specs: [
+    { key: "Кількість камер", value: "6" },
+    { key: "Монтажна глибина", value: "70 мм" },
+    { key: "Теплоізоляція", value: "0,92–1,00 м²·K/Вт (з енергоефективним склопакетом)" },
+    { key: "Шумоізоляція", value: "до 45 дБ" },
+    { key: "Склопакет", value: "до 40 мм" },
+    { key: "Призначення", value: "приватні будинки, енергоефективні квартири, котеджі" },
+    { key: "Ламінація", value: "10 стандартних відтінків + індивідуальні кольори" }
+  ],
+  hero: wdsHero,
+  construction: wdsC5s,
+  extraPoints: [
+    {
+      title: "Профіль та конструкція",
+      text: "Шестикамерний профіль з монтажною шириною 70 мм забезпечує високу жорсткість, стабільність та довговічність конструкції."
+    },
+    {
+      title: "Тепло- та шумоізоляція",
+      text: "Підвищений опір теплопередачі 0,92–1,00 м²·K/Вт та шумоізоляція до 45 дБ роблять систему ідеальною для енергоефективного житла."
+    },
+    {
+      title: "Максимальна товщина склопакета",
+      text: "Підтримка товщини склопакета до 40 мм, у тому числі мультифункціональних та енергозберігаючих рішень."
+    },
+    {
+      title: "Переваги дизайну",
+      text: "Сучасний прямолінійний дизайн, гладка поверхня профілю та естетичні пропорції стулок і рам."
+    },
+    {
+      title: "Ламінація та кольори",
+      text: "10 стандартних кольорів, включно з текстурами дерева, а також можливість замовлення індивідуальних відтінків."
+    },
+    {
+      title: "Призначення",
+      text: "Рекомендовано для приватних будинків, котеджів та квартир з високими вимогами до теплоізоляції."
+    },
+    {
+      title: "Висока енергоефективність",
+      text: "Оптимальне рішення для проектів, де важлива мінімальна тепловтрата та максимальний комфорт."
     }
   ]
 }
@@ -313,6 +362,7 @@ export default function WindowPage({ params }) {
 </section>
 
       <SectionContact />
+      <FreeSize/>
     </>
   );
 }

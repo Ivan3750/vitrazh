@@ -4,6 +4,7 @@ import rehauE60 from "@/app/assets/images/products/windows/REHAU_Euro-Design_60-
 import rehauE70 from "@/app/assets/images/products/windows/REHAU_Euro-Design_70-t.png";
 import rehauSMD from "@/app/assets/images/products/windows/REHAU_Synego_MD-t.png";
 import SectionContact from "@/app/components/SectionContact";
+import FreeSize  from "@/app/components/FreeSize";
 import rehauHero from "@/app/assets/images/hero/rehau.jpg";
 
 export async function generateMetadata({ params }) {
@@ -333,6 +334,9 @@ export default function WindowPage({ params }) {
   
 
       <SectionContact />
+      <FreeSize></FreeSize>
+ 
+
     </>
   );
 }

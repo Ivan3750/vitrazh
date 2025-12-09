@@ -1,24 +1,16 @@
-"use client"; 
+"use client";
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-import wds5s from "@/app/assets/images/products/windows/wds-5s-t.png";
-import wds6s from "@/app/assets/images/products/windows/wds-6s-t.png";
-import wds76ad from "@/app/assets/images/products/windows/wds-76AD-t.png";
-import wds76md from "@/app/assets/images/products/windows/wds-76MD-t.png";
-import rehauE60 from "@/app/assets/images/products/windows/REHAU_Euro-Design_60-t.png";
-import rehauE70 from "@/app/assets/images/products/windows/REHAU_Euro-Design_70-t.png";
-import rehauSMD from "@/app/assets/images/products/windows/REHAU_Synego_MD-t.png";
+import windowType1 from "@/app/assets/images/products/windows/windowType1.png";
+import windowType2 from "@/app/assets/images/products/windows/windowType2.png";
+import windowType3 from "@/app/assets/images/products/windows/windowType3.png";
 
 const imagesMap = {
-  wds5s,
-  wds6s,
-  wds76ad,
-  wds76md,
-  rehauE60,
-  rehauE70,
-  rehauSMD,
+  windowType1,
+  windowType2,
+  windowType3,
 };
 
 const Price = () => {
@@ -28,7 +20,7 @@ const Price = () => {
     fetch("/data/price.json")
       .then((res) => res.json())
       .then((data) => setPriceData(data))
-      .catch((err) => console.error("Failed to load price data:", err));
+      .catch(() => {});
   }, []);
 
   if (priceData.length === 0) {
@@ -40,67 +32,57 @@ const Price = () => {
       <h2 className="text-4xl font-bold mb-10 text-center">Цінові варіанти</h2>
 
       <div className="flex flex-wrap justify-center gap-8">
-        {priceData.map(
-          ({
-            id,
-            name,
-            size,
-            profile,
-            glass,
-            hardware,
-            price,
-            imgKey,
-            link,
-          }) => {
-            const img = imagesMap[imgKey];
+        {priceData.map(({ id, name, size, profile, glass, hardware, price, imgKey, link }) => {
+          const img = imagesMap[imgKey];
 
-            return (
-              <Link
-                href={link}
-                key={id}
-                className="cursor-pointer transition-transform duration-500 hover:scale-[1.02]"
+          return (
+            <Link
+              href={link}
+              key={id}
+              className="cursor-pointer transition-transform duration-500 hover:scale-[1.02]"
+            >
+              <div
+                className="bg-[#F8F7F0] rounded-md p-6 flex flex-col items-center"
+                style={{ flex: "1 1 280px", maxWidth: "350px" }}
               >
-                <div
-                  className="bg-[#F8F7F0] rounded-md p-6 flex flex-col items-center"
-                  style={{ flex: "1 1 280px", maxWidth: "350px" }}
-                >
-                  <div className="w-full max-w-[300px]">
-                    <div className="bg-[#F8F7F0] aspect-square flex items-center justify-center overflow-hidden rounded">
-                      <img
-                        src={img.src}
-                        alt={name}
-                        width={320}
-                        height={320}
-                        className="w-full h-full object-cover min-w-[300px]"
-                      />
-                    </div>
-                    <h2 className="text-center text-[#0F0F0F] text-[20px] mt-4">
-                      {name}
-                    </h2>
+                <div className="w-full max-w-[300px]">
+                  <div className="bg-[#F8F7F0] aspect-square flex items-center justify-center overflow-hidden rounded">
+                    <img
+                      src={img.src}
+                      alt={name}
+                      width={320}
+                      height={320}
+                      className="w-full h-full object-cover min-w-[300px]"
+                    />
                   </div>
 
-                  <div className="mt-4 w-full">
-                    <p className="text-sm text-gray-700">
-                      <span className="font-semibold">Розмір:</span> {size}
-                    </p>
-                    <p className="text-sm text-gray-700">
-                      <span className="font-semibold">Профіль:</span> {profile}
-                    </p>
-                    <p className="text-sm text-gray-700">
-                      <span className="font-semibold">Склопакет:</span> {glass}
-                    </p>
-                    <p className="text-sm text-gray-700">
-                      <span className="font-semibold">Фурнітура:</span> {hardware}
-                    </p>
-                  </div>
-                  <p className="mt-4 text-3xl font-extrabold text-[#bed62f]">
-                    {price}
+                  <h2 className="text-center text-[#0F0F0F] text-[20px] mt-4">
+                    {name}
+                  </h2>
+                </div>
+
+                <div className="mt-4 w-full">
+                  <p className="text-sm text-gray-700">
+                    <span className="font-semibold">Розмір:</span> {size}
+                  </p>
+                  <p className="text-sm text-gray-700">
+                    <span className="font-semibold">Профіль:</span> {profile}
+                  </p>
+                  <p className="text-sm text-gray-700">
+                    <span className="font-semibold">Склопакет:</span> {glass}
+                  </p>
+                  <p className="text-sm text-gray-700">
+                    <span className="font-semibold">Фурнітура:</span> {hardware}
                   </p>
                 </div>
-              </Link>
-            );
-          }
-        )}
+
+                <p className="mt-4 text-3xl font-extrabold text-[#bed62f]">
+                  {price}
+                </p>
+              </div>
+            </Link>
+          );
+        })}
       </div>
     </section>
   );
