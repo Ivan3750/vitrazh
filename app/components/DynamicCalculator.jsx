@@ -22,6 +22,8 @@ export default function DynamicCalculator({ productType }) {
     lamellaSize: "",
     canvasType: "",
   });
+  const [honeypot, setHoneypot] = useState("");
+const [formStart] = useState(Date.now());
 
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("Сталася помилка.");
@@ -88,42 +90,42 @@ export default function DynamicCalculator({ productType }) {
       return;
     }
 
+    if (Date.now() - formStart < 2000) {
+    window.location.href = "/err";
+    return;
+  }
+
+    const dataToSend = {
+    ...form,
+    honeypot,
+    t: formStart
+  };
+
     fetch("/api/order_mosquito.php", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(dataToSend),
+  })
+    .then(async (res) => {
+      let data;
+
+      try {
+        data = await res.json();
+      } catch {
+        window.location.href = "/err";
+        return;
+      }
+
+      if (!data.success) {
+        window.location.href = "/err";
+        return;
+      }
+
+      window.location.href = data.redirect;
     })
-      .then((res) => res.ok ? res.json() : Promise.reject())
-      .then((data) => {
-        if (data.success) {
-          setForm({
-            name: "",
-            phone: "",
-            email: "",
-            width: "",
-            height: "",
-            quantity: 1,
-            meshType: "standard",
-            color: "",
-            type: "",
-            hasBrake: false,
-            fabricTransparency: "",
-            fabricStructure: "",
-            motorType: "",
-            fabricType: "",
-            lamellaSize: "",
-            canvasType: "",
-          });
-          window.location.href = data.redirect;
-        } else {
-          setModalMessage(data.message || "Сталася помилка. Спробуйте ще раз.");
-          setShowModal(true);
-        }
-      })
-      .catch(() => {
-        setModalMessage("Сталася помилка з сервером.");
-        setShowModal(true);
-      });
+    .catch(() => {
+      window.location.href = "/err";
+    });
   };
 
   const renderColors = (options) =>
@@ -143,6 +145,15 @@ export default function DynamicCalculator({ productType }) {
         <h3 className="text-xl sm:text-2xl mb-6 text-center">Розрахувати замовлення</h3>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <input
+  type="text"
+  name="honeypot"
+  value={honeypot}
+  onChange={(e) => setHoneypot(e.target.value)}
+  style={{ display: "none" }}
+  autoComplete="off"
+  tabIndex="-1"
+/>
           <div className="flex flex-col">
             <label>Ім’я:</label>
             <input

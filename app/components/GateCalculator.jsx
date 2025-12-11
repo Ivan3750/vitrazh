@@ -9,8 +9,7 @@ import liftVertical from "@/app/assets/images/calc/gate_lift_vertical.jpg"
 import liftLow from "@/app/assets/images/calc/gate_lift_low.jpg"
 import liftStandard from "@/app/assets/images/calc/gate_lift_standart.jpg"
 import liftHigh from "@/app/assets/images/calc/gate_lift_high.jpg"
-import Modal from "@/app/components/Modal";
-
+ 
 const gateTypes = [
   {
     value: "springs",
@@ -70,49 +69,79 @@ export default function GateCalculator() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+const [honeypot, setHoneypot] = useState("");
+const [formStart] = useState(Date.now());
 
   const selectedGate = gateTypes.find((g) => g.value === gateType);
-  const [showModal, setShowModal] = useState(false);
-  const [modalMessage, setModalMessage] = useState("Сталася помилка.");
 const handleCheckboxChange = (e) => {
   const { name, dataset, checked } = e.target;
   const labelValue = dataset.label; 
   setExtras((prev) => ({ ...prev, [labelValue]: checked }));
 };
-  const handleSubmit = () => {
-    const gateData = {
-      width,
-      height,
-      gateType,
-      liftType,
-      color,
-      extras,
-      name,
-      phone,
-      email,
-    };
+const handleSubmit = () => {
+  if (
+    !name.trim() ||
+    !phone.trim() ||
+    !width ||
+    !height ||
+    !gateType ||
+    !liftType ||
+    !color
+  ) {
+    window.location.href = "/err";
+    return;
+  }
 
-    fetch('/api/order_gates.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(gateData)
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data.success) {
-        window.location.href = data.redirect;
-        e.target.reset(); 
-      } else {
-        setModalMessage(data.message || "Сталася помилка. Спробуйте ще раз.");
-        setShowModal(true);
-   } })
-    .catch(err => {
-  setModalMessage("Сталася помилка з сервером.");
-      setShowModal(true);
-    });
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    window.location.href = "/err";
+    return;
+  }
+
+  if (Date.now() - formStart < 2000) {
+    window.location.href = "/err";
+    return;
+  }
+
+  const gateData = {
+    width,
+    height,
+    gateType,
+    liftType,
+    color,
+    extras,
+    name,
+    phone,
+    email,
+    honeypot,
+    t: formStart,
   };
+
+  fetch('/api/order_gates.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(gateData)
+  })
+  .then(async (res) => {
+    let data;
+
+    try {
+      data = await res.json();
+    } catch {
+      window.location.href = "/err";
+      return;
+    }
+
+    if (!data.success) {
+      window.location.href = "/err";
+      return;
+    }
+
+    window.location.href = data.redirect;
+  })
+  .catch(() => {
+    window.location.href = "/err";
+  });
+};
 
 
 
@@ -121,8 +150,17 @@ const handleCheckboxChange = (e) => {
       <div className="bg-[#f8f7f0] px-6 py-10 rounded-md max-w-3xl mx-auto mt-10">
         <h2 className="text-3xl font-bold mb-6 text-center">Калькулятор воріт</h2>
 
-        {/* Контактні дані */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <input
+  type="text"
+  name="honeypot"
+  value={honeypot}
+  onChange={(e) => setHoneypot(e.target.value)}
+  style={{ display: "none" }}
+  tabIndex="-1"
+  autoComplete="off"
+/>
+
           <div>
             <label className="block font-medium mb-1">Ім’я</label>
             <input

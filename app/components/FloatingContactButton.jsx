@@ -8,9 +8,50 @@ import go from "@/app/assets/images/icons/go.svg";
 export default function FloatingContactButton() {
   const [open, setOpen] = useState(false);
 
+  // Антиспам: час завантаження
+  const [formTime] = useState(Date.now());
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+
+    const name = form.name.value;
+    const phone = form.phone.value;
+    const message = form.message.value;
+    const honeypot = form.email_confirm.value;
+
+    const res = await fetch("/api/contact.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        phone,
+        message,
+        honeypot,
+        t: formTime,
+      }),
+    });
+
+    let data;
+    try {
+      data = await res.json();
+    } catch {
+      window.location.href = "/err";
+      return;
+    }
+
+    if (data.redirect) {
+      window.location.href = data.redirect;
+    } else {
+      window.location.href = "/err";
+    }
+  };
+
   return (
     <>
-      {/* FLOATING BUTTON */}
       <button
         onClick={() => setOpen(true)}
         className="
@@ -25,13 +66,11 @@ export default function FloatingContactButton() {
         <Phone size={28} className="text-black" />
       </button>
 
-      {/* MODAL BACKDROP */}
       {open && (
         <div
           onClick={() => setOpen(false)}
           className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 animate-fade-in"
         >
-          {/* MODAL WINDOW */}
           <div
             onClick={(e) => e.stopPropagation()}
             className="
@@ -43,7 +82,6 @@ export default function FloatingContactButton() {
               animate-fade-in
             "
           >
-            {/* Close button */}
             <button
               onClick={() => setOpen(false)}
               className="absolute top-4 right-4 text-[28px] text-gray-600 hover:text-black transition"
@@ -55,9 +93,19 @@ export default function FloatingContactButton() {
               Напишіть нам
             </h2>
 
-            <form className="flex flex-col gap-6">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+              {/* HONEYPOT */}
               <input
                 type="text"
+                name="email_confirm"
+                style={{ display: "none" }}
+                tabIndex="-1"
+                autoComplete="off"
+              />
+
+              <input
+                type="text"
+                name="name"
                 placeholder="Ім'я"
                 className="bg-white py-4 px-6 rounded-sm"
                 required
@@ -65,12 +113,14 @@ export default function FloatingContactButton() {
 
               <input
                 type="tel"
+                name="phone"
                 placeholder="Телефон"
                 className="bg-white py-4 px-6 rounded-sm"
                 required
               />
 
               <textarea
+                name="message"
                 placeholder="Повідомлення"
                 className="bg-white py-4 px-6 rounded-sm resize-none h-32"
                 required
@@ -90,7 +140,6 @@ export default function FloatingContactButton() {
                   <img src={go.src} alt="go" />
                 </button>
 
-                {/* Social icons */}
                 <div className="flex gap-5 text-3xl text-[#555]">
                   <a href="https://t.me/+380951099040"><FaTelegram /></a>
                   <a href="https://wa.me/380951099040"><FaWhatsapp /></a>

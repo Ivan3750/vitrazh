@@ -2,7 +2,6 @@
 import w from "@/app/assets/images/products/category/window-cat.jpg";
 import al from "@/app/assets/images/products/category/2.jpg";
 import fw from "@/app/assets/images/products/category/4.png";
-import r from "@/app/assets/images/products/category/8.jpg";
 import vitrazh from "@/app/assets/images/hero/vitrazhi-banner.jpg";
 import blinds from "@/app/assets/images/products/category/5.jpg";
 import gates from "@/app/assets/images/products/category/9.jpg";
@@ -84,11 +83,9 @@ export default function Home() {
               height={380}
               className="w-full h-[300px] sm:h-[340px] lg:h-[380px] object-cover rounded-sm transition-transform group-hover:scale-[0.98]"
             />
-            {/* Легка затемнення при наведенні */}
-            <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-30 transition-opacity rounded-sm"></div>
+             <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-30 transition-opacity rounded-sm"></div>
           </div>
-          {/* Текст під фото */}
-          <div className="mt-3 text-center">
+           <div className="mt-3 text-center">
             <span className="text-xl sm:text-xl font-semibold text-gray-900">{title}</span>
           </div>
         </Link>

@@ -5,14 +5,15 @@ import go from "@/app/assets/images/icons/go.svg";
 import Modal from "@/app/components/Modal";
 
 const Summary = ({ data, prevStep }) => {
-  const { profile, window: windowConfig } = data; // rename to avoid shadowing
+  const { profile, window: windowConfig } = data; 
 
   const [userData, setUserData] = useState({
     name: "",
     phone: "",
     message: "",
   });
-
+ const [honeypot, setHoneypot] = useState("");
+  const [formStart] = useState(Math.floor(Date.now() / 1000));
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("Сталася помилка.");
 
@@ -26,8 +27,10 @@ const Summary = ({ data, prevStep }) => {
 
     const windowsData = {
       profile,
-      windowData: windowConfig, // send renamed window data
-      user: userData,
+  windowData: windowConfig,
+  user: userData,
+  honeypot,
+  form_start: formStart,
     };
 
     try {
@@ -130,6 +133,16 @@ const Summary = ({ data, prevStep }) => {
               className="bg-white py-4 px-6 rounded-sm resize-none h-32"
               required
             />
+          <input
+            type="text"
+            name="honeypot"
+            value={honeypot}
+            onChange={(e) => setHoneypot(e.target.value)}
+            style={{ display: "none" }}
+            />
+
+            <input type="hidden" name="form_start" value={formStart} />
+
             <button
               type="submit"
               className="bg-[#D8F422] py-4 px-6 rounded-sm uppercase flex items-center justify-center gap-2 min-w-[200px] hover:bg-[#0f0f0f] hover:text-white transition-colors"

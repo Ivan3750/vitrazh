@@ -12,34 +12,38 @@ import Modal from "@/app/components/Modal";
 const Contact = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("Сталася помилка.");
+const [formTime] = useState(Date.now());
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    const form = e.target;
-    const name = form.name.value;
-    const phone = form.phone.value;
-    const message = form.message.value;
+  const form = e.target;
+  const name = form.name.value;
+  const phone = form.phone.value;
+  const message = form.message.value;
+  const honeypot = form.email_confirm.value;
 
-    const res = await fetch("/api/contact.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, phone, message }),
-    });
+  const res = await fetch("/api/contact.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, phone, message, honeypot, t: formTime }),
+  });
 
-    const data = await res.json();
+  let data;
+  try {
+    data = await res.json();
+  } catch {
+    window.location.href = "/err";
+    return;
+  }
 
-    if (data.success) {
-      setModalMessage("Повідомлення надіслано!");
-      setShowModal(true);
-      form.reset();
-    } else {
-      setModalMessage("Сталася помилка. Спробуйте ще раз.");
-      setShowModal(true);
-    }
-  };
+  if (data.redirect) {
+    window.location.href = data.redirect;
+  } else {
+    window.location.href = "/err";
+  }
+};
+
 
   return (
     <>
@@ -100,6 +104,14 @@ const Contact = () => {
               Напишіть нам
             </h2>
             <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+              <input
+  type="text"
+  name="email_confirm"
+  style={{ display: "none" }}
+  tabIndex="-1"
+  autoComplete="off"
+/>
+
               <input
                 type="text"
                 name="name"

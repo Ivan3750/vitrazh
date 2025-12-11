@@ -37,6 +37,9 @@ export default function RolletCalc() {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
+  const [formStart] = useState(Date.now());
+
 
   const [modalMessage, setModalMessage] = useState("");
   const [showModal, setShowModal] = useState(false);
@@ -80,33 +83,39 @@ export default function RolletCalc() {
       name,
       phone,
       email,
+      honeypot,
+      t: formStart    
     };
 
-    fetch("/api/order_rollets.php", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(rolletData),
-    })
-      .then(async (res) => {
-        let data;
-        try {
-          data = await res.json();
-        } catch {
-          throw new Error("Сервер повернув некоректну відповідь");
-        }
-        return data;
-      })
-      .then((data) => {
-        if (data.success) {
-          window.location.href = data.redirect;
-        } else {
-          openModal("Помилка: " + data.message);
-        }
-      })
-      .catch(() => {
-        openModal("Помилка при відправленні форми.");
-      })
-      .finally(() => setLoading(false));
+fetch("/api/order_rollets.php", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(rolletData),
+})
+  .then(async (res) => {
+    let data;
+    try {
+      data = await res.json();
+    } catch {
+      window.location.href = "/err";
+      return;
+    }
+    return data;
+  })
+  .then((data) => {
+    if (!data) return;
+
+    if (data.success) {
+      window.location.href = data.redirect;
+    } else {
+      window.location.href = "/err";
+    }
+  })
+  .catch(() => {
+    window.location.href = "/err";
+  })
+  .finally(() => setLoading(false));
+
   };
 
   return (
@@ -191,6 +200,14 @@ export default function RolletCalc() {
               ))}
             </div>
           </div>
+          <input
+            type="text"
+            value={honeypot}
+            onChange={(e) => setHoneypot(e.target.value)}
+            style={{ display: "none" }}
+            tabIndex="-1"
+            autoComplete="off"
+          />
 
           <div className="mb-10">
             <label className="block mb-4 text-lg font-semibold">Вид монтажу:</label>
