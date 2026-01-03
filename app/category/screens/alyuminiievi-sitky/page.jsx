@@ -23,7 +23,7 @@ import hero from "@/app/assets/images/hero/aluminium_sitka.jpg"
 export const metadata = {
   title: "Москітні сітки для алюмінієвих вікон | Aluprof Україна",
   description:
-    "Купити москітні сітки для алюмінієвих вікон. Aluprof — надійні алюмінієві профілі, полотна Fiberglass, UltraView, Антипил, Антикішка. Захист від комах та пилу.",
+    "Купити москітні сітки для алюмінієвих вікон. Aluprof - надійні алюмінієві профілі, полотна Fiberglass, UltraView, Антипил, Антикішка. Захист від комах та пилу.",
   keywords:
     "москітні сітки, алюмінієві вікна, москітні сітки Aluprof, алюмінієві москітні сітки, сітки від комах, купити москітні сітки Україна",
   openGraph: {
@@ -139,7 +139,7 @@ export default function WindowPage() {
           furnitureColors={[{ src: blackF.src, label: "Чорний" }]}
           products={[
             {
-              id: "MRSZ — фіксована сітка.",
+              id: "MRSZ - фіксована сітка.",
               img: img,
             },
           ]}

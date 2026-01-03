@@ -374,7 +374,7 @@ export default function Home() {
               </h3>
               <p className="text-[#555555] text-[18px] md:text-[20px] mt-2 max-w-[400px] mx-auto lg:mx-0">
                 Мінімальний радіус згину профілю для вікна, що не відкривається
-                — 400 мм, для відкривається — 440 мм.
+                - 400 мм, для відкривається - 440 мм.
               </p>
             </div>
             <div className="text-center lg:text-left">

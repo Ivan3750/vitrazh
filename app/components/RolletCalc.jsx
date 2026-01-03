@@ -63,7 +63,7 @@ export default function RolletCalc() {
       return false;
     }
     if (width < 300 || height < 300) {
-      openModal("Мінімальні розміри — 300 × 300 мм.");
+      openModal("Мінімальні розміри - 300 × 300 мм.");
       return false;
     }
     return true;

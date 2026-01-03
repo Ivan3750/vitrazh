@@ -53,14 +53,14 @@ const ContactSuite = () => {
             Потрібна консультація або розрахунок?
           </h2>
           <p className="mt-4 text-lg text-[#555] max-w-2xl mx-auto">
-            Оберіть зручний спосіб — швидкий розрахунок вартості або безкоштовний виїзд спеціаліста для вимірів.
+            Оберіть зручний спосіб - швидкий розрахунок вартості або безкоштовний виїзд спеціаліста для вимірів.
           </p>
         </div>
 
         {/* Контейнер */}
         <div className="grid lg:grid-cols-2 gap-12 bg-[#F8F7F0] p-10 rounded-2xl">
 
-          {/* Ліва сторона — кнопка */}
+          {/* Ліва сторона - кнопка */}
           <div className="flex flex-col items-center text-center justify-center">
             <h3 className="text-3xl font-semibold mb-6">Хочете дізнатись точну вартість?</h3>
             <p className="text-lg text-[#555] mb-8">
@@ -70,7 +70,7 @@ const ContactSuite = () => {
             <Button name="Розрахувати" link="/calc" />
           </div>
 
-          {/* Права сторона — форма */}
+          {/* Права сторона - форма */}
           <div>
             <h3 className="text-3xl font-semibold mb-6 text-center lg:text-left">
               Замовити безкоштовний замір

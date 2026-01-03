@@ -152,17 +152,15 @@ ROLLO Сітки           </h1>
 
         <div className="flex flex-col md:flex-row flex-wrap justify-center gap-6 mx-auto">
           {[j1, j2, j3, j4, j5].map((img, index) => {
-            // Відповідні класи translate-y з md:
             const translateClasses = [
               "md:translate-y-0",
-              "md:-translate-y-7", // -28px приблизно
-              "md:translate-y-5", // 20px
-              "md:-translate-y-4", // -16px
-              "md:translate-y-6", // 24px
+              "md:-translate-y-7", 
+              "md:translate-y-5", 
+              "md:-translate-y-4",
+              "md:translate-y-6", 
             ];
 
             return (
-              <Link href="/" key={index}>
                 <div
                   className={`rounded-md transform transition-transform duration-300 hover:scale-[0.995] ${translateClasses[index]}`}
                 >
@@ -172,7 +170,6 @@ ROLLO Сітки           </h1>
                     className="h-[250px] md:h-[300px] xl:h-[350px] w-auto max-w-none object-cover rounded-md"
                   />
                 </div>
-              </Link>
             );
           })}
         </div>

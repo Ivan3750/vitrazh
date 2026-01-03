@@ -115,43 +115,43 @@ export default function WindowPage({ params }) {
           </div>
         </div>
       </section>
-<section className=" py-16 px-4">
-  <h2 className="text-4xl text-center  mb-14 text-black">
-    Варіанти кріплень рамних москітних сіток
-  </h2>
+  <section className=" py-16 px-4">
+    <h2 className="text-4xl text-center  mb-14 text-black">
+      Варіанти кріплень рамних москітних сіток
+    </h2>
 
-  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
-    {systems.map((sys, idx) => (
-      <div
-        key={idx}
-        className="bg-[#f8f7f0] rounded-md  flex flex-col md:flex-row"
-        style={{ minHeight: "250px" }}
-      >
-        {/* Зображення зліва */}
-        <img
-          src={sys.image.src}
-          alt={sys.title}
-          className="w-full md:w-48 object-contain p-4"
-          loading="lazy"
-        />
+    <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+      {systems.map((sys, idx) => (
+        <div
+          key={idx}
+          className="bg-[#f8f7f0] rounded-md  flex flex-col md:flex-row"
+          style={{ minHeight: "250px" }}
+        >
+          {/* Зображення зліва */}
+          <img
+            src={sys.image.src}
+            alt={sys.title}
+            className="w-full md:w-48 object-contain p-4"
+            loading="lazy"
+          />
 
-        {/* Текстовий блок праворуч */}
-        <div className="p-6 flex flex-col justify-center">
-          <h3 className="text-2xl   mb-3 text-black">{sys.title}</h3>
-          <p className="text-gray-700 mb-4">{sys.description}</p>
-          <ul className="text-gray-600 mb-6 list-disc list-inside text-sm">
-            <li>Мін. ширина: <strong>{sys.sizes.minWidth} мм</strong></li>
-            <li>Мін. висота: <strong>{sys.sizes.minHeight} мм</strong></li>
-            <li>Макс. ширина: <strong>{sys.sizes.maxWidth} мм</strong></li>
-            <li>Макс. висота: <strong>{sys.sizes.maxHeight} мм</strong></li>
-            <li>Макс. площа: <strong>{sys.sizes.maxArea} м²</strong></li>
-          </ul>
-  
+          {/* Текстовий блок праворуч */}
+          <div className="p-6 flex flex-col justify-center">
+            <h3 className="text-2xl   mb-3 text-black">{sys.title}</h3>
+            <p className="text-gray-700 mb-4">{sys.description}</p>
+            <ul className="text-gray-600 mb-6 list-disc list-inside text-sm">
+              <li>Мін. ширина: <strong>{sys.sizes.minWidth} мм</strong></li>
+              <li>Мін. висота: <strong>{sys.sizes.minHeight} мм</strong></li>
+              <li>Макс. ширина: <strong>{sys.sizes.maxWidth} мм</strong></li>
+              <li>Макс. висота: <strong>{sys.sizes.maxHeight} мм</strong></li>
+              <li>Макс. площа: <strong>{sys.sizes.maxArea} м²</strong></li>
+            </ul>
+    
+          </div>
         </div>
-      </div>
-    ))}
-  </div>
-</section>
+      ))}
+    </div>
+  </section>
 
 
       <section className="px-6 py-12 max-w-6xl mx-auto">

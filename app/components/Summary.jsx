@@ -80,7 +80,7 @@ const Summary = ({ data, prevStep }) => {
                 {label === "Форма вікна" && value ? (
                   <img src={value} alt={label} className="w-16 h-16 object-contain" />
                 ) : (
-                  <p>{value || "—"}</p>
+                  <p>{value || "-"}</p>
                 )}
               </div>
             </div>
@@ -89,14 +89,14 @@ const Summary = ({ data, prevStep }) => {
           <div className="p-2 border-b border-gray-200">
             <h3 className="font-semibold mb-1">Склопакет:</h3>
             <ul className="list-disc ml-5 text-sm">
-              {windowConfig.glass?.length ? windowConfig.glass.map((g, i) => <li key={i}>{g}</li>) : <li>—</li>}
+              {windowConfig.glass?.length ? windowConfig.glass.map((g, i) => <li key={i}>{g}</li>) : <li>-</li>}
             </ul>
           </div>
 
           <div className="p-2 border-b border-gray-200">
             <h3 className="font-semibold mb-1">Послуги:</h3>
             <ul className="list-disc ml-5 text-sm">
-              {windowConfig.services?.length ? windowConfig.services.map((s, i) => <li key={i}>{s}</li>) : <li>—</li>}
+              {windowConfig.services?.length ? windowConfig.services.map((s, i) => <li key={i}>{s}</li>) : <li>-</li>}
             </ul>
           </div>
         </div>

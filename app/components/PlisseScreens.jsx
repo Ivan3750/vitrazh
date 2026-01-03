@@ -1,6 +1,4 @@
-import Image from 'next/image';
-/*             meshOptions={[{ src: '/images/mesh.png', label: 'PLISSE' }]}
- */
+ 
 export default function PlisseScreens({
   profileColors = [],
   furnitureColors = [],
