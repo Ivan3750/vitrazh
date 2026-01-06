@@ -8,7 +8,7 @@ import Logo from "../public/logo.png";
 import "./globals.css";
 import Button from "./components/Button";
 import FloatingContactButton from "./components/FloatingContactButton";
- 
+
 const lalithabai = localFont({
   src: "./assets/fonts/Lalithabai.ttf",
   variable: "--font-lalithabai",
@@ -217,7 +217,7 @@ export default function RootLayout({ children }) {
         )}
 
         <main>{children}</main>
-      <FloatingContactButton />
+        <FloatingContactButton />
         <footer className="bg-[#0F0F0F]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
             <div className="flex flex-col md:flex-row justify-between items-center border-b-2 pb-10 gap-6">
@@ -324,16 +324,34 @@ export default function RootLayout({ children }) {
               <div className="space-y-4 text-white">
                 <p className="text-base font-semibold">Ми в соцмережах</p>
                 <div className="flex space-x-4 text-2xl">
-                  <a href="https://t.me/+380951099040">
+                  <a
+                    href="https://t.me/+380951099040"
+                    aria-label="Написати нам у Telegram"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <FaTelegram />
                   </a>
-                  <a href="https://wa.me/380951099040">
+                  <a
+                    href="https://wa.me/380951099040"
+                    aria-label="Написати нам у WhatsApp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <FaWhatsapp />
                   </a>
-                  <a href="viber://chat?number=+380951099040">
+                  <a
+                    href="viber://chat?number=+380951099040"
+                    aria-label="Написати нам у Viber"
+                  >
                     <FaViber />
                   </a>
-                  <a href="https://www.instagram.com/vitrazh.com.ua/">
+                  <a
+                    href="https://www.instagram.com/vitrazh.com.ua/"
+                    aria-label="Перейти на Instagram сторінку Вітраж"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <FaInstagram />
                   </a>
                 </div>
@@ -344,6 +362,7 @@ export default function RootLayout({ children }) {
                   src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10180.20131706194!2d30.449779!3d50.365616!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4c8513a365d09%3A0x1e460aad6b3ad88e!2z0L_RgNC-0YHQv9C10LrRgiDQkNC60LDQtNC10LzRltC60LAg0JPQu9GD0YjQutC-0LLQsCwgMzAsINCa0LjRl9CyLCDQo9C60YDQsNGX0L3QsCwgMDIwMDA!5e0!3m2!1suk!2sdk!4v1751716113735!5m2!1suk!2sdk"
                   width="100%"
                   height="150"
+                  title="Карта розташування магазину Вітраж у Києві"
                   style={{ border: 0 }}
                   allowFullScreen=""
                   loading="lazy"

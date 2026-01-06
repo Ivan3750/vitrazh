@@ -12,38 +12,37 @@ import Modal from "@/app/components/Modal";
 const Contact = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("Сталася помилка.");
-const [formTime] = useState(Date.now());
+  const [formTime] = useState(Date.now());
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  const form = e.target;
-  const name = form.name.value;
-  const phone = form.phone.value;
-  const message = form.message.value;
-  const honeypot = form.email_confirm.value;
+    const form = e.target;
+    const name = form.name.value;
+    const phone = form.phone.value;
+    const message = form.message.value;
+    const honeypot = form.email_confirm.value;
 
-  const res = await fetch("/api/contact.php", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, phone, message, honeypot, t: formTime }),
-  });
+    const res = await fetch("/api/contact.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, phone, message, honeypot, t: formTime }),
+    });
 
-  let data;
-  try {
-    data = await res.json();
-  } catch {
-    window.location.href = "/err";
-    return;
-  }
+    let data;
+    try {
+      data = await res.json();
+    } catch {
+      window.location.href = "/err";
+      return;
+    }
 
-  if (data.redirect) {
-    window.location.href = data.redirect;
-  } else {
-    window.location.href = "/err";
-  }
-};
-
+    if (data.redirect) {
+      window.location.href = data.redirect;
+    } else {
+      window.location.href = "/err";
+    }
+  };
 
   return (
     <>
@@ -105,12 +104,12 @@ const handleSubmit = async (e) => {
             </h2>
             <form onSubmit={handleSubmit} className="flex flex-col gap-6">
               <input
-  type="text"
-  name="email_confirm"
-  style={{ display: "none" }}
-  tabIndex="-1"
-  autoComplete="off"
-/>
+                type="text"
+                name="email_confirm"
+                style={{ display: "none" }}
+                tabIndex="-1"
+                autoComplete="off"
+              />
 
               <input
                 type="text"
@@ -144,17 +143,35 @@ const handleSubmit = async (e) => {
                   <img src={go.src} alt="go" />
                 </button>
                 <div className="flex gap-5 text-3xl text-[#555]">
-                    <a href="https://t.me/+380951099040">
-                  <FaTelegram />
+                  <a
+                    href="https://t.me/+380951099040"
+                    aria-label="Написати нам у Telegram"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaTelegram />
                   </a>
-                  <a href="https://wa.me/380951099040">
-                  <FaWhatsapp />
+                  <a
+                    href="https://wa.me/380951099040"
+                    aria-label="Написати нам у WhatsApp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaWhatsapp />
                   </a>
-                  <a href="viber://chat?number=+380951099040">
-                  <FaViber />
+                  <a
+                    href="viber://chat?number=+380951099040"
+                    aria-label="Написати нам у Viber"
+                  >
+                    <FaViber />
                   </a>
-                  <a href="https://www.instagram.com/vitrazh.com.ua/">
-                  <FaInstagram />
+                  <a
+                    href="https://www.instagram.com/vitrazh.com.ua/"
+                    aria-label="Перейти на Instagram сторінку Вітраж"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaInstagram />
                   </a>
                 </div>
               </div>

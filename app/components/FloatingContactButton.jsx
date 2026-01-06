@@ -54,6 +54,7 @@ export default function FloatingContactButton() {
     <>
       <button
         onClick={() => setOpen(true)}
+        aria-label="Відкрити форму зворотного дзвінка"
         className="
           fixed bottom-6 right-6 z-50 
           w-16 h-16 rounded-full shadow-xl
@@ -141,10 +142,36 @@ export default function FloatingContactButton() {
                 </button>
 
                 <div className="flex gap-5 text-3xl text-[#555]">
-                  <a href="https://t.me/+380951099040"><FaTelegram /></a>
-                  <a href="https://wa.me/380951099040"><FaWhatsapp /></a>
-                  <a href="viber://chat?number=+380951099040"><FaViber /></a>
-                  <a href="https://www.instagram.com/vitrazh.com.ua/"><FaInstagram /></a>
+                  <a
+                    href="https://t.me/+380951099040"
+                    aria-label="Написати нам у Telegram"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaTelegram />
+                  </a>
+                  <a
+                    href="https://wa.me/380951099040"
+                    aria-label="Написати нам у WhatsApp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaWhatsapp />
+                  </a>
+                  <a
+                    href="viber://chat?number=+380951099040"
+                    aria-label="Написати нам у Viber"
+                  >
+                    <FaViber />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/vitrazh.com.ua/"
+                    aria-label="Перейти на Instagram сторінку Вітраж"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaInstagram />
+                  </a>
                 </div>
               </div>
             </form>

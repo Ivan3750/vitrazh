@@ -1,10 +1,10 @@
 "use client";
-import w from "@/app/assets/images/products/category/window-cat.jpg";
-import al from "@/app/assets/images/products/category/2.jpg";
-import fw from "@/app/assets/images/products/category/4.png";
+import w from "@/app/assets/images/products/category/window-cat.png";
+import al from "@/app/assets/images/products/category/2.webp";
+import fw from "@/app/assets/images/products/category/4.webp";
 import vitrazh from "@/app/assets/images/hero/vitrazhi-banner.jpg";
-import blinds from "@/app/assets/images/products/category/5.jpg";
-import gates from "@/app/assets/images/products/category/9.jpg";
+import blinds from "@/app/assets/images/products/category/5.png";
+import gates from "@/app/assets/images/products/category/9.webp";
 import check from "@/app/assets/images/icons/check.svg";
 import job1 from "@/app/assets/images/jobs/job (1).jpg";
 import job2 from "@/app/assets/images/jobs/job (2).jpg";
@@ -81,6 +81,8 @@ export default function Home() {
               alt={`Зображення: ${title}`}
               width={380}
               height={380}
+                loading="lazy"
+  decoding="async"
               className="w-full h-[300px] sm:h-[340px] lg:h-[380px] object-cover rounded-sm transition-transform group-hover:scale-[0.98]"
             />
              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-30 transition-opacity rounded-sm"></div>
@@ -162,6 +164,9 @@ export default function Home() {
           src={img.src}
           alt="Робота"
           className=" w-full h-[500px]"
+             loading="lazy"
+  decoding="async"
+
         />
       </div>
     ))}
@@ -177,6 +182,8 @@ export default function Home() {
             <img
               src={WorkProcess.src}
               alt="Процес роботи"
+               loading="lazy"
+  decoding="async"
               className="mt-[40px] w-full max-w-[600px] mx-auto lg:mx-0"
             />
           </div>
@@ -233,6 +240,8 @@ export default function Home() {
                     alt={`Колір ${index + 1}`}
                     width={54}
                     height={54}
+                     loading="lazy"
+  decoding="async"
                     onClick={() => setSelectedImage(color.house)}
                     className="cursor-pointer border border-transparent hover:border-black rounded transition"
                   />
@@ -253,6 +262,8 @@ export default function Home() {
                 alt="Дім з вибраним кольором ламінації"
                 width={600}
                 height={400}
+                 loading="lazy"
+  decoding="async"
                 className="rounded object-cover w-full max-w-[600px] h-auto"
               />
             </div>
@@ -264,6 +275,8 @@ export default function Home() {
                 src={painting.src}
                 width={600}
                 height={400}
+                 loading="lazy"
+  decoding="async"
                 alt="Фарбування"
                 className="rounded object-cover w-full max-w-[600px] h-auto"
               />
@@ -287,6 +300,8 @@ export default function Home() {
                       width={60}
                       height={60}
                       alt={`adv-${i}`}
+                       loading="lazy"
+  decoding="async"
                       className="mx-auto"
                     />
                     <p className="text-[14px] text-[#555555]">
@@ -330,6 +345,8 @@ export default function Home() {
               <img
                 src={window.src}
                 width={600}
+                 loading="lazy"
+  decoding="async"
                 height={400}
                 alt="Декор скла"
                 className="rounded object-cover w-full max-w-[600px] h-auto"
@@ -350,6 +367,8 @@ export default function Home() {
                 src={trekantwindow.src}
                 width={425}
                 height={360}
+                 loading="lazy"
+  decoding="async"
                 className="mx-auto lg:mx-0 max-w-full h-auto"
                 alt="трикутне вікно"
               />
@@ -366,6 +385,8 @@ export default function Home() {
                 src={cirklewindow.src}
                 width={425}
                 height={360}
+                 loading="lazy"
+  decoding="async"
                 className="mx-auto lg:mx-0 max-w-full h-auto"
                 alt="кругле вікно"
               />
@@ -382,6 +403,8 @@ export default function Home() {
                 src={arrowwindow.src}
                 width={425}
                 height={360}
+                 loading="lazy"
+  decoding="async"
                 className="mx-auto lg:mx-0 max-w-full h-auto"
                 alt="стрілчасте вікно"
               />

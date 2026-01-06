@@ -7,7 +7,7 @@ import img1 from "@/app/assets/images/gallery/home/1.jpg";
 import img2 from "@/app/assets/images/gallery/home/2.jpg";
 import img3 from "@/app/assets/images/gallery/home/3.jpg";
 import img4 from "@/app/assets/images/gallery/home/4.jpg";
- 
+
 const slides = [
   {
     heading: "Вікна та Двері WDS",
@@ -34,7 +34,6 @@ const slides = [
     image: img4,
   },
 ];
-
 
 const textVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -84,6 +83,9 @@ export default function HeroSlider() {
           exit="exit"
         >
           <img
+          loading="eager"
+fetchpriority="high"
+
             src={slides[current].image.src}
             alt={slides[current].heading}
             className="w-full h-full object-cover"
@@ -121,6 +123,8 @@ export default function HeroSlider() {
           <button
             key={idx}
             onClick={() => setCurrent(idx)}
+            aria-label={`Перейти до слайда ${idx + 1}`}
+            aria-current={current === idx ? "true" : "false"}
             className={`w-3 h-3 rounded-full transition ${
               current === idx ? "bg-white" : "bg-white/40"
             }`}
