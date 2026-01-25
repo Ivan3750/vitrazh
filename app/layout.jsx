@@ -132,7 +132,7 @@ export default function RootLayout({ children }) {
           <div className="hidden md:flex gap-2">
             <Link
               href="/contact"
-              className="px-[16px] py-[10px] rounded-sm bg-white text-black text-md uppercase"
+              className="px-[16px] py-[10px] rounded-sm bg-[#d8f422] text-black font-[400] text-md uppercase"
             >
               Написати
             </Link>

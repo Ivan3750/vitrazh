@@ -3,7 +3,7 @@ import w from "@/app/assets/images/products/category/window-cat.png";
 import al from "@/app/assets/images/products/category/2.webp";
 import fw from "@/app/assets/images/products/category/4.webp";
 import vitrazh from "@/app/assets/images/hero/vitrazhi-banner.jpg";
-import blinds from "@/app/assets/images/products/category/5.png";
+import blinds from "@/app/assets/images/products/category/5.webp";
 import gates from "@/app/assets/images/products/category/9.webp";
 import check from "@/app/assets/images/icons/check.svg";
 import job1 from "@/app/assets/images/jobs/job (1).jpg";
@@ -154,23 +154,26 @@ export default function Home() {
       </section>
 
       <section className="w-full py-16">
-  <AutoSlider speed={100}>
-    {[job1, job2, job3, job4].map((img, i) => (
-      <div
-        key={i}
-        className="relative flex-shrink-0 min-w-[300px] aspect-[4/3]"
-      >
-        <img
-          src={img.src}
-          alt="Робота"
-          className=" w-full h-[500px]"
-             loading="lazy"
-  decoding="async"
+<AutoSlider speed={100}>
+  {[job1, job2, job3, job4].map((img, i) => (
+    <div
+      key={`work-${i}`}
+      className="group relative flex-shrink-0 w-[320px] md:w-[380px] aspect-[4/3] overflow-hidden rounded-xl shadow-lg"
+    >
+      <img
+        src={img.src}
+        alt="Робота"
+        loading="lazy"
+        decoding="async"
+        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+      />
 
-        />
-      </div>
-    ))}
-  </AutoSlider>
+      {/* subtle overlay */}
+      <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+    </div>
+  ))}
+</AutoSlider>
+
 </section>
 
       <section className="bg-[#F8F7F0]">
