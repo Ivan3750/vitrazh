@@ -31,7 +31,7 @@ export async function generateMetadata({ params }) {
   return {
     title: metaTitle,
     description: metaDescription,
-    
+    alternates: { canonical: `/category/windows/wds/${params.window}/` },
   };
 }
 
@@ -239,7 +239,7 @@ export default function WindowPage({ params }) {
           </div>
         </div>
 
-        <div className="mt-10 overflow-x-auto rounded-md  max-w-full">
+        <div className="mt-10 overflow-x-auto max-w-full">
   <h3 className="text-3xl font-semibold mb-8 text-center">Технічні характеристики</h3>
   <table className="w-full min-w-[320px] text-left text-base">
     <thead className="bg-gray-100">
@@ -275,8 +275,8 @@ export default function WindowPage({ params }) {
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {["гладка поверхня, що легко очищається", "система профілів екологічна, підлягає вторинній переробці", "скошений фальц рами і тулки, що забезпечує довідведення"].map((title, i) => (
-            <div key={i} className="flex bg-paper py-[60px] px-[40px] gap-5 rounded-md">
-              <div className="p-2 rounded-full bg-brand-lime w-9 h-9 flex items-center justify-center">
+            <div key={i} className="flex bg-paper py-[60px] px-[40px] gap-5">
+              <div className="p-2 bg-brand-lime w-9 h-9 flex items-center justify-center">
                 <img src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>
@@ -288,7 +288,7 @@ export default function WindowPage({ params }) {
     
 
 <section className="px-6 py-12 max-w-6xl mx-auto">
-  <div className="relative flex flex-col md:flex-row bg-white rounded-2xl  overflow-hidden">
+  <div className="relative flex flex-col md:flex-row bg-white overflow-hidden">
     
     {/* Лівий блок з картинкою */}
     <div className="md:w-1/2 bg-gray-50 flex items-center justify-center p-8">
@@ -296,7 +296,7 @@ export default function WindowPage({ params }) {
         src={data.construction?.src}
         alt="Рекомендована Конфігурація вікна"
         title="Рекомендована Конфігурація вікна"
-        className="rounded-lg object-contain opacity-95 w-full max-w-sm"
+        className="object-contain opacity-95 w-full max-w-sm"
       />
     </div>
 
@@ -343,7 +343,7 @@ export default function WindowPage({ params }) {
   <h3 className="text-3xl font-semibold mb-8 text-center">Додаткова інформація</h3>
   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
     {data.extraPoints.map((item, i) => (
-      <div key={i} className="flex gap-3 bg-paper p-6 rounded-md">
+      <div key={i} className="flex gap-3 bg-paper p-6">
         <img src={check.src} alt="check" className="w-6 h-6 mt-1" />
         <div>
           <h4 className="font-semibold text-gray-800 mb-1">{item.title}</h4>

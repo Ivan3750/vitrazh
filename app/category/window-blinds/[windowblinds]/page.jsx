@@ -76,6 +76,7 @@ export async function generateMetadata({ params }) {
   }
 
   return {
+    alternates: { canonical: `/category/window-blinds/${params.windowblinds}/` },
     title: `${data.name} | ${data.title} - Купити в Україні`,
     description: data.description.slice(0, 160),
     keywords: [
@@ -229,7 +230,7 @@ export default function WindowPage({ params }) {
   <PageHero image={data.hero}>{data.title}</PageHero>
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row gap-8 items-start">
-          <div className="flex-1 relative w-[400px] h-[500px] overflow-hidden rounded-sm">
+          <div className="flex-1 relative w-[400px] h-[500px] overflow-hidden">
             <img
               src={data.image.src}
               alt={data.name}
@@ -249,10 +250,10 @@ export default function WindowPage({ params }) {
           <table className="w-full border border-gray-300 text-left text-sm">
             <thead>
               <tr>
-                <th className="border-b border-b-[#555555]    px-4 py-2 text-[18px]">
+                <th className="border-b border-b-[#555555] px-4 py-2 text-[18px]">
                   Параметр
                 </th>
-                <th className="border-b border-b-[#555555]    px-4 py-2 text-[18px]">
+                <th className="border-b border-b-[#555555] px-4 py-2 text-[18px]">
                   Значення
                 </th>
               </tr>
@@ -260,10 +261,10 @@ export default function WindowPage({ params }) {
             <tbody>
               {data.specs.map((row, i) => (
                 <tr key={i}>
-                  <td className="border-b  border-b-[#555555]  px-4 py-2 text-[18px]">
+                  <td className="border-b border-b-[#555555] px-4 py-2 text-[18px]">
                     {row.key}
                   </td>
-                  <td className="border-b border-b-[#555555]   px-4 py-2 text-[18px]">
+                  <td className="border-b border-b-[#555555] px-4 py-2 text-[18px]">
                     {row.value}
                   </td>
                 </tr>
@@ -282,9 +283,9 @@ export default function WindowPage({ params }) {
           ].map((title, i) => (
             <div
               key={i}
-              className="flex bg-paper py-[60px] px-[40px] gap-5 rounded-md"
+              className="flex bg-paper py-[60px] px-[40px] gap-5"
             >
-              <div className="p-2 rounded-full bg-brand-lime w-9 h-9 flex items-center justify-center">
+              <div className="p-2 bg-brand-lime w-9 h-9 flex items-center justify-center">
                 <img src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>
@@ -293,7 +294,7 @@ export default function WindowPage({ params }) {
         </div>
       </section>
       <section className="px-6 py-12 mx-auto">
-        <h2 className="text-3xl font-semibold mb-8 text-center ">
+        <h2 className="text-3xl font-semibold mb-8 text-center">
           Приклад робіт
         </h2>
 
@@ -309,14 +310,14 @@ export default function WindowPage({ params }) {
 
     return (
       <div
-        className={`rounded-md transform transition-transform duration-300 hover:scale-[0.995] ${translateClasses[index]}`}
+        className={` transform transition-transform duration-300 hover:scale-[0.995] ${translateClasses[index]}`}
         key={index}
         style={{ width: "250px", height: "380px" }}
       >
         <img
           src={img.src}
           alt={`j${index + 1}`}
-          className="w-full h-full object-cover rounded-md"
+          className="w-full h-full object-cover"
         />
       </div>
     );

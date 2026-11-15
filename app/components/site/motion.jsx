@@ -78,7 +78,7 @@ export function ImageReveal({ src, alt, className = "", imgClassName = "" }) {
     <div ref={ref} className={className}>
       <motion.div
         initial={false}
-        animate={{ clipPath: inView ? "inset(0% 0 0 0 round 2rem)" : "inset(100% 0 0 0 round 2rem)" }}
+        animate={{ clipPath: inView ? "inset(0% 0 0 0)" : "inset(100% 0 0 0)" }}
         transition={{ duration: 1.1, ease: EASE }}
         className="w-full h-full overflow-hidden"
       >

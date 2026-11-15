@@ -13,7 +13,7 @@ export default function Footer() {
           </h2>
           <Link
             href="/contact/"
-            className="self-start md:self-auto rounded-full bg-brand-lime text-ink hover:bg-white transition-colors px-8 py-4 uppercase font-semibold tracking-wider"
+            className="self-start md:self-auto bg-brand-lime text-ink hover:bg-white transition-colors px-8 py-4 uppercase font-semibold tracking-wider"
           >
             Напишіть нам
           </Link>
@@ -72,7 +72,7 @@ export default function Footer() {
                   aria-label={label}
                   target={href.startsWith("http") ? "_blank" : undefined}
                   rel="noopener noreferrer"
-                  className="w-11 h-11 rounded-full border border-white/25 flex items-center justify-center hover:bg-brand-orange hover:border-brand-orange hover:text-white transition-colors"
+                  className="w-11 h-11 border border-white/25 flex items-center justify-center hover:bg-brand-orange hover:border-brand-orange hover:text-white transition-colors"
                 >
                   <Icon />
                 </a>

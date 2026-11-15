@@ -1,6 +1,7 @@
 import Calc from "../components/Calc";
 
 export const metadata = {
+  alternates: { canonical: "/calc/" },
   title: "Калькулятор вартості вікон",
   description:
     "Онлайн-калькулятор VitraZH допоможе швидко розрахувати вартість металопластикових вікон у Києві та області. Точний прорахунок, зручність та прозорі ціни.",
@@ -8,6 +9,7 @@ export const metadata = {
     "калькулятор вікон, розрахунок вартості вікон Київ, ціна металопластикових вікон, прорахунок вікон онлайн, VitraZH калькулятор",
   robots: "index, follow",
   openGraph: {
+    images: [{ url: "/og.jpg", width: 1200, height: 630 }],
     type: "website",
     title: "Калькулятор вартості вікон VitraZH",
     description:

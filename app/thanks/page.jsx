@@ -1,5 +1,10 @@
 import StatusPage from "@/app/components/site/StatusPage";
 
+export const metadata = {
+  title: "Дякуємо за заявку | Вітраж",
+  robots: { index: false, follow: false },
+};
+
 export default function Thanks() {
   return (
     <StatusPage

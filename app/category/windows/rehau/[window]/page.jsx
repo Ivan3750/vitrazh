@@ -25,6 +25,7 @@ export async function generateMetadata({ params }) {
   return {
     title: metaTitle,
     description: metaDescription,
+    alternates: { canonical: `/category/windows/rehau/${params.window}/` },
   };
 }
 
@@ -220,7 +221,7 @@ export default function WindowPage({ params }) {
           </div>
         </div>
 
-        <div className="mt-10 overflow-x-auto rounded-md  max-w-full">
+        <div className="mt-10 overflow-x-auto max-w-full">
           <h3 className="text-3xl font-semibold mb-8 text-center">
             Технічні характеристики
           </h3>
@@ -260,9 +261,9 @@ export default function WindowPage({ params }) {
           ].map((title, i) => (
             <div
               key={i}
-              className="flex bg-paper py-[60px] px-[40px] gap-5 rounded-md"
+              className="flex bg-paper py-[60px] px-[40px] gap-5"
             >
-              <div className="p-2 rounded-full bg-brand-lime w-9 h-9 flex items-center justify-center">
+              <div className="p-2 bg-brand-lime w-9 h-9 flex items-center justify-center">
                 <img src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>
@@ -283,14 +284,14 @@ export default function WindowPage({ params }) {
           </p>
           <div className="flex gap-5">
             <div className="flex items-center gap-2">
-              <div className="bg-transperant p-[8px] border-brand-lime border-2 rounded-full">
-                <div className="w-[29px] h-[29px] bg-brand-lime rounded-full" />
+              <div className="bg-transperant p-[8px] border-brand-lime border-2">
+                <div className="w-[29px] h-[29px] bg-brand-lime" />
               </div>
               <p className="text-[16px]">EURO-DESIGN 70</p>
             </div>
             <div className="flex items-center gap-2">
-              <div className="bg-transperant p-[8px] border-paper border-2 rounded-full">
-                <div className="w-[29px] h-[29px] bg-paper rounded-full" />
+              <div className="bg-transperant p-[8px] border-paper border-2">
+                <div className="w-[29px] h-[29px] bg-paper" />
               </div>
               <p className="text-[16px]">EURO-DESIGN 60</p>
             </div>
@@ -314,7 +315,7 @@ export default function WindowPage({ params }) {
   <h3 className="text-3xl font-semibold mb-8 text-center">Додаткова інформація</h3>
   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
     {data.extraPoints.map((item, i) => (
-      <div key={i} className="flex gap-3 bg-paper p-6 rounded-md">
+      <div key={i} className="flex gap-3 bg-paper p-6">
         <img src={check.src} alt="check" className="w-6 h-6 mt-1" />
         <div>
           <h4 className="font-semibold text-gray-800 mb-1">{item.title}</h4>

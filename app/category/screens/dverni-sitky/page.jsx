@@ -28,12 +28,14 @@ import hero from "@/app/assets/images/hero/dverna_sitka.jpg"
 
 
 export const metadata = {
+  alternates: { canonical: "/category/screens/dverni-sitky/" },
   title: "Дверні москітні сітки | Купити антимоскітні сітки для дверей",
   description:
     "Продаж дверних антимоскітних сіток. Надійні алюмінієві рамні конструкції з петлями, імпостом та магнітами. Захист від комах для дому та бізнесу.",
   keywords:
     "дверні сітки, антимоскітні сітки, москітні сітки для дверей, сітки на двері, купити сітки, Україна",
   openGraph: {
+    images: [{ url: "/og.jpg", width: 1200, height: 630 }],
     title: "Дверні москітні сітки | Купити антимоскітні сітки для дверей",
     description:
       "Алюмінієві дверні сітки з магнітним замком та петлями. Ефективний захист від комах для приватних будинків та офісів.",
@@ -104,9 +106,9 @@ export default function WindowPage() {
           ].map((title, i) => (
             <div
               key={i}
-              className="flex bg-paper py-[60px] px-[40px] gap-5 rounded-md"
+              className="flex bg-paper py-[60px] px-[40px] gap-5"
             >
-              <div className="p-2 rounded-full bg-brand-lime w-9 h-9 flex items-center justify-center">
+              <div className="p-2 bg-brand-lime w-9 h-9 flex items-center justify-center">
                 <img src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>
@@ -115,7 +117,7 @@ export default function WindowPage() {
         </div>
       </section>
        <section className="px-6 py-12 max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-[48px]  mb-10 text-center">
+        <h2 className="text-4xl md:text-[48px] mb-10 text-center">
           Типи полотна
         </h2>
 
@@ -124,7 +126,7 @@ export default function WindowPage() {
             <img
               src={fiberglass.src}
               alt="Сітка Fiberglass"
-              className="w-full h-auto  mb-1 object-contain"
+              className="w-full h-auto mb-1 object-contain"
             />
             <h3 className="text-xl font-normal mb-2">Стандарт «Fiberglass»</h3>
             <p className="text-[#555555] text-[16px]">
@@ -139,7 +141,7 @@ export default function WindowPage() {
             <img
               src={ultraView.src}
               alt="Сітка Ultra View"
-              className="w-full h-auto  mb-1 object-contain"
+              className="w-full h-auto mb-1 object-contain"
             />
             <h3 className="text-xl font-normal mb-2">Невидимка «Ultra View»</h3>
             <p className="text-[#555555] text-[16px]">
@@ -153,7 +155,7 @@ export default function WindowPage() {
             <img
               src={antipul.src}
               alt="Сітка Антипил"
-              className="w-full h-auto  mb-1 object-contain"
+              className="w-full h-auto mb-1 object-contain"
             />
             <h3 className="text-xl font-normal mb-2">Антипил</h3>
             <p className="text-[#555555] text-[16px]">
@@ -167,7 +169,7 @@ export default function WindowPage() {
             <img
               src={anticat.src}
               alt="Сітка Антикішка"
-              className="w-full h-auto  mb-1 object-contain"
+              className="w-full h-auto mb-1 object-contain"
             />
             <h3 className="text-xl font-normal mb-2">Антикішка</h3>
             <p className="text-[#555555] text-[16px]">
@@ -179,7 +181,7 @@ export default function WindowPage() {
         </div>
       </section>
       <section className="px-6 py-12 mx-auto">
-        <h2 className="text-3xl font-semibold mb-8 text-center ">
+        <h2 className="text-3xl font-semibold mb-8 text-center">
           Типи москітних сіток
         </h2>
 
@@ -197,12 +199,12 @@ export default function WindowPage() {
             return (
               <Link href="/" key={index}>
           <div
-  className={`w-[250px] rounded-md transform transition-transform duration-300 hover:scale-[0.995] ${translateClasses[index]}`}
+  className={`w-[250px]  transform transition-transform duration-300 hover:scale-[0.995] ${translateClasses[index]}`}
 >
   <img
     src={img.src}
     alt={`j${index + 1}`}
-    className="w-[250px] h-[250px] md:h-[300px] xl:h-[350px] object-cover rounded-md"
+    className="w-[250px] h-[250px] md:h-[300px] xl:h-[350px] object-cover"
   />
 </div>
 

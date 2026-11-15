@@ -8,10 +8,12 @@ import a3 from "@/app/assets/images/products/aluminium/glass.jpg";
 
 
 export const metadata = {
+  alternates: { canonical: "/category/aluminium-systems/" },
   title: "Офісні перегородки - сучасність і надійність | Вітраж",
   description: "Високоякісні офісні перегородки для фасадів, вікон і дверей. Легкість, міцність та естетика для будь-яких архітектурних рішень.",
   keywords: "офісні перегородки, алюмінієві фасади, алюмінієві вікна, алюмінієві двері, міцні алюмінієві конструкції",
   openGraph: {
+    images: [{ url: "/og.jpg", width: 1200, height: 630 }],
     title: "Офісні перегородки - сучасність і надійність",
     description: "Обирайте офісні перегородки для вікон, дверей та фасадів. Висока якість, довговічність та стильний дизайн.",
     url: "https://vitrazh.com.ua/category/aluminium-systems",

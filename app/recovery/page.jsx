@@ -28,8 +28,8 @@ export const metadata = {
     title: "єВідновлення - допомога у ремонті житла після війни",
     description:
       "Дізнайтесь, як отримати державну підтримку для ремонту домівки через програму єВідновлення. Професійна консультація, заміри, монтаж та повний супровід.",
-    url: "https://vitrazh.com.ua/recovery",
-    siteName: "Твій сайт",
+    url: "/recovery/",
+    siteName: "Вітраж",
     images: [
       {
         url: b.src,
@@ -48,7 +48,7 @@ export const metadata = {
     images: [b.src],
   },
   alternates: {
-    canonical: "https://vitrazh.com.ua/recovery",
+    canonical: "/recovery/",
   },
 };
 
@@ -79,7 +79,7 @@ const Recovery = () => {
                 alt="Пошкодженне майно"
                 width={680}
                 height={380}
-                className="rounded-sm w-full h-auto object-cover"
+                className="w-full h-auto object-cover"
               />
             </div>
           </div>
@@ -99,7 +99,7 @@ const Recovery = () => {
               { icon: report, title: "Фото-звіт", text: "Робимо фото до і після для звітування в єВідновленні." },
               { icon: relax, title: "Спокій та впевненість", text: "Прозора співпраця, якісні матеріали та жодних прихованих витрат." }]
               .map((item, i) => (
-              <div key={i} className="bg-paper rounded-3xl p-6 md:p-10 flex flex-col gap-[40px] justify-between">
+              <div key={i} className="bg-paper p-6 md:p-10 flex flex-col gap-[40px] justify-between">
                 <div><img src={item.icon.src} alt={item.title} /></div>
                 <div>
                   <h3 className="text-[24px] md:text-[28px]">{item.title}</h3>

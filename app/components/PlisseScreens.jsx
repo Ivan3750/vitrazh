@@ -10,7 +10,7 @@ export default function PlisseScreens({
       {products.map((product, idx) => (
         <div
           key={idx}
-          className=" p-6"
+          className="p-6"
         >
           {product.id && (
             <h2 className="text-3xl md:text-4xl text-center text-gray-800 mb-6">
@@ -25,7 +25,7 @@ export default function PlisseScreens({
                 alt={product.id || 'product image'}
                 width={500}
                 height={500}
-                className="rounded-xl w-full object-cover"
+                className="w-full object-cover"
               />
             )}
 
@@ -43,7 +43,7 @@ export default function PlisseScreens({
                           alt={color.label}
                           width={100}
                           height={100}
-                          className="rounded-md mx-auto"
+                          className="mx-auto"
                         />
                         <p className="text-sm mt-1 text-gray-600">{color.label}</p>
                       </div>
@@ -65,7 +65,7 @@ export default function PlisseScreens({
                               alt={item.label}
                               width={100}
                               height={100}
-                              className="mx-auto rounded-md"
+                              className="mx-auto"
                             />
                             <p className="text-xs mt-1 text-gray-600">{item.label}</p>
                           </div>
@@ -85,7 +85,7 @@ export default function PlisseScreens({
                               alt={item.label}
                               width={100}
                               height={100}
-                              className="mx-auto rounded-md"
+                              className="mx-auto"
                             />
                             <p className="text-xs mt-1 text-gray-600">{item.label}</p>
                           </div>

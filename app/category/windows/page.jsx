@@ -12,12 +12,14 @@ import rehau from "@/app/assets/images/icons/rehau.png";
 
 
 export const metadata = {
+  alternates: { canonical: "/category/windows/" },
   title: "Металопластикові вікна - широкий вибір та якість | Вітраж",
   description:
     "Пропонуємо широкий вибір металопластикових вікон: WDS, REHAU та інші. Надійні вікна для дому та офісу за вигідною ціною.",
   keywords:
     "металопластикові вікна, WDS 5S, WDS 6S, REHAU Euro-Design, пластикові вікна, вікна купити, якісні вікна",
   openGraph: {
+    images: [{ url: "/og.jpg", width: 1200, height: 630 }],
     title: "Металопластикові вікна - широкий вибір та якість",
     description:
       "Обирайте надійні металопластикові вікна WDS, REHAU за вигідною ціною. Якість, сервіс та швидка доставка.",

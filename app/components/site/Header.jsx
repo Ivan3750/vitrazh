@@ -63,12 +63,12 @@ export default function Header() {
 
                 {item.children && (
                   <div className="absolute left-0 top-full pt-4 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
-                    <div className="w-[270px] rounded-2xl bg-white border border-ink/10 shadow-xl p-2">
+                    <div className="w-[270px] bg-white border border-ink/10 shadow-xl p-2">
                       {item.children.map((c) => (
                         <Link
                           key={c.href}
                           href={c.href}
-                          className="block rounded-xl px-4 py-3 text-sm font-semibold uppercase tracking-[0.08em] hover:bg-paper hover:text-brand-orange transition-colors"
+                          className="block px-4 py-3 text-sm font-semibold uppercase tracking-[0.08em] hover:bg-paper hover:text-brand-orange transition-colors"
                         >
                           {c.label}
                         </Link>
@@ -86,14 +86,14 @@ export default function Header() {
             </a>
             <Link
               href="/contact/"
-              className="hidden md:inline-flex whitespace-nowrap rounded-full bg-ink text-white hover:bg-brand-orange transition-colors text-sm font-semibold uppercase tracking-wider px-6 py-3"
+              className="hidden md:inline-flex whitespace-nowrap bg-ink text-white hover:bg-brand-orange transition-colors text-sm font-semibold uppercase tracking-wider px-6 py-3"
             >
               Замовити замір
             </Link>
             <button
               onClick={() => setOpen(true)}
               aria-label="Відкрити меню"
-              className="lg:hidden w-11 h-11 rounded-full bg-ink flex flex-col items-center justify-center gap-1.5"
+              className="lg:hidden w-11 h-11 bg-ink flex flex-col items-center justify-center gap-1.5"
             >
               <span className="w-5 h-0.5 bg-white" />
               <span className="w-5 h-0.5 bg-white" />
@@ -114,7 +114,7 @@ export default function Header() {
             <button
               onClick={() => setOpen(false)}
               aria-label="Закрити меню"
-              className="absolute top-5 right-5 w-11 h-11 rounded-full bg-ink text-white text-3xl leading-none"
+              className="absolute top-5 right-5 w-11 h-11 bg-ink text-white text-3xl leading-none"
             >
               &times;
             </button>

@@ -45,9 +45,9 @@ export default function VitrazhPage() {
           ].map((title, i) => (
             <div
               key={i}
-              className="flex items-center gap-4 bg-paper py-10 px-6 rounded-xl "
+              className="flex items-center gap-4 bg-paper py-10 px-6"
             >
-              <div className="flex items-center justify-center w-10 h-10 rounded-full bg-brand-lime">
+              <div className="flex items-center justify-center w-10 h-10 bg-brand-lime">
                 <img src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-base md:text-lg font-medium">{title}</p>
@@ -68,7 +68,7 @@ export default function VitrazhPage() {
             loop
             spaceBetween={0}
             slidesPerView={1}
-            className="rounded-[30px] w-full h-[30vh] md:h-[40vh]"
+            className="w-full h-[30vh] md:h-[40vh]"
           >
             {[slider1, slider2, slider3].map((img, i) => (
               <SwiperSlide key={i}>
@@ -103,9 +103,9 @@ export default function VitrazhPage() {
             <img
               src={vitrazhType1.src}
               alt="Вітраж на цільному шматку скла"
-              className="rounded-2xl  mb-4 "
+              className="mb-4"
             />
-            <h3 className="text-lg ">
+            <h3 className="text-lg">
               Вітраж виготовляється на цільному шматку скла
             </h3>
           </div>
@@ -114,9 +114,9 @@ export default function VitrazhPage() {
             <img
               src={vitrazhType2.src}
               alt="Вітраж у двокамерному склопакеті"
-              className="rounded-2xl  mb-4 "
+              className="mb-4"
             />
-            <h3 className="text-lg ">
+            <h3 className="text-lg">
               Вітраж встановлюється середнім склом у двокамерний склопакет
             </h3>
           </div>
@@ -125,9 +125,9 @@ export default function VitrazhPage() {
             <img
               src={vitrazhType3.src}
               alt="Вітраж із захисним склом"
-              className="rounded-2xl  mb-4 "
+              className="mb-4"
             />
-            <h3 className="text-lg ">
+            <h3 className="text-lg">
               Вітраж захищений зовнішніми скломами, не вимагає спеціального
               догляду
             </h3>
@@ -146,7 +146,7 @@ export default function VitrazhPage() {
           loop
           slidesPerView={1}
           spaceBetween={0}
-          className="rounded-[30px] w-full h-[30vh] md:h-[40vh]"
+          className="w-full h-[30vh] md:h-[40vh]"
         >
           {[slider4, slider5, slider6].map((img, i) => (
             <SwiperSlide key={i}>
@@ -167,7 +167,7 @@ export default function VitrazhPage() {
             пропускаючи багато світла, а декоративний малюнок створює враження
             витонченості і надає стиль вашій оселі.
           </p>
-          <div className="mt-10 bg-paper rounded-2xl p-8 flex flex-col md:flex-row items-center md:items-start gap-8 ">
+          <div className="mt-10 bg-paper p-8 flex flex-col md:flex-row items-center md:items-start gap-8">
             <div className="flex-shrink-0">
               <img
                 src={diamond.src}
@@ -216,7 +216,7 @@ export default function VitrazhPage() {
           loop
           slidesPerView={1}
           spaceBetween={0}
-          className="rounded-[30px] w-full h-[30vh] md:h-[40vh]"
+          className="w-full h-[30vh] md:h-[40vh]"
         >
           {[slider7, slider8, slider9].map((img, i) => (
             <SwiperSlide key={i}>
@@ -238,7 +238,7 @@ export default function VitrazhPage() {
             процвітання вашому будинку, радість чи довголіття
           </p>
         </div>
-        <div className="mt-10 bg-paper rounded-2xl p-8 flex flex-col md:flex-row items-center md:items-start gap-8 ">
+        <div className="mt-10 bg-paper p-8 flex flex-col md:flex-row items-center md:items-start gap-8">
           <div className="flex-shrink-0">
             <img
               src={facet.src}
@@ -277,7 +277,7 @@ export default function VitrazhPage() {
 
       {/* ДОДАТКОВИЙ ТЕКСТ */}
       <section className="px-6 py-12 max-w-4xl mx-auto text-center">
-        <h3 className="text-2xl mb-4 ">Декоративна довершеність</h3>
+        <h3 className="text-2xl mb-4">Декоративна довершеність</h3>
         <p className="text-lg text-gray-700 leading-relaxed">
           Вітражні вікна - це поєднання художньої краси та сучасних технологій.
           Вони додають фасаду індивідуальності, пропускають м’яке світло та

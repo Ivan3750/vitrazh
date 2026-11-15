@@ -52,6 +52,7 @@ export async function generateMetadata({ params }) {
   const item = furnitureData[params.facades] || {};
 
   return {
+    alternates: { canonical: `/category/facades/${params.facades}/` },
     title: "Фурнітура для вікон",
     description: item.description || "Великий вибір якісної віконної фурнітури.",
     keywords: item.keywords?.join(", ") || "фурнітура, вікна, двері",
@@ -150,7 +151,7 @@ export default function FurniturePage({ params }) {
             alt={data.name}
             width={350}
             height={250}
-            className="rounded-md mix-blend-multiply"
+            className="mix-blend-multiply"
           />
         </div>
         <div className="flex-1">
@@ -161,8 +162,8 @@ export default function FurniturePage({ params }) {
         </div>
       </section>
 
-      <section className="px-6 py-10 max-w-6xl mx-auto ">
-        <h3 className="text-2xl  mb-6 text-center">
+      <section className="px-6 py-10 max-w-6xl mx-auto">
+        <h3 className="text-2xl mb-6 text-center">
           Технічні характеристики
         </h3>
         <table className="w-full text-left border-collapse">
@@ -192,9 +193,9 @@ export default function FurniturePage({ params }) {
           {data.advantages.map((adv, i) => (
             <div
               key={i}
-              className="flex bg-paper py-[60px] px-[40px] gap-5 rounded-md"
+              className="flex bg-paper py-[60px] px-[40px] gap-5"
             >
-              <div className="p-2 rounded-full bg-brand-lime w-9 h-9 flex items-center justify-center">
+              <div className="p-2 bg-brand-lime w-9 h-9 flex items-center justify-center">
                 <img src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{adv}</p>
@@ -203,7 +204,7 @@ export default function FurniturePage({ params }) {
         </div>
       </section>
       <section className="my-10">
-        <div className="bg-paper px-6 py-12 max-w-6xl mx-auto rounded-2xl">
+        <div className="bg-paper px-6 py-12 max-w-6xl mx-auto">
           <p className="text-center text-4xl">Особливості застосування</p>
             <p className="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
           {data.usage}

@@ -84,7 +84,7 @@ const WindowParameters = ({ data, setData, setValid }) => {
                 onClick={() => setActiveMain(conf)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`cursor-pointer border-2 rounded-md p-2 ${
+                className={`cursor-pointer border-2  p-2 ${
                   activeMain === conf ? "border-brand-lime" : "border-transparent"
                 }`}
               >
@@ -115,7 +115,7 @@ const WindowParameters = ({ data, setData, setValid }) => {
                     onClick={() => handleSelect(activeMain, index)}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`cursor-pointer border-2 rounded-md p-2 ${
+                    className={`cursor-pointer border-2  p-2 ${
                       selected === imgUrl ? "border-brand-lime" : "border-transparent"
                     }`}
                   >

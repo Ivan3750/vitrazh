@@ -55,12 +55,7 @@ export default function FloatingContactButton() {
       <button
         onClick={() => setOpen(true)}
         aria-label="Відкрити форму зворотного дзвінка"
-        className="
-          fixed bottom-6 right-6 z-50 
-          w-16 h-16 rounded-full shadow-xl
-          flex items-center justify-center
-          bg-brand-orange hover:bg-ink transition-colors
-        "
+        className="fixed bottom-6 right-6 z-50 w-16 h-16 shadow-xl flex items-center justify-center bg-brand-orange hover:bg-ink transition-colors"
       >
         <Phone size={28} className="text-white" />
       </button>
@@ -72,14 +67,7 @@ export default function FloatingContactButton() {
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="
-              bg-paper text-ink
-              rounded-md
-              py-10 px-6 sm:px-10 
-              max-w-[600px] w-[90%]
-              shadow-xl relative
-              animate-fade-in
-            "
+            className="bg-paper text-ink py-10 px-6 sm:px-10 max-w-[600px] w-[90%] shadow-xl relative animate-fade-in"
           >
             <button
               onClick={() => setOpen(false)}
@@ -106,7 +94,7 @@ export default function FloatingContactButton() {
                 type="text"
                 name="name"
                 placeholder="Ім'я"
-                className="bg-white py-4 px-6 rounded-sm"
+                className="bg-white py-4 px-6"
                 required
               />
 
@@ -114,26 +102,21 @@ export default function FloatingContactButton() {
                 type="tel"
                 name="phone"
                 placeholder="Телефон"
-                className="bg-white py-4 px-6 rounded-sm"
+                className="bg-white py-4 px-6"
                 required
               />
 
               <textarea
                 name="message"
                 placeholder="Повідомлення"
-                className="bg-white py-4 px-6 rounded-sm resize-none h-32"
+                className="bg-white py-4 px-6 resize-none h-32"
                 required
               ></textarea>
 
               <div className="flex flex-col sm:flex-row items-center gap-6">
                 <button
                   type="submit"
-                  className="
-                    bg-brand-orange text-white px-6 py-4 rounded-sm uppercase font-semibold tracking-wider
-                    flex items-center justify-center gap-2 min-w-[200px]
-                    hover:bg-ink 
-                    transition-colors
-                  "
+                  className="bg-brand-orange text-white px-6 py-4 uppercase font-semibold tracking-wider flex items-center justify-center gap-2 min-w-[200px] hover:bg-ink transition-colors"
                 >
                   Надіслати
                   <img src={go.src} alt="go" />

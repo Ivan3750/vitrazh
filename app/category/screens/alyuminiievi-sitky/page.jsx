@@ -22,12 +22,14 @@ import hero from "@/app/assets/images/hero/aluminium_sitka.jpg"
 
 
 export const metadata = {
+  alternates: { canonical: "/category/screens/alyuminiievi-sitky/" },
   title: "Москітні сітки для алюмінієвих вікон | Aluprof Україна",
   description:
     "Купити москітні сітки для алюмінієвих вікон. Aluprof - надійні алюмінієві профілі, полотна Fiberglass, UltraView, Антипил, Антикішка. Захист від комах та пилу.",
   keywords:
     "москітні сітки, алюмінієві вікна, москітні сітки Aluprof, алюмінієві москітні сітки, сітки від комах, купити москітні сітки Україна",
   openGraph: {
+    images: [{ url: "/og.jpg", width: 1200, height: 630 }],
     title: "Москітні сітки для алюмінієвих вікон | Aluprof Україна",
     description:
       "Фіксовані алюмінієві москітні сітки MRSZ з полотнами: Fiberglass, UltraView, Антипил, Антикішка. Довговічність і надійний захист.",
@@ -81,7 +83,7 @@ export default function WindowPage() {
             </p>
           </div>
         </div>
-          <div className="mt-10 overflow-x-auto rounded-md  max-w-full">
+          <div className="mt-10 overflow-x-auto max-w-full">
   <h3 className="text-3xl font-semibold mb-8 text-center">Технічні характеристики</h3>
   <table className="w-full min-w-[320px] text-left text-base">
     <thead className="bg-gray-100">
@@ -147,9 +149,9 @@ export default function WindowPage() {
           ].map((title, i) => (
             <div
               key={i}
-              className="flex bg-paper py-[60px] px-[40px] gap-5 rounded-md"
+              className="flex bg-paper py-[60px] px-[40px] gap-5"
             >
-              <div className="p-2 rounded-full bg-brand-lime w-9 h-9 flex items-center justify-center">
+              <div className="p-2 bg-brand-lime w-9 h-9 flex items-center justify-center">
                 <img src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>
@@ -157,7 +159,7 @@ export default function WindowPage() {
           ))}
         </div>
       </section>      <section className="px-6 py-12 max-w-6xl mx-auto">
-              <h2 className="text-4xl md:text-[48px]  mb-10 text-center">
+              <h2 className="text-4xl md:text-[48px] mb-10 text-center">
                 Типи полотна
               </h2>
       
@@ -166,7 +168,7 @@ export default function WindowPage() {
                   <img
                     src={fiberglass.src}
                     alt="Сітка Fiberglass"
-                    className="w-full h-auto  mb-1 object-contain"
+                    className="w-full h-auto mb-1 object-contain"
                   />
                   <h3 className="text-xl font-normal mb-2">Стандарт «Fiberglass»</h3>
                   <p className="text-[#555555] text-[16px]">
@@ -181,7 +183,7 @@ export default function WindowPage() {
                   <img
                     src={ultraView.src}
                     alt="Сітка Ultra View"
-                    className="w-full h-auto  mb-1 object-contain"
+                    className="w-full h-auto mb-1 object-contain"
                   />
                   <h3 className="text-xl font-normal mb-2">Невидимка «Ultra View»</h3>
                   <p className="text-[#555555] text-[16px]">
@@ -195,7 +197,7 @@ export default function WindowPage() {
                   <img
                     src={antipul.src}
                     alt="Сітка Антипил"
-                    className="w-full h-auto  mb-1 object-contain"
+                    className="w-full h-auto mb-1 object-contain"
                   />
                   <h3 className="text-xl font-normal mb-2">Антипил</h3>
                   <p className="text-[#555555] text-[16px]">
@@ -209,7 +211,7 @@ export default function WindowPage() {
                   <img
                     src={anticat.src}
                     alt="Сітка Антикішка"
-                    className="w-full h-auto  mb-1 object-contain"
+                    className="w-full h-auto mb-1 object-contain"
                   />
                   <h3 className="text-xl font-normal mb-2">Антикішка</h3>
                   <p className="text-[#555555] text-[16px]">
@@ -221,7 +223,7 @@ export default function WindowPage() {
               </div>
             </section>
       <section className="px-6 py-12 mx-auto">
-        <h2 className="text-3xl font-semibold mb-8 text-center ">
+        <h2 className="text-3xl font-semibold mb-8 text-center">
           Типи москітних сіток
         </h2>
 
@@ -239,12 +241,12 @@ export default function WindowPage() {
             return (
               <Link href="/" key={index}>
                 <div
-                  className={`rounded-md transform transition-transform duration-300 hover:scale-[0.995] ${translateClasses[index]}`}
+                  className={` transform transition-transform duration-300 hover:scale-[0.995] ${translateClasses[index]}`}
                 >
                   <img
                     src={img.src}
                     alt={`j${index + 1}`}
-                    className="h-[250px] md:h-[300px] xl:h-[350px] w-auto max-w-none object-cover rounded-md"
+                    className="h-[250px] md:h-[300px] xl:h-[350px] w-auto max-w-none object-cover"
                   />
                 </div>
               </Link>

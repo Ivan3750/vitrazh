@@ -2,11 +2,11 @@
 
 /* ───────────── Дизайн-токени: пласкі кольори з логотипу ───────────── */
 @theme {
-  --color-ink: #0e2a47;
-  --color-paper: #edf3f8;
-  --color-brand-orange: #f47a3d;
-  --color-brand-blue: #0c7cc1;
-  --color-brand-lime: #c0d632;
+  --color-ink: #13233a;
+  --color-paper: #eef0f2;
+  --color-brand-orange: #e07a45;
+  --color-brand-blue: #2a6a9c;
+  --color-brand-lime: #b4c24a;
 
   --font-display: var(--font-oswald), "Arial Narrow", Arial, sans-serif;
   --font-sans: var(--font-manrope), Arial, sans-serif;
@@ -21,7 +21,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0e2a47;
+  --foreground: #13233a;
 }
 
 html {
@@ -70,10 +70,8 @@ body {
   letter-spacing: -0.01em;
 }
 
-/* Єдине закруглення для старих блоків: кнопки — пілюлі, поля — м'які, картки — великі */
-main .rounded-sm, main .rounded, main .rounded-md, main .rounded-lg { border-radius: 1.25rem; }
-main a.rounded-sm, main button.rounded-sm, main a.rounded-md, main button.rounded-md { border-radius: 9999px; }
-main input.rounded-sm, main textarea.rounded-sm, main select.rounded-sm { border-radius: 1rem; }
+/* Квадратний стиль: жодних заокруглень на всьому сайті */
+*, *::before, *::after { border-radius: 0 !important; }
 
 /* Таблиці характеристик */
 main table thead { background: var(--color-ink); }

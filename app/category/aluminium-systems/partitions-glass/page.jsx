@@ -30,6 +30,7 @@ import {
 import b from "@/app/assets/images/hero/glass-a-bg.jpg"
 
 export const metadata = {
+  alternates: { canonical: "/category/aluminium-systems/partitions-glass/" },
   title: "Скляні перегородки – продаж та монтаж",
   description:
     "Скляні перегородки - сучасне рішення для зонування приміщень. Міцність, безпека, максимум світла. Виготовлення та монтаж у Києві та по Україні.",
@@ -108,7 +109,7 @@ export default function GlassPartitionsPage() {
             <img
               src={data.img.src}
               alt={data.name}
-              className="rounded-md object-cover w-full h-[350px] md:h-[400px]"
+              className="object-cover w-full h-[350px] md:h-[400px]"
             />
           </div>
           <div className="flex-1">
@@ -134,9 +135,9 @@ export default function GlassPartitionsPage() {
           {items.map((item, i) => (
             <div
               key={i}
-              className="flex items-start bg-paper py-8 px-6 gap-4 rounded-md"
+              className="flex items-start bg-paper py-8 px-6 gap-4"
             >
-              <div className="p-2 rounded-full bg-brand-lime w-10 h-10 flex items-center justify-center shrink-0 text-gray-800 text-xl">
+              <div className="p-2 bg-brand-lime w-10 h-10 flex items-center justify-center shrink-0 text-gray-800 text-xl">
                 {item.icon}
               </div>
               <p className="text-[16px] md:text-[18px] font-medium text-gray-800">
@@ -174,7 +175,7 @@ export default function GlassPartitionsPage() {
       ].map((item, i) => (
         <div
           key={i}
-          className="overflow-hidden rounded-xl shadow-sm hover:shadow-md transition-all duration-300 bg-paper"
+          className="overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 bg-paper"
         >
           <img
             src={item.img.src}
@@ -197,7 +198,7 @@ export default function GlassPartitionsPage() {
         </h2>
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {featureList.map((item, i) => (
-            <li key={i} className="bg-paper p-6 rounded-md shadow-sm">
+            <li key={i} className="bg-paper p-6 shadow-sm">
               <p className="font-semibold text-lg mb-2">{item.title}</p>
               <p className="text-gray-700">{item.desc}</p>
             </li>
@@ -228,9 +229,9 @@ export default function GlassPartitionsPage() {
             {priceList.map((text, i) => (
               <li
                 key={i}
-                className="flex items-start gap-4 bg-white p-4 rounded-md shadow-sm"
+                className="flex items-start gap-4 bg-white p-4 shadow-sm"
               >
-                <span className="bg-brand-lime text-gray-800 font-bold w-8 h-8 flex items-center justify-center rounded-full shrink-0">
+                <span className="bg-brand-lime text-gray-800 font-bold w-8 h-8 flex items-center justify-center shrink-0">
                   {i + 1}
                 </span>
                 <p className="text-gray-700 text-lg leading-relaxed">{text}</p>
@@ -246,9 +247,9 @@ export default function GlassPartitionsPage() {
           {benefits.map((title, i) => (
             <div
               key={i}
-              className="flex bg-paper py-[40px] px-[30px] gap-5 rounded-md shadow-sm"
+              className="flex bg-paper py-[40px] px-[30px] gap-5 shadow-sm"
             >
-              <div className="p-2 rounded-full bg-brand-lime w-9 h-9 flex items-center justify-center">
+              <div className="p-2 bg-brand-lime w-9 h-9 flex items-center justify-center">
                 <img src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>
@@ -266,7 +267,7 @@ export default function GlassPartitionsPage() {
           {[g1, g2, g3, g4, g5, g6].map((img, index) => (
             <div
               key={index}
-              className="overflow-hidden rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
+              className="overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
             >
               <img
                 src={img.src}

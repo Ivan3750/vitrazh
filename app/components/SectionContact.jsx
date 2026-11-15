@@ -11,7 +11,7 @@ const SectionContact = ({
   return (
     <section className="py-6 px-4 sm:px-6">
       <Reveal className="max-w-[1320px] mx-auto">
-        <div className="rounded-[2rem] bg-brand-lime text-ink p-7 sm:p-10 grid lg:grid-cols-[1.4fr_1fr] gap-8 items-end">
+        <div className="bg-brand-lime text-ink p-7 sm:p-10 grid lg:grid-cols-[1.4fr_1fr] gap-8 items-end">
           <h2 className="font-display text-3xl sm:text-5xl uppercase leading-[0.95]">{title}</h2>
           <div>
             {text && <p className="text-ink/75 mb-6 text-lg">{text}</p>}

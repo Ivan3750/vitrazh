@@ -23,12 +23,14 @@ import blackF from "@/app/assets/images/products/mosquito/rollo/Black.png";
 import hero from "@/app/assets/images/hero/rolle_sitka.jpg"
 
 export const metadata = {
+  alternates: { canonical: "/category/screens/rolovi-sitky/" },
   title: "ROLLO Сітки | Ролетні антимоскітні сітки для вікон та дверей",
   description:
     "Купити ролетні антимоскітні сітки ROLLO для вікон та дверей. Компактний алюмінієвий короб, вертикальне або горизонтальне відкривання, легка експлуатація та догляд.",
   keywords:
     "ролетні сітки, ROLLO сітки, антимоскітні сітки, сітки для вікон, сітки для дверей, купити ролети, Україна",
   openGraph: {
+    images: [{ url: "/og.jpg", width: 1200, height: 630 }],
     title: "ROLLO Сітки | Ролетні антимоскітні сітки для вікон та дверей",
     description:
       "Ролетні антимоскітні сітки з алюмінієвим коробом та пружинним механізмом. Вертикальне або горизонтальне відкривання, захист від комах, легка установка.",
@@ -127,9 +129,9 @@ export default function WindowPage({ params }) {
           ].map((title, i) => (
             <div
               key={i}
-              className="flex bg-paper py-[60px] px-[40px] gap-5 rounded-md"
+              className="flex bg-paper py-[60px] px-[40px] gap-5"
             >
-              <div className="p-2 rounded-full bg-brand-lime w-9 h-9 flex items-center justify-center">
+              <div className="p-2 bg-brand-lime w-9 h-9 flex items-center justify-center">
                 <img src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>
@@ -138,7 +140,7 @@ export default function WindowPage({ params }) {
         </div>
       </section>
       <section className="px-6 py-12 mx-auto">
-        <h2 className="text-3xl font-semibold mb-8 text-center ">
+        <h2 className="text-3xl font-semibold mb-8 text-center">
           Типи москітних сіток
         </h2>
 
@@ -154,12 +156,12 @@ export default function WindowPage({ params }) {
 
             return (
                 <div
-                  className={`rounded-md transform transition-transform duration-300 hover:scale-[0.995] ${translateClasses[index]}`}
+                  className={` transform transition-transform duration-300 hover:scale-[0.995] ${translateClasses[index]}`}
                 >
                   <img
                     src={img.src}
                     alt={`j${index + 1}`}
-                    className="h-[250px] md:h-[300px] xl:h-[350px] w-auto max-w-none object-cover rounded-md"
+                    className="h-[250px] md:h-[300px] xl:h-[350px] w-auto max-w-none object-cover"
                   />
                 </div>
             );

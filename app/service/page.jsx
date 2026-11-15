@@ -128,7 +128,7 @@ export const metadata = {
   robots: "index, follow",
   openGraph: {
     type: "website",
-    url: "https://vitrazh.com.ua/service",
+    url: "/service/",
     title: "Ремонт вікон Київ - Актуальні ціни | Вітраж",
     description:
       "Дивіться актуальний прайс на ремонт вікон та дверей у Києві. Виїзд майстра, заміна ущільнювача, склопакетів, ручок - професійно та доступно!",
@@ -150,7 +150,7 @@ export const metadata = {
     images: ["https://vitrazh.com.ua/images/og-price.jpg"],
   },
   alternates: {
-    canonical: "https://vitrazh.com.ua/service",
+    canonical: "/service/",
   },
 };
 
@@ -181,7 +181,7 @@ const PriceList = () => {
           <h2 className="font-display text-5xl sm:text-7xl uppercase leading-[0.95] mb-8">Виїзд на адресу</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {prices.visits.map((item, idx) => (
-              <div key={idx} className="bg-paper rounded-3xl p-7 flex flex-col justify-between gap-8">
+              <div key={idx} className="bg-paper p-7 flex flex-col justify-between gap-8">
                 <p className="text-lg text-balance">{item.description}</p>
                 <p className="font-display text-5xl text-brand-orange">{item.price}</p>
               </div>

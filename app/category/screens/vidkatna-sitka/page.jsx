@@ -19,6 +19,7 @@ import e from "@/app/assets/images/products/mosquito/vidkatna/ist-e.jpg.webp"
 import hero from "@/app/assets/images/hero/vidkatna_sitka.jpg"
 
 export const metadata = {
+  alternates: { canonical: "/category/screens/vidkatna-sitka/" },
   title: "Відкатні Сітки | Антимоскітні сітки для балконів, терас та великих вікон",
   description:
     "Відкатні антимоскітні сітки для балконів, терас, зимових садів і великих вікон. Надійний захист від комах, різноманіття систем Slide IST Z та IST E, легка експлуатація та довговічність.",
@@ -107,8 +108,8 @@ export default function WindowPage({ params }) {
           </div>
         </div>
       </section>
-  <section className=" py-8 px-4">
-    <h2 className="text-4xl text-center  mb-14 text-black">
+  <section className="py-8 px-4">
+    <h2 className="text-4xl text-center mb-14 text-black">
       Варіанти кріплень рамних москітних сіток
     </h2>
 
@@ -116,7 +117,7 @@ export default function WindowPage({ params }) {
       {systems.map((sys, idx) => (
         <div
           key={idx}
-          className="bg-paper rounded-md  flex flex-col md:flex-row"
+          className="bg-paper flex flex-col md:flex-row"
           style={{ minHeight: "250px" }}
         >
           {/* Зображення зліва */}
@@ -129,7 +130,7 @@ export default function WindowPage({ params }) {
 
           {/* Текстовий блок праворуч */}
           <div className="p-6 flex flex-col justify-center">
-            <h3 className="text-2xl   mb-3 text-black">{sys.title}</h3>
+            <h3 className="text-2xl mb-3 text-black">{sys.title}</h3>
             <p className="text-gray-700 mb-4">{sys.description}</p>
             <ul className="text-gray-600 mb-6 list-disc list-inside text-sm">
               <li>Мін. ширина: <strong>{sys.sizes.minWidth} мм</strong></li>
@@ -155,9 +156,9 @@ export default function WindowPage({ params }) {
           ].map((title, i) => (
             <div
               key={i}
-              className="flex bg-paper py-[60px] px-[40px] gap-5 rounded-md"
+              className="flex bg-paper py-[60px] px-[40px] gap-5"
             >
-              <div className="p-2 rounded-full bg-brand-lime w-9 h-9 flex items-center justify-center">
+              <div className="p-2 bg-brand-lime w-9 h-9 flex items-center justify-center">
                 <img src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>
@@ -167,7 +168,7 @@ export default function WindowPage({ params }) {
       </section>
       
       <section className="px-6 py-12 mx-auto">
-        <h2 className="text-3xl font-semibold mb-8 text-center ">
+        <h2 className="text-3xl font-semibold mb-8 text-center">
           Типи москітних сіток
         </h2>
 
@@ -185,12 +186,12 @@ export default function WindowPage({ params }) {
             return (
               <Link href="/" key={index}>
                 <div
-                  className={`rounded-md transform transition-transform duration-300 hover:scale-[0.995] ${translateClasses[index]}`}
+                  className={` transform transition-transform duration-300 hover:scale-[0.995] ${translateClasses[index]}`}
                 >
                   <img
                     src={img.src}
                     alt={`j${index + 1}`}
-                    className="h-[250px] md:h-[300px] xl:h-[350px] w-auto max-w-none object-cover rounded-md"
+                    className="h-[250px] md:h-[300px] xl:h-[350px] w-auto max-w-none object-cover"
                   />
                 </div>
               </Link>

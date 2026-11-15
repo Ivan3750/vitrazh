@@ -141,7 +141,7 @@ const [formStart] = useState(Date.now());
         <Modal message={modalMessage} onClose={() => setShowModal(false)} />
       )}
 
-      <div className="bg-paper px-4 sm:px-6 py-8 sm:py-10 rounded-md max-w-2xl mx-auto mt-10">
+      <div className="bg-paper px-4 sm:px-6 py-8 sm:py-10 max-w-2xl mx-auto mt-10">
         <h3 className="text-xl sm:text-2xl mb-6 text-center">Розрахувати замовлення</h3>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -161,7 +161,7 @@ const [formStart] = useState(Date.now());
               name="name"
               value={form.name}
               onChange={handleChange}
-              className="p-2 border rounded"
+              className="p-2 border"
               required
             />
           </div>
@@ -173,7 +173,7 @@ const [formStart] = useState(Date.now());
               name="phone"
               value={form.phone}
               onChange={handleChange}
-              className="p-2 border rounded"
+              className="p-2 border"
               required
             />
           </div>
@@ -185,7 +185,7 @@ const [formStart] = useState(Date.now());
               name="email"
               value={form.email}
               onChange={handleChange}
-              className="p-2 border rounded"
+              className="p-2 border"
             />
           </div>
 
@@ -196,7 +196,7 @@ const [formStart] = useState(Date.now());
               name="width"
               value={form.width}
               onChange={handleChange}
-              className="p-2 border rounded"
+              className="p-2 border"
               required
             />
           </div>
@@ -208,7 +208,7 @@ const [formStart] = useState(Date.now());
               name="height"
               value={form.height}
               onChange={handleChange}
-              className="p-2 border rounded"
+              className="p-2 border"
               required
             />
           </div>
@@ -220,7 +220,7 @@ const [formStart] = useState(Date.now());
               name="quantity"
               value={form.quantity}
               onChange={handleChange}
-              className="p-2 border rounded"
+              className="p-2 border"
               min={1}
             />
           </div>
@@ -232,7 +232,7 @@ const [formStart] = useState(Date.now());
                 name="type"
                 value={form.type}
                 onChange={handleChange}
-                className="p-2 border rounded"
+                className="p-2 border"
               >
                 <option value="">Оберіть</option>
                 <option value="istZ">Slide IST Z</option>
@@ -249,7 +249,7 @@ const [formStart] = useState(Date.now());
                   name="meshType"
                   value={form.meshType}
                   onChange={handleChange}
-                  className="p-2 border rounded"
+                  className="p-2 border"
                 >
                   <option value="standard">Стандарт</option>
                   <option value="nevidymka">Невидимка</option>
@@ -264,7 +264,7 @@ const [formStart] = useState(Date.now());
                   name="color"
                   value={form.color}
                   onChange={handleChange}
-                  className="p-2 border rounded"
+                  className="p-2 border"
                 >
                   <option value="">Оберіть</option>
                   {renderColors([
@@ -285,7 +285,7 @@ const [formStart] = useState(Date.now());
                   name="type"
                   value={form.type}
                   onChange={handleChange}
-                  className="p-2 border rounded"
+                  className="p-2 border"
                 >
                   <option value="">Оберіть</option>
                   <option value="mini">MINI</option>
@@ -302,7 +302,7 @@ const [formStart] = useState(Date.now());
                   name="canvasType"
                   value={form.canvasType}
                   onChange={handleChange}
-                  className="p-2 border rounded"
+                  className="p-2 border"
                 >
                   <option value="">Оберіть</option>
                   <option value="16mm">16мм</option>
@@ -316,7 +316,7 @@ const [formStart] = useState(Date.now());
                   name="color"
                   value={form.color}
                   onChange={handleChange}
-                  className="p-2 border rounded"
+                  className="p-2 border"
                 >
                   <option value="">Оберіть</option>
                   {renderColors([
@@ -336,7 +336,7 @@ const [formStart] = useState(Date.now());
                   name="type"
                   value={form.type}
                   onChange={handleChange}
-                  className="p-2 border rounded"
+                  className="p-2 border"
                 >
                   <option value="">Оберіть</option>
                   <option value="budget">Вертикальні жалюзі Бюджет</option>
@@ -350,7 +350,7 @@ const [formStart] = useState(Date.now());
                   name="lamellaSize"
                   value={form.lamellaSize}
                   onChange={handleChange}
-                  className="p-2 border rounded"
+                  className="p-2 border"
                 >
                   <option value="">Оберіть</option>
                   <option value="89mm">89мм</option>
@@ -368,7 +368,7 @@ const [formStart] = useState(Date.now());
                   name="type"
                   value={form.type}
                   onChange={handleChange}
-                  className="p-2 border rounded"
+                  className="p-2 border"
                 >
                   <option value="">Оберіть</option>
                   <option value="open">Відкрита система</option>
@@ -382,7 +382,7 @@ const [formStart] = useState(Date.now());
                   name="color"
                   value={form.color}
                   onChange={handleChange}
-                  className="p-2 border rounded"
+                  className="p-2 border"
                 >
                   <option value="">Оберіть</option>
                   {renderColors([
@@ -401,7 +401,7 @@ const [formStart] = useState(Date.now());
                   name="fabricType"
                   value={form.fabricType}
                   onChange={handleChange}
-                  className="p-2 border rounded"
+                  className="p-2 border"
                 >
                   <option value="">Оберіть</option>
                   <option value="plain">Однотонна</option>
@@ -420,7 +420,7 @@ const [formStart] = useState(Date.now());
                   name="type"
                   value={form.type}
                   onChange={handleChange}
-                  className="p-2 border rounded"
+                  className="p-2 border"
                 >
                   <option value="">Оберіть</option>
                   <option value="bamboo">Бамбук</option>
@@ -435,7 +435,7 @@ const [formStart] = useState(Date.now());
                   name="canvasType"
                   value={form.canvasType}
                   onChange={handleChange}
-                  className="p-2 border rounded"
+                  className="p-2 border"
                 >
                   <option value="">Оберіть</option>
                   <option value="25mm">25мм</option>
@@ -449,7 +449,7 @@ const [formStart] = useState(Date.now());
                   name="color"
                   value={form.color}
                   onChange={handleChange}
-                  className="p-2 border rounded"
+                  className="p-2 border"
                 >
                   <option value="">Оберіть</option>
                   {renderColors([
@@ -471,7 +471,7 @@ const [formStart] = useState(Date.now());
                   name="type"
                   value={form.type}
                   onChange={handleChange}
-                  className="p-2 border rounded"
+                  className="p-2 border"
                 >
                   <option value="">Оберіть</option>
                   <option value="classic">Classic</option>
@@ -485,7 +485,7 @@ const [formStart] = useState(Date.now());
                   name="color"
                   value={form.color}
                   onChange={handleChange}
-                  className="p-2 border rounded"
+                  className="p-2 border"
                 >
                   <option value="">Оберіть</option>
                   <option value="white">White</option>
@@ -504,7 +504,7 @@ const [formStart] = useState(Date.now());
                   name="fabricTransparency"
                   value={form.fabricTransparency}
                   onChange={handleChange}
-                  className="p-2 border rounded"
+                  className="p-2 border"
                 >
                   <option value="">Оберіть</option>
                   <option value="transparent">Прозора</option>
@@ -520,7 +520,7 @@ const [formStart] = useState(Date.now());
                   name="fabricStructure"
                   value={form.fabricStructure}
                   onChange={handleChange}
-                  className="p-2 border rounded"
+                  className="p-2 border"
                 >
                   <option value="">Оберіть</option>
                   <option value="single">Одношарова</option>
@@ -538,7 +538,7 @@ const [formStart] = useState(Date.now());
                   name="motorType"
                   value={form.motorType}
                   onChange={handleChange}
-                  className="p-2 border rounded"
+                  className="p-2 border"
                 >
                   <option value="">Оберіть</option>
                   <option value="france">France</option>
@@ -552,7 +552,7 @@ const [formStart] = useState(Date.now());
                   name="fabricTransparency"
                   value={form.fabricTransparency}
                   onChange={handleChange}
-                  className="p-2 border rounded"
+                  className="p-2 border"
                 >
                   <option value="">Оберіть</option>
                   <option value="transparent">Прозора</option>
@@ -567,7 +567,7 @@ const [formStart] = useState(Date.now());
           <div className="text-center">
             <button
               type="submit"
-              className="bg-brand-lime text-black py-3 px-6 rounded-md text-lg font-semibold uppercase hover:bg-black hover:text-white transition"
+              className="bg-brand-lime text-black py-3 px-6 text-lg font-semibold uppercase hover:bg-black hover:text-white transition"
             >
               Надіслати
             </button>

@@ -71,7 +71,7 @@ const ProfileSelector = ({ data, setData, nextStep }) => {
               key={name}
               className={`
               w-full max-w-[280px] cursor-pointer
-              rounded-lg
+              
               transition-transform duration-200
               ${
                 isSelected
@@ -91,7 +91,7 @@ const ProfileSelector = ({ data, setData, nextStep }) => {
               aria-pressed={isSelected}
               aria-label={`Вибрати профіль ${name}`}
             >
-              <div className="bg-paper aspect-square rounded flex items-center justify-center overflow-hidden">
+              <div className="bg-paper aspect-square flex items-center justify-center overflow-hidden">
                 <img
                   src={img.src}
                   alt={name}

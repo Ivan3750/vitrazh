@@ -65,14 +65,13 @@ const FreeSize = () => {
           </p>
         </div>
 
-        <div className="bg-paper px-6 py-10 max-w-[1320px] mx-auto rounded-[2rem] 
-                        flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
+        <div className="bg-paper px-6 py-10 max-w-[1320px] mx-auto flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
 
           <div className="w-full lg:w-1/2">
             <img
               src={FreeSizeImg.src}
               alt="Free size measure"
-              className="w-full h-[280px] sm:h-[320px] lg:h-[420px] object-cover rounded-md"
+              className="w-full h-[280px] sm:h-[320px] lg:h-[420px] object-cover"
             />
           </div>
 
@@ -91,7 +90,7 @@ const FreeSize = () => {
                 type="text"
                 name="name"
                 placeholder="Ім'я"
-                className="bg-white py-4 px-6 rounded-sm w-full"
+                className="bg-white py-4 px-6 w-full"
                 required
               />
 
@@ -101,19 +100,19 @@ const FreeSize = () => {
                 placeholder="Телефон"
                 title="Формат: +38 095 109 90 40"
                 required
-                className="bg-white py-4 px-6 rounded-sm w-full"
+                className="bg-white py-4 px-6 w-full"
               />
 
               <textarea
                 name="message"
                 placeholder="Ваше повідомлення"
-                className="bg-white py-4 px-6 rounded-sm resize-none h-32 w-full"
+                className="bg-white py-4 px-6 resize-none h-32 w-full"
                 required
               />
 
               <button
                 type="submit"
-                className="bg-brand-orange text-white py-4 px-10 rounded-sm uppercase font-semibold tracking-wider flex items-center justify-center gap-2 min-w-[200px] hover:bg-ink transition-colors mx-auto lg:mx-0"
+                className="bg-brand-orange text-white py-4 px-10 uppercase font-semibold tracking-wider flex items-center justify-center gap-2 min-w-[200px] hover:bg-ink transition-colors mx-auto lg:mx-0"
               >
                 Надіслати
               </button>

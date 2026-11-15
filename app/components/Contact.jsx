@@ -6,7 +6,7 @@ import Modal from "@/app/components/Modal";
 import { Reveal, SplitHeading } from "./site/motion";
 
 const field =
-  "w-full rounded-2xl bg-paper border border-transparent px-5 py-4 text-ink placeholder:text-ink/40 outline-none focus:border-ink focus:bg-white transition-colors";
+  "w-full  bg-paper border border-transparent px-5 py-4 text-ink placeholder:text-ink/40 outline-none focus:border-ink focus:bg-white transition-colors";
 
 const Contact = () => {
   const [showModal, setShowModal] = useState(false);
@@ -87,9 +87,9 @@ const Contact = () => {
                 <Reveal key={label} delay={i * 0.08} y={24}>
                   <Wrap
                     {...(href ? { href } : {})}
-                    className="flex items-center gap-5 bg-paper rounded-3xl p-5 hover:bg-ink hover:text-white transition-colors group"
+                    className="flex items-center gap-5 bg-paper p-5 hover:bg-ink hover:text-white transition-colors group"
                   >
-                    <span className={`w-14 h-14 shrink-0 rounded-2xl ${accents[i]} grid place-items-center text-2xl ${i === 2 ? "text-ink" : "text-white"}`}>
+                    <span className={`w-14 h-14 shrink-0  ${accents[i]} grid place-items-center text-2xl ${i === 2 ? "text-ink" : "text-white"}`}>
                       <Icon />
                     </span>
                     <span>
@@ -103,7 +103,7 @@ const Contact = () => {
           </div>
 
           <Reveal delay={0.1}>
-            <div className="bg-paper rounded-[2rem] p-7 sm:p-10">
+            <div className="bg-paper p-7 sm:p-10">
               <h2 className="font-display text-5xl uppercase mb-8">Напишіть нам</h2>
               <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                 <input
@@ -134,7 +134,7 @@ const Contact = () => {
                 <div className="flex flex-col sm:flex-row items-center gap-6 pt-2">
                   <button
                     type="submit"
-                    className="w-full sm:w-auto rounded-full bg-brand-orange text-white hover:bg-ink transition-colors px-10 py-4 uppercase font-semibold tracking-wider"
+                    className="w-full sm:w-auto bg-brand-orange text-white hover:bg-ink transition-colors px-10 py-4 uppercase font-semibold tracking-wider"
                   >
                     Надіслати
                   </button>
@@ -151,7 +151,7 @@ const Contact = () => {
                         aria-label={label}
                         target={href.startsWith("http") ? "_blank" : undefined}
                         rel="noopener noreferrer"
-                        className="w-11 h-11 rounded-full bg-white text-ink grid place-items-center hover:bg-brand-orange hover:text-white transition-colors"
+                        className="w-11 h-11 bg-white text-ink grid place-items-center hover:bg-brand-orange hover:text-white transition-colors"
                       >
                         <Icon />
                       </a>

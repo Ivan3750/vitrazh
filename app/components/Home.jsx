@@ -74,7 +74,7 @@ export default function Home() {
         { href: "/category/gates-and-rolls", src: gates, title: "Ролети та ворота" },
         { href: "/category/window-blinds", src: blinds, title: "Жалюзі" },
        ].map(({ href, src, title }, i) => (
-        <Link href={href} key={i} className="group block rounded-sm overflow-hidden">
+        <Link href={href} key={i} className="group block overflow-hidden">
           <div className="relative">
             <img
               src={src.src}
@@ -83,9 +83,9 @@ export default function Home() {
               height={380}
                 loading="lazy"
   decoding="async"
-              className="w-full h-[300px] sm:h-[340px] lg:h-[380px] object-cover rounded-sm transition-transform group-hover:scale-[0.98]"
+              className="w-full h-[300px] sm:h-[340px] lg:h-[380px] object-cover transition-transform group-hover:scale-[0.98]"
             />
-             <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-30 transition-opacity rounded-sm"></div>
+             <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-30 transition-opacity"></div>
           </div>
            <div className="mt-3 text-center">
             <span className="text-xl sm:text-xl font-semibold text-gray-900">{title}</span>
@@ -101,7 +101,7 @@ export default function Home() {
       <section className="py-[100px]">
         <div className="mc">
           <div className="flex flex-col lg:flex-row items-center gap-8">
-            <h2 className="text-[40px] sm:text-[48px] lg:text-[64px]  leading-tight">
+            <h2 className="text-[40px] sm:text-[48px] lg:text-[64px] leading-tight">
               Чому обирають нас?
             </h2>
             <img
@@ -109,7 +109,7 @@ export default function Home() {
               width={645}
               height={375}
               alt="Чому нас"
-              className="rounded-sm w-full max-w-[645px] h-auto"
+              className="w-full max-w-[645px] h-auto"
             />
           </div>
 
@@ -130,9 +130,9 @@ export default function Home() {
             ].map((item, index) => (
               <div
                 key={index}
-                className="flex bg-paper p-6 gap-5 rounded-sm"
+                className="flex bg-paper p-6 gap-5"
               >
-                <div className="p-[7px] rounded-full bg-brand-lime w-9 h-9 flex items-center justify-center">
+                <div className="p-[7px] bg-brand-lime w-9 h-9 flex items-center justify-center">
                   <img
                     src={check.src}
                     alt="Перевага"
@@ -142,7 +142,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-[22px] md:text-[26px] ">{item.title}</h3>
+                  <h3 className="text-[22px] md:text-[26px]">{item.title}</h3>
                   <p className="text-[16px] md:text-[18px] text-[#555] mt-2">
                     {item.text}
                   </p>
@@ -158,7 +158,7 @@ export default function Home() {
   {[job1, job2, job3, job4].map((img, i) => (
     <div
       key={`work-${i}`}
-      className="group relative flex-shrink-0 w-[320px] md:w-[380px] aspect-[4/3] overflow-hidden rounded-xl shadow-lg"
+      className="group relative flex-shrink-0 w-[320px] md:w-[380px] aspect-[4/3] overflow-hidden shadow-lg"
     >
       <img
         src={img.src}
@@ -197,8 +197,8 @@ export default function Home() {
                 key={step}
                 className="max-w-[350px] relative mx-auto lg:mx-0"
               >
-                <div className="hidden lg:block absolute -left-[46px] top-[10px] w-[12px] h-[12px] bg-ink rounded-full"></div>
-                <span className="hidden lg:block absolute -left-[106px] top-[5px] text-ink  text-[16px] whitespace-nowrap">
+                <div className="hidden lg:block absolute -left-[46px] top-[10px] w-[12px] h-[12px] bg-ink"></div>
+                <span className="hidden lg:block absolute -left-[106px] top-[5px] text-ink text-[16px] whitespace-nowrap">
                   Крок {step}
                 </span>
                 <h3 className="text-[22px] sm:text-[24px] lg:text-[28px] text-ink mb-[8px]">
@@ -246,7 +246,7 @@ export default function Home() {
                      loading="lazy"
   decoding="async"
                     onClick={() => setSelectedImage(color.house)}
-                    className="cursor-pointer border border-transparent hover:border-black rounded transition"
+                    className="cursor-pointer border border-transparent hover:border-black transition"
                   />
                 ))}
               </div>
@@ -267,7 +267,7 @@ export default function Home() {
                 height={400}
                  loading="lazy"
   decoding="async"
-                className="rounded object-cover w-full max-w-[600px] h-auto"
+                className="object-cover w-full max-w-[600px] h-auto"
               />
             </div>
           </div>
@@ -281,7 +281,7 @@ export default function Home() {
                  loading="lazy"
   decoding="async"
                 alt="Фарбування"
-                className="rounded object-cover w-full max-w-[600px] h-auto"
+                className="object-cover w-full max-w-[600px] h-auto"
               />
             </div>
             <div className="text-center lg:text-left">
@@ -352,7 +352,7 @@ export default function Home() {
   decoding="async"
                 height={400}
                 alt="Декор скла"
-                className="rounded object-cover w-full max-w-[600px] h-auto"
+                className="object-cover w-full max-w-[600px] h-auto"
               />
             </div>
           </div>

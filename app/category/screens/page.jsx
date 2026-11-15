@@ -9,10 +9,12 @@ import s5 from "@/app/assets/images/products/mosquito/5-new.jpg";
 import s6 from "@/app/assets/images/products/mosquito/6-new.jpg";
  
 export const metadata = {
+  alternates: { canonical: "/category/screens/" },
   title: "Москітні сітки - захист та свіжість у вашому домі | Вітраж",
   description: "Якісні москітні сітки для вікон та дверей. Надійний захист від комах та пилу, легкий монтаж і довговічність.",
   keywords: "москітні сітки, сітки на вікна, захист від комах, сітки на двері, москітна сітка купити, антимоскітні сітки",
   openGraph: {
+    images: [{ url: "/og.jpg", width: 1200, height: 630 }],
     title: "Москітні сітки - захист та свіжість у вашому домі",
     description: "Обирайте якісні москітні сітки для надійного захисту від комах. Легко, швидко та ефективно.",
     url: "https://vitrazh.com.ua/category/screens",

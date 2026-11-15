@@ -21,8 +21,7 @@ const FabricGrid = ({ products }) => {
         {uniqueProducts.slice(0, visibleCount).map((product, index) => (
           <div
             key={index}
-            className="flex flex-col w-full sm:w-[calc(50%-1.5rem)] md:w-[calc(33.333%-1.5rem)] 
-            lg:w-[calc(14%-1.5rem)] rounded-xl p-2 bg-white"
+            className="flex flex-col w-full sm:w-[calc(50%-1.5rem)] md:w-[calc(33.333%-1.5rem)] lg:w-[calc(14%-1.5rem)] p-2 bg-white"
           >
             <div className="relative w-full h-[175px] flex items-center justify-center bg-gray-50">
               {product.FotoLocal ? (
@@ -50,7 +49,7 @@ const FabricGrid = ({ products }) => {
         <div className="flex justify-center mt-6">
           <button
             onClick={showMore}
-            className="px-6 py-4 bg-brand-lime rounded-sm uppercase font-semibold flex   justify-between hover:bg-ink hover:text-white"
+            className="px-6 py-4 bg-brand-lime uppercase font-semibold flex justify-between hover:bg-ink hover:text-white"
           >
             Показати більше
           </button>

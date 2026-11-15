@@ -117,7 +117,7 @@ export default function HeroSlider() {
           </p>
           <a
             href={slides[current].link}
-            className="inline-block bg-white text-black px-6 sm:px-8 py-3 sm:py-4 text-md sm:text-lg md:text-xl rounded-md font-medium shadow-md hover:bg-gray-200 transition"
+            className="inline-block bg-white text-black px-6 sm:px-8 py-3 sm:py-4 text-md sm:text-lg md:text-xl font-medium shadow-md hover:bg-gray-200 transition"
           >
             Дізнатися більше
           </a>
@@ -131,7 +131,7 @@ export default function HeroSlider() {
             onClick={() => goToSlide(idx)}
             aria-label={`Перейти до слайда ${idx + 1}`}
             aria-current={current === idx}
-            className={`w-3 h-3 rounded-full transition ${
+            className={`w-3 h-3  transition ${
               current === idx ? "bg-white scale-110" : "bg-white/40"
             }`}
           />

@@ -147,7 +147,7 @@ const handleSubmit = () => {
 
   return (
     <section className="p-5">
-      <div className="bg-paper px-6 py-10 rounded-md max-w-3xl mx-auto mt-10">
+      <div className="bg-paper px-6 py-10 max-w-3xl mx-auto mt-10">
         <h2 className="text-3xl font-bold mb-6 text-center">Калькулятор воріт</h2>
 
          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
@@ -167,7 +167,7 @@ const handleSubmit = () => {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full border border-gray-300 p-2 rounded"
+              className="w-full border border-gray-300 p-2"
             />
           </div>
           <div>
@@ -176,7 +176,7 @@ const handleSubmit = () => {
               type="tel"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              className="w-full border border-gray-300 p-2 rounded"
+              className="w-full border border-gray-300 p-2"
             />
           </div>
           <div>
@@ -185,7 +185,7 @@ const handleSubmit = () => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full border border-gray-300 p-2 rounded"
+              className="w-full border border-gray-300 p-2"
             />
           </div>
         </div>
@@ -198,7 +198,7 @@ const handleSubmit = () => {
               type="number"
               value={width}
               onChange={(e) => setWidth(e.target.value)}
-              className="w-full border border-gray-300 p-2 rounded"
+              className="w-full border border-gray-300 p-2"
             />
           </div>
           <div>
@@ -207,7 +207,7 @@ const handleSubmit = () => {
               type="number"
               value={height}
               onChange={(e) => setHeight(e.target.value)}
-              className="w-full border border-gray-300 p-2 rounded"
+              className="w-full border border-gray-300 p-2"
             />
           </div>
         </div>
@@ -219,7 +219,7 @@ const handleSubmit = () => {
             {gateTypes.map(({ value, label, img }) => (
               <label
                 key={value}
-                className={`cursor-pointer border rounded-xl p-3 flex flex-col items-center justify-center transition-all  ${
+                className={`cursor-pointer border  p-3 flex flex-col items-center justify-center transition-all  ${
                   gateType === value  ? "border-brand-lime bg-white"
                       : "border-gray-200 bg-gray-50 hover:bg-white"
                 }`}
@@ -235,7 +235,7 @@ const handleSubmit = () => {
                   }}
                   className="hidden"
                 />
-                <img src={img} alt={label} className="w-36 h-36 object-cover rounded mb-3" />
+                <img src={img} alt={label} className="w-36 h-36 object-cover mb-3" />
                 <span className="text-sm font-medium text-center">{label}</span>
               </label>
             ))}
@@ -249,7 +249,7 @@ const handleSubmit = () => {
               {selectedGate.liftTypes.map(({ label, img }) => (
                 <label
                   key={label}
-                  className={`cursor-pointer border rounded-xl p-3 flex flex-col items-center justify-center transition-all  ${
+                  className={`cursor-pointer border  p-3 flex flex-col items-center justify-center transition-all  ${
                     liftType === label  ? "border-brand-lime bg-white"
                       : "border-gray-200 bg-gray-50 hover:bg-white" 
                   }`}
@@ -262,7 +262,7 @@ const handleSubmit = () => {
                     onChange={() => setLiftType(label)}
                     className="hidden"
                   />
-                  <img src={img} alt={label} className="w-32 h-32 object-cover rounded mb-3" />
+                  <img src={img} alt={label} className="w-32 h-32 object-cover mb-3" />
                   <span className="text-sm font-medium text-center">{label}</span>
                 </label>
               ))}
@@ -344,7 +344,7 @@ const handleSubmit = () => {
         <div className="flex justify-center">
           <button
             onClick={handleSubmit}
-            className="bg-brand-lime py-[18px] px-[24px] rounded-sm uppercase font-semibold flex min-w-[200px] max-w-[250px] gap-[5px] justify-center hover:bg-ink hover:text-white transition-colors duration-200"
+            className="bg-brand-lime py-[18px] px-[24px] uppercase font-semibold flex min-w-[200px] max-w-[250px] gap-[5px] justify-center hover:bg-ink hover:text-white transition-colors duration-200"
           >
             Надіслати
           </button>

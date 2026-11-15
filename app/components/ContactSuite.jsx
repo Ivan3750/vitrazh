@@ -58,7 +58,7 @@ const ContactSuite = () => {
         </div>
 
         {/* Контейнер */}
-        <div className="grid lg:grid-cols-2 gap-12 bg-paper p-10 rounded-2xl">
+        <div className="grid lg:grid-cols-2 gap-12 bg-paper p-10">
 
           {/* Ліва сторона - кнопка */}
           <div className="flex flex-col items-center text-center justify-center">
@@ -78,7 +78,7 @@ const ContactSuite = () => {
 
             <img
               src={FreeSizeImg.src}
-              className="w-full h-64 object-cover rounded-md mb-8"
+              className="w-full h-64 object-cover mb-8"
               alt="Замір"
             />
 
@@ -87,7 +87,7 @@ const ContactSuite = () => {
                 type="text"
                 name="name"
                 placeholder="Ім’я"
-                className="bg-white py-4 px-6 rounded-sm w-full"
+                className="bg-white py-4 px-6 w-full"
                 required
               />
 
@@ -97,20 +97,20 @@ const ContactSuite = () => {
                 placeholder="Телефон"
                 pattern="^\+38\s?\d{10}$"
                 title="Формат: +38 095 109 90 40"
-                className="bg-white py-4 px-6 rounded-sm w-full"
+                className="bg-white py-4 px-6 w-full"
                 required
               />
 
               <textarea
                 name="message"
                 placeholder="Ваше повідомлення"
-                className="bg-white py-4 px-6 resize-none rounded-sm h-32"
+                className="bg-white py-4 px-6 resize-none h-32"
                 required
               />
 
               <button
                 type="submit"
-                className="bg-brand-orange text-white py-4 px-6 rounded-sm uppercase font-semibold tracking-wider flex items-center justify-center gap-2 hover:bg-ink transition-colors w-full"
+                className="bg-brand-orange text-white py-4 px-6 uppercase font-semibold tracking-wider flex items-center justify-center gap-2 hover:bg-ink transition-colors w-full"
               >
                 Надіслати
                 <img src={go.src} alt="go" />

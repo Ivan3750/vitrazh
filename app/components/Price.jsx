@@ -42,11 +42,11 @@ const Price = () => {
               className="cursor-pointer transition-transform duration-500 hover:scale-[1.02]"
             >
               <div
-                className="bg-paper rounded-md p-6 flex flex-col items-center"
+                className="bg-paper p-6 flex flex-col items-center"
                 style={{ flex: "1 1 280px", maxWidth: "350px" }}
               >
                 <div className="w-full max-w-[300px]">
-                  <div className="bg-paper aspect-square flex items-center justify-center overflow-hidden rounded">
+                  <div className="bg-paper aspect-square flex items-center justify-center overflow-hidden">
                     <img
                       src={img.src}
                       alt={name}

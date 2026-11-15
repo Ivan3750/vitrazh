@@ -44,14 +44,14 @@ export default function PageHero({ children, image, crumb }) {
 
           {image && (
             <motion.div
-              initial={{ clipPath: "inset(0 0 100% 0 round 2rem)" }}
-              animate={{ clipPath: "inset(0 0 0% 0 round 2rem)" }}
+              initial={{ clipPath: "inset(0 0 100% 0)" }}
+              animate={{ clipPath: "inset(0 0 0% 0)" }}
               transition={{ duration: 1.1, delay: 0.2, ease: EASE }}
               className="relative aspect-[16/9] overflow-hidden bg-paper"
             >
               <motion.img
                 src={image.src}
-                alt=""
+                alt={String(children)}
                 initial={{ scale: 1.2 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 1.4, ease: EASE }}
