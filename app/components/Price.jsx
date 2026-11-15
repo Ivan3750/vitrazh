@@ -42,11 +42,11 @@ const Price = () => {
               className="cursor-pointer transition-transform duration-500 hover:scale-[1.02]"
             >
               <div
-                className="bg-[#F8F7F0] rounded-md p-6 flex flex-col items-center"
+                className="bg-paper rounded-md p-6 flex flex-col items-center"
                 style={{ flex: "1 1 280px", maxWidth: "350px" }}
               >
                 <div className="w-full max-w-[300px]">
-                  <div className="bg-[#F8F7F0] aspect-square flex items-center justify-center overflow-hidden rounded">
+                  <div className="bg-paper aspect-square flex items-center justify-center overflow-hidden rounded">
                     <img
                       src={img.src}
                       alt={name}
@@ -56,7 +56,7 @@ const Price = () => {
                     />
                   </div>
 
-                  <h2 className="text-center text-[#0F0F0F] text-[20px] mt-4">
+                  <h2 className="text-center text-ink text-[20px] mt-4">
                     {name}
                   </h2>
                 </div>
@@ -76,7 +76,7 @@ const Price = () => {
                   </p>
                 </div>
 
-                <p className="mt-4 text-3xl font-extrabold text-[#bed62f]">
+                <p className="mt-4 text-3xl font-extrabold text-brand-orange">
                   {price}
                 </p>
               </div>

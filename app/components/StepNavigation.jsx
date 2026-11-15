@@ -25,7 +25,7 @@ const StepNavigation = ({ step, nextStep, prevStep, canGoNext }) => {
             disabled={!canGoNext}
             className={`px-6 py-3 rounded-md transition-all ${
               canGoNext
-                ? "bg-[#D8F422] text-black hover:scale-[0.995]"
+                ? "bg-brand-lime text-black hover:scale-[0.995]"
                 : "bg-gray-300 text-gray-500 cursor-not-allowed"
             }`}
             whileHover={canGoNext ? { scale: 1.05 } : {}}
@@ -36,7 +36,7 @@ const StepNavigation = ({ step, nextStep, prevStep, canGoNext }) => {
       </div>
 
       <motion.div
-        className="mc border justify-between py-[10px] mb-[50px] px-[45px] border-[#edeef2] rounded-2xl md:flex hidden"
+        className="mc border justify-between py-[10px] mb-6 px-[45px] border-[#edeef2] rounded-2xl md:flex hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
@@ -51,7 +51,7 @@ const StepNavigation = ({ step, nextStep, prevStep, canGoNext }) => {
           >
             <motion.div
               className={`w-[50px] h-[50px] rounded-full flex items-center justify-center text-[25px] font-semibold ${
-                step === index ? "bg-[#D8F422]" : "bg-gray-300"
+                step === index ? "bg-brand-lime" : "bg-gray-300"
               }`}
               transition={{ duration: 0.3 }}
             >

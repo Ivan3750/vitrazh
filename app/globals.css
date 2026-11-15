@@ -1,134 +1,110 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ───────────── Дизайн-токени: пласкі кольори з логотипу ───────────── */
+@theme {
+  --color-ink: #0e2a47;
+  --color-paper: #edf3f8;
+  --color-brand-orange: #f47a3d;
+  --color-brand-blue: #0c7cc1;
+  --color-brand-lime: #c0d632;
+
+  --font-display: var(--font-oswald), "Arial Narrow", Arial, sans-serif;
+  --font-sans: var(--font-manrope), Arial, sans-serif;
+
+  --animate-marquee: marquee 40s linear infinite;
+
+  @keyframes marquee {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(-50%, 0, 0); }
+  }
 }
 
- 
+:root {
+  --background: #ffffff;
+  --foreground: #0e2a47;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Arial Narrow", Arial, sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-
-a:hover, button:hover{
-  cursor: pointer;
-  scale: 0.95;
-  transition: .2s;
+::selection {
+  background: var(--color-brand-orange);
+  color: #fff;
 }
 
-h1 {
-  font-size: 48px;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-
-@media (min-width: 240px) {
-  /* sm */
-  h1 {
-    font-size: 30px;
-    line-height: 1.2;
+/* Базові (легасі) правила — у шарі base, щоб утиліти Tailwind їх перекривали */
+@layer base {
+  h1, h2, h3 {
+    font-family: var(--font-oswald), "Arial Narrow", Arial, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
   }
-}
-@media (min-width: 640px) {
-  /* sm */
+  h2, h3 { text-transform: uppercase; }
   h1 {
-    font-size: 40px;
+    font-size: 48px;
     line-height: 1.2;
+    text-transform: uppercase;
   }
+  @media (min-width: 240px) { h1 { font-size: 30px; } }
+  @media (min-width: 640px) { h1 { font-size: 40px; } }
+  @media (min-width: 768px) { h1 { font-size: 72px; } }
+  @media (min-width: 1024px) { h1 { font-size: 80px; } }
 }
 
-@media (min-width: 768px) {
-  /* md */
-  h1 {
-    font-size: 72px;
-    line-height: 1.2;
-  }
-}
-
-@media (min-width: 1024px) {
-  /* lg */
-  h1 {
-    font-size: 80px;
-    line-height: 1.2;
-  }
-}
-
-.mc{
+.mc {
   max-width: 1200px;
-  margin: 0px auto;
+  margin: 0 auto;
 }
 
+/* ───────────── Нові утиліти ───────────── */
+.font-display {
+  font-family: var(--font-oswald), "Arial Narrow", Arial, sans-serif;
+  letter-spacing: -0.01em;
+}
 
-@keyframes marquee {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-50%, 0, 0);
+/* Єдине закруглення для старих блоків: кнопки — пілюлі, поля — м'які, картки — великі */
+main .rounded-sm, main .rounded, main .rounded-md, main .rounded-lg { border-radius: 1.25rem; }
+main a.rounded-sm, main button.rounded-sm, main a.rounded-md, main button.rounded-md { border-radius: 9999px; }
+main input.rounded-sm, main textarea.rounded-sm, main select.rounded-sm { border-radius: 1rem; }
+
+/* Таблиці характеристик */
+main table thead { background: var(--color-ink); }
+main table thead th { color: #fff !important; border-color: transparent !important; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.8rem; }
+main table tbody tr:nth-child(even) { background: var(--color-paper); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
+/* ───────────── Легасі (приховані сторінки) ───────────── */
 .animate-marquee {
   animation: marquee 18s linear infinite;
 }
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
-.scrollbar-hide {
-  -ms-overflow-style: none; /* IE і Edge */
-  scrollbar-width: none; /* Firefox */
-}
+details summary { list-style: none; }
+details summary::-webkit-details-marker { display: none; }
 
-details summary {
-  list-style: none;
-}
-
-details summary::-webkit-details-marker {
-  display: none;
-}
-
-input{
-      @apply accent-[#D8F422];
-  }
-
-  /* Chrome, Safari, Edge, Opera */
+input { @apply accent-brand-orange; }
 input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+input[type="number"] { -moz-appearance: textfield; }
 
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
-
-/* --- СТИЛІ ДЛЯ SWIPER --- */
-
-/* Колір стрілок */
 .swiper-button-next,
-.swiper-button-prev {
-  color: #ffffff !important; /* свій колір */
-  transition: color 0.3s ease;
-}
-
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-  color: #ffffff !important; /* колір при наведенні */
-}
-
-/* Колір точок пагінації */
-.swiper-pagination-bullet {
-  background: #ffffff !important; /* базовий колір */
-  opacity: 0.5;
-  transition: all 0.3s ease;
-}
-
-.swiper-pagination-bullet-active {
-  background: #ffffff !important; /* активна точка */
-  opacity: 1;
-}
+.swiper-button-prev { color: #ffffff !important; transition: color 0.3s ease; }
+.swiper-pagination-bullet { background: #ffffff !important; opacity: 0.5; transition: all 0.3s ease; }
+.swiper-pagination-bullet-active { background: #ffffff !important; opacity: 1; }

@@ -64,7 +64,7 @@ const Summary = ({ data, prevStep }) => {
       <h2 className="text-4xl font-bold mb-10 text-center">Підсумок замовлення</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-[#F8F7F0] py-10 px-6 sm:px-10 rounded-md w-full">
+        <div className="bg-paper py-10 px-6 sm:px-10 rounded-md w-full">
           <h2 className="text-[30px] sm:text-[28px] mb-4">Деталі</h2>
 
           {[
@@ -101,7 +101,7 @@ const Summary = ({ data, prevStep }) => {
           </div>
         </div>
 
-        <div className="bg-[#F8F7F0] py-10 px-6 sm:px-10 rounded-md w-full">
+        <div className="bg-paper py-10 px-6 sm:px-10 rounded-md w-full">
           <h2 className="text-[30px] sm:text-[28px] mb-4">Напишіть нам</h2>
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">
@@ -145,7 +145,7 @@ const Summary = ({ data, prevStep }) => {
 
             <button
               type="submit"
-              className="bg-[#D8F422] py-4 px-6 rounded-sm uppercase flex items-center justify-center gap-2 min-w-[200px] hover:bg-[#0f0f0f] hover:text-white transition-colors"
+              className="bg-brand-lime py-4 px-6 rounded-sm uppercase flex items-center justify-center gap-2 min-w-[200px] hover:bg-ink hover:text-white transition-colors"
             >
               Надіслати
               <img src={go.src} alt="go" />

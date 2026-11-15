@@ -6,7 +6,7 @@ export default function PlisseScreens({
   products = [],
 }) {
   return (
-    <div className="max-w-6xl mx-auto px-4 py-12 bg-[#f8f7f0]">
+    <div className="max-w-6xl mx-auto px-4 py-12 bg-paper">
       {products.map((product, idx) => (
         <div
           key={idx}

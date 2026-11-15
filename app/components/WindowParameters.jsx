@@ -85,7 +85,7 @@ const WindowParameters = ({ data, setData, setValid }) => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className={`cursor-pointer border-2 rounded-md p-2 ${
-                  activeMain === conf ? "border-[#D8F422]" : "border-transparent"
+                  activeMain === conf ? "border-brand-lime" : "border-transparent"
                 }`}
               >
                 <img
@@ -116,7 +116,7 @@ const WindowParameters = ({ data, setData, setValid }) => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className={`cursor-pointer border-2 rounded-md p-2 ${
-                      selected === imgUrl ? "border-[#D8F422]" : "border-transparent"
+                      selected === imgUrl ? "border-brand-lime" : "border-transparent"
                     }`}
                   >
                     <img src={imgUrl} alt={`Конфігурація ${num}`} width={70} height={70} />

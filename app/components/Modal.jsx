@@ -3,7 +3,7 @@ const Modal = ({ show, onClose, message }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-[#0a0a0ab8] z-50">
-      <div className="bg-white p-6 rounded-lg shadow-xl max-w-sm w-full">
+      <div className="bg-white text-ink p-6 rounded-lg shadow-xl max-w-sm w-full">
         <p className="text-lg text-center mb-4">{message}</p>
         <button
           onClick={onClose}

@@ -1,3 +1,4 @@
+import PageHero from "@/app/components/site/PageHero";
 import check from "@/app/assets/images/icons/check.svg";
  import {
   FaBuilding,
@@ -101,17 +102,7 @@ export default function AluminumPartitionsPage() {
   return (
     <>
   
- <section className="relative h-[600px] flex items-center justify-center bg-black overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-40"
-          style={{
-            backgroundImage: `url(${b.src})`,
-          }}
-        />
-        <h1 className="relative text-white text-4xl font-bold z-10">
-              {data.title}
-        </h1>
-      </section>
+ <PageHero image={b}>{data.title}</PageHero>
       {/* Content Section */}
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row gap-10 items-start justify-between">
@@ -148,9 +139,9 @@ export default function AluminumPartitionsPage() {
           {items.map((item, i) => (
             <div
               key={i}
-              className="flex items-start bg-[#F8F7F0] py-8 px-6 gap-4 rounded-md"
+              className="flex items-start bg-paper py-8 px-6 gap-4 rounded-md"
             >
-              <div className="p-2 rounded-full bg-[#D8F422] w-10 h-10 flex items-center justify-center shrink-0 text-gray-800 text-xl">
+              <div className="p-2 rounded-full bg-brand-lime w-10 h-10 flex items-center justify-center shrink-0 text-gray-800 text-xl">
                 {item.icon}
               </div>
               <p className="text-[16px] md:text-[18px] font-medium text-gray-800">
@@ -166,13 +157,13 @@ export default function AluminumPartitionsPage() {
       </section>
 
       {/* Характерні переваги */}
-      <section className="bg-white px-6 py-16 max-w-6xl mx-auto">
+      <section className="bg-white px-6 py-8 max-w-6xl mx-auto">
         <h2 className="text-3xl font-semibold mb-10 text-center">
           Характерні переваги
         </h2>
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {featureList.map((item, i) => (
-            <li key={i} className="bg-[#F8F7F0] p-6 rounded-md shadow-sm">
+            <li key={i} className="bg-paper p-6 rounded-md shadow-sm">
               <p className="font-semibold text-lg mb-2">{item.title}</p>
               <p className="text-gray-700">{item.desc}</p>
             </li>
@@ -181,7 +172,7 @@ export default function AluminumPartitionsPage() {
       </section>
 
       {/* Оформлення скла */}
-      <section className="px-6 py-16 bg-[#F8F7F0]">
+      <section className="px-6 py-8 bg-paper">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-semibold mb-5">
             Оформлення скла алюмінієвих перегородок під будь-який дизайн
@@ -197,7 +188,7 @@ export default function AluminumPartitionsPage() {
       </section>
 
       {/* Виробництво */}
-      <section className="px-6 py-16 max-w-4xl mx-auto text-center">
+      <section className="px-6 py-8 max-w-4xl mx-auto text-center">
         <h2 className="text-3xl font-semibold mb-5">
           Виробництво алюмінієвих перегородок
         </h2>
@@ -210,7 +201,7 @@ export default function AluminumPartitionsPage() {
       </section>
 
       {/* Ціна */}
-      <section className="px-6 py-16 bg-[#F8F7F0]">
+      <section className="px-6 py-8 bg-paper">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-semibold mb-8">
             Ціна на установку алюмінієвих перегородок
@@ -221,7 +212,7 @@ export default function AluminumPartitionsPage() {
                 key={i}
                 className="flex items-start gap-4 bg-white p-4 rounded-md shadow-sm"
               >
-                <span className="bg-[#D8F422] text-gray-800 font-bold w-8 h-8 flex items-center justify-center rounded-full shrink-0">
+                <span className="bg-brand-lime text-gray-800 font-bold w-8 h-8 flex items-center justify-center rounded-full shrink-0">
                   {i + 1}
                 </span>
                 <p className="text-gray-700 text-lg leading-relaxed">{text}</p>
@@ -237,9 +228,9 @@ export default function AluminumPartitionsPage() {
           {benefits.map((title, i) => (
             <div
               key={i}
-              className="flex bg-[#F8F7F0] py-[40px] px-[30px] gap-5 rounded-md shadow-sm"
+              className="flex bg-paper py-[40px] px-[30px] gap-5 rounded-md shadow-sm"
             >
-              <div className="p-2 rounded-full bg-[#D8F422] w-9 h-9 flex items-center justify-center">
+              <div className="p-2 rounded-full bg-brand-lime w-9 h-9 flex items-center justify-center">
                 <img src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>

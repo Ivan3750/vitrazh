@@ -1,4 +1,5 @@
-import b from "@/app/assets/images/recovery/bg.jpeg";
+import PageHero from "@/app/components/site/PageHero";
+import b from "@/app/assets/images-webp/jobs/1.webp";
 import dh from "@/app/assets/images/recovery/destroyedhouse.webp";
 import card from "@/app/assets/images/recovery/Ecard.png";
 import consultation from "@/app/assets/images/icons/consultation.png";
@@ -54,17 +55,9 @@ export const metadata = {
 const Recovery = () => {
   return (
     <>
-      <section className="relative h-[400px] md:h-[600px] flex items-center justify-center bg-black overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-40"
-          style={{ backgroundImage: `url(${b.src})` }}
-        />
-        <h1 className="relative text-white text-3xl md:text-4xl font-bold z-10 text-center px-4">
-          єВІДНОВЛЕННЯ
-        </h1>
-      </section>
+      <PageHero image={b}>єВІДНОВЛЕННЯ</PageHero>
 
-      <section className="py-[80px] md:py-[100px] px-4">
+      <section className="py-8 md:py-10 px-4">
         <div className="mc max-w-[1200px] mx-auto">
           <div className="flex flex-col md:flex-row justify-between gap-[40px]">
             <div className="flex-1">
@@ -93,12 +86,12 @@ const Recovery = () => {
         </div>
       </section>
 
-      <section className="py-[80px] md:py-[100px] px-4">
+      <section className="py-8 md:py-10 px-4">
         <div className="mc max-w-[1200px] mx-auto">
-          <h2 className="text-[36px] md:text-[48px] lg:text-[64px] text-center mb-[40px] md:mb-[50px]">
+          <h2 className="text-[36px] md:text-[48px] lg:text-[64px] text-center mb-6 md:mb-6">
             Як ми можемо допомогти?
           </h2>
-          <div className="bg-[#F8F7F0] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[{ icon: consultation, title: "Консультація", text: "Пояснюємо умови єВідновлення та супроводжуємо на кожному етапі." },
               { icon: length, title: "Точне вимірювання", text: "Підбираємо вікна та двері відповідно до технічних вимог." },
               { icon: document, title: "Офіційні документи", text: "Готуємо договір та повний пакет документів, які приймає платформа Дія." },
@@ -106,7 +99,7 @@ const Recovery = () => {
               { icon: report, title: "Фото-звіт", text: "Робимо фото до і після для звітування в єВідновленні." },
               { icon: relax, title: "Спокій та впевненість", text: "Прозора співпраця, якісні матеріали та жодних прихованих витрат." }]
               .map((item, i) => (
-              <div key={i} className="border border-[#E7E7E7] p-6 md:p-[48px] flex flex-col gap-[40px] justify-between">
+              <div key={i} className="bg-paper rounded-3xl p-6 md:p-10 flex flex-col gap-[40px] justify-between">
                 <div><img src={item.icon.src} alt={item.title} /></div>
                 <div>
                   <h3 className="text-[24px] md:text-[28px]">{item.title}</h3>
@@ -119,7 +112,7 @@ const Recovery = () => {
       </section>
 
       <section className="px-4">
-        <div className="mc max-w-[1200px] mx-auto flex flex-col lg:flex-row py-[80px] md:py-[150px] gap-10">
+        <div className="mc max-w-[1200px] mx-auto flex flex-col lg:flex-row py-8 md:py-12 gap-10">
           <div className="flex-1">
             <h2 className="text-[36px] md:text-[48px] lg:text-[64px]">Послідовність Замовлення</h2>
             <img
@@ -131,20 +124,19 @@ const Recovery = () => {
             />
           </div>
 
-          <div className="flex-1 flex flex-col gap-10 border-dashed border-l-[1px] border-[#C7C6C2] pl-4 md:pl-[40px] relative">
+          <div className="flex-1">
             {[
-              { step: "Крок 1", title: "Заявка та консультація", text: "Безкоштовний виїзд на замір і прорахунок вартості. Індивідуальні поради щодо найкращих рішень." },
-              { step: "Крок 2", title: "Підтвердження та договір", text: "Узгоджуємо замовлення, фіксуємо деталі та строки. Повторний замір перед підписанням договору." },
-              { step: "Крок 3", title: "Виготовлення та монтаж", text: "Вироби виготовляються на заводі. Монтаж виконується сертифікованими спеціалістами." },
-              { step: "Крок 4", title: "Гарантія та сервіс", text: "Гарантія на продукцію та післямонтажне обслуговування." }
+              { title: "Заявка та консультація", text: "Безкоштовний виїзд на замір і прорахунок вартості. Індивідуальні поради щодо найкращих рішень." },
+              { title: "Підтвердження та договір", text: "Узгоджуємо замовлення, фіксуємо деталі та строки. Повторний замір перед підписанням договору." },
+              { title: "Виготовлення та монтаж", text: "Вироби виготовляються на заводі. Монтаж виконується сертифікованими спеціалістами." },
+              { title: "Гарантія та сервіс", text: "Гарантія на продукцію та післямонтажне обслуговування." }
             ].map((item, i) => (
-              <div key={i} className="max-w-[350px] relative">
-                <div className="absolute -left-[47px] top-[10px] w-[12px] h-[12px] bg-[#0F0F0F] rounded-full"></div>
-                <span className="absolute -left-[106px] top-[5px] text-[#0F0F0F] font-bold text-[14px] md:text-[16px] whitespace-nowrap">
-                  {item.step}
-                </span>
-                <h3 className="text-[24px] md:text-[28px] text-[#0F0F0F]">{item.title}</h3>
-                <p className="text-[16px] md:text-[18px] text-[#555555]">{item.text}</p>
+              <div key={i} className="grid grid-cols-[auto_1fr] gap-6 sm:gap-10 py-7 border-t border-ink/15 last:border-b">
+                <span className="font-display text-5xl sm:text-6xl leading-none text-brand-orange">0{i + 1}</span>
+                <div>
+                  <h3 className="text-[28px] md:text-[34px] text-ink leading-tight">{item.title}</h3>
+                  <p className="text-[16px] md:text-[18px] text-ink/65 mt-2 max-w-md">{item.text}</p>
+                </div>
               </div>
             ))}
           </div>

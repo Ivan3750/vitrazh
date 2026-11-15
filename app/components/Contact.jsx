@@ -1,18 +1,24 @@
 "use client";
-import { useState } from "react";
-import go from "@/app/assets/images/icons/go.svg";
-import b from "@/app/assets/images/hero/bg.jpg";
-import contact from "@/app/assets/images/icons/Contact Icon.svg";
-import mail from "@/app/assets/images/icons/mail.svg";
-import map from "@/app/assets/images/icons/map.svg";
-import time from "@/app/assets/images/icons/time.svg";
+import { useEffect, useState } from "react";
 import { FaViber, FaWhatsapp, FaTelegram, FaInstagram } from "react-icons/fa";
+import { LuPhone, LuMail, LuMapPin, LuClock } from "react-icons/lu";
 import Modal from "@/app/components/Modal";
+import { Reveal, SplitHeading } from "./site/motion";
+
+const field =
+  "w-full rounded-2xl bg-paper border border-transparent px-5 py-4 text-ink placeholder:text-ink/40 outline-none focus:border-ink focus:bg-white transition-colors";
 
 const Contact = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("Сталася помилка.");
   const [formTime] = useState(Date.now());
+  const [product, setProduct] = useState("");
+
+  // Якщо прийшли з картки товару (?product=...), підставляємо її в повідомлення
+  useEffect(() => {
+    const p = new URLSearchParams(window.location.search).get("product");
+    if (p) setProduct(p);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -44,139 +50,117 @@ const Contact = () => {
     }
   };
 
+  const cards = [
+    { Icon: LuPhone, label: "Телефон", value: "+38 095 109 90 40", href: "tel:+380951099040" },
+    { Icon: LuMail, label: "Пошта", value: "kyiv@vitrazh.com.ua", href: "mailto:kyiv@vitrazh.com.ua" },
+    { Icon: LuMapPin, label: "Адреса", value: "Київ, проспект Академіка Глушкова, 30" },
+    { Icon: LuClock, label: "Розклад роботи", value: "9:00 - 12:00 Пн-Пт" },
+  ];
+  const accents = ["bg-brand-orange", "bg-brand-blue", "bg-brand-lime", "bg-ink"];
+
   return (
     <>
-      <Modal
-        show={showModal}
-        onClose={() => setShowModal(false)}
-        message={modalMessage}
-      />
+      <Modal show={showModal} onClose={() => setShowModal(false)} message={modalMessage} />
 
-      <section className="relative h-[400px] sm:h-[500px] md:h-[600px] flex items-center justify-center bg-black overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-40"
-          style={{ backgroundImage: `url(${b.src})` }}
-        />
-        <h1 className="relative text-white text-2xl sm:text-3xl md:text-4xl z-10 px-4 text-center">
-          Зв'яжіться з нами
-        </h1>
+      <section className="pb-4 px-4 sm:px-6 bg-white">
+        <div className="max-w-[1320px] mx-auto pt-5 sm:pt-7">
+          <SplitHeading
+            as="h1"
+            text="Звʼяжіться з нами"
+            classes={{ нами: "text-brand-orange" }}
+            className="font-display !text-[44px] sm:!text-[76px] lg:!text-[96px] uppercase !leading-[0.9]"
+          />
+          <Reveal delay={0.3}>
+            <p className="mt-6 max-w-2xl text-lg text-ink/65">
+              Залиште заявку — домовимося про безкоштовний замір і підготуємо розрахунок.
+            </p>
+          </Reveal>
+        </div>
       </section>
 
-      <section>
-        <div className="mc px-4 sm:px-6 md:px-10 max-w-[1200px] mx-auto">
-          <div className="flex flex-wrap justify-between gap-6 py-[80px] sm:py-[120px]">
-            {[
-              {
-                icon: contact,
-                label: "Тел. Номер",
-                value: "+38 095 109 90 40",
-              },
-              { icon: mail, label: "Пошта", value: "kyiv@vitrazh.com.ua" },
-              {
-                icon: map,
-                label: "Адреса",
-                value: "Київ, проспект Академіка Глушкова, 30",
-              },
-              {
-                icon: time,
-                label: "Розклад роботи",
-                value: "9:00 - 12:00 Пн-Пт",
-              },
-            ].map(({ icon, label, value }, idx) => (
-              <div
-                key={idx}
-                className="bg-[#F8F7F0] p-6 rounded-sm flex flex-col justify-between gap-10 w-full sm:w-[45%] md:w-[22%]"
-              >
-                <div>
-                  <img src={icon.src} alt={label} />
-                </div>
-                <div>
-                  <p className="text-[#555] text-base">{label}</p>
-                  <p className="text-lg ">{value}</p>
-                </div>
-              </div>
-            ))}
+      <section className="px-4 sm:px-6 pb-12 bg-white">
+        <div className="max-w-[1320px] mx-auto grid lg:grid-cols-[1fr_1.1fr] gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-4 content-start">
+            {cards.map(({ Icon, label, value, href }, i) => {
+              const Wrap = href ? "a" : "div";
+              return (
+                <Reveal key={label} delay={i * 0.08} y={24}>
+                  <Wrap
+                    {...(href ? { href } : {})}
+                    className="flex items-center gap-5 bg-paper rounded-3xl p-5 hover:bg-ink hover:text-white transition-colors group"
+                  >
+                    <span className={`w-14 h-14 shrink-0 rounded-2xl ${accents[i]} grid place-items-center text-2xl ${i === 2 ? "text-ink" : "text-white"}`}>
+                      <Icon />
+                    </span>
+                    <span>
+                      <span className="block text-sm opacity-50">{label}</span>
+                      <span className="block text-lg">{value}</span>
+                    </span>
+                  </Wrap>
+                </Reveal>
+              );
+            })}
           </div>
 
-          <div className="bg-[#F8F7F0] py-10 px-6 sm:px-10 rounded-md max-w-[600px] mx-auto mb-[80px]">
-            <h2 className="text-[36px] sm:text-[48px] mb-8 text-center">
-              Напишіть нам
-            </h2>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-              <input
-                type="text"
-                name="email_confirm"
-                style={{ display: "none" }}
-                tabIndex="-1"
-                autoComplete="off"
-              />
-
-              <input
-                type="text"
-                name="name"
-                placeholder="Ім'я"
-                className="bg-white py-4 px-6 rounded-sm"
-                required
-              />
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Телефон"
-                pattern="^\+38\s?\d{10}$"
-                title="Формат: +38 095 109 90 40"
-                required
-                className="bg-white py-4 px-6 rounded-sm"
-              />
-
-              <textarea
-                name="message"
-                placeholder="Повідомлення"
-                className="bg-white py-4 px-6 rounded-sm resize-none h-32"
-                required
-              />
-              <div className="flex flex-col sm:flex-row items-center gap-6">
-                <button
-                  type="submit"
-                  className="bg-[#D8F422] py-4 px-6 rounded-sm uppercase  flex items-center justify-center gap-2 min-w-[200px] hover:bg-[#0f0f0f] hover:text-white transition-colors"
-                >
-                  Надіслати
-                  <img src={go.src} alt="go" />
-                </button>
-                <div className="flex gap-5 text-3xl text-[#555]">
-                  <a
-                    href="https://t.me/+380951099040"
-                    aria-label="Написати нам у Telegram"
-                    target="_blank"
-                    rel="noopener noreferrer"
+          <Reveal delay={0.1}>
+            <div className="bg-paper rounded-[2rem] p-7 sm:p-10">
+              <h2 className="font-display text-5xl uppercase mb-8">Напишіть нам</h2>
+              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                <input
+                  type="text"
+                  name="email_confirm"
+                  style={{ display: "none" }}
+                  tabIndex="-1"
+                  autoComplete="off"
+                />
+                <input type="text" name="name" placeholder="Ім'я" className={field} required />
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Телефон: +38 095 109 90 40"
+                  pattern="^\+38\s?\d{10}$"
+                  title="Формат: +38 095 109 90 40"
+                  className={field}
+                  required
+                />
+                <textarea
+                  key={product}
+                  name="message"
+                  placeholder="Повідомлення"
+                  defaultValue={product ? `Цікавить: ${product}. ` : ""}
+                  className={`${field} resize-none h-36`}
+                  required
+                />
+                <div className="flex flex-col sm:flex-row items-center gap-6 pt-2">
+                  <button
+                    type="submit"
+                    className="w-full sm:w-auto rounded-full bg-brand-orange text-white hover:bg-ink transition-colors px-10 py-4 uppercase font-semibold tracking-wider"
                   >
-                    <FaTelegram />
-                  </a>
-                  <a
-                    href="https://wa.me/380951099040"
-                    aria-label="Написати нам у WhatsApp"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaWhatsapp />
-                  </a>
-                  <a
-                    href="viber://chat?number=+380951099040"
-                    aria-label="Написати нам у Viber"
-                  >
-                    <FaViber />
-                  </a>
-                  <a
-                    href="https://www.instagram.com/vitrazh.com.ua/"
-                    aria-label="Перейти на Instagram сторінку Вітраж"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaInstagram />
-                  </a>
+                    Надіслати
+                  </button>
+                  <div className="flex gap-3 text-xl">
+                    {[
+                      { href: "https://t.me/+380951099040", label: "Telegram", Icon: FaTelegram },
+                      { href: "https://wa.me/380951099040", label: "WhatsApp", Icon: FaWhatsapp },
+                      { href: "viber://chat?number=+380951099040", label: "Viber", Icon: FaViber },
+                      { href: "https://www.instagram.com/vitrazh.com.ua/", label: "Instagram", Icon: FaInstagram },
+                    ].map(({ href, label, Icon }) => (
+                      <a
+                        key={label}
+                        href={href}
+                        aria-label={label}
+                        target={href.startsWith("http") ? "_blank" : undefined}
+                        rel="noopener noreferrer"
+                        className="w-11 h-11 rounded-full bg-white text-ink grid place-items-center hover:bg-brand-orange hover:text-white transition-colors"
+                      >
+                        <Icon />
+                      </a>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </form>
-          </div>
+              </form>
+            </div>
+          </Reveal>
         </div>
       </section>
     </>

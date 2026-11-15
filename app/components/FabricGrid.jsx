@@ -50,7 +50,7 @@ const FabricGrid = ({ products }) => {
         <div className="flex justify-center mt-6">
           <button
             onClick={showMore}
-            className="px-6 py-4 bg-[#D8F422] rounded-sm uppercase font-semibold flex   justify-between hover:bg-[#0f0f0f] hover:text-white"
+            className="px-6 py-4 bg-brand-lime rounded-sm uppercase font-semibold flex   justify-between hover:bg-ink hover:text-white"
           >
             Показати більше
           </button>

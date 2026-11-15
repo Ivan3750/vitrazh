@@ -1,3 +1,4 @@
+import PageHero from "@/app/components/site/PageHero";
 import check from "@/app/assets/images/icons/check.svg";
 import Ukraine from "@/app/assets/images/products/decor/Ukraine.svg";
 import rehauE60 from "@/app/assets/images/products/windows/REHAU_Euro-Design_60-t.png";
@@ -201,15 +202,7 @@ export default function WindowPage({ params }) {
 
   return (
     <>
-      <section className="relative h-[600px] flex items-center justify-center bg-black overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-40"
-          style={{
-            backgroundImage: `url(${data.hero.src})`,
-          }}
-        />
-        <h1 className="relative text-white text-4xl z-10">{data.title}</h1>
-      </section>
+      <PageHero image={data.hero}>{data.title}</PageHero>
 
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row gap-8 items-start">
@@ -267,9 +260,9 @@ export default function WindowPage({ params }) {
           ].map((title, i) => (
             <div
               key={i}
-              className="flex bg-[#F8F7F0] py-[60px] px-[40px] gap-5 rounded-md"
+              className="flex bg-paper py-[60px] px-[40px] gap-5 rounded-md"
             >
-              <div className="p-2 rounded-full bg-[#D8F422] w-9 h-9 flex items-center justify-center">
+              <div className="p-2 rounded-full bg-brand-lime w-9 h-9 flex items-center justify-center">
                 <img src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>
@@ -290,14 +283,14 @@ export default function WindowPage({ params }) {
           </p>
           <div className="flex gap-5">
             <div className="flex items-center gap-2">
-              <div className="bg-transperant p-[8px] border-[#d8f422] border-2 rounded-full">
-                <div className="w-[29px] h-[29px] bg-[#D8F422] rounded-full" />
+              <div className="bg-transperant p-[8px] border-brand-lime border-2 rounded-full">
+                <div className="w-[29px] h-[29px] bg-brand-lime rounded-full" />
               </div>
               <p className="text-[16px]">EURO-DESIGN 70</p>
             </div>
             <div className="flex items-center gap-2">
-              <div className="bg-transperant p-[8px] border-[#F8F7F0] border-2 rounded-full">
-                <div className="w-[29px] h-[29px] bg-[#F8F7F0] rounded-full" />
+              <div className="bg-transperant p-[8px] border-paper border-2 rounded-full">
+                <div className="w-[29px] h-[29px] bg-paper rounded-full" />
               </div>
               <p className="text-[16px]">EURO-DESIGN 60</p>
             </div>
@@ -321,7 +314,7 @@ export default function WindowPage({ params }) {
   <h3 className="text-3xl font-semibold mb-8 text-center">Додаткова інформація</h3>
   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
     {data.extraPoints.map((item, i) => (
-      <div key={i} className="flex gap-3 bg-[#F8F7F0] p-6 rounded-md">
+      <div key={i} className="flex gap-3 bg-paper p-6 rounded-md">
         <img src={check.src} alt="check" className="w-6 h-6 mt-1" />
         <div>
           <h4 className="font-semibold text-gray-800 mb-1">{item.title}</h4>

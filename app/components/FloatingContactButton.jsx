@@ -59,12 +59,10 @@ export default function FloatingContactButton() {
           fixed bottom-6 right-6 z-50 
           w-16 h-16 rounded-full shadow-xl
           flex items-center justify-center
-          animate-spin-slow
-          hover:scale-110 transition
+          bg-brand-orange hover:bg-ink transition-colors
         "
-        style={{ backgroundColor: "#d8f422" }}
       >
-        <Phone size={28} className="text-black" />
+        <Phone size={28} className="text-white" />
       </button>
 
       {open && (
@@ -75,8 +73,8 @@ export default function FloatingContactButton() {
           <div
             onClick={(e) => e.stopPropagation()}
             className="
-              bg-[#F8F7F0] 
-              rounded-md 
+              bg-paper text-ink
+              rounded-md
               py-10 px-6 sm:px-10 
               max-w-[600px] w-[90%]
               shadow-xl relative
@@ -131,9 +129,9 @@ export default function FloatingContactButton() {
                 <button
                   type="submit"
                   className="
-                    bg-[#D8F422] px-6 py-4 rounded-sm uppercase 
+                    bg-brand-orange text-white px-6 py-4 rounded-sm uppercase font-semibold tracking-wider
                     flex items-center justify-center gap-2 min-w-[200px]
-                    hover:bg-[#0f0f0f] hover:text-white 
+                    hover:bg-ink 
                     transition-colors
                   "
                 >

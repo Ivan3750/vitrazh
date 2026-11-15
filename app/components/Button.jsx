@@ -1,25 +1,15 @@
 import Link from "next/link";
-import Image from "next/image";
-import go from "@/app/assets/images/icons/go.svg";
-import goActive from "@/app/assets/images/icons/go_active.svg";
 
 const Button = ({ link = "/", name }) => {
   return (
     <Link
       href={link}
-      className="group bg-[#D8F422] py-[18px] px-[24px] rounded-sm uppercase font-semibold flex min-w-[200px] max-w-[250px] gap-[5px] justify-between items-center hover:bg-[#242323] hover:text-white transition-colors"
+      className="group inline-flex items-center justify-between gap-4 rounded-full bg-brand-orange text-white hover:bg-ink transition-colors pl-7 pr-2 py-2 uppercase font-semibold tracking-wider min-w-[200px]"
     >
       {name}
-      <Image
-        src={go}
-        alt="arrow"
-        className="block group-hover:hidden"
-      />
-      <Image
-        src={goActive}
-        alt="arrow active"
-        className="hidden group-hover:block"
-      />
+      <span className="w-10 h-10 rounded-full bg-white text-ink grid place-items-center group-hover:translate-x-1 transition-transform">
+        →
+      </span>
     </Link>
   );
 };

@@ -1,4 +1,5 @@
-import b from "@/app/assets/images/bg.jpg";
+import PageHero from "@/app/components/site/PageHero";
+import b from "@/app/assets/images-webp/gallery/work/installers.webp";
 
 const faqs = [
   {
@@ -85,24 +86,19 @@ export const metadata = {
 const FAQ = () => {
   return (
     <>
-      <section className="relative h-[600px] flex items-center justify-center bg-black overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-40"
-          style={{
-            backgroundImage: `url(${b.src})`,
-          }}
-        />
-        <h1 className="relative text-white text-4xl font-bold z-10">FAQ</h1>
-      </section>
+      <PageHero image={b}>FAQ</PageHero>
 
-      <section className="max-w-5xl mx-auto py-16 px-4">
-        <div className="space-y-4">
+      <section className="max-w-[1100px] mx-auto py-8 px-4 sm:px-6">
+        <div className="border-t border-ink/15">
           {faqs.map((faq, index) => (
-            <details key={index} className="rounded-[20px] p-4 bg-[#F8F7F0]">
-              <summary className="cursor-pointer font-medium text-lg ">
+            <details key={index} className="group border-b border-ink/15 py-1">
+              <summary className="cursor-pointer flex items-center justify-between gap-6 py-5 font-display text-2xl sm:text-3xl uppercase leading-tight">
                 {faq.question}
+                <span className="shrink-0 w-11 h-11 rounded-full bg-ink text-white grid place-items-center text-2xl transition-transform duration-300 group-open:rotate-45 group-open:bg-brand-orange">
+                  +
+                </span>
               </summary>
-              <p className="mt-2 text-gray-700">{faq.answer}</p>
+              <p className="pb-6 pr-14 text-ink/70 text-lg">{faq.answer}</p>
             </details>
           ))}
         </div>

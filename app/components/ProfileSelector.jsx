@@ -75,7 +75,7 @@ const ProfileSelector = ({ data, setData, nextStep }) => {
               transition-transform duration-200
               ${
                 isSelected
-                  ? "scale-105 border-4 border-[#D8F422] "
+                  ? "scale-105 border-4 border-brand-lime "
                   : "hover:scale-105 border border-transparent"
               }
                
@@ -91,7 +91,7 @@ const ProfileSelector = ({ data, setData, nextStep }) => {
               aria-pressed={isSelected}
               aria-label={`Вибрати профіль ${name}`}
             >
-              <div className="bg-[#F8F7F0] aspect-square rounded flex items-center justify-center overflow-hidden">
+              <div className="bg-paper aspect-square rounded flex items-center justify-center overflow-hidden">
                 <img
                   src={img.src}
                   alt={name}
@@ -101,7 +101,7 @@ const ProfileSelector = ({ data, setData, nextStep }) => {
                   draggable={false}
                 />
               </div>
-              <h2 className="text-center text-[20px] mt-4 text-[#0F0F0F]">
+              <h2 className="text-center text-[20px] mt-4 text-ink">
                 {name}
               </h2>
             </div>

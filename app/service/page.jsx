@@ -1,3 +1,4 @@
+import PageHero from "@/app/components/site/PageHero";
 import React from "react";
 import b from "@/app/assets/images/hero/bg-service.jpg"
 
@@ -154,86 +155,47 @@ export const metadata = {
 };
 
 
+const Rows = ({ title, items }) => (
+  <section className="mb-16">
+    <h2 className="font-display text-5xl sm:text-7xl uppercase leading-[0.95] mb-8">{title}</h2>
+    <ul className="border-t border-ink/15">
+      {items.map((item, idx) => (
+        <li
+          key={idx}
+          className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 sm:gap-8 py-5 border-b border-ink/15"
+        >
+          <span className="text-base md:text-lg max-w-3xl">{item.description}</span>
+          <span className="font-display text-2xl sm:text-3xl text-brand-orange whitespace-nowrap">{item.price}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+);
+
 const PriceList = () => {
   return (
     <>
-      <section className="relative h-[600px] flex items-center justify-center bg-black overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-40"
-          style={{
-               backgroundImage: `url(${b.src})`,
-             }} 
-        />
-        <h1 className="relative text-white text-4xl font-bold z-10">
-          Ремонт і Обслуговування
-        </h1>
-      </section>
-
-      <div className="mc py-[100] px-[20px]">
-        <section className="mb-12">
-          <h2 className="text-[54px] mb-4  captalize">
-            Виїзд на адресу
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <PageHero image={b}>Ремонт і Обслуговування</PageHero>
+      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 py-8">
+        <section className="mb-16">
+          <h2 className="font-display text-5xl sm:text-7xl uppercase leading-[0.95] mb-8">Виїзд на адресу</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {prices.visits.map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-[#F8F7F0] p-5 "
-              >
-                <p className="text-lg text-[#555] font-medium mb-2 text-balance">{item.description}</p>
-                <p className="text-xl font-bold text-[#bed62f]">{item.price}</p>
+              <div key={idx} className="bg-paper rounded-3xl p-7 flex flex-col justify-between gap-8">
+                <p className="text-lg text-balance">{item.description}</p>
+                <p className="font-display text-5xl text-brand-orange">{item.price}</p>
               </div>
             ))}
           </div>
         </section>
 
-        <section>
-          <h2 className="text-[54px] mb-4  captalize">
-            Ремонт віконної групи
-          </h2>
-          <ul className="space-y-4">
-            {prices.windowRepair.map((item, idx) => (
-              <li
-                key={idx}
-                className="flex justify-between items-start border-b border-gray-300 pb-3"
-              >
-                <span className="text-base md:text-lg font-medium">
-                  {item.description}
-                </span>
-                <span className="text-[#bed62f] font-bold text-lg whitespace-nowrap">
-                  {item.price}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </section>
-        <section>
-          <h2 className="text-[54px] mb-4  captalize">
-            Ремонт вхідної групи
-          </h2>
-          <ul className="space-y-4">
-            {prices.doorRepair.map((item, idx) => (
-              <li
-                key={idx}
-                className="flex justify-between items-start border-b border-gray-300 pb-3"
-              >
-                <span className="text-base md:text-lg font-medium">
-                  {item.description}
-                </span>
-                <span className="text-[#bed62f] font-bold text-lg whitespace-nowrap">
-                  {item.price}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </section>
+        <Rows title="Ремонт віконної групи" items={prices.windowRepair} />
+        <Rows title="Ремонт вхідної групи" items={prices.doorRepair} />
 
-        <p className="text-sm text-gray-500 mt-10">
-          * Складна форма (арка, трапеція, еркер, трикутник або площа &gt;1м²) -
-          націнка +50%.
+        <p className="text-sm text-ink/55 max-w-3xl">
+          * Складна форма (арка, трапеція, еркер, трикутник або площа &gt;1м²) - націнка +50%.
           <br />
-          Вартість робіт може змінюватися залежно від умов та уточнюється
-          майстром після огляду.
+          Вартість робіт може змінюватися залежно від умов та уточнюється майстром після огляду.
         </p>
       </div>
     </>

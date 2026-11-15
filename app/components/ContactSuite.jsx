@@ -45,7 +45,7 @@ const ContactSuite = () => {
         message={modalMessage}
       />
 
-      <section className="px-6 py-20 max-w-6xl mx-auto">
+      <section className="px-6 py-10 max-w-6xl mx-auto">
 
         {/* Заголовок */}
         <div className="text-center mb-14">
@@ -58,7 +58,7 @@ const ContactSuite = () => {
         </div>
 
         {/* Контейнер */}
-        <div className="grid lg:grid-cols-2 gap-12 bg-[#F8F7F0] p-10 rounded-2xl">
+        <div className="grid lg:grid-cols-2 gap-12 bg-paper p-10 rounded-2xl">
 
           {/* Ліва сторона - кнопка */}
           <div className="flex flex-col items-center text-center justify-center">
@@ -110,8 +110,7 @@ const ContactSuite = () => {
 
               <button
                 type="submit"
-                className="bg-[#D8F422] py-4 px-6 rounded-sm uppercase flex items-center justify-center gap-2 
-                           hover:bg-[#0f0f0f] hover:text-white transition-colors w-full"
+                className="bg-brand-orange text-white py-4 px-6 rounded-sm uppercase font-semibold tracking-wider flex items-center justify-center gap-2 hover:bg-ink transition-colors w-full"
               >
                 Надіслати
                 <img src={go.src} alt="go" />

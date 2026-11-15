@@ -147,7 +147,7 @@ const handleSubmit = () => {
 
   return (
     <section className="p-5">
-      <div className="bg-[#f8f7f0] px-6 py-10 rounded-md max-w-3xl mx-auto mt-10">
+      <div className="bg-paper px-6 py-10 rounded-md max-w-3xl mx-auto mt-10">
         <h2 className="text-3xl font-bold mb-6 text-center">Калькулятор воріт</h2>
 
          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
@@ -220,7 +220,7 @@ const handleSubmit = () => {
               <label
                 key={value}
                 className={`cursor-pointer border rounded-xl p-3 flex flex-col items-center justify-center transition-all  ${
-                  gateType === value  ? "border-[#D8F422] bg-white"
+                  gateType === value  ? "border-brand-lime bg-white"
                       : "border-gray-200 bg-gray-50 hover:bg-white"
                 }`}
               >
@@ -250,7 +250,7 @@ const handleSubmit = () => {
                 <label
                   key={label}
                   className={`cursor-pointer border rounded-xl p-3 flex flex-col items-center justify-center transition-all  ${
-                    liftType === label  ? "border-[#D8F422] bg-white"
+                    liftType === label  ? "border-brand-lime bg-white"
                       : "border-gray-200 bg-gray-50 hover:bg-white" 
                   }`}
                 >
@@ -344,7 +344,7 @@ const handleSubmit = () => {
         <div className="flex justify-center">
           <button
             onClick={handleSubmit}
-            className="bg-[#D8F422] py-[18px] px-[24px] rounded-sm uppercase font-semibold flex min-w-[200px] max-w-[250px] gap-[5px] justify-center hover:bg-[#0f0f0f] hover:text-white transition-colors duration-200"
+            className="bg-brand-lime py-[18px] px-[24px] rounded-sm uppercase font-semibold flex min-w-[200px] max-w-[250px] gap-[5px] justify-center hover:bg-ink hover:text-white transition-colors duration-200"
           >
             Надіслати
           </button>

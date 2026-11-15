@@ -54,9 +54,9 @@ const FreeSize = () => {
         message={modalMessage}
       />
 
-      <section className="py-20 px-4">
-        <div className="max-w-3xl mx-auto text-center mb-14">
-          <h2 className="text-[32px] sm:text-[42px] lg:text-[48px] mb-4">
+      <section className="py-8 px-4 sm:px-6">
+        <div className="max-w-3xl mx-auto text-center mb-8">
+          <h2 className="text-[36px] sm:text-[52px] lg:text-[64px] leading-[0.95] mb-4">
             Замовити безкоштовний замір
           </h2>
 
@@ -65,7 +65,7 @@ const FreeSize = () => {
           </p>
         </div>
 
-        <div className="bg-[#F8F7F0] px-6 py-10 max-w-6xl mx-auto rounded-2xl 
+        <div className="bg-paper px-6 py-10 max-w-[1320px] mx-auto rounded-[2rem] 
                         flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
 
           <div className="w-full lg:w-1/2">
@@ -113,8 +113,7 @@ const FreeSize = () => {
 
               <button
                 type="submit"
-                className="bg-[#D8F422] py-4 px-6 rounded-sm uppercase flex items-center justify-center gap-2 min-w-[200px] 
-                           hover:bg-[#0f0f0f] hover:text-white transition-colors mx-auto lg:mx-0"
+                className="bg-brand-orange text-white py-4 px-10 rounded-sm uppercase font-semibold tracking-wider flex items-center justify-center gap-2 min-w-[200px] hover:bg-ink transition-colors mx-auto lg:mx-0"
               >
                 Надіслати
               </button>

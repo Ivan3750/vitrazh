@@ -1,3 +1,4 @@
+import PageHero from "@/app/components/site/PageHero";
 import Image from "next/image";
 import check from "@/app/assets/images/icons/check.svg";
 import s1 from "@/app/assets/images/products/mosquito/1.jpg";
@@ -45,16 +46,7 @@ export const metadata = {
 export default function WindowPage({ params }) {
   return (
     <>
-          <section className="relative h-[600px] flex items-center justify-center bg-black overflow-hidden">
-              <div
-                className="absolute inset-0 bg-cover bg-center opacity-40"
-                style={{
-                  backgroundImage: `url(${hero.src})`,
-                }}
-              />
-              <h1 className="relative text-white text-4xl font-bold z-10">
-ROLLO Сітки           </h1>
-            </section>
+          <PageHero image={hero}>ROLLO Сітки</PageHero>
     
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row gap-8 items-start">
@@ -135,9 +127,9 @@ ROLLO Сітки           </h1>
           ].map((title, i) => (
             <div
               key={i}
-              className="flex bg-[#F8F7F0] py-[60px] px-[40px] gap-5 rounded-md"
+              className="flex bg-paper py-[60px] px-[40px] gap-5 rounded-md"
             >
-              <div className="p-2 rounded-full bg-[#D8F422] w-9 h-9 flex items-center justify-center">
+              <div className="p-2 rounded-full bg-brand-lime w-9 h-9 flex items-center justify-center">
                 <img src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>

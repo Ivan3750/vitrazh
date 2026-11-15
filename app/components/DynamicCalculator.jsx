@@ -141,7 +141,7 @@ const [formStart] = useState(Date.now());
         <Modal message={modalMessage} onClose={() => setShowModal(false)} />
       )}
 
-      <div className="bg-[#f8f7f0] px-4 sm:px-6 py-8 sm:py-10 rounded-md max-w-2xl mx-auto mt-10">
+      <div className="bg-paper px-4 sm:px-6 py-8 sm:py-10 rounded-md max-w-2xl mx-auto mt-10">
         <h3 className="text-xl sm:text-2xl mb-6 text-center">Розрахувати замовлення</h3>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -567,7 +567,7 @@ const [formStart] = useState(Date.now());
           <div className="text-center">
             <button
               type="submit"
-              className="bg-[#D8F422] text-black py-3 px-6 rounded-md text-lg font-semibold uppercase hover:bg-black hover:text-white transition"
+              className="bg-brand-lime text-black py-3 px-6 rounded-md text-lg font-semibold uppercase hover:bg-black hover:text-white transition"
             >
               Надіслати
             </button>

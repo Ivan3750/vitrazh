@@ -1,3 +1,4 @@
+import PageHero from "@/app/components/site/PageHero";
 import Image from "next/image";
 import check from "@/app/assets/images/icons/check.svg";
 import Ukraine from "@/app/assets/images/products/decor/Ukraine.svg";
@@ -101,15 +102,7 @@ export default function WindowPage({ params }) {
 
   return (
     <>
-    <section className="relative h-[600px] flex items-center justify-center bg-black overflow-hidden">
-                  <div
-                    className="absolute inset-0 bg-cover bg-center opacity-40"
-                    style={{
-                      backgroundImage: `url(${data.hero.src})`,
-                    }}
-                  />
-            <h1 className="relative text-white text-4xl z-10">{data.title}</h1>
-          </section>
+    <PageHero image={data.hero}>{data.title}</PageHero>
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row gap-8 items-start">
           <div className="flex-1">
@@ -157,8 +150,8 @@ export default function WindowPage({ params }) {
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {["гладка поверхня, що легко очищається", "система профілів екологічна, підлягає вторинній переробці", "скошений фальц рами і тулки, що забезпечує довідведення"].map((title, i) => (
-            <div key={i} className="flex bg-[#F8F7F0] py-[60px] px-[40px] gap-5 rounded-md">
-              <div className="p-2 rounded-full bg-[#D8F422] w-9 h-9 flex items-center justify-center">
+            <div key={i} className="flex bg-paper py-[60px] px-[40px] gap-5 rounded-md">
+              <div className="p-2 rounded-full bg-brand-lime w-9 h-9 flex items-center justify-center">
                 <img src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>

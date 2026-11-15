@@ -1,3 +1,4 @@
+import PageHero from "@/app/components/site/PageHero";
 import image from "next/image";
 import check from "@/app/assets/images/icons/check.svg";
 import s1 from "@/app/assets/images/products/mosquito/1.jpg";
@@ -76,16 +77,7 @@ export default function WindowPage({ params }) {
   return (
     <>
 
-            <section className="relative h-[600px] flex items-center justify-center bg-black overflow-hidden">
-              <div
-                className="absolute inset-0 bg-cover bg-center opacity-40"
-                style={{
-                  backgroundImage: `url(${hero.src})`,
-                }}
-              />
-              <h1 className="relative text-white text-4xl font-bold z-10">
-Відкатні Сітки            </h1>
-            </section>
+            <PageHero image={hero}>Відкатні Сітки</PageHero>
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row gap-8 items-start">
           <div className="flex-1">
@@ -115,7 +107,7 @@ export default function WindowPage({ params }) {
           </div>
         </div>
       </section>
-  <section className=" py-16 px-4">
+  <section className=" py-8 px-4">
     <h2 className="text-4xl text-center  mb-14 text-black">
       Варіанти кріплень рамних москітних сіток
     </h2>
@@ -124,7 +116,7 @@ export default function WindowPage({ params }) {
       {systems.map((sys, idx) => (
         <div
           key={idx}
-          className="bg-[#f8f7f0] rounded-md  flex flex-col md:flex-row"
+          className="bg-paper rounded-md  flex flex-col md:flex-row"
           style={{ minHeight: "250px" }}
         >
           {/* Зображення зліва */}
@@ -163,9 +155,9 @@ export default function WindowPage({ params }) {
           ].map((title, i) => (
             <div
               key={i}
-              className="flex bg-[#F8F7F0] py-[60px] px-[40px] gap-5 rounded-md"
+              className="flex bg-paper py-[60px] px-[40px] gap-5 rounded-md"
             >
-              <div className="p-2 rounded-full bg-[#D8F422] w-9 h-9 flex items-center justify-center">
+              <div className="p-2 rounded-full bg-brand-lime w-9 h-9 flex items-center justify-center">
                 <img src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>

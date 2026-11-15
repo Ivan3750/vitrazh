@@ -1,4 +1,5 @@
 "use client";
+import PageHero from "@/app/components/site/PageHero";
 import { useState, useEffect } from "react";
 import StepNavigation from "../components/StepNavigation";
 import ProfileSelector from "../components/ProfileSelector";
@@ -55,15 +56,7 @@ const Calc = () => {
 
   return (
     <>
-      <section className="relative h-[600px] flex items-center justify-center bg-black overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-40"
-          style={{ backgroundImage: `url(${bg.src})` }}
-        />
-        <h1 className="relative text-white text-4xl font-bold z-10">
-          Розрахуйте вартість
-        </h1>
-      </section>
+      <PageHero image={bg}>Розрахуйте вартість</PageHero>
 
       <section className="mc py-[50px]">
         {step === 0 && <ProfileSelector data={data} setData={setData} />}

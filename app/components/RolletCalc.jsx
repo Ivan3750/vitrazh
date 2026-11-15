@@ -121,7 +121,7 @@ fetch("/api/order_rollets.php", {
   return (
     <>
       <section className="px-6 py-12 max-w-6xl mx-auto">
-        <div className="bg-[#F8F7F0] p-10 rounded-md">
+        <div className="bg-paper p-10 rounded-md">
           <h2 className="text-3xl font-bold mb-6 text-center uppercase">Калькулятор роллет</h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
@@ -131,7 +131,7 @@ fetch("/api/order_rollets.php", {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-[#D8F422]"
+                className="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-brand-lime"
               />
             </div>
             <div>
@@ -140,7 +140,7 @@ fetch("/api/order_rollets.php", {
                 type="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-[#D8F422]"
+                className="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-brand-lime"
               />
             </div>
             <div>
@@ -149,7 +149,7 @@ fetch("/api/order_rollets.php", {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-[#D8F422]"
+                className="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-brand-lime"
               />
             </div>
           </div>
@@ -161,7 +161,7 @@ fetch("/api/order_rollets.php", {
                 type="number"
                 value={width}
                 onChange={(e) => setWidth(+e.target.value)}
-                className="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-[#D8F422]"
+                className="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-brand-lime"
               />
             </div>
 
@@ -171,7 +171,7 @@ fetch("/api/order_rollets.php", {
                 type="number"
                 value={height}
                 onChange={(e) => setHeight(+e.target.value)}
-                className="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-[#D8F422]"
+                className="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-brand-lime"
               />
             </div>
           </div>
@@ -183,7 +183,7 @@ fetch("/api/order_rollets.php", {
                 <label
                   key={p.id}
                   className={`border rounded-md p-4 flex flex-col items-center cursor-pointer transition ${
-                    profile === p.id ? "border-[#D8F422] bg-white" : "border-gray-200 bg-gray-50 hover:bg-white"
+                    profile === p.id ? "border-brand-lime bg-white" : "border-gray-200 bg-gray-50 hover:bg-white"
                   }`}
                 >
                   <input
@@ -216,7 +216,7 @@ fetch("/api/order_rollets.php", {
                 <label
                   key={m.id}
                   className={`border rounded-md p-4 flex flex-col items-center cursor-pointer transition ${
-                    montage === m.id ? "border-[#D8F422] bg-white" : "border-gray-200 bg-gray-50 hover:bg-white"
+                    montage === m.id ? "border-brand-lime bg-white" : "border-gray-200 bg-gray-50 hover:bg-white"
                   }`}
                 >
                   <input
@@ -239,7 +239,7 @@ fetch("/api/order_rollets.php", {
               onClick={handleSubmit}
               disabled={loading}
               className={`py-4 px-6 rounded-md text-lg font-semibold uppercase transition ${
-                loading ? "bg-gray-400 text-white cursor-not-allowed" : "bg-[#D8F422] text-black hover:bg-black hover:text-white"
+                loading ? "bg-gray-400 text-white cursor-not-allowed" : "bg-brand-lime text-black hover:bg-black hover:text-white"
               }`}
             >
               {loading ? "Відправлення..." : "Надіслати"}

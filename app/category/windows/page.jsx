@@ -1,3 +1,4 @@
+import PageHero from "@/app/components/site/PageHero";
 import ProductList from "@/app/components/ProductList";
 import b from "@/app/assets/bg-wds-6s.jpg";
 import wds5s from "@/app/assets/images/products/windows/wds-5s-t.png";
@@ -79,17 +80,7 @@ const WindowPage = () => {
   ];
   return (
     <>
-      <section className="relative h-[600px] flex items-center justify-center bg-black overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-40"
-          style={{
-            backgroundImage: `url(${b.src})`,
-          }}
-        />
-        <h1 className="relative text-white text-4xl font-bold z-10">
-          Металопластикові вікна
-        </h1>
-      </section>
+      <PageHero image={b}>Металопластикові вікна</PageHero>
       <div className="my-[20px] flex justify-center">
         <img
           src={rehau.src}

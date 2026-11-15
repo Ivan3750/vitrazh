@@ -59,7 +59,7 @@ export default function Home() {
     <>
 <HomeSlider/>
 
-<section className="bg-[#F8F7F0] py-[100px]">
+<section className="bg-paper py-[100px]">
   <div className="mc">
     <h2 className="mb-[70px] text-[42px] sm:text-[56px] md:text-[64px]">
       Каталог Товару
@@ -130,9 +130,9 @@ export default function Home() {
             ].map((item, index) => (
               <div
                 key={index}
-                className="flex bg-[#F8F7F0] p-6 gap-5 rounded-sm"
+                className="flex bg-paper p-6 gap-5 rounded-sm"
               >
-                <div className="p-[7px] rounded-full bg-[#D8F422] w-9 h-9 flex items-center justify-center">
+                <div className="p-[7px] rounded-full bg-brand-lime w-9 h-9 flex items-center justify-center">
                   <img
                     src={check.src}
                     alt="Перевага"
@@ -176,7 +176,7 @@ export default function Home() {
 
 </section>
 
-      <section className="bg-[#F8F7F0]">
+      <section className="bg-paper">
         <div className="mc flex flex-col lg:flex-row py-[100px] gap-[60px] lg:gap-[100px] px-4 sm:px-6 md:px-10">
           <div className="flex-1 text-center lg:text-left">
             <h2 className="text-[36px] sm:text-[48px] lg:text-[64px] leading-tight">
@@ -197,11 +197,11 @@ export default function Home() {
                 key={step}
                 className="max-w-[350px] relative mx-auto lg:mx-0"
               >
-                <div className="hidden lg:block absolute -left-[46px] top-[10px] w-[12px] h-[12px] bg-[#0F0F0F] rounded-full"></div>
-                <span className="hidden lg:block absolute -left-[106px] top-[5px] text-[#0F0F0F]  text-[16px] whitespace-nowrap">
+                <div className="hidden lg:block absolute -left-[46px] top-[10px] w-[12px] h-[12px] bg-ink rounded-full"></div>
+                <span className="hidden lg:block absolute -left-[106px] top-[5px] text-ink  text-[16px] whitespace-nowrap">
                   Крок {step}
                 </span>
-                <h3 className="text-[22px] sm:text-[24px] lg:text-[28px] text-[#0F0F0F] mb-[8px]">
+                <h3 className="text-[22px] sm:text-[24px] lg:text-[28px] text-ink mb-[8px]">
                   {
                     {
                       1: "Заявка та консультація",

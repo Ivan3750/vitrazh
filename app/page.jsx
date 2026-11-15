@@ -1,38 +1,31 @@
-import Home from "./components/Home";
-
-
+import HomeNew from "./components/site/HomeNew";
 
 export const metadata = {
   title: "Вікна, двері, скління під ключ - VitraZH | Київ та область",
-  description: "Продаж та монтаж металопластикових вікон, дверей, балконів та аксесуарів у Києві та області. Замір, доставка, монтаж - все під ключ. ",
-  keywords: "вікна Київ, металопластикові вікна, двері, балкони, скління, VitraZH, встановлення вікон, замовити вікна",
+  description:
+    "Продаж та монтаж металопластикових вікон, дверей, балконів та аксесуарів у Києві та області. Замір, доставка, монтаж - все під ключ. ",
+  keywords:
+    "вікна Київ, металопластикові вікна, двері, балкони, скління, VitraZH, встановлення вікон, замовити вікна",
   robots: "index, follow",
   openGraph: {
     type: "website",
     title: "VitraZH - Вікна, двері, балкони під ключ у Києві",
-    description: "Металопластикові вікна та двері з установкою. Гарантія, якість, сервіс. Безкоштовний замір!",
+    description:
+      "Металопластикові вікна та двері з установкою. Гарантія, якість, сервіс. Безкоштовний замір!",
     url: "https://vitrazh.com.ua/",
     siteName: "VitraZH",
   },
   twitter: {
     card: "summary_large_image",
     title: "VitraZH - Вікна, двері, балкони під ключ у Києві",
-    description: "Продаж та монтаж вікон, дверей, балконів. Працюємо по Києву та області.",
+    description:
+      "Продаж та монтаж вікон, дверей, балконів. Працюємо по Києву та області.",
   },
   alternates: {
     canonical: "https://vitrazh.com.ua/",
-  }
+  },
 };
 
-
-
-const HomePage = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-
-  return (<Home/> 
-
-    
-   );
+export default function HomePage() {
+  return <HomeNew />;
 }
- 
-export default HomePage;

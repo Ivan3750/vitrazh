@@ -1,4 +1,5 @@
 "use client";
+import PageHero from "@/app/components/site/PageHero";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
@@ -29,15 +30,7 @@ export default function VitrazhPage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative h-[600px] flex items-center justify-center overflow-hidden bg-black">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-40"
-          style={{ backgroundImage: `url(${bg.src})` }}
-        />
-        <h1 className="relative z-10 text-4xl md:text-5xl  text-white text-center">
-          Вітражні вікна
-        </h1>
-      </section>
+      <PageHero image={bg}>Вітражні вікна</PageHero>
 
       {/* ПЕРЕВАГИ */}
       <section className="px-6 py-12 max-w-6xl mx-auto">
@@ -52,9 +45,9 @@ export default function VitrazhPage() {
           ].map((title, i) => (
             <div
               key={i}
-              className="flex items-center gap-4 bg-[#F8F7F0] py-10 px-6 rounded-xl "
+              className="flex items-center gap-4 bg-paper py-10 px-6 rounded-xl "
             >
-              <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#D8F422]">
+              <div className="flex items-center justify-center w-10 h-10 rounded-full bg-brand-lime">
                 <img src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-base md:text-lg font-medium">{title}</p>
@@ -174,7 +167,7 @@ export default function VitrazhPage() {
             пропускаючи багато світла, а декоративний малюнок створює враження
             витонченості і надає стиль вашій оселі.
           </p>
-          <div className="mt-10 bg-[#F8F7F0] rounded-2xl p-8 flex flex-col md:flex-row items-center md:items-start gap-8 ">
+          <div className="mt-10 bg-paper rounded-2xl p-8 flex flex-col md:flex-row items-center md:items-start gap-8 ">
             <div className="flex-shrink-0">
               <img
                 src={diamond.src}
@@ -245,7 +238,7 @@ export default function VitrazhPage() {
             процвітання вашому будинку, радість чи довголіття
           </p>
         </div>
-        <div className="mt-10 bg-[#F8F7F0] rounded-2xl p-8 flex flex-col md:flex-row items-center md:items-start gap-8 ">
+        <div className="mt-10 bg-paper rounded-2xl p-8 flex flex-col md:flex-row items-center md:items-start gap-8 ">
           <div className="flex-shrink-0">
             <img
               src={facet.src}

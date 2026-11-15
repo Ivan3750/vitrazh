@@ -1,3 +1,4 @@
+import PageHero from "@/app/components/site/PageHero";
 import ProductList from "@/app/components/ProductList";
 import b from "@/app/assets/images/products/mosquito/background.jpg";
 import s1 from "@/app/assets/images/products/mosquito/1.jpg";
@@ -67,17 +68,7 @@ const WindowPage = () => {
 
   return (
     <>
-      <section className="relative h-[600px] flex items-center justify-center bg-black overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-40"
-          style={{
-            backgroundImage: `url(${b.src})`,
-          }}
-        />
-        <h1 className="relative text-white text-4xl font-bold z-10">
-          Москітні сітки
-        </h1>
-      </section>
+      <PageHero image={b}>Москітні сітки</PageHero>
 
       <ProductList products={products} gridN={3} />
     </>

@@ -1,3 +1,4 @@
+import PageHero from "@/app/components/site/PageHero";
 import check from "@/app/assets/images/icons/check.svg";
 import vorneImage from "@/app/assets/images/products/facades/vorne-logo.png";
 import macoImage from "@/app/assets/images/products/facades/maco-logo.png";
@@ -140,15 +141,7 @@ export default function FurniturePage({ params }) {
   return (
     <>
       {/* Банер */}
-      <section className="relative h-[600px] flex items-center justify-center bg-black overflow-hidden">
-              <div
-                className="absolute inset-0 bg-cover bg-center opacity-40"
-                style={{
-                  backgroundImage: `url(${data.hero.src})`,
-                }}
-              />
-        <h1 className="relative text-white text-4xl z-10">{data.title}</h1>
-      </section>
+      <PageHero image={data.hero}>{data.title}</PageHero>
 
       <section className="px-6 py-12 max-w-6xl mx-auto flex flex-col md:flex-row gap-8 items-center">
         <div className="flex-1">
@@ -199,9 +192,9 @@ export default function FurniturePage({ params }) {
           {data.advantages.map((adv, i) => (
             <div
               key={i}
-              className="flex bg-[#F8F7F0] py-[60px] px-[40px] gap-5 rounded-md"
+              className="flex bg-paper py-[60px] px-[40px] gap-5 rounded-md"
             >
-              <div className="p-2 rounded-full bg-[#D8F422] w-9 h-9 flex items-center justify-center">
+              <div className="p-2 rounded-full bg-brand-lime w-9 h-9 flex items-center justify-center">
                 <img src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{adv}</p>
@@ -210,7 +203,7 @@ export default function FurniturePage({ params }) {
         </div>
       </section>
       <section className="my-10">
-        <div className="bg-[#F8F7F0] px-6 py-12 max-w-6xl mx-auto rounded-2xl">
+        <div className="bg-paper px-6 py-12 max-w-6xl mx-auto rounded-2xl">
           <p className="text-center text-4xl">Особливості застосування</p>
             <p className="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
           {data.usage}
