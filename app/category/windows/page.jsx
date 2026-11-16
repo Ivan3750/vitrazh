@@ -1,14 +1,14 @@
 import PageHero from "@/app/components/site/PageHero";
 import ProductList from "@/app/components/ProductList";
 import b from "@/app/assets/bg-wds-6s.jpg";
-import wds5s from "@/app/assets/images/products/windows/wds-5s-t.png";
-import wds76md from "@/app/assets/images/products/windows/wds-76MD-t.png";
-import wds76ad from "@/app/assets/images/products/windows/wds-76AD-t.png";
-import rehauE60 from "@/app/assets/images/products/windows/REHAU_Euro-Design_60-t.png";
-import rehauE70 from "@/app/assets/images/products/windows/REHAU_Euro-Design_70-t.png";
-import rehauSMD from "@/app/assets/images/products/windows/REHAU_Synego_MD-t.png";
-import wds from "@/app/assets/images/icons/wds.png";
-import rehau from "@/app/assets/images/icons/rehau.png";
+import wds5s from "@/app/assets/images-webp/products/windows/wds-5s-t.webp";
+import wds76md from "@/app/assets/images-webp/products/windows/wds-76MD-t.webp";
+import wds76ad from "@/app/assets/images-webp/products/windows/wds-76AD-t.webp";
+import rehauE60 from "@/app/assets/images-webp/products/windows/REHAU_Euro-Design_60-t.webp";
+import rehauE70 from "@/app/assets/images-webp/products/windows/REHAU_Euro-Design_70-t.webp";
+import rehauSMD from "@/app/assets/images-webp/products/windows/REHAU_Synego_MD-t.webp";
+import wds from "@/app/assets/images-webp/icons/wds.webp";
+import rehau from "@/app/assets/images-webp/icons/rehau.webp";
 
 
 export const metadata = {
@@ -84,7 +84,7 @@ const WindowPage = () => {
     <>
       <PageHero image={b}>Металопластикові вікна</PageHero>
       <div className="my-[20px] flex justify-center">
-        <img
+        <img loading="lazy" decoding="async"
           src={rehau.src}
           alt="Rehau Logo"
           width={"400px"}
@@ -93,7 +93,7 @@ const WindowPage = () => {
       </div>
       <ProductList products={productsRehau} gridN={3} />
       <div className="my-[20px] flex justify-center">
-        <img src={wds.src} alt="WDS Logo" width={"400px"} height={"500px"} />
+        <img loading="lazy" decoding="async" src={wds.src} alt="WDS Logo" width={"400px"} height={"500px"} />
       </div>
       <ProductList products={productsWDS} gridN={3} />
     </>

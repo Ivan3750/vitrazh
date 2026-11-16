@@ -78,7 +78,7 @@ const Summary = ({ data, prevStep }) => {
               <h3 className="font-semibold">{label}:</h3>
               <div>
                 {label === "Форма вікна" && value ? (
-                  <img src={value} alt={label} className="w-16 h-16 object-contain" />
+                  <img loading="lazy" decoding="async" src={value} alt={label} className="w-16 h-16 object-contain" />
                 ) : (
                   <p>{value || "-"}</p>
                 )}
@@ -148,7 +148,7 @@ const Summary = ({ data, prevStep }) => {
               className="bg-brand-lime py-4 px-6 uppercase flex items-center justify-center gap-2 min-w-[200px] hover:bg-ink hover:text-white transition-colors"
             >
               Надіслати
-              <img src={go.src} alt="go" />
+              <img loading="lazy" decoding="async" src={go.src} alt="go" />
             </button>
           </form>
         </div>

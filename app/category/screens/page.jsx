@@ -1,12 +1,12 @@
 import PageHero from "@/app/components/site/PageHero";
 import ProductList from "@/app/components/ProductList";
-import b from "@/app/assets/images/products/mosquito/background.jpg";
-import s1 from "@/app/assets/images/products/mosquito/1.jpg";
-import s2 from "@/app/assets/images/products/mosquito/2.jpg";
-import s3 from "@/app/assets/images/products/mosquito/3-new.jpg";
-import s4 from "@/app/assets/images/products/mosquito/4.jpg";
-import s5 from "@/app/assets/images/products/mosquito/5-new.jpg";
-import s6 from "@/app/assets/images/products/mosquito/6-new.jpg";
+import b from "@/app/assets/images-webp/products/mosquito/background.webp";
+import s1 from "@/app/assets/images-webp/products/mosquito/1.webp";
+import s2 from "@/app/assets/images-webp/products/mosquito/2.webp";
+import s3 from "@/app/assets/images-webp/products/mosquito/3-new.webp";
+import s4 from "@/app/assets/images-webp/products/mosquito/4.webp";
+import s5 from "@/app/assets/images-webp/products/mosquito/5-new.webp";
+import s6 from "@/app/assets/images-webp/products/mosquito/6-new.webp";
  
 export const metadata = {
   alternates: { canonical: "/category/screens/" },

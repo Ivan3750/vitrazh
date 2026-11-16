@@ -1,24 +1,24 @@
 import PageHero from "@/app/components/site/PageHero";
 import check from "@/app/assets/images/icons/check.svg";
-import s5 from "@/app/assets/images/products/mosquito/5-new.jpg";
-import j1 from "@/app/assets/images/jobs/screens/aj1.jpg";
-import j2 from "@/app/assets/images/jobs/screens/aj2.jpg";
-import j3 from "@/app/assets/images/jobs/screens/aj3.jpg";
-import j4 from "@/app/assets/images/jobs/screens/aj4.jpg";
-import j5 from "@/app/assets/images/jobs/screens/aj5.jpg";
-import white from "@/app/assets/images/products/mosquito/rollo/Rollo_profil_white.png";
-import brown from "@/app/assets/images/products/mosquito/rollo/Rollo_profil_brown.png";
-import anthracite from "@/app/assets/images/products/mosquito/rollo/Rollo_profil_anthracite.png";
-import img from "@/app/assets/images/products/mosquito/alyuminiievi/moskitiera.jpg";
+import s5 from "@/app/assets/images-webp/products/mosquito/5-new.webp";
+import j1 from "@/app/assets/images-webp/jobs/screens/aj1.webp";
+import j2 from "@/app/assets/images-webp/jobs/screens/aj2.webp";
+import j3 from "@/app/assets/images-webp/jobs/screens/aj3.webp";
+import j4 from "@/app/assets/images-webp/jobs/screens/aj4.webp";
+import j5 from "@/app/assets/images-webp/jobs/screens/aj5.webp";
+import white from "@/app/assets/images-webp/products/mosquito/rollo/Rollo_profil_white.webp";
+import brown from "@/app/assets/images-webp/products/mosquito/rollo/Rollo_profil_brown.webp";
+import anthracite from "@/app/assets/images-webp/products/mosquito/rollo/Rollo_profil_anthracite.webp";
+import img from "@/app/assets/images-webp/products/mosquito/alyuminiievi/moskitiera.webp";
 import DynamicCalculator from "@/app/components/DynamicCalculator";
 import Link from "next/link";
 import PlisseScreens from "@/app/components/PlisseScreens";
-import blackF from "@/app/assets/images/products/mosquito/rollo/Black.png";
+import blackF from "@/app/assets/images-webp/products/mosquito/rollo/Black.webp";
 import fiberglass from "@/app/assets/images/gallery/Fiberglass.webp";
 import ultraView from "@/app/assets/images/gallery/UltraView.webp";
 import antipul from "@/app/assets/images/gallery/antipul.webp";
 import anticat from "@/app/assets/images/gallery/anticat.webp";
-import hero from "@/app/assets/images/hero/aluminium_sitka.jpg"
+import hero from "@/app/assets/images-webp/hero/aluminium_sitka.webp"
 
 
 export const metadata = {
@@ -52,7 +52,7 @@ export default function WindowPage() {
         <div className="flex flex-col md:flex-row gap-8 items-start">
           <div className="flex-1">
             <div className="w-[300px] h-[400px] relative">
-              <img
+              <img loading="lazy" decoding="async"
                 src={s5.src}
                 alt="Сітка для Алюмінієвих Вікон"
                 fill
@@ -152,7 +152,7 @@ export default function WindowPage() {
               className="flex bg-paper py-[60px] px-[40px] gap-5"
             >
               <div className="p-2 bg-brand-lime w-9 h-9 flex items-center justify-center">
-                <img src={check.src} alt="Перевага" width={22} height={22} />
+                <img loading="lazy" decoding="async" src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>
             </div>
@@ -165,7 +165,7 @@ export default function WindowPage() {
       
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div className="flex flex-col items-center text-center">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={fiberglass.src}
                     alt="Сітка Fiberglass"
                     className="w-full h-auto mb-1 object-contain"
@@ -180,7 +180,7 @@ export default function WindowPage() {
                 </div>
       
                 <div className="flex flex-col items-center text-center">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={ultraView.src}
                     alt="Сітка Ultra View"
                     className="w-full h-auto mb-1 object-contain"
@@ -194,7 +194,7 @@ export default function WindowPage() {
                 </div>
       
                 <div className="flex flex-col items-center text-center">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={antipul.src}
                     alt="Сітка Антипил"
                     className="w-full h-auto mb-1 object-contain"
@@ -208,7 +208,7 @@ export default function WindowPage() {
                 </div>
       
                 <div className="flex flex-col items-center text-center">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={anticat.src}
                     alt="Сітка Антикішка"
                     className="w-full h-auto mb-1 object-contain"
@@ -243,7 +243,7 @@ export default function WindowPage() {
                 <div
                   className={` transform transition-transform duration-300 hover:scale-[0.995] ${translateClasses[index]}`}
                 >
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={img.src}
                     alt={`j${index + 1}`}
                     className="h-[250px] md:h-[300px] xl:h-[350px] w-auto max-w-none object-cover"

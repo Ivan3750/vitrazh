@@ -1,14 +1,14 @@
 'use client';
 import { useState } from "react";
 
-import gateSpring from "@/app/assets/images/calc/gate_type_springs.png"
-import gateMechanism from "@/app/assets/images/calc/gate_type_mechanism.png"
-import gatePro from "@/app/assets/images/calc/gate_type_pro.png"
+import gateSpring from "@/app/assets/images-webp/calc/gate_type_springs.webp"
+import gateMechanism from "@/app/assets/images-webp/calc/gate_type_mechanism.webp"
+import gatePro from "@/app/assets/images-webp/calc/gate_type_pro.webp"
 
-import liftVertical from "@/app/assets/images/calc/gate_lift_vertical.jpg"
-import liftLow from "@/app/assets/images/calc/gate_lift_low.jpg"
-import liftStandard from "@/app/assets/images/calc/gate_lift_standart.jpg"
-import liftHigh from "@/app/assets/images/calc/gate_lift_high.jpg"
+import liftVertical from "@/app/assets/images-webp/calc/gate_lift_vertical.webp"
+import liftLow from "@/app/assets/images-webp/calc/gate_lift_low.webp"
+import liftStandard from "@/app/assets/images-webp/calc/gate_lift_standart.webp"
+import liftHigh from "@/app/assets/images-webp/calc/gate_lift_high.webp"
  
 const gateTypes = [
   {
@@ -235,7 +235,7 @@ const handleSubmit = () => {
                   }}
                   className="hidden"
                 />
-                <img src={img} alt={label} className="w-36 h-36 object-cover mb-3" />
+                <img loading="lazy" decoding="async" src={img} alt={label} className="w-36 h-36 object-cover mb-3" />
                 <span className="text-sm font-medium text-center">{label}</span>
               </label>
             ))}
@@ -262,7 +262,7 @@ const handleSubmit = () => {
                     onChange={() => setLiftType(label)}
                     className="hidden"
                   />
-                  <img src={img} alt={label} className="w-32 h-32 object-cover mb-3" />
+                  <img loading="lazy" decoding="async" src={img} alt={label} className="w-32 h-32 object-cover mb-3" />
                   <span className="text-sm font-medium text-center">{label}</span>
                 </label>
               ))}

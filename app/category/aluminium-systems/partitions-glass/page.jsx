@@ -1,24 +1,24 @@
 import PageHero from "@/app/components/site/PageHero";
 import check from "@/app/assets/images/icons/check.svg";
-import g1 from "@/app/assets/images/products/aluminium/glass (1).jpg";
-import g2 from "@/app/assets/images/products/aluminium/glass (2).jpg";
-import g3 from "@/app/assets/images/products/aluminium/glass (3).jpg";
-import g4 from "@/app/assets/images/products/aluminium/glass (4).jpg";
-import g5 from "@/app/assets/images/products/aluminium/glass (5).jpg";
-import g6 from "@/app/assets/images/products/aluminium/glass (6).jpg";
-import gGraphite from "@/app/assets/images/products/aluminium/glass/xgrafit.jpg";
-import gBronze from "@/app/assets/images/products/aluminium/glass/xbronza.jpg";
-import gFloat from "@/app/assets/images/products/aluminium/glass/xclasic-float.jpg";
-import gDiamond from "@/app/assets/images/products/aluminium/glass/diamont.jpg";
-import gTriplex from "@/app/assets/images/products/aluminium/glass/tripleks.jpg";
-import gCryzet from "@/app/assets/images/products/aluminium/glass/kryzet.jpg";
-import gGraphiteSatyn from "@/app/assets/images/products/aluminium/glass/grafit-satyn.jpg";
-import gBronzeSatyn from "@/app/assets/images/products/aluminium/glass/bronza-satyn.jpg";
-import gMatte from "@/app/assets/images/products/aluminium/glass/slassic-matte.jpg";
-import gArtistic from "@/app/assets/images/products/aluminium/glass/artistic-matting.jpg";
-import gFlutes from "@/app/assets/images/products/aluminium/glass/glass-flutes.jpg";
-import gArmored from "@/app/assets/images/products/aluminium/glass/armored.jpg";
-import p from "@/app/assets/images/products/aluminium/glass.jpg";
+import g1 from "@/app/assets/images-webp/products/aluminium/glass (1).webp";
+import g2 from "@/app/assets/images-webp/products/aluminium/glass (2).webp";
+import g3 from "@/app/assets/images-webp/products/aluminium/glass (3).webp";
+import g4 from "@/app/assets/images-webp/products/aluminium/glass (4).webp";
+import g5 from "@/app/assets/images-webp/products/aluminium/glass (5).webp";
+import g6 from "@/app/assets/images-webp/products/aluminium/glass (6).webp";
+import gGraphite from "@/app/assets/images-webp/products/aluminium/glass/xgrafit.webp";
+import gBronze from "@/app/assets/images-webp/products/aluminium/glass/xbronza.webp";
+import gFloat from "@/app/assets/images-webp/products/aluminium/glass/xclasic-float.webp";
+import gDiamond from "@/app/assets/images-webp/products/aluminium/glass/diamont.webp";
+import gTriplex from "@/app/assets/images-webp/products/aluminium/glass/tripleks.webp";
+import gCryzet from "@/app/assets/images-webp/products/aluminium/glass/kryzet.webp";
+import gGraphiteSatyn from "@/app/assets/images-webp/products/aluminium/glass/grafit-satyn.webp";
+import gBronzeSatyn from "@/app/assets/images-webp/products/aluminium/glass/bronza-satyn.webp";
+import gMatte from "@/app/assets/images-webp/products/aluminium/glass/slassic-matte.webp";
+import gArtistic from "@/app/assets/images-webp/products/aluminium/glass/artistic-matting.webp";
+import gFlutes from "@/app/assets/images-webp/products/aluminium/glass/glass-flutes.webp";
+import gArmored from "@/app/assets/images-webp/products/aluminium/glass/armored.webp";
+import p from "@/app/assets/images-webp/products/aluminium/glass.webp";
 import {
   FaBuilding,
   FaUtensils,
@@ -27,7 +27,7 @@ import {
   FaIndustry,
   FaSpa,
 } from "react-icons/fa";
-import b from "@/app/assets/images/hero/glass-a-bg.jpg"
+import b from "@/app/assets/images-webp/hero/glass-a-bg.webp"
 
 export const metadata = {
   alternates: { canonical: "/category/aluminium-systems/partitions-glass/" },
@@ -106,7 +106,7 @@ export default function GlassPartitionsPage() {
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row gap-10 items-start justify-between">
           <div className="w-full md:max-w-[320px] flex-shrink-0">
-            <img
+            <img loading="lazy" decoding="async"
               src={data.img.src}
               alt={data.name}
               className="object-cover w-full h-[350px] md:h-[400px]"
@@ -177,7 +177,7 @@ export default function GlassPartitionsPage() {
           key={i}
           className="overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 bg-paper"
         >
-          <img
+          <img loading="lazy" decoding="async"
             src={item.img.src}
             alt={item.title}
             className="w-full h-[200px] md:h-[220px] object-cover"
@@ -250,7 +250,7 @@ export default function GlassPartitionsPage() {
               className="flex bg-paper py-[40px] px-[30px] gap-5 shadow-sm"
             >
               <div className="p-2 bg-brand-lime w-9 h-9 flex items-center justify-center">
-                <img src={check.src} alt="Перевага" width={22} height={22} />
+                <img loading="lazy" decoding="async" src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>
             </div>
@@ -269,7 +269,7 @@ export default function GlassPartitionsPage() {
               key={index}
               className="overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
             >
-              <img
+              <img loading="lazy" decoding="async"
                 src={img.src}
                 alt={`Фото робіт ${index + 1}`}
                 className="w-full h-[250px] md:h-[300px] object-cover"

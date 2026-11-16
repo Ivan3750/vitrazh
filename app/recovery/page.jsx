@@ -1,13 +1,13 @@
 import PageHero from "@/app/components/site/PageHero";
 import b from "@/app/assets/images-webp/jobs/1.webp";
 import dh from "@/app/assets/images/recovery/destroyedhouse.webp";
-import card from "@/app/assets/images/recovery/Ecard.png";
-import consultation from "@/app/assets/images/icons/consultation.png";
-import delivery from "@/app/assets/images/icons/delivery.png";
-import document from "@/app/assets/images/icons/document.png";
-import relax from "@/app/assets/images/icons/relax.png";
-import report from "@/app/assets/images/icons/report.png";
-import length from "@/app/assets/images/icons/length.png";
+import card from "@/app/assets/images-webp/recovery/Ecard.webp";
+import consultation from "@/app/assets/images-webp/icons/consultation.webp";
+import delivery from "@/app/assets/images-webp/icons/delivery.webp";
+import document from "@/app/assets/images-webp/icons/document.webp";
+import relax from "@/app/assets/images-webp/icons/relax.webp";
+import report from "@/app/assets/images-webp/icons/report.webp";
+import length from "@/app/assets/images-webp/icons/length.webp";
 import Image from "next/image";
 
 export const metadata = {

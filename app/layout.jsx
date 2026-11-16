@@ -101,7 +101,7 @@ export default function RootLayout({ children }) {
           Перейти до змісту
         </a>
         <Header />
-        <main id="main" className="pt-[76px]">{children}</main>
+        <main id="main">{children}</main>
         <FloatingContactButton />
         <Footer />
       </body>

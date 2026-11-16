@@ -1,26 +1,26 @@
 import PageHero from "@/app/components/site/PageHero";
 import Image from "next/image";
 import check from "@/app/assets/images/icons/check.svg";
-import s1 from "@/app/assets/images/products/mosquito/1.jpg";
-import j1 from "@/app/assets/images/jobs/screens/rj1.jpg";
-import j2 from "@/app/assets/images/jobs/screens/rj2.jpg";
-import j3 from "@/app/assets/images/jobs/screens/rj3.jpg";
-import j4 from "@/app/assets/images/jobs/screens/rj4.jpg";
-import j5 from "@/app/assets/images/jobs/screens/rj5.jpg";
-import white from "@/app/assets/images/products/mosquito/rollo/Rollo_profil_white.png";
-import brown from "@/app/assets/images/products/mosquito/rollo/Rollo_profil_brown.png";
-import black from "@/app/assets/images/products/mosquito/rollo/Rollo_profil_anthracite (1).png";
-import anthracite from "@/app/assets/images/products/mosquito/rollo/Rollo_profil_anthracite.png";
-import hImg from "@/app/assets/images/products/mosquito/rollo/ROLLO_horyzontalni.gif";
-import vImg from "@/app/assets/images/products/mosquito/rollo/ROLLO_vertykalni.gif";
-import size1 from "@/app/assets/images/products/mosquito/rollo/size1-roletni.jpg";
-import size2 from "@/app/assets/images/products/mosquito/rollo/size2-roletni.jpg";
-import size3 from "@/app/assets/images/products/mosquito/rollo/size3-roletni.jpg";
+import s1 from "@/app/assets/images-webp/products/mosquito/1.webp";
+import j1 from "@/app/assets/images-webp/jobs/screens/rj1.webp";
+import j2 from "@/app/assets/images-webp/jobs/screens/rj2.webp";
+import j3 from "@/app/assets/images-webp/jobs/screens/rj3.webp";
+import j4 from "@/app/assets/images-webp/jobs/screens/rj4.webp";
+import j5 from "@/app/assets/images-webp/jobs/screens/rj5.webp";
+import white from "@/app/assets/images-webp/products/mosquito/rollo/Rollo_profil_white.webp";
+import brown from "@/app/assets/images-webp/products/mosquito/rollo/Rollo_profil_brown.webp";
+import black from "@/app/assets/images-webp/products/mosquito/rollo/Rollo_profil_anthracite (1).webp";
+import anthracite from "@/app/assets/images-webp/products/mosquito/rollo/Rollo_profil_anthracite.webp";
+import hImg from "@/app/assets/images-webp/products/mosquito/rollo/ROLLO_horyzontalni.webp";
+import vImg from "@/app/assets/images-webp/products/mosquito/rollo/ROLLO_vertykalni.webp";
+import size1 from "@/app/assets/images-webp/products/mosquito/rollo/size1-roletni.webp";
+import size2 from "@/app/assets/images-webp/products/mosquito/rollo/size2-roletni.webp";
+import size3 from "@/app/assets/images-webp/products/mosquito/rollo/size3-roletni.webp";
 import DynamicCalculator from "@/app/components/DynamicCalculator";
 import Link from "next/link";
 import PlisseScreens from "@/app/components/PlisseScreens";
-import blackF from "@/app/assets/images/products/mosquito/rollo/Black.png";
-import hero from "@/app/assets/images/hero/rolle_sitka.jpg"
+import blackF from "@/app/assets/images-webp/products/mosquito/rollo/Black.webp";
+import hero from "@/app/assets/images-webp/hero/rolle_sitka.webp"
 
 export const metadata = {
   alternates: { canonical: "/category/screens/rolovi-sitky/" },
@@ -54,7 +54,7 @@ export default function WindowPage({ params }) {
         <div className="flex flex-col md:flex-row gap-8 items-start">
           <div className="flex-1 overflow-hidden">
             <div className="w-[300px] h-[400px] relative">
-              <img
+              <img loading="lazy" decoding="async"
                 src={s1.src}
                 alt="Антимоскітні сітки ROLLO"
                 fill
@@ -95,9 +95,9 @@ export default function WindowPage({ params }) {
           ]}
         />
         <div className="flex max-w-4xl gap-20px justify-between my-10 mx-auto">
-          <img src={size1.src} alt="Розміри" width={300} height={300} />
-          <img src={size2.src} alt="Розміри" width={300} height={300} />
-          <img src={size3.src} alt="Розміри" width={300} height={300} />
+          <img loading="lazy" decoding="async" src={size1.src} alt="Розміри" width={300} height={300} />
+          <img loading="lazy" decoding="async" src={size2.src} alt="Розміри" width={300} height={300} />
+          <img loading="lazy" decoding="async" src={size3.src} alt="Розміри" width={300} height={300} />
         </div>
         <PlisseScreens
           profileColors={[
@@ -115,9 +115,9 @@ export default function WindowPage({ params }) {
           ]}
         />
         <div className="flex max-w-4xl gap-20px justify-between my-10 mx-auto">
-          <img src={size1.src} alt="Розміри" width={300} height={300} />
-          <img src={size2.src} alt="Розміри" width={300} height={300} />
-          <img src={size3.src} alt="Розміри" width={300} height={300} />
+          <img loading="lazy" decoding="async" src={size1.src} alt="Розміри" width={300} height={300} />
+          <img loading="lazy" decoding="async" src={size2.src} alt="Розміри" width={300} height={300} />
+          <img loading="lazy" decoding="async" src={size3.src} alt="Розміри" width={300} height={300} />
         </div>
       </section>
       <section className="px-6 py-12 max-w-6xl mx-auto">
@@ -132,7 +132,7 @@ export default function WindowPage({ params }) {
               className="flex bg-paper py-[60px] px-[40px] gap-5"
             >
               <div className="p-2 bg-brand-lime w-9 h-9 flex items-center justify-center">
-                <img src={check.src} alt="Перевага" width={22} height={22} />
+                <img loading="lazy" decoding="async" src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>
             </div>
@@ -158,7 +158,7 @@ export default function WindowPage({ params }) {
                 <div
                   className={` transform transition-transform duration-300 hover:scale-[0.995] ${translateClasses[index]}`}
                 >
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={img.src}
                     alt={`j${index + 1}`}
                     className="h-[250px] md:h-[300px] xl:h-[350px] w-auto max-w-none object-cover"

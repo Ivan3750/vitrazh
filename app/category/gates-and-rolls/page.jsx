@@ -1,9 +1,9 @@
 import PageHero from "@/app/components/site/PageHero";
 import ProductList from "@/app/components/ProductList";
-import b from "@/app/assets/images/products/gates/protective-rolls.jpg";
-import g1 from "@/app/assets/images/products/gates/gates-sectional.png";
-import g2 from "@/app/assets/images/products/gates/protective-rolls.jpg";
-import g3 from "@/app/assets/images/products/gates/roll-gates.jpg";
+import b from "@/app/assets/images-webp/products/gates/protective-rolls.webp";
+import g1 from "@/app/assets/images-webp/products/gates/gates-sectional.webp";
+import g2 from "@/app/assets/images-webp/products/gates/protective-rolls.webp";
+import g3 from "@/app/assets/images-webp/products/gates/roll-gates.webp";
 
 
 export const metadata = {

@@ -1,34 +1,34 @@
 import PageHero from "@/app/components/site/PageHero";
 import Image from "next/image";
 import check from "@/app/assets/images/icons/check.svg";
-import s1 from "@/app/assets/images/products/mosquito/1.jpg";
-import s2 from "@/app/assets/images/products/mosquito/2.jpg";
-import s3 from "@/app/assets/images/products/mosquito/3-new.jpg";
-import s4 from "@/app/assets/images/products/mosquito/4.jpg";
-import s5 from "@/app/assets/images/products/mosquito/5-new.jpg";
-import s6 from "@/app/assets/images/products/mosquito/6-new.jpg";
-import j1 from "@/app/assets/images/jobs/screens/pj1.jpg";
-import j2 from "@/app/assets/images/jobs/screens/pj2.jpg";
-import j3 from "@/app/assets/images/jobs/screens/pj3.jpg";
-import j4 from "@/app/assets/images/jobs/screens/pj4.jpg";
-import j5 from "@/app/assets/images/jobs/screens/pj5.jpg";
-import gold from "@/app/assets/images/products/mosquito/plise/Plisse_profil_gold_oak.png";
-import white from "@/app/assets/images/products/mosquito/plise/Plisse_profil_white.png";
-import brown from "@/app/assets/images/products/mosquito/plise/Plisse_profil_brown.png";
-import black from "@/app/assets/images/products/mosquito/plise/Plisse_profil_black.png";
-import anthracite from "@/app/assets/images/products/mosquito/plise/Plisse_profil_anthracite.png";
-import screen from "@/app/assets/images/products/mosquito/plise/plisse_sitka.jpg"
+import s1 from "@/app/assets/images-webp/products/mosquito/1.webp";
+import s2 from "@/app/assets/images-webp/products/mosquito/2.webp";
+import s3 from "@/app/assets/images-webp/products/mosquito/3-new.webp";
+import s4 from "@/app/assets/images-webp/products/mosquito/4.webp";
+import s5 from "@/app/assets/images-webp/products/mosquito/5-new.webp";
+import s6 from "@/app/assets/images-webp/products/mosquito/6-new.webp";
+import j1 from "@/app/assets/images-webp/jobs/screens/pj1.webp";
+import j2 from "@/app/assets/images-webp/jobs/screens/pj2.webp";
+import j3 from "@/app/assets/images-webp/jobs/screens/pj3.webp";
+import j4 from "@/app/assets/images-webp/jobs/screens/pj4.webp";
+import j5 from "@/app/assets/images-webp/jobs/screens/pj5.webp";
+import gold from "@/app/assets/images-webp/products/mosquito/plise/Plisse_profil_gold_oak.webp";
+import white from "@/app/assets/images-webp/products/mosquito/plise/Plisse_profil_white.webp";
+import brown from "@/app/assets/images-webp/products/mosquito/plise/Plisse_profil_brown.webp";
+import black from "@/app/assets/images-webp/products/mosquito/plise/Plisse_profil_black.webp";
+import anthracite from "@/app/assets/images-webp/products/mosquito/plise/Plisse_profil_anthracite.webp";
+import screen from "@/app/assets/images-webp/products/mosquito/plise/plisse_sitka.webp"
 import pl1 from "@/app/assets/images/products/mosquito/plise/PL_1.gif";
 import pl2 from "@/app/assets/images/products/mosquito/plise/PL_2.gif";
-import pl3 from "@/app/assets/images/products/mosquito/plise/PL_3.gif";
-import pl4 from "@/app/assets/images/products/mosquito/plise/PL_4.gif";
+import pl3 from "@/app/assets/images-webp/products/mosquito/plise/PL_3.webp";
+import pl4 from "@/app/assets/images-webp/products/mosquito/plise/PL_4.webp";
 import pl5 from "@/app/assets/images/products/mosquito/plise/PL_5.gif";
-import blackF from "@/app/assets/images/products/mosquito/rollo/Black.png"
-import size1 from "@/app/assets/images/products/mosquito/plise/Rozmir (1).png"
+import blackF from "@/app/assets/images-webp/products/mosquito/rollo/Black.webp"
+import size1 from "@/app/assets/images-webp/products/mosquito/plise/Rozmir (1).webp"
 import DynamicCalculator from "@/app/components/DynamicCalculator";
 import Link from "next/link";
 import PlisseScreens from "@/app/components/PlisseScreens";
-import hero from "@/app/assets/images/hero/plisse_sitka.jpg"
+import hero from "@/app/assets/images-webp/hero/plisse_sitka.webp"
 
 export const metadata = {
   alternates: { canonical: "/category/screens/plisse-sitky/" },
@@ -60,7 +60,7 @@ export default function WindowPage({ params }) {
         <div className="flex flex-col md:flex-row gap-8 items-start">
           <div className="flex-1">
             <div className="w-[300px] h-[400px] relative">
-              <img
+              <img loading="lazy" decoding="async"
                 src={s2.src}
                 alt="Антимоскітні сітки PLISSE"
                 fill
@@ -100,7 +100,7 @@ export default function WindowPage({ params }) {
         ]}
       />
        <div className="flex max-w-4xl gap-20px justify-between my-10 mx-auto">
-                <img src={size1.src} alt="Розміри" width={1000} height={300}/>
+                <img loading="lazy" decoding="async" src={size1.src} alt="Розміри" width={1000} height={300}/>
         </div>  
       <PlisseScreens
         profileColors={[
@@ -121,7 +121,7 @@ export default function WindowPage({ params }) {
         ]}
       />
       <div className="flex max-w-4xl gap-20px justify-between my-10 mx-auto">
-                <img src={size1.src} alt="Розміри" width={1000} height={300}/>
+                <img loading="lazy" decoding="async" src={size1.src} alt="Розміри" width={1000} height={300}/>
         </div>  
       <PlisseScreens
         profileColors={[
@@ -142,7 +142,7 @@ export default function WindowPage({ params }) {
         ]}
       />
       <div className="flex max-w-4xl gap-20px justify-between my-10 mx-auto">
-                <img src={size1.src} alt="Розміри" width={1000} height={300}/>
+                <img loading="lazy" decoding="async" src={size1.src} alt="Розміри" width={1000} height={300}/>
         </div>  
       <PlisseScreens
         profileColors={[
@@ -163,7 +163,7 @@ export default function WindowPage({ params }) {
         ]}
       />
       <div className="flex max-w-4xl gap-20px justify-between my-10 mx-auto">
-                <img src={size1.src} alt="Розміри" width={1000} height={300}/>
+                <img loading="lazy" decoding="async" src={size1.src} alt="Розміри" width={1000} height={300}/>
         </div>  
       <PlisseScreens
         profileColors={[
@@ -184,7 +184,7 @@ export default function WindowPage({ params }) {
         ]}
       />
       <div className="flex max-w-4xl gap-20px justify-between my-10 mx-auto">
-                <img src={size1.src} alt="Розміри" width={1000} height={300}/>
+                <img loading="lazy" decoding="async" src={size1.src} alt="Розміри" width={1000} height={300}/>
         </div>  
 
       <section className="px-6 py-12 max-w-6xl mx-auto">
@@ -199,7 +199,7 @@ export default function WindowPage({ params }) {
               className="flex bg-paper py-[60px] px-[40px] gap-5"
             >
               <div className="p-2 bg-brand-lime w-9 h-9 flex items-center justify-center">
-                <img src={check.src} alt="Перевага" width={22} height={22} />
+                <img loading="lazy" decoding="async" src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>
             </div>
@@ -227,7 +227,7 @@ export default function WindowPage({ params }) {
                 <div
                   className={` transform transition-transform duration-300 hover:scale-[0.995] ${translateClasses[index]}`}
                 >
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={img.src}
                     alt={`j${index + 1}`}
                     className="h-[250px] md:h-[300px] xl:h-[350px] w-auto max-w-none object-cover"

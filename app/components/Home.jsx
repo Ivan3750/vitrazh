@@ -6,33 +6,33 @@ import vitrazh from "@/app/assets/images/hero/vitrazhi-banner.jpg";
 import blinds from "@/app/assets/images/products/category/5.webp";
 import gates from "@/app/assets/images/products/category/9.webp";
 import check from "@/app/assets/images/icons/check.svg";
-import job1 from "@/app/assets/images/jobs/job (1).jpg";
-import job2 from "@/app/assets/images/jobs/job (2).jpg";
-import job3 from "@/app/assets/images/jobs/job (3).jpg";
-import job4 from "@/app/assets/images/jobs/job (4).jpg";
+import job1 from "@/app/assets/images-webp/jobs/job (1).webp";
+import job2 from "@/app/assets/images-webp/jobs/job (2).webp";
+import job3 from "@/app/assets/images-webp/jobs/job (3).webp";
+import job4 from "@/app/assets/images-webp/jobs/job (4).webp";
 import AutoSlider from "@/app/components/AutoSlider";
-import WorkProcess from "@/app/assets/images/homepage/Work Process Banner.png";
-import color1 from "@/app/assets/images/homepage/color1.png";
-import color2 from "@/app/assets/images/homepage/color2.png";
-import color3 from "@/app/assets/images/homepage/color3.png";
-import color4 from "@/app/assets/images/homepage/color4.png";
-import color5 from "@/app/assets/images/homepage/color5.png";
-import color6 from "@/app/assets/images/homepage/color6.png";
-import house1 from "@/app/assets/images/homepage/lamination/1.jpg";
-import house2 from "@/app/assets/images/homepage/lamination/2.jpg";
-import house3 from "@/app/assets/images/homepage/lamination/3.jpg";
-import house4 from "@/app/assets/images/homepage/lamination/4.jpg";
-import house5 from "@/app/assets/images/homepage/lamination/5.jpg";
-import house6 from "@/app/assets/images/homepage/lamination/6.jpg";
-import painting from "@/app/assets/images/homepage/painting.jpg";
+import WorkProcess from "@/app/assets/images-webp/homepage/Work Process Banner.webp";
+import color1 from "@/app/assets/images-webp/homepage/color1.webp";
+import color2 from "@/app/assets/images-webp/homepage/color2.webp";
+import color3 from "@/app/assets/images-webp/homepage/color3.webp";
+import color4 from "@/app/assets/images-webp/homepage/color4.webp";
+import color5 from "@/app/assets/images-webp/homepage/color5.webp";
+import color6 from "@/app/assets/images-webp/homepage/color6.webp";
+import house1 from "@/app/assets/images-webp/homepage/lamination/1.webp";
+import house2 from "@/app/assets/images-webp/homepage/lamination/2.webp";
+import house3 from "@/app/assets/images-webp/homepage/lamination/3.webp";
+import house4 from "@/app/assets/images-webp/homepage/lamination/4.webp";
+import house5 from "@/app/assets/images-webp/homepage/lamination/5.webp";
+import house6 from "@/app/assets/images-webp/homepage/lamination/6.webp";
+import painting from "@/app/assets/images-webp/homepage/painting.webp";
 import adv1 from "@/app/assets/images/homepage/1.svg";
 import adv2 from "@/app/assets/images/homepage/2.svg";
 import adv3 from "@/app/assets/images/homepage/3.svg";
 import adv4 from "@/app/assets/images/homepage/4.svg";
-import window from "@/app/assets/images/homepage/window.jpg";
-import trekantwindow from "@/app/assets/images/homepage/trekantwindow.png";
-import cirklewindow from "@/app/assets/images/homepage/cirklewindow.png";
-import arrowwindow from "@/app/assets/images/homepage/arrowwindow.png";
+import window from "@/app/assets/images-webp/homepage/window.webp";
+import trekantwindow from "@/app/assets/images-webp/homepage/trekantwindow.webp";
+import cirklewindow from "@/app/assets/images-webp/homepage/cirklewindow.webp";
+import arrowwindow from "@/app/assets/images-webp/homepage/arrowwindow.webp";
 import { useState } from "react";
 import Link from "next/link";
 import HomeSlider from "./HomeSlider";
@@ -104,7 +104,7 @@ export default function Home() {
             <h2 className="text-[40px] sm:text-[48px] lg:text-[64px] leading-tight">
               Чому обирають нас?
             </h2>
-            <img
+            <img loading="lazy" decoding="async"
               src={gates.src}
               width={645}
               height={375}
@@ -133,7 +133,7 @@ export default function Home() {
                 className="flex bg-paper p-6 gap-5"
               >
                 <div className="p-[7px] bg-brand-lime w-9 h-9 flex items-center justify-center">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={check.src}
                     alt="Перевага"
                     width={22}

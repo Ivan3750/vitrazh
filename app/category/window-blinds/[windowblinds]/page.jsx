@@ -1,62 +1,62 @@
 import PageHero from "@/app/components/site/PageHero";
 import check from "@/app/assets/images/icons/check.svg";
-import z1 from "@/app/assets/images/products/blinds/z1.jpg";
-import z2 from "@/app/assets/images/products/blinds/z2.jpg";
-import z3 from "@/app/assets/images/products/blinds/z3.jpg";
-import z4 from "@/app/assets/images/products/blinds/z4.jpg";
-import z6 from "@/app/assets/images/products/blinds/z6.jpg";
+import z1 from "@/app/assets/images-webp/products/blinds/z1.webp";
+import z2 from "@/app/assets/images-webp/products/blinds/z2.webp";
+import z3 from "@/app/assets/images-webp/products/blinds/z3.webp";
+import z4 from "@/app/assets/images-webp/products/blinds/z4.webp";
+import z6 from "@/app/assets/images-webp/products/blinds/z6.webp";
 import z7 from "@/app/assets/images/products/blinds/z7.jpg";
-import z8 from "@/app/assets/images/products/blinds/z8.jpg";
-import z9 from "@/app/assets/images/products/blinds/z9.jpg";
-import aj1 from "@/app/assets/images/jobs/blinds/aj1.jpg";
-import aj2 from "@/app/assets/images/jobs/blinds/aj2.jpg";
-import aj3 from "@/app/assets/images/jobs/blinds/aj3.jpg";
-import aj4 from "@/app/assets/images/jobs/blinds/aj4.jpg";
-import aj5 from "@/app/assets/images/jobs/blinds/aj5.jpg";
-import vj1 from "@/app/assets/images/jobs/blinds/vj1.jpg";
-import vj2 from "@/app/assets/images/jobs/blinds/vj2.jpg";
-import vj3 from "@/app/assets/images/jobs/blinds/vj3.jpg";
-import vj4 from "@/app/assets/images/jobs/blinds/vj4.jpg";
-import vj5 from "@/app/assets/images/jobs/blinds/vj5.jpg";
-import tj1 from "@/app/assets/images/jobs/blinds/tj1.jpg";
-import tj2 from "@/app/assets/images/jobs/blinds/tj2.jpg";
-import tj3 from "@/app/assets/images/jobs/blinds/tj3.jpg";
-import tj4 from "@/app/assets/images/jobs/blinds/tj4.jpg";
-import tj5 from "@/app/assets/images/jobs/blinds/tj5.jpg";
-import dj1 from "@/app/assets/images/jobs/blinds/dj1.jpg";
-import dj2 from "@/app/assets/images/jobs/blinds/dj2.jpg";
-import dj3 from "@/app/assets/images/jobs/blinds/dj3.jpg";
-import dj4 from "@/app/assets/images/jobs/blinds/dj4.jpg";
-import dj5 from "@/app/assets/images/jobs/blinds/dj5.jpg";
-import dej1 from "@/app/assets/images/jobs/blinds/dej1.jpg";
-import dej2 from "@/app/assets/images/jobs/blinds/dej2.jpg";
-import dej3 from "@/app/assets/images/jobs/blinds/dej3.jpg";
-import dej4 from "@/app/assets/images/jobs/blinds/dej4.jpg";
-import dej5 from "@/app/assets/images/jobs/blinds/dej5.jpg";
-import rj1 from "@/app/assets/images/jobs/blinds/rj1.jpg";
-import rj2 from "@/app/assets/images/jobs/blinds/rj2.jpg";
-import rj3 from "@/app/assets/images/jobs/blinds/rj3.jpg";
-import rj4 from "@/app/assets/images/jobs/blinds/rj4.jpg";
-import rj5 from "@/app/assets/images/jobs/blinds/rj5.jpg";
-import pj1 from "@/app/assets/images/jobs/blinds/pj1.jpg";
-import pj2 from "@/app/assets/images/jobs/blinds/pj2.jpg";
-import pj3 from "@/app/assets/images/jobs/blinds/pj3.jpg";
-import pj4 from "@/app/assets/images/jobs/blinds/pj4.jpg";
-import pj5 from "@/app/assets/images/jobs/blinds/pj5.jpg";
-import avj1 from "@/app/assets/images/jobs/blinds/avj1.jpg";
-import avj2 from "@/app/assets/images/jobs/blinds/avj2.jpg";
-import avj3 from "@/app/assets/images/jobs/blinds/avj3.jpg";
-import avj4 from "@/app/assets/images/jobs/blinds/avj4.jpg";
-import avj5 from "@/app/assets/images/jobs/blinds/avj5.jpg";
+import z8 from "@/app/assets/images-webp/products/blinds/z8.webp";
+import z9 from "@/app/assets/images-webp/products/blinds/z9.webp";
+import aj1 from "@/app/assets/images-webp/jobs/blinds/aj1.webp";
+import aj2 from "@/app/assets/images-webp/jobs/blinds/aj2.webp";
+import aj3 from "@/app/assets/images-webp/jobs/blinds/aj3.webp";
+import aj4 from "@/app/assets/images-webp/jobs/blinds/aj4.webp";
+import aj5 from "@/app/assets/images-webp/jobs/blinds/aj5.webp";
+import vj1 from "@/app/assets/images-webp/jobs/blinds/vj1.webp";
+import vj2 from "@/app/assets/images-webp/jobs/blinds/vj2.webp";
+import vj3 from "@/app/assets/images-webp/jobs/blinds/vj3.webp";
+import vj4 from "@/app/assets/images-webp/jobs/blinds/vj4.webp";
+import vj5 from "@/app/assets/images-webp/jobs/blinds/vj5.webp";
+import tj1 from "@/app/assets/images-webp/jobs/blinds/tj1.webp";
+import tj2 from "@/app/assets/images-webp/jobs/blinds/tj2.webp";
+import tj3 from "@/app/assets/images-webp/jobs/blinds/tj3.webp";
+import tj4 from "@/app/assets/images-webp/jobs/blinds/tj4.webp";
+import tj5 from "@/app/assets/images-webp/jobs/blinds/tj5.webp";
+import dj1 from "@/app/assets/images-webp/jobs/blinds/dj1.webp";
+import dj2 from "@/app/assets/images-webp/jobs/blinds/dj2.webp";
+import dj3 from "@/app/assets/images-webp/jobs/blinds/dj3.webp";
+import dj4 from "@/app/assets/images-webp/jobs/blinds/dj4.webp";
+import dj5 from "@/app/assets/images-webp/jobs/blinds/dj5.webp";
+import dej1 from "@/app/assets/images-webp/jobs/blinds/dej1.webp";
+import dej2 from "@/app/assets/images-webp/jobs/blinds/dej2.webp";
+import dej3 from "@/app/assets/images-webp/jobs/blinds/dej3.webp";
+import dej4 from "@/app/assets/images-webp/jobs/blinds/dej4.webp";
+import dej5 from "@/app/assets/images-webp/jobs/blinds/dej5.webp";
+import rj1 from "@/app/assets/images-webp/jobs/blinds/rj1.webp";
+import rj2 from "@/app/assets/images-webp/jobs/blinds/rj2.webp";
+import rj3 from "@/app/assets/images-webp/jobs/blinds/rj3.webp";
+import rj4 from "@/app/assets/images-webp/jobs/blinds/rj4.webp";
+import rj5 from "@/app/assets/images-webp/jobs/blinds/rj5.webp";
+import pj1 from "@/app/assets/images-webp/jobs/blinds/pj1.webp";
+import pj2 from "@/app/assets/images-webp/jobs/blinds/pj2.webp";
+import pj3 from "@/app/assets/images-webp/jobs/blinds/pj3.webp";
+import pj4 from "@/app/assets/images-webp/jobs/blinds/pj4.webp";
+import pj5 from "@/app/assets/images-webp/jobs/blinds/pj5.webp";
+import avj1 from "@/app/assets/images-webp/jobs/blinds/avj1.webp";
+import avj2 from "@/app/assets/images-webp/jobs/blinds/avj2.webp";
+import avj3 from "@/app/assets/images-webp/jobs/blinds/avj3.webp";
+import avj4 from "@/app/assets/images-webp/jobs/blinds/avj4.webp";
+import avj5 from "@/app/assets/images-webp/jobs/blinds/avj5.webp";
 import DynamicCalculator from "@/app/components/DynamicCalculator";
-import h1 from "@/app/assets/images/hero/aluminium-b.jpg";
-import h2 from "@/app/assets/images/hero/vertical.jpg";
-import h3 from "@/app/assets/images/hero/rulloni.jpg";
-import h4 from "@/app/assets/images/hero/daynight.jpg";
-import h6 from "@/app/assets/images/hero/derevjani.jpg";
-import h7 from "@/app/assets/images/hero/rumski.jpg";
-import h8 from "@/app/assets/images/hero/plisse.jpg";
-import h9 from "@/app/assets/images/hero/automatica.jpg";
+import h1 from "@/app/assets/images-webp/hero/aluminium-b.webp";
+import h2 from "@/app/assets/images-webp/hero/vertical.webp";
+import h3 from "@/app/assets/images-webp/hero/rulloni.webp";
+import h4 from "@/app/assets/images-webp/hero/daynight.webp";
+import h6 from "@/app/assets/images-webp/hero/derevjani.webp";
+import h7 from "@/app/assets/images-webp/hero/rumski.webp";
+import h8 from "@/app/assets/images-webp/hero/plisse.webp";
+import h9 from "@/app/assets/images-webp/hero/automatica.webp";
 import FabricGrid from "@/app/components/FabricGrid";
 import plisse from "@/data/plisse.json"
 import derevyani from "@/data/derevyani.json"
@@ -231,7 +231,7 @@ export default function WindowPage({ params }) {
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row gap-8 items-start">
           <div className="flex-1 relative w-[400px] h-[500px] overflow-hidden">
-            <img
+            <img loading="lazy" decoding="async"
               src={data.image.src}
               alt={data.name}
               style={{ objectFit: "cover" }}
@@ -286,7 +286,7 @@ export default function WindowPage({ params }) {
               className="flex bg-paper py-[60px] px-[40px] gap-5"
             >
               <div className="p-2 bg-brand-lime w-9 h-9 flex items-center justify-center">
-                <img src={check.src} alt="Перевага" width={22} height={22} />
+                <img loading="lazy" decoding="async" src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>
             </div>
@@ -314,7 +314,7 @@ export default function WindowPage({ params }) {
         key={index}
         style={{ width: "250px", height: "380px" }}
       >
-        <img
+        <img loading="lazy" decoding="async"
           src={img.src}
           alt={`j${index + 1}`}
           className="w-full h-full object-cover"

@@ -76,7 +76,7 @@ const ContactSuite = () => {
               Замовити безкоштовний замір
             </h3>
 
-            <img
+            <img loading="lazy" decoding="async"
               src={FreeSizeImg.src}
               className="w-full h-64 object-cover mb-8"
               alt="Замір"
@@ -113,7 +113,7 @@ const ContactSuite = () => {
                 className="bg-brand-orange text-white py-4 px-6 uppercase font-semibold tracking-wider flex items-center justify-center gap-2 hover:bg-ink transition-colors w-full"
               >
                 Надіслати
-                <img src={go.src} alt="go" />
+                <img loading="lazy" decoding="async" src={go.src} alt="go" />
               </button>
             </form>
           </div>

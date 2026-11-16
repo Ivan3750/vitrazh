@@ -40,7 +40,7 @@ function Hero() {
 
   return (
     <section ref={ref} className="bg-ink text-white">
-      <div className="grid lg:grid-cols-[5fr_7fr] lg:min-h-[calc(100vh-76px)] lg:max-h-[780px]">
+      <div className="grid lg:grid-cols-[5fr_7fr] lg:min-h-[calc(100vh-112px)] lg:max-h-[780px]">
         <div className="flex flex-col justify-between px-4 sm:px-8 lg:pl-[max(2rem,calc((100vw-1320px)/2+1.5rem))] lg:pr-10 pt-8 sm:pt-10 pb-0 order-2 lg:order-1">
           <div>
             <motion.p

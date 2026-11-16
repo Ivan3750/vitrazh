@@ -1,6 +1,6 @@
 import PageHero from "@/app/components/site/PageHero";
 import React from "react";
-import b from "@/app/assets/images/hero/bg-service.jpg"
+import b from "@/app/assets/images-webp/hero/bg-service.webp"
 
 
 const prices = {

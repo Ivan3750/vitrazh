@@ -1,15 +1,15 @@
 import PageHero from "@/app/components/site/PageHero";
 import ProductList from "@/app/components/ProductList";
-import b from "@/app/assets/images/products/blinds/background.jpg";
-import z1 from "@/app/assets/images/products/blinds/z1.jpg";
-import z2 from "@/app/assets/images/products/blinds/z2.jpg";
-import z3 from "@/app/assets/images/products/blinds/z3.jpg";
-import z4 from "@/app/assets/images/products/blinds/z4.jpg";
-import z5 from "@/app/assets/images/products/blinds/z5.jpg";
-import z6 from "@/app/assets/images/products/blinds/z6.jpg";
+import b from "@/app/assets/images-webp/products/blinds/background.webp";
+import z1 from "@/app/assets/images-webp/products/blinds/z1.webp";
+import z2 from "@/app/assets/images-webp/products/blinds/z2.webp";
+import z3 from "@/app/assets/images-webp/products/blinds/z3.webp";
+import z4 from "@/app/assets/images-webp/products/blinds/z4.webp";
+import z5 from "@/app/assets/images-webp/products/blinds/z5.webp";
+import z6 from "@/app/assets/images-webp/products/blinds/z6.webp";
 import z7 from "@/app/assets/images/products/blinds/z7.jpg";
-import z8 from "@/app/assets/images/products/blinds/z8.jpg";
-import z9 from "@/app/assets/images/products/blinds/z9.jpg";
+import z8 from "@/app/assets/images-webp/products/blinds/z8.webp";
+import z9 from "@/app/assets/images-webp/products/blinds/z9.webp";
 
 
 export const metadata = {

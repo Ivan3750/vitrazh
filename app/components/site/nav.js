@@ -1,12 +1,12 @@
 // Категорії каталогу. «Вікна» ведуть на нову сторінку каталогу; решта — наявні розділи сайту.
 export const CATEGORIES = [
-  { href: "/catalog/vikna/", label: "Вікна" },
-  { href: "/category/vitrazh-windows/", label: "Вітражні вікна" },
-  { href: "/category/screens/", label: "Сітки" },
-  { href: "/category/window-blinds/", label: "Віконні жалюзі" },
-  { href: "/category/aluminium-systems/", label: "Офісні перегородки" },
-  { href: "/category/gates-and-rolls/", label: "Ворота та ролети" },
-  { href: "/category/facades/", label: "Фурнітура для вікон" },
+  { href: "/catalog/vikna/", label: "Вікна", desc: "ПВХ, алюмінієві та фасадні системи" },
+  { href: "/category/vitrazh-windows/", label: "Вітражні вікна", desc: "Вітражі та декоративне скління" },
+  { href: "/category/screens/", label: "Сітки", desc: "Москітні сітки для вікон і дверей" },
+  { href: "/category/window-blinds/", label: "Віконні жалюзі", desc: "Жалюзі, рулонні та тканинні штори" },
+  { href: "/category/aluminium-systems/", label: "Офісні перегородки", desc: "Алюмінієві, скляні, пластикові" },
+  { href: "/category/gates-and-rolls/", label: "Ворота та ролети", desc: "Секційні ворота та захисні ролети" },
+  { href: "/category/facades/", label: "Фурнітура для вікон", desc: "Фурнітура та комплектуючі" },
 ];
 
 export const NAV = [

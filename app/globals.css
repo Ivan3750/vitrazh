@@ -12,6 +12,12 @@
   --font-sans: var(--font-manrope), Arial, sans-serif;
 
   --animate-marquee: marquee 40s linear infinite;
+  --animate-card-in: card-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  @keyframes card-in {
+    from { opacity: 0; transform: translate3d(0, 16px, 0); }
+    to { opacity: 1; transform: none; }
+  }
 
   @keyframes marquee {
     from { transform: translate3d(0, 0, 0); }
@@ -68,6 +74,49 @@ body {
 .font-display {
   font-family: var(--font-oswald), "Arial Narrow", Arial, sans-serif;
   letter-spacing: -0.01em;
+}
+
+/* ───────────── Анімації появи (CSS + IntersectionObserver, без JS-бібліотек) ───────────── */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, var(--reveal-y, 40px), 0);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s);
+}
+.reveal.is-in { opacity: 1; transform: none; }
+
+.split .split-word > span {
+  display: inline-block;
+  transform: translate3d(0, 110%, 0);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--word-delay, 0s);
+}
+.split.is-in .split-word > span { transform: none; }
+
+.image-reveal-clip {
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.image-reveal-img {
+  transform: scale(1.25);
+  transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.is-in > .image-reveal-clip { clip-path: inset(0 0 0 0); }
+.is-in > .image-reveal-clip .image-reveal-img { transform: none; }
+
+/* Hero внутрішніх сторінок: працює одразу, без очікування JS */
+@keyframes hero-word { from { transform: translate3d(0, 110%, 0); } to { transform: none; } }
+@keyframes hero-clip { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes hero-zoom { from { transform: scale(1.2); } to { transform: none; } }
+.hero-word { display: inline-block; animation: hero-word 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: var(--word-delay, 0s); }
+.hero-clip { animation: hero-clip 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both; }
+.hero-zoom { animation: hero-zoom 1.4s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+/* Без JS показуємо все одразу */
+@media (scripting: none) {
+  .reveal { opacity: 1; transform: none; }
+  .split .split-word > span { transform: none; }
+  .image-reveal-clip { clip-path: none; }
+  .image-reveal-img { transform: none; }
 }
 
 /* Квадратний стиль: жодних заокруглень на всьому сайті */

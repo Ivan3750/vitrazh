@@ -3,10 +3,10 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import img1 from "@/app/assets/images/gallery/home/1.jpg";
-import img2 from "@/app/assets/images/gallery/home/2.jpg";
-import img3 from "@/app/assets/images/gallery/home/3.jpg";
-import img4 from "@/app/assets/images/gallery/home/4.jpg";
+import img1 from "@/app/assets/images-webp/gallery/home/1.webp";
+import img2 from "@/app/assets/images-webp/gallery/home/2.webp";
+import img3 from "@/app/assets/images-webp/gallery/home/3.webp";
+import img4 from "@/app/assets/images-webp/gallery/home/4.webp";
 
 const SLIDE_INTERVAL = 7000;
 

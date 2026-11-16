@@ -68,7 +68,7 @@ const FreeSize = () => {
         <div className="bg-paper px-6 py-10 max-w-[1320px] mx-auto flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
 
           <div className="w-full lg:w-1/2">
-            <img
+            <img loading="lazy" decoding="async"
               src={FreeSizeImg.src}
               alt="Free size measure"
               className="w-full h-[280px] sm:h-[320px] lg:h-[420px] object-cover"

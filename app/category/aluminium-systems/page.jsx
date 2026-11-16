@@ -1,9 +1,9 @@
 import PageHero from "@/app/components/site/PageHero";
 import ProductList from "@/app/components/ProductList";
-import b from "@/app/assets/images/hero/alm-f.jpg";
-import a1 from "@/app/assets/images/products/aluminium/plastic.jpg";
-import a2 from "@/app/assets/images/products/aluminium/alm.jpg";
-import a3 from "@/app/assets/images/products/aluminium/glass.jpg";
+import b from "@/app/assets/images-webp/hero/alm-f.webp";
+import a1 from "@/app/assets/images-webp/products/aluminium/plastic.webp";
+import a2 from "@/app/assets/images-webp/products/aluminium/alm.webp";
+import a3 from "@/app/assets/images-webp/products/aluminium/glass.webp";
 
 
 

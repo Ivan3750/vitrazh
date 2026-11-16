@@ -1,12 +1,12 @@
 import PageHero from "@/app/components/site/PageHero";
 import check from "@/app/assets/images/icons/check.svg";
 import Ukraine from "@/app/assets/images/products/decor/Ukraine.svg";
-import rehauE60 from "@/app/assets/images/products/windows/REHAU_Euro-Design_60-t.png";
-import rehauE70 from "@/app/assets/images/products/windows/REHAU_Euro-Design_70-t.png";
-import rehauSMD from "@/app/assets/images/products/windows/REHAU_Synego_MD-t.png";
+import rehauE60 from "@/app/assets/images-webp/products/windows/REHAU_Euro-Design_60-t.webp";
+import rehauE70 from "@/app/assets/images-webp/products/windows/REHAU_Euro-Design_70-t.webp";
+import rehauSMD from "@/app/assets/images-webp/products/windows/REHAU_Synego_MD-t.webp";
 import SectionContact from "@/app/components/SectionContact";
 import FreeSize  from "@/app/components/FreeSize";
-import rehauHero from "@/app/assets/images/hero/rehau.jpg";
+import rehauHero from "@/app/assets/images-webp/hero/rehau.webp";
 
 export async function generateMetadata({ params }) {
   const data = windowsData[params.window];
@@ -208,7 +208,7 @@ export default function WindowPage({ params }) {
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row gap-8 items-start">
           <div className="flex-1">
-            <img
+            <img loading="lazy" decoding="async"
               src={data.image.src}
               alt={data.name}
               width={300}
@@ -264,7 +264,7 @@ export default function WindowPage({ params }) {
               className="flex bg-paper py-[60px] px-[40px] gap-5"
             >
               <div className="p-2 bg-brand-lime w-9 h-9 flex items-center justify-center">
-                <img src={check.src} alt="Перевага" width={22} height={22} />
+                <img loading="lazy" decoding="async" src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>
             </div>
@@ -300,7 +300,7 @@ export default function WindowPage({ params }) {
 
         <div className="flex gap-4 items-center">
           <div>
-            <img
+            <img loading="lazy" decoding="async"
               src={Ukraine.src}
               alt="Карта України"
               width={690}
@@ -316,7 +316,7 @@ export default function WindowPage({ params }) {
   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
     {data.extraPoints.map((item, i) => (
       <div key={i} className="flex gap-3 bg-paper p-6">
-        <img src={check.src} alt="check" className="w-6 h-6 mt-1" />
+        <img loading="lazy" decoding="async" src={check.src} alt="check" className="w-6 h-6 mt-1" />
         <div>
           <h4 className="font-semibold text-gray-800 mb-1">{item.title}</h4>
           <p className="text-gray-600">{item.text}</p>

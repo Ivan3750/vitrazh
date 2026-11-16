@@ -1,47 +1,70 @@
 "use client";
 import { useEffect, useRef } from "react";
-import { motion, useInView, animate } from "framer-motion";
 
-const EASE = [0.22, 1, 0.36, 1];
+/*
+ * Анімації без framer-motion: CSS-переходи + один спільний IntersectionObserver.
+ * Це прибирає ~50 КБ JS зі сторінок і десятки окремих спостерігачів.
+ * Стилі (.reveal, .split, .image-reveal-*) — у globals.css.
+ */
+
+const observers = new Map();
+
+function getObserver(margin) {
+  let o = observers.get(margin);
+  if (!o) {
+    o = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add("is-in");
+            o.unobserve(e.target);
+          }
+        }
+      },
+      { rootMargin: `0px 0px -${margin}px 0px` }
+    );
+    observers.set(margin, o);
+  }
+  return o;
+}
+
+/** Додає клас `is-in`, коли елемент потрапляє у вʼюпорт (один раз). */
+function useInViewOnce(margin = 60) {
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      el.classList.add("is-in");
+      return;
+    }
+    const o = getObserver(margin);
+    o.observe(el);
+    return () => o.unobserve(el);
+  }, [margin]);
+  return ref;
+}
 
 /** Поява блоку при скролі. */
-export function Reveal({ children, delay = 0, y = 40, className = "", as = "div" }) {
-  const Comp = motion[as];
+export function Reveal({ children, delay = 0, y = 40, className = "", as: Comp = "div" }) {
+  const ref = useInViewOnce(80);
   return (
-    <Comp
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.8, delay, ease: EASE }}
-      className={className}
-    >
+    <Comp ref={ref} className={`reveal ${className}`} style={{ "--reveal-y": `${y}px`, "--reveal-delay": `${delay}s` }}>
       {children}
     </Comp>
   );
 }
 
 /** Заголовок, що з'являється по словах (маска знизу). */
-export function SplitHeading({ text, className = "", delay = 0, as = "h2", classes = {} }) {
-  const Comp = motion[as];
-  const words = text.split(" ");
+export function SplitHeading({ text, className = "", delay = 0, as: Comp = "h2", classes = {} }) {
+  const ref = useInViewOnce(60);
   return (
-    <Comp
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ staggerChildren: 0.07, delayChildren: delay }}
-      className={className}
-      aria-label={text}
-    >
-      {words.map((w, i) => (
-        <span key={i} className="inline-block overflow-hidden align-bottom pb-[0.08em] mr-[0.25em]" aria-hidden>
-          <motion.span
-            className={`inline-block ${classes[w] || ""}`}
-            variants={{ hidden: { y: "110%" }, show: { y: 0 } }}
-            transition={{ duration: 0.9, ease: EASE }}
-          >
+    <Comp ref={ref} className={`split ${className}`} aria-label={text}>
+      {text.split(" ").map((w, i) => (
+        <span key={i} className="split-word inline-block overflow-hidden align-bottom pb-[0.08em] mr-[0.25em]" aria-hidden>
+          <span className={classes[w] || ""} style={{ "--word-delay": `${delay + i * 0.07}s` }}>
             {w}
-          </motion.span>
+          </span>
         </span>
       ))}
     </Comp>
@@ -51,18 +74,38 @@ export function SplitHeading({ text, className = "", delay = 0, as = "h2", class
 /** Лічильник, що рахує до значення, коли потрапляє у вʼюпорт. */
 export function Counter({ to, suffix = "", className = "" }) {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
   useEffect(() => {
-    if (!inView || !ref.current) return;
-    const controls = animate(0, to, {
-      duration: 2,
-      ease: EASE,
-      onUpdate: (v) => {
-        if (ref.current) ref.current.textContent = Math.round(v).toLocaleString("uk-UA") + suffix;
+    const el = ref.current;
+    if (!el) return;
+    const show = (v) => {
+      el.textContent = Math.round(v).toLocaleString("uk-UA") + suffix;
+    };
+    if (typeof IntersectionObserver === "undefined") {
+      show(to);
+      return;
+    }
+    let raf;
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (!e.isIntersecting) return;
+        io.disconnect();
+        const start = performance.now();
+        const dur = 1800;
+        const tick = (now) => {
+          const p = Math.min(1, (now - start) / dur);
+          show(to * (1 - Math.pow(1 - p, 4)));
+          if (p < 1) raf = requestAnimationFrame(tick);
+        };
+        raf = requestAnimationFrame(tick);
       },
-    });
-    return () => controls.stop();
-  }, [inView, to, suffix]);
+      { rootMargin: "0px 0px -40px 0px" }
+    );
+    io.observe(el);
+    return () => {
+      io.disconnect();
+      cancelAnimationFrame(raf);
+    };
+  }, [to, suffix]);
   return (
     <span ref={ref} className={className}>
       0{suffix}
@@ -70,27 +113,14 @@ export function Counter({ to, suffix = "", className = "" }) {
   );
 }
 
-/** Зображення, що «відкривається» (clip-path) при появі. Спостерігаємо за необрізаною обгорткою. */
+/** Зображення, що «відкривається» (clip-path) при появі. */
 export function ImageReveal({ src, alt, className = "", imgClassName = "" }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
+  const ref = useInViewOnce(60);
   return (
     <div ref={ref} className={className}>
-      <motion.div
-        initial={false}
-        animate={{ clipPath: inView ? "inset(0% 0 0 0)" : "inset(100% 0 0 0)" }}
-        transition={{ duration: 1.1, ease: EASE }}
-        className="w-full h-full overflow-hidden"
-      >
-        <motion.img
-          initial={false}
-          animate={{ scale: inView ? 1 : 1.25 }}
-          transition={{ duration: 1.4, ease: EASE }}
-          src={src}
-          alt={alt}
-          className={`w-full h-full object-cover ${imgClassName}`}
-        />
-      </motion.div>
+      <div className="image-reveal-clip w-full h-full overflow-hidden">
+        <img src={src} alt={alt} loading="lazy" decoding="async" className={`image-reveal-img w-full h-full object-cover ${imgClassName}`} />
+      </div>
     </div>
   );
 }

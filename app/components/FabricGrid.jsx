@@ -26,8 +26,12 @@ const FabricGrid = ({ products }) => {
             <div className="relative w-full h-[175px] flex items-center justify-center bg-gray-50">
               {product.FotoLocal ? (
                 <img
-                  src={`${product.FotoLocal}`}
+                  src={`${product.FotoLocal}`.trim()}
                   alt={product.Name}
+                  loading="lazy"
+                  decoding="async"
+                  width="175"
+                  height="175"
                   className="object-contain h-full w-full"
                 />
               ) : (
@@ -54,7 +58,7 @@ const FabricGrid = ({ products }) => {
             Показати більше
           </button>
         </div>
-      )}s
+      )}
     </div>
   );
 };

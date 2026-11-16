@@ -1,11 +1,11 @@
 import Image from "next/image";
-import wds5s from "@/app/assets/images/products/windows/wds-5s-t.png";
-import wds6s from "@/app/assets/images/products/windows/wds-6s-t.png";
-import wds76md from "@/app/assets/images/products/windows/wds-76MD-t.png";
-import wds76ad from "@/app/assets/images/products/windows/wds-76AD-t.png";
-import rehauE60 from "@/app/assets/images/products/windows/REHAU_Euro-Design_60-t.png";
-import rehauE70 from "@/app/assets/images/products/windows/REHAU_Euro-Design_70-t.png";
-import rehauSMD from "@/app/assets/images/products/windows/REHAU_Synego_MD-t.png";
+import wds5s from "@/app/assets/images-webp/products/windows/wds-5s-t.webp";
+import wds6s from "@/app/assets/images-webp/products/windows/wds-6s-t.webp";
+import wds76md from "@/app/assets/images-webp/products/windows/wds-76MD-t.webp";
+import wds76ad from "@/app/assets/images-webp/products/windows/wds-76AD-t.webp";
+import rehauE60 from "@/app/assets/images-webp/products/windows/REHAU_Euro-Design_60-t.webp";
+import rehauE70 from "@/app/assets/images-webp/products/windows/REHAU_Euro-Design_70-t.webp";
+import rehauSMD from "@/app/assets/images-webp/products/windows/REHAU_Synego_MD-t.webp";
 
 /* const profiles = [
   { name: "Профіль 1", img: "/profile1.jpg" },
@@ -92,7 +92,7 @@ const ProfileSelector = ({ data, setData, nextStep }) => {
               aria-label={`Вибрати профіль ${name}`}
             >
               <div className="bg-paper aspect-square flex items-center justify-center overflow-hidden">
-                <img
+                <img loading="lazy" decoding="async"
                   src={img.src}
                   alt={name}
                   width={280}

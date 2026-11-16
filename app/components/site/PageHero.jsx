@@ -1,12 +1,8 @@
-"use client";
 import Link from "next/link";
-import { motion } from "framer-motion";
-
-const EASE = [0.22, 1, 0.36, 1];
 
 /**
  * Єдиний hero для внутрішніх сторінок: велика вузька типографіка зліва,
- * фото у заокругленій рамці справа. Заголовок передається дітьми.
+ * фото справа. Заголовок передається дітьми. Анімація — чистий CSS (без JS).
  */
 export default function PageHero({ children, image, crumb }) {
   const words = String(children ?? "").split(" ");
@@ -30,34 +26,26 @@ export default function PageHero({ children, image, crumb }) {
           >
             {words.map((w, i) => (
               <span key={i} className="inline-block overflow-hidden align-bottom pb-[0.06em] mr-[0.22em]" aria-hidden>
-                <motion.span
-                  className={`inline-block ${i === words.length - 1 ? "text-brand-orange" : ""}`}
-                  initial={{ y: "110%" }}
-                  animate={{ y: 0 }}
-                  transition={{ duration: 0.9, delay: 0.1 + i * 0.07, ease: EASE }}
+                <span
+                  className={`hero-word ${i === words.length - 1 ? "text-brand-orange" : ""}`}
+                  style={{ "--word-delay": `${0.1 + i * 0.07}s` }}
                 >
                   {w}
-                </motion.span>
+                </span>
               </span>
             ))}
           </h1>
 
           {image && (
-            <motion.div
-              initial={{ clipPath: "inset(0 0 100% 0)" }}
-              animate={{ clipPath: "inset(0 0 0% 0)" }}
-              transition={{ duration: 1.1, delay: 0.2, ease: EASE }}
-              className="relative aspect-[16/9] overflow-hidden bg-paper"
-            >
-              <motion.img
+            <div className="hero-clip relative aspect-[16/9] overflow-hidden bg-paper">
+              <img
                 src={image.src}
                 alt={String(children)}
-                initial={{ scale: 1.2 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 1.4, ease: EASE }}
-                className="absolute inset-0 w-full h-full object-cover"
+                fetchPriority="high"
+                decoding="async"
+                className="hero-zoom absolute inset-0 w-full h-full object-cover"
               />
-            </motion.div>
+            </div>
           )}
         </div>
       </div>

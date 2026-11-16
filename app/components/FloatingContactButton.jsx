@@ -119,7 +119,7 @@ export default function FloatingContactButton() {
                   className="bg-brand-orange text-white px-6 py-4 uppercase font-semibold tracking-wider flex items-center justify-center gap-2 min-w-[200px] hover:bg-ink transition-colors"
                 >
                   Надіслати
-                  <img src={go.src} alt="go" />
+                  <img loading="lazy" decoding="async" src={go.src} alt="go" />
                 </button>
 
                 <div className="flex gap-5 text-3xl text-[#555]">

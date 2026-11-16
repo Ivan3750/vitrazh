@@ -1,13 +1,13 @@
 import PageHero from "@/app/components/site/PageHero";
 import check from "@/app/assets/images/icons/check.svg";
-import vorneImage from "@/app/assets/images/products/facades/vorne-logo.png";
-import macoImage from "@/app/assets/images/products/facades/maco-logo.png";
-import siegeniaImage from "@/app/assets/images/products/facades/siegenia-logo.png";
-import macabg from "@/app/assets/images/hero/maca-bg.jpg";
-import siegeniabg from "@/app/assets/images/hero/siegenia-bg.jpg";
-import vornebg from "@/app/assets/images/hero/vorne-bg.jpg";
+import vorneImage from "@/app/assets/images-webp/products/facades/vorne-logo.webp";
+import macoImage from "@/app/assets/images-webp/products/facades/maco-logo.webp";
+import siegeniaImage from "@/app/assets/images-webp/products/facades/siegenia-logo.webp";
+import macabg from "@/app/assets/images-webp/hero/maca-bg.webp";
+import siegeniabg from "@/app/assets/images-webp/hero/siegenia-bg.webp";
+import vornebg from "@/app/assets/images-webp/hero/vorne-bg.webp";
 import SectionContact from "@/app/components/SectionContact";
-import facadesHero from "@/app/assets/images/hero/furnitura.jpg"
+import facadesHero from "@/app/assets/images-webp/hero/furnitura.webp"
 
 export async function generateMetadata({ params }) {
   const furnitureData = {
@@ -146,7 +146,7 @@ export default function FurniturePage({ params }) {
 
       <section className="px-6 py-12 max-w-6xl mx-auto flex flex-col md:flex-row gap-8 items-center">
         <div className="flex-1">
-          <img
+          <img loading="lazy" decoding="async"
             src={data.image.src}
             alt={data.name}
             width={350}
@@ -196,7 +196,7 @@ export default function FurniturePage({ params }) {
               className="flex bg-paper py-[60px] px-[40px] gap-5"
             >
               <div className="p-2 bg-brand-lime w-9 h-9 flex items-center justify-center">
-                <img src={check.src} alt="Перевага" width={22} height={22} />
+                <img loading="lazy" decoding="async" src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{adv}</p>
             </div>

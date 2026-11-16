@@ -2,26 +2,44 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
+import { FaViber, FaWhatsapp, FaTelegram, FaInstagram } from "react-icons/fa";
+import { LuPhone, LuMapPin, LuClock, LuArrowRight, LuMenu, LuX, LuChevronDown } from "react-icons/lu";
 import Logo from "@/public/logo-dark.png";
 import { NAV } from "./nav";
+import { site } from "@/app/data/site";
+
+const SOCIALS = [
+  { href: "https://t.me/+380951099040", label: "Telegram", Icon: FaTelegram },
+  { href: "https://wa.me/380951099040", label: "WhatsApp", Icon: FaWhatsapp },
+  { href: "viber://chat?number=+380951099040", label: "Viber", Icon: FaViber },
+  { href: "https://www.instagram.com/vitrazh.com.ua/", label: "Instagram", Icon: FaInstagram },
+];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [catOpen, setCatOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
+    const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Закриваємо мобільне меню при переході на іншу сторінку
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
+    const onKey = (e) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
     };
   }, [open]);
 
@@ -33,46 +51,98 @@ export default function Header() {
 
   return (
     <>
+      {/* Верхня смуга: контакти. Прокручується разом зі сторінкою */}
+      <div className="hidden md:block bg-ink text-white/70 text-[13px]">
+        <div className="max-w-[1320px] mx-auto h-10 px-4 sm:px-6 flex items-center justify-between gap-6">
+          <div className="flex items-center gap-6 min-w-0">
+            <span className="flex items-center gap-2 whitespace-nowrap">
+              <LuMapPin aria-hidden className="text-brand-orange shrink-0" />
+              {site.address.city}, {site.address.street}
+            </span>
+            <span className="hidden lg:flex items-center gap-2 whitespace-nowrap">
+              <LuClock aria-hidden className="text-brand-orange shrink-0" />
+              {site.hours}
+            </span>
+          </div>
+          <div className="flex items-center gap-5 shrink-0">
+            <a href={`tel:${site.phone}`} className="flex items-center gap-2 text-white font-semibold hover:text-brand-orange transition-colors">
+              <LuPhone aria-hidden className="text-brand-orange" />
+              {site.phoneHuman}
+            </a>
+            <span className="w-px h-4 bg-white/20" aria-hidden />
+            <ul className="flex items-center gap-3.5">
+              {SOCIALS.map(({ href, label, Icon }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    aria-label={label}
+                    target={href.startsWith("http") ? "_blank" : undefined}
+                    rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className="text-[15px] hover:text-brand-orange transition-colors"
+                  >
+                    <Icon />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
       <header
-        className={`fixed top-0 inset-x-0 z-50 bg-white transition-shadow duration-300 ${
-          scrolled ? "border-b border-ink/10" : "border-b border-transparent"
+        className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${
+          scrolled ? "shadow-[0_8px_24px_-14px_rgba(19,35,58,0.45)]" : "border-b border-ink/10"
         }`}
       >
-        <div className="max-w-[1320px] mx-auto flex items-center justify-between h-[76px] px-4 sm:px-6 gap-6">
+        <div className="max-w-[1320px] mx-auto flex items-center justify-between h-[72px] px-4 sm:px-6 gap-4">
           <Link href="/" aria-label="Вітраж — на головну" className="shrink-0 block">
-            <img src={Logo.src} alt="Вітраж" className="h-[60px] w-auto" />
+            <img src={Logo.src} alt="Вітраж" width="170" height="60" className="h-[56px] w-auto" />
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-8" aria-label="Головне меню">
+          <nav className="hidden lg:flex items-center gap-5 xl:gap-8" aria-label="Головне меню">
             {NAV.map((item) => (
               <div key={item.href} className="relative group">
                 <Link
                   href={item.href}
-                  className="relative py-2 text-[13px] xl:text-sm font-semibold uppercase tracking-[0.12em] text-ink/60 hover:text-ink transition-colors flex items-center gap-1"
+                  className={`relative py-2 text-[13px] xl:text-sm font-semibold uppercase tracking-[0.1em] hover:text-ink transition-colors flex items-center gap-1 ${
+                    isActive(item) ? "text-ink" : "text-ink/60"
+                  }`}
                 >
-                  <span className={isActive(item) ? "text-ink" : ""}>{item.label}</span>
-                  {item.children && <span className="text-[10px] transition-transform group-hover:rotate-180">▼</span>}
-                  {isActive(item) && (
-                    <motion.span
-                      layoutId="nav-underline"
-                      className="absolute left-0 right-0 -bottom-0.5 h-[3px] bg-brand-orange"
-                      transition={{ type: "spring", stiffness: 400, damping: 34 }}
-                    />
-                  )}
+                  {item.label}
+                  {item.children && <LuChevronDown aria-hidden className="text-base transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180" />}
+                  <span
+                    aria-hidden
+                    className={`absolute left-0 right-0 -bottom-0.5 h-[3px] bg-brand-orange origin-left transition-transform duration-300 ${
+                      isActive(item) ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                    }`}
+                  />
                 </Link>
 
                 {item.children && (
-                  <div className="absolute left-0 top-full pt-4 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
-                    <div className="w-[270px] bg-white border border-ink/10 shadow-xl p-2">
-                      {item.children.map((c) => (
-                        <Link
-                          key={c.href}
-                          href={c.href}
-                          className="block px-4 py-3 text-sm font-semibold uppercase tracking-[0.08em] hover:bg-paper hover:text-brand-orange transition-colors"
-                        >
-                          {c.label}
-                        </Link>
-                      ))}
+                  <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 transition-[opacity,transform,visibility] duration-200">
+                    <div className="w-[720px] bg-white border border-ink/10 shadow-2xl">
+                      <ul className="grid grid-cols-2 gap-px bg-ink/10">
+                        {item.children.map((c) => (
+                          <li key={c.href} className="bg-white">
+                            <Link href={c.href} className="group/item flex items-center justify-between gap-4 px-6 py-4 hover:bg-paper transition-colors">
+                              <span>
+                                <span className="block font-display text-xl uppercase leading-none group-hover/item:text-brand-orange transition-colors">{c.label}</span>
+                                <span className="block mt-1.5 text-sm text-ink/55 normal-case tracking-normal font-normal">{c.desc}</span>
+                              </span>
+                              <LuArrowRight aria-hidden className="shrink-0 text-xl text-ink/25 group-hover/item:text-brand-orange group-hover/item:translate-x-1 transition-all" />
+                            </Link>
+                          </li>
+                        ))}
+                        <li className="bg-ink text-white">
+                          <Link href="/contact/" className="h-full flex items-center justify-between gap-4 px-6 py-4 hover:bg-brand-orange transition-colors">
+                            <span>
+                              <span className="block font-display text-xl uppercase leading-none">Не знайшли потрібне?</span>
+                              <span className="block mt-1.5 text-sm text-white/70 normal-case tracking-normal font-normal">Підкажемо та організуємо замір</span>
+                            </span>
+                            <LuArrowRight aria-hidden className="shrink-0 text-xl" />
+                          </Link>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 )}
@@ -80,68 +150,110 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-4">
-            <a href="tel:+380951099040" className="hidden 2xl:block text-sm font-semibold whitespace-nowrap">
-              +38 095 109 90 40
+          <div className="flex items-center gap-2 sm:gap-3">
+            <a
+              href={`tel:${site.phone}`}
+              aria-label={`Зателефонувати: ${site.phoneHuman}`}
+              className="xl:hidden w-11 h-11 grid place-items-center border-2 border-ink text-ink hover:bg-ink hover:text-white transition-colors text-lg"
+            >
+              <LuPhone aria-hidden />
             </a>
             <Link
               href="/contact/"
-              className="hidden md:inline-flex whitespace-nowrap bg-ink text-white hover:bg-brand-orange transition-colors text-sm font-semibold uppercase tracking-wider px-6 py-3"
+              className="hidden xl:inline-flex items-center gap-2 whitespace-nowrap bg-brand-orange text-white hover:bg-ink transition-colors text-sm font-semibold uppercase tracking-wider px-6 py-3.5"
             >
               Замовити замір
+              <LuArrowRight aria-hidden />
             </Link>
             <button
               onClick={() => setOpen(true)}
               aria-label="Відкрити меню"
-              className="lg:hidden w-11 h-11 bg-ink flex flex-col items-center justify-center gap-1.5"
+              aria-expanded={open}
+              className="lg:hidden w-11 h-11 bg-ink text-white grid place-items-center text-2xl"
             >
-              <span className="w-5 h-0.5 bg-white" />
-              <span className="w-5 h-0.5 bg-white" />
+              <LuMenu aria-hidden />
             </button>
           </div>
         </div>
       </header>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ y: "-100%" }}
-            animate={{ y: 0 }}
-            exit={{ y: "-100%" }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-[60] bg-white flex flex-col justify-center px-8"
-          >
-            <button
-              onClick={() => setOpen(false)}
-              aria-label="Закрити меню"
-              className="absolute top-5 right-5 w-11 h-11 bg-ink text-white text-3xl leading-none"
-            >
-              &times;
-            </button>
-            <nav className="flex flex-col gap-1 overflow-y-auto max-h-[75vh] pr-2">
-              {NAV.flatMap((item) => (item.children ? item.children : [item])).map((item, i) => (
-                <motion.div
-                  key={item.href}
-                  initial={{ y: 30, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.2 + i * 0.04 }}
-                >
-                  <Link
-                    href={item.href}
-                    onClick={() => setOpen(false)}
-                    className="font-display text-4xl uppercase leading-tight hover:text-brand-orange transition-colors"
-                  >
+      {/* Мобільне меню: завжди в DOM, показ через CSS-перехід (без JS-анімацій) */}
+      <div
+        className={`lg:hidden fixed inset-0 z-[60] bg-white flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          open ? "translate-y-0 visible" : "-translate-y-full invisible"
+        }`}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Меню"
+        aria-hidden={!open}
+      >
+        <div className="flex items-center justify-between h-[72px] px-4 sm:px-6 border-b border-ink/10 shrink-0">
+          <Link href="/" onClick={() => setOpen(false)} aria-label="Вітраж — на головну">
+            <img src={Logo.src} alt="Вітраж" width="170" height="60" className="h-[56px] w-auto" />
+          </Link>
+          <button onClick={() => setOpen(false)} aria-label="Закрити меню" className="w-11 h-11 bg-ink text-white grid place-items-center text-2xl">
+            <LuX aria-hidden />
+          </button>
+        </div>
+
+        <nav className="flex-1 overflow-y-auto px-4 sm:px-6 py-4" aria-label="Мобільне меню">
+          <ul>
+            {NAV.map((item) => (
+              <li key={item.href} className="border-b border-ink/10">
+                {item.children ? (
+                  <>
+                    <button
+                      onClick={() => setCatOpen((v) => !v)}
+                      aria-expanded={catOpen}
+                      className="w-full flex items-center justify-between py-4 font-display text-3xl uppercase text-left"
+                    >
+                      {item.label}
+                      <LuChevronDown aria-hidden className={`transition-transform duration-300 ${catOpen ? "rotate-180" : ""}`} />
+                    </button>
+                    <ul className={`grid transition-[grid-template-rows] duration-300 ${catOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
+                      <li className="overflow-hidden">
+                        {item.children.map((c) => (
+                          <Link
+                            key={c.href}
+                            href={c.href}
+                            onClick={() => setOpen(false)}
+                            className="block py-3 pl-4 border-l-4 border-brand-orange mb-2 bg-paper"
+                          >
+                            <span className="block font-display text-xl uppercase">{c.label}</span>
+                            <span className="block text-sm text-ink/55">{c.desc}</span>
+                          </Link>
+                        ))}
+                      </li>
+                    </ul>
+                  </>
+                ) : (
+                  <Link href={item.href} onClick={() => setOpen(false)} className={`block py-4 font-display text-3xl uppercase ${isActive(item) ? "text-brand-orange" : ""}`}>
                     {item.label}
                   </Link>
-                </motion.div>
-              ))}
-            </nav>
-            <a href="tel:+380951099040" className="mt-10 font-semibold">
-              +38 095 109 90 40
-            </a>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                )}
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="shrink-0 border-t border-ink/10 p-4 sm:p-6 grid gap-3 bg-paper">
+          <a href={`tel:${site.phone}`} className="flex items-center justify-center gap-3 bg-ink text-white py-4 font-semibold uppercase tracking-wider">
+            <LuPhone aria-hidden /> {site.phoneHuman}
+          </a>
+          <Link href="/contact/" onClick={() => setOpen(false)} className="flex items-center justify-center gap-3 bg-brand-orange text-white py-4 font-semibold uppercase tracking-wider">
+            Замовити замір <LuArrowRight aria-hidden />
+          </Link>
+          <ul className="flex items-center justify-center gap-5 pt-1 text-2xl">
+            {SOCIALS.map(({ href, label, Icon }) => (
+              <li key={label}>
+                <a href={href} aria-label={label} className="hover:text-brand-orange transition-colors">
+                  <Icon />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </>
   );
 }

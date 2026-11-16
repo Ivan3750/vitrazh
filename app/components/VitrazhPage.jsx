@@ -7,24 +7,24 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import check from "@/app/assets/images/icons/check.svg";
-import vitrazhType1 from "@/app/assets/images/products/vitrazh/vitrazh-type-1.jpg";
-import vitrazhType2 from "@/app/assets/images/products/vitrazh/vitrazh-type-2.jpg";
-import vitrazhType3 from "@/app/assets/images/products/vitrazh/vitrazh-type-3.jpg";
+import vitrazhType1 from "@/app/assets/images-webp/products/vitrazh/vitrazh-type-1.webp";
+import vitrazhType2 from "@/app/assets/images-webp/products/vitrazh/vitrazh-type-2.webp";
+import vitrazhType3 from "@/app/assets/images-webp/products/vitrazh/vitrazh-type-3.webp";
 import SectionContact from "@/app/components/SectionContact";
 import bg from "@/app/assets/images/hero/vitrazhi-banner.jpg";
 
-import slider1 from "@/app/assets/images/gallery/vitrazh/banner-slide-1.jpg";
-import slider2 from "@/app/assets/images/gallery/vitrazh/banner-slide-2.jpg";
-import slider3 from "@/app/assets/images/gallery/vitrazh/banner-slide-3.jpg";
-import slider4 from "@/app/assets/images/gallery/vitrazh/banner2-slide-1.jpg";
-import slider5 from "@/app/assets/images/gallery/vitrazh/banner2-slide-2.jpg";
-import slider6 from "@/app/assets/images/gallery/vitrazh/banner2-slide-3.jpg";
-import slider7 from "@/app/assets/images/gallery/vitrazh/banner3-slide-1.jpg";
-import slider8 from "@/app/assets/images/gallery/vitrazh/banner3-slide-2.jpg";
-import slider9 from "@/app/assets/images/gallery/vitrazh/banner3-slide-3.jpg";
+import slider1 from "@/app/assets/images-webp/gallery/vitrazh/banner-slide-1.webp";
+import slider2 from "@/app/assets/images-webp/gallery/vitrazh/banner-slide-2.webp";
+import slider3 from "@/app/assets/images-webp/gallery/vitrazh/banner-slide-3.webp";
+import slider4 from "@/app/assets/images-webp/gallery/vitrazh/banner2-slide-1.webp";
+import slider5 from "@/app/assets/images-webp/gallery/vitrazh/banner2-slide-2.webp";
+import slider6 from "@/app/assets/images-webp/gallery/vitrazh/banner2-slide-3.webp";
+import slider7 from "@/app/assets/images-webp/gallery/vitrazh/banner3-slide-1.webp";
+import slider8 from "@/app/assets/images-webp/gallery/vitrazh/banner3-slide-2.webp";
+import slider9 from "@/app/assets/images-webp/gallery/vitrazh/banner3-slide-3.webp";
 
-import facet from "@/app/assets/images/products/vitrazh/facet.jpg";
-import diamond from "@/app/assets/images/products/vitrazh/diamond.jpg";
+import facet from "@/app/assets/images-webp/products/vitrazh/facet.webp";
+import diamond from "@/app/assets/images-webp/products/vitrazh/diamond.webp";
 
 export default function VitrazhPage() {
   return (
@@ -48,7 +48,7 @@ export default function VitrazhPage() {
               className="flex items-center gap-4 bg-paper py-10 px-6"
             >
               <div className="flex items-center justify-center w-10 h-10 bg-brand-lime">
-                <img src={check.src} alt="Перевага" width={22} height={22} />
+                <img loading="lazy" decoding="async" src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-base md:text-lg font-medium">{title}</p>
             </div>
@@ -72,7 +72,7 @@ export default function VitrazhPage() {
           >
             {[slider1, slider2, slider3].map((img, i) => (
               <SwiperSlide key={i}>
-                <img
+                <img loading="lazy" decoding="async"
                   src={img.src}
                   alt={`Вітраж ${i + 1}`}
                   className="w-full h-full object-cover"
@@ -100,7 +100,7 @@ export default function VitrazhPage() {
         <h3 className="text-3xl font-semibold mb-8 text-center">Види вітражів</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
           <div className="flex flex-col items-center">
-            <img
+            <img loading="lazy" decoding="async"
               src={vitrazhType1.src}
               alt="Вітраж на цільному шматку скла"
               className="mb-4"
@@ -111,7 +111,7 @@ export default function VitrazhPage() {
           </div>
 
           <div className="flex flex-col items-center">
-            <img
+            <img loading="lazy" decoding="async"
               src={vitrazhType2.src}
               alt="Вітраж у двокамерному склопакеті"
               className="mb-4"
@@ -122,7 +122,7 @@ export default function VitrazhPage() {
           </div>
 
           <div className="flex flex-col items-center">
-            <img
+            <img loading="lazy" decoding="async"
               src={vitrazhType3.src}
               alt="Вітраж із захисним склом"
               className="mb-4"
@@ -150,7 +150,7 @@ export default function VitrazhPage() {
         >
           {[slider4, slider5, slider6].map((img, i) => (
             <SwiperSlide key={i}>
-              <img
+              <img loading="lazy" decoding="async"
                 src={img.src}
                 alt={`Вітраж ${i + 1}`}
                 className="w-full h-full object-cover"
@@ -169,7 +169,7 @@ export default function VitrazhPage() {
           </p>
           <div className="mt-10 bg-paper p-8 flex flex-col md:flex-row items-center md:items-start gap-8">
             <div className="flex-shrink-0">
-              <img
+              <img loading="lazy" decoding="async"
                 src={diamond.src}
                 alt="Склад вітражів"
                 className="w-[210px] h-[330px] object-cover і"
@@ -220,7 +220,7 @@ export default function VitrazhPage() {
         >
           {[slider7, slider8, slider9].map((img, i) => (
             <SwiperSlide key={i}>
-              <img
+              <img loading="lazy" decoding="async"
                 src={img.src}
                 alt={`Вітраж ${i + 1}`}
                 className="w-full h-full object-cover"
@@ -240,7 +240,7 @@ export default function VitrazhPage() {
         </div>
         <div className="mt-10 bg-paper p-8 flex flex-col md:flex-row items-center md:items-start gap-8">
           <div className="flex-shrink-0">
-            <img
+            <img loading="lazy" decoding="async"
               src={facet.src}
               alt="Склад вітражів"
               className="w-[210px] h-[330px] object-cover і"

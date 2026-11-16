@@ -1,14 +1,14 @@
 "use client";
 
-import tap39 from "@/app/assets/images/calc/tap39.png";
-import tap55 from "@/app/assets/images/calc/tap55.png";
-import tap77 from "@/app/assets/images/calc/tap77.png";
-import se45s from "@/app/assets/images/calc/se45s.png";
-import sl100 from "@/app/assets/images/calc/sl100.png";
-import tax55s from "@/app/assets/images/calc/tax55s.png";
-import gg56 from "@/app/assets/images/calc/gg56.png";
-import inset from "@/app/assets/images/calc/rollet_mounting_inset.png";
-import outset from "@/app/assets/images/calc/rollet_mounting_outset.png";
+import tap39 from "@/app/assets/images-webp/calc/tap39.webp";
+import tap55 from "@/app/assets/images-webp/calc/tap55.webp";
+import tap77 from "@/app/assets/images-webp/calc/tap77.webp";
+import se45s from "@/app/assets/images-webp/calc/se45s.webp";
+import sl100 from "@/app/assets/images-webp/calc/sl100.webp";
+import tax55s from "@/app/assets/images-webp/calc/tax55s.webp";
+import gg56 from "@/app/assets/images-webp/calc/gg56.webp";
+import inset from "@/app/assets/images-webp/calc/rollet_mounting_inset.webp";
+import outset from "@/app/assets/images-webp/calc/rollet_mounting_outset.webp";
 
 import { useState } from "react";
 import Modal from "./Modal";
@@ -194,7 +194,7 @@ fetch("/api/order_rollets.php", {
                     onChange={() => setProfile(p.id)}
                     className="hidden"
                   />
-                  <img src={p.img.src} alt={p.name} width={60} height={60} />
+                  <img loading="lazy" decoding="async" src={p.img.src} alt={p.name} width={60} height={60} />
                   <span className="mt-2 text-sm">{p.name}</span>
                 </label>
               ))}
@@ -227,7 +227,7 @@ fetch("/api/order_rollets.php", {
                     onChange={() => setMontage(m.id)}
                     className="hidden"
                   />
-                  <img src={m.img.src} alt={m.name} width={80} height={80} />
+                  <img loading="lazy" decoding="async" src={m.img.src} alt={m.name} width={80} height={80} />
                   <span className="mt-2 text-sm">{m.name}</span>
                 </label>
               ))}

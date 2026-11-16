@@ -8,14 +8,14 @@ import check from "@/app/assets/images/icons/check.svg";
   FaIndustry,
   FaSpa,
 } from "react-icons/fa";
-import j1 from  "@/app/assets/images/products/aluminium/aliminium (1).jpg"
-import j2 from  "@/app/assets/images/products/aluminium/aliminium (2).jpg"
-import j3 from  "@/app/assets/images/products/aluminium/aliminium (3).jpg"
-import j4 from  "@/app/assets/images/products/aluminium/aliminium (4).jpg"
-import j5 from  "@/app/assets/images/products/aluminium/aliminium (5).jpg"
-import j6 from  "@/app/assets/images/products/aluminium/aliminium (6).jpg"
-import p from "@/app/assets/images/products/aluminium/alm.jpg";
-import b from "@/app/assets/images/hero/aluminium-a-bg.jpg"
+import j1 from  "@/app/assets/images-webp/products/aluminium/aliminium (1).webp"
+import j2 from  "@/app/assets/images-webp/products/aluminium/aliminium (2).webp"
+import j3 from  "@/app/assets/images-webp/products/aluminium/aliminium (3).webp"
+import j4 from  "@/app/assets/images-webp/products/aluminium/aliminium (4).webp"
+import j5 from  "@/app/assets/images-webp/products/aluminium/aliminium (5).webp"
+import j6 from  "@/app/assets/images-webp/products/aluminium/aliminium (6).webp"
+import p from "@/app/assets/images-webp/products/aluminium/alm.webp";
+import b from "@/app/assets/images-webp/hero/aluminium-a-bg.webp"
 
 
 export const metadata = {
@@ -109,7 +109,7 @@ export default function AluminumPartitionsPage() {
         <div className="flex flex-col md:flex-row gap-10 items-start justify-between">
           {/* Image Block */}
           <div className="w-full md:max-w-[320px] flex-shrink-0">
-            <img
+            <img loading="lazy" decoding="async"
               src={data.img.src}
               alt={data.name}
               className="object-cover w-full h-[350px] md:h-[400px]"
@@ -232,7 +232,7 @@ export default function AluminumPartitionsPage() {
               className="flex bg-paper py-[40px] px-[30px] gap-5 shadow-sm"
             >
               <div className="p-2 bg-brand-lime w-9 h-9 flex items-center justify-center">
-                <img src={check.src} alt="Перевага" width={22} height={22} />
+                <img loading="lazy" decoding="async" src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>
             </div>
@@ -250,7 +250,7 @@ export default function AluminumPartitionsPage() {
         key={index}
         className="overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
       >
-        <img
+        <img loading="lazy" decoding="async"
           src={img.src}
           alt={`Фото робіт ${index + 1}`}
           className="w-full h-[250px] md:h-[300px] object-cover"

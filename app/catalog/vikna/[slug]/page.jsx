@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { windows, getWindow, badgeOf, toneClass, materialOf } from "../../data/windows";
+import { features } from "../../data/features";
 import { Reveal } from "../../../components/site/motion";
 import JsonLd from "../../../components/site/JsonLd";
 import OrderForm from "../../../components/site/OrderForm";
@@ -32,6 +33,52 @@ export async function generateMetadata({ params }) {
   };
 }
 
+const FACT_PATTERNS = [
+  /монтажна глибина|глибина рами|внутрішня видима/i,
+  /кількість камер|ширина комбінації/i,
+  /\(uf\)|теплоізоляція \(uw\)|коефіцієнт теплопередачі|^uf|uw/i,
+  /максимальна товщина склопакета|товщина (скління|заповнення)/i,
+  /злому|повітропроникність/i,
+];
+
+// Ключові цифри: беремо з таблиці характеристик, до 4 різних рядків
+function getFacts(specs) {
+  const facts = [];
+  for (const re of FACT_PATTERNS) {
+    const row = specs.find((s) => re.test(s.key) && !facts.some((f) => f.key === s.key));
+    if (row) facts.push(row);
+  }
+  return facts.slice(0, 4);
+}
+
+// FAQ під конкретну систему — лише з даних, що вже є в каталозі
+function buildFaq(w) {
+  const spec = (re) => w.specs.find((s) => re.test(s.key))?.value;
+  const faq = [[`Для чого підходить ${w.name}?`, `${w.tagline}. Застосування: ${w.usage.join(", ").toLowerCase()}.`]];
+  const params = [
+    ["монтажна глибина", spec(/глибина/i)],
+    ["камер (рама / стулка)", spec(/кількість камер/i)],
+    ["коефіцієнт теплопередачі", spec(/\(uf\)|\buw\b/i)],
+    ["максимальна товщина склопакета", spec(/максимальна товщина склопакета|товщина скління/i)],
+  ].filter(([, v]) => v);
+  if (params.length >= 2) faq.push([`Які основні параметри ${w.name}?`, params.map(([k, v]) => `${k}: ${v}`).join("; ") + "."]);
+  const burglary = spec(/злому/i);
+  if (burglary) faq.push([`Чи є захист від злому в ${w.name}?`, `Система дозволяє виготовляти конструкції із захистом від злому ${burglary}. Фактичний клас залежить від склопакета, фурнітури та армування — їх підбере менеджер.`]);
+  if (w.colors.length) faq.push([`Які кольори доступні для ${w.name}?`, `${w.colors.join(", ")}. Точний перелік оздоблення для вашого проєкту уточнить менеджер.`]);
+  faq.push([`Скільки коштує ${w.name}?`, "Вартість залежить від розміру й конфігурації конструкції, склопакета, фурнітури, кольору та монтажу. Залиште заявку — менеджер розрахує точну суму після безкоштовного заміру."]);
+  faq.push(["Ви робите замір і монтаж?", "Так. Виїзд на замір безкоштовний, вироби виготовляються на заводі, а монтаж виконують сертифіковані спеціалісти в узгоджені терміни."]);
+  return faq;
+}
+
+const priceFactors = [
+  ["Розмір і конфігурація", "Ширина, висота, кількість стулок і тип відкривання."],
+  ["Профільна система", "Глибина, кількість камер і клас теплоізоляції."],
+  ["Склопакет", "Кількість камер, товщина, енергозберігаюче чи шумозахисне скло."],
+  ["Фурнітура", "Базова або протизламна, додаткові функції."],
+  ["Колір і ламінація", "Білий, коричневий, антрацит або декоративна плівка."],
+  ["Монтаж", "Демонтаж старих вікон, встановлення, оздоблення відкосів."],
+];
+
 const steps = [
   ["Заявка", "Залишаєте заявку на цій сторінці або телефонуєте нам."],
   ["Консультація", "Менеджер уточнює розміри, комплектацію та рахує вартість."],
@@ -46,6 +93,10 @@ export default async function WindowProductPage({ params }) {
   const badge = badgeOf(w);
   const others = windows.filter((x) => x.slug !== w.slug);
   const related = [...others.filter((x) => x.material === w.material), ...others.filter((x) => x.material !== w.material)].slice(0, 3);
+
+  const facts = getFacts(w.specs);
+  const featureList = features[w.slug] || [];
+  const faq = buildFaq(w);
 
   const ld = [
     {
@@ -68,6 +119,11 @@ export default async function WindowProductPage({ params }) {
       brand: { "@type": "Brand", name: w.brand },
       additionalProperty: w.specs.map((s) => ({ "@type": "PropertyValue", name: s.key, value: s.value })),
     },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+    },
   ];
 
   return (
@@ -86,7 +142,7 @@ export default async function WindowProductPage({ params }) {
           <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-12 items-stretch">
             <Reveal>
               <div className="h-full min-h-[420px] bg-gradient-to-b from-white to-[#dfe3e7] p-6 grid place-items-center">
-                <img src={w.image.src} width={w.image.width} height={w.image.height} alt={`${w.name} — профільна система ${w.brand}`} fetchPriority="high" className="max-h-[600px] w-auto max-w-full object-contain drop-shadow-[0_18px_22px_rgba(19,35,58,0.22)]" />
+                <img src={w.image.src} width={w.image.width} height={w.image.height} alt={`${w.name} — профільна система ${w.brand}`} fetchPriority="high" className="max-h-[600px] w-auto max-w-full object-contain" />
               </div>
             </Reveal>
 
@@ -137,6 +193,19 @@ export default async function WindowProductPage({ params }) {
         </div>
       </section>
 
+      {facts.length >= 3 && (
+        <section className="bg-white pb-10 px-4 sm:px-6">
+          <dl className="max-w-[1320px] mx-auto grid grid-cols-2 lg:grid-cols-4 gap-px bg-ink/15 border border-ink/15">
+            {facts.map((f) => (
+              <div key={f.key} className="bg-white p-5 sm:p-6">
+                <dd className="font-display text-2xl sm:text-4xl uppercase leading-tight text-ink">{f.value}</dd>
+                <dt className="mt-2 text-xs uppercase tracking-[0.12em] text-ink/50">{f.key}</dt>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
+
       <section className="bg-ink text-white py-12 px-4 sm:px-6">
         <div className="max-w-[1320px] mx-auto">
           <h2 className="font-display text-5xl sm:text-6xl uppercase mb-6">Характеристики</h2>
@@ -167,6 +236,25 @@ export default async function WindowProductPage({ params }) {
         </div>
       </section>
 
+      {featureList.length > 0 && (
+        <section className="bg-white pb-12 px-4 sm:px-6">
+          <div className="max-w-[1320px] mx-auto">
+            <h2 className="font-display text-5xl sm:text-6xl uppercase mb-6">Особливості системи</h2>
+            <div className="grid md:grid-cols-2 gap-4">
+              {featureList.map((f, i) => (
+                <Reveal key={f.title} delay={(i % 2) * 0.08} y={24} className="bg-paper p-6 flex gap-5">
+                  <span className="font-display text-4xl text-brand-orange leading-none shrink-0">{String(i + 1).padStart(2, "0")}</span>
+                  <div>
+                    <h3 className="font-display text-2xl uppercase leading-tight">{f.title}</h3>
+                    <p className="mt-2 text-ink/70">{f.text}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className="bg-white pb-12 px-4 sm:px-6">
         <div className="max-w-[1320px] mx-auto">
           <h2 className="font-display text-5xl sm:text-6xl uppercase mb-6">Як замовити</h2>
@@ -182,6 +270,38 @@ export default async function WindowProductPage({ params }) {
         </div>
       </section>
 
+      <section className="bg-white pb-12 px-4 sm:px-6">
+        <div className="max-w-[1320px] mx-auto">
+          <h2 className="font-display text-5xl sm:text-6xl uppercase mb-6">Що впливає на вартість</h2>
+          <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-ink/15 border border-ink/15">
+            {priceFactors.map(([t, d]) => (
+              <li key={t} className="bg-white p-6">
+                <h3 className="font-display text-2xl uppercase">{t}</h3>
+                <p className="mt-1 text-ink/65">{d}</p>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-4 text-ink/60">Точну ціну менеджер розрахує після безкоштовного заміру — або скористайтеся <Link href="/calc/" className="text-brand-orange font-semibold underline underline-offset-4">калькулятором</Link>.</p>
+        </div>
+      </section>
+
+      <section className="bg-white pb-12 px-4 sm:px-6">
+        <div className="max-w-[1320px] mx-auto grid lg:grid-cols-[1fr_2fr] gap-8">
+          <h2 className="font-display text-5xl sm:text-6xl uppercase leading-[0.92]">Питання про {w.name}</h2>
+          <div className="border-t border-ink/15">
+            {faq.map(([q, a]) => (
+              <details key={q} className="group border-b border-ink/15">
+                <summary className="cursor-pointer flex items-center justify-between gap-6 py-4 font-display text-xl sm:text-2xl uppercase leading-tight">
+                  {q}
+                  <span className="shrink-0 w-9 h-9 bg-ink text-white grid place-items-center text-xl transition-transform duration-300 group-open:rotate-45 group-open:bg-brand-orange">+</span>
+                </summary>
+                <p className="pb-5 pr-12 text-ink/70">{a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <OrderForm product={w.name.startsWith(w.brand) ? w.name : `${w.brand} ${w.name}`} colors={w.colors} />
 
       <section className="bg-white py-12 px-4 sm:px-6">
@@ -192,7 +312,7 @@ export default async function WindowProductPage({ params }) {
               <Reveal key={r.slug} delay={i * 0.1}>
                 <Link href={`/catalog/vikna/${r.slug}/`} className="group block bg-paper overflow-hidden">
                   <div className="aspect-[4/5] bg-gradient-to-b from-white to-[#dfe3e7] m-3 grid place-items-center overflow-hidden">
-                    <img src={r.image.src} alt={r.name} loading="lazy" className="h-full w-full object-contain drop-shadow-[0_12px_16px_rgba(19,35,58,0.2)] transition-transform duration-500 group-hover:scale-105" />
+                    <img src={r.image.src} alt={r.name} loading="lazy" className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105" />
                   </div>
                   <p className="px-5 pb-5 pt-2 font-display text-2xl uppercase">{r.name}</p>
                 </Link>

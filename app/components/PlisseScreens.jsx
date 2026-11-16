@@ -20,7 +20,7 @@ export default function PlisseScreens({
 
           <div className="grid md:grid-cols-2 gap-8 items-center">
             {product.img && (
-              <img
+              <img loading="lazy" decoding="async"
                 src={product.img.src}
                 alt={product.id || 'product image'}
                 width={500}
@@ -38,7 +38,7 @@ export default function PlisseScreens({
                   <div className="flex flex-wrap gap-4 mb-6">
                     {profileColors.map((color, i) => (
                       <div key={i} className="text-center w-24">
-                        <img
+                        <img loading="lazy" decoding="async"
                           src={color.src}
                           alt={color.label}
                           width={100}
@@ -60,7 +60,7 @@ export default function PlisseScreens({
                       <div className="flex flex-wrap justify-start gap-4">
                         {furnitureColors.map((item, i) => (
                           <div key={i} className="text-center w-24">
-                            <img
+                            <img loading="lazy" decoding="async"
                               src={item.src}
                               alt={item.label}
                               width={100}
@@ -80,7 +80,7 @@ export default function PlisseScreens({
                       <div className="flex flex-wrap justify-start gap-4">
                         {meshOptions.map((item, i) => (
                           <div key={i} className="text-center w-24">
-                            <img
+                            <img loading="lazy" decoding="async"
                               src={item.src}
                               alt={item.label}
                               width={100}

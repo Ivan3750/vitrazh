@@ -2,14 +2,14 @@ import PageHero from "@/app/components/site/PageHero";
 import Image from "next/image";
 import check from "@/app/assets/images/icons/check.svg";
 import Ukraine from "@/app/assets/images/products/decor/Ukraine.svg";
-import g1 from "@/app/assets/images/products/gates/gates-sectional.png";
-import g2 from "@/app/assets/images/products/gates/protective-rolls.jpg";
-import g3 from "@/app/assets/images/products/gates/roll-gates.jpg";
+import g1 from "@/app/assets/images-webp/products/gates/gates-sectional.webp";
+import g2 from "@/app/assets/images-webp/products/gates/protective-rolls.webp";
+import g3 from "@/app/assets/images-webp/products/gates/roll-gates.webp";
 import RolletCalc from "@/app/components/RolletCalc";
 import GateCalculator from "@/app/components/GateCalculator";
-import protectiveHero from "@/app/assets/images/hero/protective-rolls.jpg"
-import sectionalHero from "@/app/assets/images/hero/gates-sectional.jpg"
-import rollHero from "@/app/assets/images/hero/roll-gates.jpg"
+import protectiveHero from "@/app/assets/images-webp/hero/protective-rolls.webp"
+import sectionalHero from "@/app/assets/images-webp/hero/gates-sectional.webp"
+import rollHero from "@/app/assets/images-webp/hero/roll-gates.webp"
 
 export async function generateMetadata({ params }) {
   const data = windowsData[params.gatesandrolls];
@@ -106,7 +106,7 @@ export default function WindowPage({ params }) {
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row gap-8 items-start">
           <div className="flex-1">
-            <img src={data.image.src} alt={data.name} width={700} height={500} className=""/>
+            <img loading="lazy" decoding="async" src={data.image.src} alt={data.name} width={700} height={500} className=""/>
           </div>
           <div className="flex-1">
             <h2 className="text-[50px] mb-4">{data.name}</h2>
@@ -152,7 +152,7 @@ export default function WindowPage({ params }) {
           {["гладка поверхня, що легко очищається", "система профілів екологічна, підлягає вторинній переробці", "скошений фальц рами і тулки, що забезпечує довідведення"].map((title, i) => (
             <div key={i} className="flex bg-paper py-[60px] px-[40px] gap-5">
               <div className="p-2 bg-brand-lime w-9 h-9 flex items-center justify-center">
-                <img src={check.src} alt="Перевага" width={22} height={22} />
+                <img loading="lazy" decoding="async" src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>
             </div>

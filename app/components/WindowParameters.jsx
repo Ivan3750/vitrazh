@@ -88,7 +88,7 @@ const WindowParameters = ({ data, setData, setValid }) => {
                   activeMain === conf ? "border-brand-lime" : "border-transparent"
                 }`}
               >
-                <img
+                <img loading="lazy" decoding="async"
                   src={`/calc/windows_sprite_${configs[conf][0]}.png`}
                   alt={`Конфігурація ${configs[conf][0]}`}
                   width={70}
@@ -119,7 +119,7 @@ const WindowParameters = ({ data, setData, setValid }) => {
                       selected === imgUrl ? "border-brand-lime" : "border-transparent"
                     }`}
                   >
-                    <img src={imgUrl} alt={`Конфігурація ${num}`} width={70} height={70} />
+                    <img loading="lazy" decoding="async" src={imgUrl} alt={`Конфігурація ${num}`} width={70} height={70} />
                   </motion.li>
                 );
               })}

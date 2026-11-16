@@ -1,9 +1,9 @@
 import PageHero from "@/app/components/site/PageHero";
 import ProductList from "@/app/components/ProductList";
 import b from "@/app/assets/images-webp/hero/furnitura.webp";
-import f1 from "@/app/assets/images/products/facades/vorne.png";
-import f2 from "@/app/assets/images/products/facades/maco.png";
-import f3 from "@/app/assets/images/products/facades/siegenia.png";
+import f1 from "@/app/assets/images-webp/products/facades/vorne.webp";
+import f2 from "@/app/assets/images-webp/products/facades/maco.webp";
+import f3 from "@/app/assets/images-webp/products/facades/siegenia.webp";
 
 export const metadata = {
   alternates: { canonical: "/category/facades/" },

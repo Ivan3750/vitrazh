@@ -1,14 +1,14 @@
 import PageHero from "@/app/components/site/PageHero";
 import check from "@/app/assets/images/icons/check.svg";
-import wds5s from "@/app/assets/images/products/windows/wds-5s-t.png";
-import wds6s from "@/app/assets/images/products/windows/wds-6s-t.png";
-import wds76md from "@/app/assets/images/products/windows/wds-76MD-t.png";
-import wds76ad from "@/app/assets/images/products/windows/wds-76AD-t.png";
+import wds5s from "@/app/assets/images-webp/products/windows/wds-5s-t.webp";
+import wds6s from "@/app/assets/images-webp/products/windows/wds-6s-t.webp";
+import wds76md from "@/app/assets/images-webp/products/windows/wds-76MD-t.webp";
+import wds76ad from "@/app/assets/images-webp/products/windows/wds-76AD-t.webp";
 import SectionContact from "@/app/components/SectionContact";
-import wdsHero from "@/app/assets/images/hero/wds.jpg";
-import wdsC5s from "@/app/assets/images/products/windows/5s.png"
-import wdsCAD from "@/app/assets/images/products/windows/ad.png";
-import wdsCMD from "@/app/assets/images/products/windows/md.png";
+import wdsHero from "@/app/assets/images-webp/hero/wds.webp";
+import wdsC5s from "@/app/assets/images-webp/products/windows/5s.webp"
+import wdsCAD from "@/app/assets/images-webp/products/windows/ad.webp";
+import wdsCMD from "@/app/assets/images-webp/products/windows/md.webp";
 import FreeSize  from "@/app/components/FreeSize";
 
 
@@ -231,7 +231,7 @@ export default function WindowPage({ params }) {
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row gap-8 items-start">
           <div className="flex-1">
-            <img src={data.image.src} alt={data.name} width={300} height={100} />
+            <img loading="lazy" decoding="async" src={data.image.src} alt={data.name} width={300} height={100} />
           </div>
           <div className="flex-1">
             <h2 className="text-[50px] mb-4">{data.name}</h2>
@@ -277,7 +277,7 @@ export default function WindowPage({ params }) {
           {["гладка поверхня, що легко очищається", "система профілів екологічна, підлягає вторинній переробці", "скошений фальц рами і тулки, що забезпечує довідведення"].map((title, i) => (
             <div key={i} className="flex bg-paper py-[60px] px-[40px] gap-5">
               <div className="p-2 bg-brand-lime w-9 h-9 flex items-center justify-center">
-                <img src={check.src} alt="Перевага" width={22} height={22} />
+                <img loading="lazy" decoding="async" src={check.src} alt="Перевага" width={22} height={22} />
               </div>
               <p className="text-[16px] md:text-[18px]">{title}</p>
             </div>
@@ -292,7 +292,7 @@ export default function WindowPage({ params }) {
     
     {/* Лівий блок з картинкою */}
     <div className="md:w-1/2 bg-gray-50 flex items-center justify-center p-8">
-      <img
+      <img loading="lazy" decoding="async"
         src={data.construction?.src}
         alt="Рекомендована Конфігурація вікна"
         title="Рекомендована Конфігурація вікна"
@@ -344,7 +344,7 @@ export default function WindowPage({ params }) {
   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
     {data.extraPoints.map((item, i) => (
       <div key={i} className="flex gap-3 bg-paper p-6">
-        <img src={check.src} alt="check" className="w-6 h-6 mt-1" />
+        <img loading="lazy" decoding="async" src={check.src} alt="check" className="w-6 h-6 mt-1" />
         <div>
           <h4 className="font-semibold text-gray-800 mb-1">{item.title}</h4>
           <p className="text-gray-600">{item.text}</p>
