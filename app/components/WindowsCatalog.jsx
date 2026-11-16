@@ -38,17 +38,26 @@ const ProductCard = ({ p }) => (
   <article className="flex flex-col bg-white border border-gray-200 rounded-md overflow-hidden transition-shadow duration-300 hover:shadow-lg">
     <Link
       href={p.link}
-      className="block bg-[#F8F7F0] aspect-square overflow-hidden"
+      className="group relative block aspect-[4/5] overflow-hidden bg-gradient-to-b from-[#FBFAF5] to-[#ECEADF]"
       aria-label={p.name}
     >
       <img
         src={p.img.src}
         alt={`${p.name} — профільна система`}
-        width={450}
-        height={450}
+        width={800}
+        height={1000}
         loading="lazy"
-        className={`w-full h-full object-contain`}
+        className="w-full h-full object-contain drop-shadow-[0_14px_18px_rgba(0,0,0,0.18)] transition-transform duration-500 group-hover:scale-105"
       />
+      {p.photo && (
+        <img
+          src={p.photo.src}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        />
+      )}
     </Link>
 
     <div className="flex flex-col flex-1 p-5">
@@ -78,10 +87,10 @@ const ProductCard = ({ p }) => (
           Деталі
         </Link>
         <Link
-          href="/calc"
+          href={p.orderLink || p.link}
           className="text-center bg-[#D8F422] rounded-sm py-[12px] uppercase text-[14px] font-semibold hover:bg-[#242323] hover:text-white transition-colors"
         >
-          Розрахувати
+          Замовити
         </Link>
       </div>
     </div>

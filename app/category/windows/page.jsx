@@ -37,6 +37,7 @@ const otherProducts = [
     name: "REHAU Euro-Design 60",
     img: rehauE60,
     link: "/category/windows/rehau/euro-design-60",
+    orderLink: "/calc",
     specs: [
       ["Монтажна глибина", "60 мм"],
       ["Кількість камер", "3"],
@@ -50,6 +51,7 @@ const otherProducts = [
     name: "REHAU Euro-Design 70",
     img: rehauE70,
     link: "/category/windows/rehau/euro-design-70",
+    orderLink: "/calc",
     specs: [
       ["Монтажна глибина", "70 мм"],
       ["Кількість камер", "5"],
@@ -63,6 +65,7 @@ const otherProducts = [
     name: "REHAU Synego MD",
     img: rehauSMD,
     link: "/category/windows/rehau/synego",
+    orderLink: "/calc",
     specs: [
       ["Монтажна глибина", "80 мм"],
       ["Кількість камер", "7 / 6"],
@@ -76,6 +79,7 @@ const otherProducts = [
     name: "WDS 5S",
     img: wds5s,
     link: "/category/windows/wds/5s",
+    orderLink: "/calc",
     specs: [
       ["Монтажна глибина", "60 мм"],
       ["Кількість камер", "5"],
@@ -89,6 +93,7 @@ const otherProducts = [
     name: "WDS 76AD",
     img: wds76ad,
     link: "/category/windows/wds/76ad",
+    orderLink: "/calc",
     specs: [
       ["Монтажна глибина", "76 мм"],
       ["Кількість камер", "5"],
@@ -102,6 +107,7 @@ const otherProducts = [
     name: "WDS 76MD",
     img: wds76md,
     link: "/category/windows/wds/76md",
+    orderLink: "/calc",
     specs: [
       ["Монтажна глибина", "76 мм"],
       ["Кількість камер", "6"],
@@ -116,7 +122,9 @@ const goodwinCatalog = goodwinProducts.map((p) => ({
   material: p.material,
   name: p.name,
   img: p.img,
+  photo: p.photo,
   link: `/category/windows/goodwin/${p.slug}`,
+  orderLink: `/category/windows/goodwin/${p.slug}#order`,
   specs: p.cardSpecs.slice(0, 3),
 }));
 

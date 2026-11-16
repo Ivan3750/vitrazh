@@ -1,9 +1,42 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import check from "@/app/assets/images/icons/check.svg";
-import SectionContact from "@/app/components/SectionContact";
-import FreeSize from "@/app/components/FreeSize";
+import OrderProduct from "@/app/components/OrderProduct";
 import { goodwinProducts, getGoodwinProduct } from "../goodwinData";
+
+const FACT_PATTERNS = [
+  /монтажна глибина|глибина рами|внутрішня видима/i,
+  /кількість камер/i,
+  /теплопередачі|теплоізоляція|\(uf\)|\(uw\)/i,
+  /максимальна товщина склопакета|товщина (скління|заповнення)/i,
+  /злому|повітропроникність/i,
+];
+
+const getFacts = (tech) => {
+  const facts = [];
+  for (const re of FACT_PATTERNS) {
+    const row = tech.find(
+      ([k]) => re.test(k) && !facts.some((f) => f[0] === k)
+    );
+    if (row) facts.push(row);
+  }
+  return facts.slice(0, 4);
+};
+
+const getColors = (tech) => {
+  const row = tech.find(([k]) => /^кольори основи/i.test(k));
+  const base = row
+    ? row[1].split(",").map((c) => c.trim()).filter(Boolean)
+    : [];
+  return [...base.map((c) => c[0].toUpperCase() + c.slice(1)), "Ламінація (під замовлення)"];
+};
+
+const STEPS = [
+  ["Заявка", "Залишаєте заявку на цій сторінці або телефонуєте нам."],
+  ["Консультація", "Менеджер уточнює розміри, комплектацію та рахує вартість."],
+  ["Замір", "Фахівець приїжджає на об'єкт і робить точні виміри безкоштовно."],
+  ["Виробництво і монтаж", "Виготовляємо конструкції та встановлюємо їх."],
+];
 
 export async function generateStaticParams() {
   return goodwinProducts.map((p) => ({ slug: p.slug }));
@@ -31,6 +64,8 @@ export default async function GoodwinProductPage({ params }) {
   const p = getGoodwinProduct(slug);
   if (!p) notFound();
 
+  const facts = getFacts(p.tech);
+  const colors = getColors(p.tech);
   const related = goodwinProducts
     .filter((x) => x.slug !== p.slug && x.material === p.material)
     .slice(0, 3);
@@ -62,13 +97,13 @@ export default async function GoodwinProductPage({ params }) {
 
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row gap-10 items-center md:items-start">
-          <div className="w-full md:w-1/2 bg-[#F8F7F0] rounded-md aspect-square">
+          <div className="w-full md:w-1/2 rounded-md aspect-[4/5] bg-gradient-to-b from-[#FBFAF5] to-[#ECEADF]">
             <img
               src={p.img.src}
               alt={`${p.name} — профільна система`}
-              width={600}
-              height={600}
-              className="w-full h-full object-contain"
+              width={800}
+              height={1000}
+              className="w-full h-full object-contain drop-shadow-[0_14px_18px_rgba(0,0,0,0.18)]"
             />
           </div>
           <div className="w-full md:w-1/2">
@@ -82,12 +117,12 @@ export default async function GoodwinProductPage({ params }) {
             <p className="text-[#555555] text-[18px] mb-4">{p.lead}</p>
             <p className="text-[#555555] text-[18px] mb-8">{p.description}</p>
             <div className="flex flex-wrap gap-4">
-              <Link
-                href="/calc"
+              <a
+                href="#order"
                 className="bg-[#D8F422] py-[16px] px-[24px] rounded-sm uppercase font-semibold hover:bg-[#242323] hover:text-white transition-colors"
               >
-                Замовити прорахунок
-              </Link>
+                Замовити
+              </a>
               <Link
                 href="/contact"
                 className="border border-[#0F0F0F] py-[16px] px-[24px] rounded-sm uppercase font-semibold hover:bg-[#0F0F0F] hover:text-white transition-colors"
@@ -95,6 +130,47 @@ export default async function GoodwinProductPage({ params }) {
                 Консультація
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {facts.length > 0 && (
+        <section className="px-6 pb-4 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {facts.map(([k, v]) => (
+              <div key={k} className="bg-[#F8F7F0] rounded-md p-5">
+                <div className="text-[19px] sm:text-[22px] leading-snug text-[#0F0F0F]">
+                  {v}
+                </div>
+                <div className="text-[14px] text-gray-500 mt-2">{k}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <section className="px-6 py-12 max-w-6xl mx-auto">
+        <div className="flex flex-col md:flex-row gap-10 items-stretch">
+          <div className="flex-1">
+            <h3 className="text-3xl font-semibold mb-6">Для чого підходить</h3>
+            <ul className="flex flex-col gap-4">
+              {p.usage.map((u) => (
+                <li key={u} className="flex gap-3 items-start text-[18px] text-[#555555]">
+                  <span className="shrink-0 mt-1 rounded-full bg-[#D8F422] w-7 h-7 flex items-center justify-center">
+                    <img src={check.src} alt="" width={16} height={16} />
+                  </span>
+                  {u}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="flex-1 min-h-[260px] rounded-md overflow-hidden">
+            <img
+              src={p.photo.src}
+              alt={`${p.name} — приклад застосування`}
+              loading="lazy"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </section>
@@ -163,6 +239,23 @@ export default async function GoodwinProductPage({ params }) {
         </section>
       )}
 
+      <section className="px-6 py-12 max-w-6xl mx-auto">
+        <h3 className="text-3xl font-semibold mb-8 text-center">Як ми працюємо</h3>
+        <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {STEPS.map(([title, text], i) => (
+            <li key={title} className="bg-[#F8F7F0] rounded-md p-6">
+              <span className="text-[44px] leading-none text-[#D8F422] [text-shadow:0_0_1px_#0F0F0F]">
+                {i + 1}
+              </span>
+              <h4 className="font-semibold text-gray-800 mt-3 mb-1">{title}</h4>
+              <p className="text-gray-600">{text}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <OrderProduct product={{ name: p.name, slug: p.slug }} colors={colors} />
+
       {related.length > 0 && (
         <section className="px-6 py-12 max-w-6xl mx-auto">
           <h3 className="text-3xl font-semibold mb-8 text-center">
@@ -175,12 +268,12 @@ export default async function GoodwinProductPage({ params }) {
                 href={`/category/windows/goodwin/${r.slug}`}
                 className="block transition-transform duration-300 hover:scale-[1.03]"
               >
-                <div className="bg-[#F8F7F0] aspect-square rounded overflow-hidden">
+                <div className="bg-gradient-to-b from-[#FBFAF5] to-[#ECEADF] aspect-[4/5] rounded overflow-hidden">
                   <img
                     src={r.img.src}
                     alt={r.name}
                     loading="lazy"
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain drop-shadow-[0_10px_14px_rgba(0,0,0,0.16)]"
                   />
                 </div>
                 <h4 className="text-center text-[20px] mt-4">{r.name}</h4>
@@ -190,8 +283,6 @@ export default async function GoodwinProductPage({ params }) {
         </section>
       )}
 
-      <SectionContact />
-      <FreeSize />
     </>
   );
 }
