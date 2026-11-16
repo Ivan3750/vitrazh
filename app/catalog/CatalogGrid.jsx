@@ -152,11 +152,12 @@ export default function CatalogGrid() {
                       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                       className="group flex flex-col bg-paper overflow-hidden"
                     >
-                      <Link href={`/catalog/vikna/${w.slug}/`} className="relative block aspect-[4/5] bg-white m-3 p-5 overflow-hidden">
+                      <Link href={`/catalog/vikna/${w.slug}/`} className="relative block aspect-[4/5] bg-gradient-to-b from-white to-[#dfe3e7] m-3 overflow-hidden">
                         <span className={`absolute top-4 left-4 z-10  text-xs font-semibold uppercase tracking-widest px-3 py-1.5 ${toneClass[badge.tone]}`}>
                           {badge.label}
                         </span>
-                        <img src={w.image.src} alt={`${w.name} — профільна система`} loading="lazy" className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105" />
+                        <img src={w.image.src} alt={`${w.name} — профільна система`} loading="lazy" className="w-full h-full object-contain drop-shadow-[0_14px_18px_rgba(19,35,58,0.22)] transition-transform duration-700 group-hover:scale-105" />
+                        <img src={w.photo.src} alt="" aria-hidden="true" loading="lazy" className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                       </Link>
 
                       <div className="flex flex-col flex-1 px-5 pb-5 pt-2 gap-3">
@@ -179,7 +180,7 @@ export default function CatalogGrid() {
                           <Link href={`/catalog/vikna/${w.slug}/`} className="flex-1 text-center border-2 border-ink hover:bg-ink hover:text-white transition-colors py-3 uppercase text-sm font-semibold tracking-wider">
                             Деталі
                           </Link>
-                          <Link href={`/contact/?product=${encodeURIComponent(w.name)}`} className="flex-1 text-center bg-brand-orange text-white hover:bg-ink transition-colors py-3 uppercase text-sm font-semibold tracking-wider">
+                          <Link href={`/catalog/vikna/${w.slug}/#order`} className="flex-1 text-center bg-brand-orange text-white hover:bg-ink transition-colors py-3 uppercase text-sm font-semibold tracking-wider">
                             Замовити
                           </Link>
                         </div>

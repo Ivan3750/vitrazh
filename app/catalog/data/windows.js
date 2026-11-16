@@ -8,6 +8,26 @@ import mb86n from "@/app/assets/images-webp/catalog/windows/mb-86n.webp";
 import mb79n from "@/app/assets/images-webp/catalog/windows/mb-79n.webp";
 import kmd78 from "@/app/assets/images-webp/catalog/windows/kmd-78.webp";
 import kmdF50m from "@/app/assets/images-webp/catalog/windows/kmd-f50m.webp";
+import ideal4000Photo from "@/app/assets/images-webp/catalog/windows/ideal-4000-photo.webp";
+import ideal4000Scheme from "@/app/assets/images-webp/catalog/windows/ideal-4000-scheme.webp";
+import neo76adPhoto from "@/app/assets/images-webp/catalog/windows/neo-76-ad-photo.webp";
+import neo76adScheme from "@/app/assets/images-webp/catalog/windows/neo-76-ad-scheme.webp";
+import neo76mdPhoto from "@/app/assets/images-webp/catalog/windows/neo-76-md-photo.webp";
+import neo76mdScheme from "@/app/assets/images-webp/catalog/windows/neo-76-md-scheme.webp";
+import vk76adPhoto from "@/app/assets/images-webp/catalog/windows/viknaland-76-ad-photo.webp";
+import vk76adScheme from "@/app/assets/images-webp/catalog/windows/viknaland-76-ad-scheme.webp";
+import lider58Photo from "@/app/assets/images-webp/catalog/windows/lider-58-photo.webp";
+import lider58Scheme from "@/app/assets/images-webp/catalog/windows/lider-58-scheme.webp";
+import designNeoPhoto from "@/app/assets/images-webp/catalog/windows/design-neo-photo.webp";
+import designNeoScheme from "@/app/assets/images-webp/catalog/windows/design-neo-scheme.webp";
+import mb86nPhoto from "@/app/assets/images-webp/catalog/windows/mb-86n-photo.webp";
+import mb86nScheme from "@/app/assets/images-webp/catalog/windows/mb-86n-scheme.webp";
+import mb79nPhoto from "@/app/assets/images-webp/catalog/windows/mb-79n-photo.webp";
+import mb79nScheme from "@/app/assets/images-webp/catalog/windows/mb-79n-scheme.webp";
+import kmd78Photo from "@/app/assets/images-webp/catalog/windows/kmd-78-photo.webp";
+import kmd78Scheme from "@/app/assets/images-webp/catalog/windows/kmd-78-scheme.webp";
+import kmdF50mPhoto from "@/app/assets/images-webp/catalog/windows/kmd-f50m-photo.webp";
+import kmdF50mScheme from "@/app/assets/images-webp/catalog/windows/kmd-f50m-scheme.webp";
 
 // Матеріал профілю (фільтр «Тип системи»)
 export const materials = [
@@ -40,6 +60,8 @@ export const windows = [
     system: "Aluplast IDEAL 4000",
     depth: 70,
     image: ideal4000,
+    photo: ideal4000Photo,
+    scheme: ideal4000Scheme,
     tagline: "П'ятикамерний профіль для теплого й тихого житла",
     description:
       "IDEAL 4000 — ПВХ-система з монтажною глибиною 70 мм і п'ятикамерним профілем. Підходить і для нового будівництва, і для заміни старих вікон у квартирах та приватних будинках, де важливі тепло, тиша та захист від злому.",
@@ -73,6 +95,8 @@ export const windows = [
     system: "Aluplast Neo AD",
     depth: 76,
     image: neo76ad,
+    photo: neo76adPhoto,
+    scheme: neo76adScheme,
     tagline: "Сучасний вузький дизайн, глибина 76 мм",
     description:
       "Neo 76 AD — система глибиною 76 мм з двома контурами ущільнення та лаконічним кубічним дизайном із вузькими видимими лініями. Високу енергоефективність забезпечує склопакет товщиною до 48 мм. Добре підходить для житла та громадських будівель.",
@@ -105,6 +129,8 @@ export const windows = [
     system: "Aluplast Neo MD",
     depth: 76,
     image: neo76md,
+    photo: neo76mdPhoto,
+    scheme: neo76mdScheme,
     tagline: "Найтепліша система лінійки Neo, три контури ущільнення",
     description:
       "Neo 76 MD — найенергоефективніший варіант лінійки Neo: профіль із трьома контурами ущільнення на рухомих стулках і гнучким середнім ущільнювачем. Зручна для комбінованих конструкцій, де глухі та відкривні частини поєднуються в одному вікні.",
@@ -138,6 +164,8 @@ export const windows = [
     system: "VIKNALAND 76 AD",
     depth: 76,
     image: vk76ad,
+    photo: vk76adPhoto,
+    scheme: vk76adScheme,
     tagline: "Шестикамерний профіль українського виробництва",
     description:
       "76 AD — шестикамерна система VIKNALAND з монтажною глибиною 76 мм для проєктів з підвищеними вимогами до тепло- та звукоізоляції. Приймає склопакети товщиною до 44 мм, має два контури ущільнення; ламінація виконується на виробництві профілю.",
@@ -168,6 +196,8 @@ export const windows = [
     system: "VIKNALAND LIDER 58",
     depth: 58,
     image: lider58,
+    photo: lider58Photo,
+    scheme: lider58Scheme,
     tagline: "Базова система для квартир, балконів і лоджій",
     description:
       "LIDER 58 — базовий трикамерний профіль VIKNALAND глибиною 58 мм. Оптимальний вибір для житлових приміщень, балконів і лоджій, де не потрібна підвищена теплоізоляція. Дозволяє виготовляти поворотні та поворотно-відкидні конструкції, зокрема нестандартної форми.",
@@ -198,6 +228,8 @@ export const windows = [
     system: "Aluplast energeto neo (AD / MD)",
     depth: 76,
     image: designNeo,
+    photo: designNeoPhoto,
+    scheme: designNeoScheme,
     tagline: "Платформа 76 мм: класичний та flush-дизайн",
     description:
       "Neo Design — енергоефективна платформа глибиною 76 мм зі спільною геометрією профілю для вікон серій AD і MD та дверей. Доступна у двох виконаннях: Classic line та Flush (стулка врівень із рамою). Вклеювання склопакета в стулку підвищує жорсткість конструкції.",
@@ -230,6 +262,8 @@ export const windows = [
     system: "Aluprof MB-86N",
     depth: null,
     image: mb86n,
+    photo: mb86nPhoto,
+    scheme: mb86nScheme,
     tagline: "Преміальна алюмінієва система для великих конструкцій",
     description:
       "MB-86N — теплоізольована алюмінієва система для вікон і дверей великого розміру. Несучий профіль витримує важкі стулки, доступні теплові варіанти ST та SI, три стилі штапика та протизламні рішення від RC1 до RC4. Двері протестовані на мільйон циклів відкривання.",
@@ -258,6 +292,8 @@ export const windows = [
     system: "Aluprof MB-79N",
     depth: 70,
     image: mb79n,
+    photo: mb79nPhoto,
+    scheme: mb79nScheme,
     tagline: "Алюміній із добрим балансом ціни та теплоізоляції",
     description:
       "MB-79N — алюмінієва термоізольована система для вікон, дверей, розсувних і фасадних рішень. Поєднує доступну ціну з високою теплоізоляцією, підтримує двокамерні й трикамерні склопакети, акустичне та протизламне скло, безбар'єрні двері з нульовим порогом.",
@@ -289,6 +325,8 @@ export const windows = [
     system: "KMD 78",
     depth: 70,
     image: kmd78,
+    photo: kmd78Photo,
+    scheme: kmd78Scheme,
     tagline: "Термоізольований алюміній для вікон, дверей і вітражів",
     description:
       "KMD 78 — алюмінієва система з камерними поліамідними термомостами, двома контурами притвору та ущільнювачами з EPDM. Підходить для вікон, дверей і вітражів різної форми та розміру, не втрачає властивостей понад 70 років і витримує перепади від −50 до +50 °C.",
@@ -321,6 +359,8 @@ export const windows = [
     system: "KMD F50M",
     depth: null,
     image: kmdF50m,
+    photo: kmdF50mPhoto,
+    scheme: kmdF50mScheme,
     tagline: "Стійково-ригельний фасад, зимові сади, засклені дахи",
     description:
       "KMD F50M — класична стійково-ригельна система для фасадного скління, світлопрозорих покрівель і зимових садів. Дозволяє поєднувати вертикальні та похилі площини, вбудовувати відкривні елементи й заповнювати конструкцію склопакетами або декоративними панелями. Сумісна з усіма віконно-дверними та розсувними системами KMD.",

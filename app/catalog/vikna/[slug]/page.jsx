@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { windows, getWindow, badgeOf, toneClass, materialOf } from "../../data/windows";
 import { Reveal } from "../../../components/site/motion";
 import JsonLd from "../../../components/site/JsonLd";
+import OrderForm from "../../../components/site/OrderForm";
 import { site, abs } from "../../../data/site";
 
 export const dynamicParams = false;
@@ -31,6 +32,13 @@ export async function generateMetadata({ params }) {
   };
 }
 
+const steps = [
+  ["Заявка", "Залишаєте заявку на цій сторінці або телефонуєте нам."],
+  ["Консультація", "Менеджер уточнює розміри, комплектацію та рахує вартість."],
+  ["Безкоштовний замір", "Фахівець приїжджає на об'єкт і знімає точні розміри."],
+  ["Виготовлення та монтаж", "Виготовляємо конструкції та встановлюємо в узгоджені терміни."],
+];
+
 export default async function WindowProductPage({ params }) {
   const { slug } = await params;
   const w = getWindow(slug);
@@ -54,7 +62,7 @@ export default async function WindowProductPage({ params }) {
       "@type": "Product",
       name: w.name,
       description: w.description,
-      image: abs(w.image.src),
+      image: [abs(w.image.src), abs(w.photo.src)],
       url: abs(`/catalog/vikna/${w.slug}/`),
       category: materialOf(w.material).label,
       brand: { "@type": "Brand", name: w.brand },
@@ -77,8 +85,8 @@ export default async function WindowProductPage({ params }) {
 
           <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-12 items-stretch">
             <Reveal>
-              <div className="h-full min-h-[420px] bg-paper p-8 grid place-items-center">
-                <img src={w.image.src} width={w.image.width} height={w.image.height} alt={`${w.name} — профільна система ${w.brand}`} fetchPriority="high" className="max-h-[520px] w-auto max-w-full object-contain" />
+              <div className="h-full min-h-[420px] bg-gradient-to-b from-white to-[#dfe3e7] p-6 grid place-items-center">
+                <img src={w.image.src} width={w.image.width} height={w.image.height} alt={`${w.name} — профільна система ${w.brand}`} fetchPriority="high" className="max-h-[600px] w-auto max-w-full object-contain drop-shadow-[0_18px_22px_rgba(19,35,58,0.22)]" />
               </div>
             </Reveal>
 
@@ -116,9 +124,9 @@ export default async function WindowProductPage({ params }) {
               )}
 
               <div className="flex flex-wrap gap-3 pt-2">
-                <Link href={`/contact/?product=${encodeURIComponent(w.name)}`} className="bg-brand-orange text-white hover:bg-ink transition-colors px-9 py-4 uppercase font-semibold tracking-wider">
+                <a href="#order" className="bg-brand-orange text-white hover:bg-ink transition-colors px-9 py-4 uppercase font-semibold tracking-wider">
                   Замовити
-                </Link>
+                </a>
                 <Link href="/calc/" className="border-2 border-ink hover:bg-ink hover:text-white transition-colors px-9 py-4 uppercase font-semibold tracking-wider">
                   Розрахувати вартість
                 </Link>
@@ -145,17 +153,48 @@ export default async function WindowProductPage({ params }) {
         </div>
       </section>
 
-      <section className="bg-paper py-12 px-4 sm:px-6">
+      <section className="bg-white py-12 px-4 sm:px-6">
+        <div className="max-w-[1320px] mx-auto grid lg:grid-cols-[1.2fr_1fr] gap-6">
+          <Reveal className="relative min-h-[320px] overflow-hidden bg-paper">
+            <img src={w.photo.src} alt={`${w.name} — приклад застосування`} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+          </Reveal>
+          <Reveal delay={0.1} className="bg-paper p-6 flex flex-col">
+            <h2 className="font-display text-3xl uppercase">Переріз профілю</h2>
+            <div className="mt-4 flex-1 bg-white p-4 grid place-items-center">
+              <img src={w.scheme.src} alt={`Переріз профільної системи ${w.name}`} loading="lazy" className="max-h-[420px] w-auto max-w-full object-contain" />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="bg-white pb-12 px-4 sm:px-6">
+        <div className="max-w-[1320px] mx-auto">
+          <h2 className="font-display text-5xl sm:text-6xl uppercase mb-6">Як замовити</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-ink/15 border border-ink/15">
+            {steps.map(([t, d], i) => (
+              <Reveal key={t} delay={i * 0.08} y={20} className="bg-white p-6">
+                <p className="font-display text-5xl text-brand-orange leading-none">0{i + 1}</p>
+                <h3 className="font-display text-2xl uppercase mt-4">{t}</h3>
+                <p className="mt-2 text-ink/65">{d}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <OrderForm product={w.name.startsWith(w.brand) ? w.name : `${w.brand} ${w.name}`} colors={w.colors} />
+
+      <section className="bg-white py-12 px-4 sm:px-6">
         <div className="max-w-[1320px] mx-auto">
           <h2 className="font-display text-5xl sm:text-6xl uppercase mb-6">Інші системи</h2>
           <div className="grid sm:grid-cols-3 gap-4">
             {related.map((r, i) => (
               <Reveal key={r.slug} delay={i * 0.1}>
-                <Link href={`/catalog/vikna/${r.slug}/`} className="group block bg-white overflow-hidden">
-                  <div className="aspect-[4/3] p-4 grid place-items-center">
-                    <img src={r.image.src} alt={r.name} className="h-full w-auto max-w-full object-contain transition-transform duration-500 group-hover:scale-105" />
+                <Link href={`/catalog/vikna/${r.slug}/`} className="group block bg-paper overflow-hidden">
+                  <div className="aspect-[4/5] bg-gradient-to-b from-white to-[#dfe3e7] m-3 grid place-items-center overflow-hidden">
+                    <img src={r.image.src} alt={r.name} loading="lazy" className="h-full w-full object-contain drop-shadow-[0_12px_16px_rgba(19,35,58,0.2)] transition-transform duration-500 group-hover:scale-105" />
                   </div>
-                  <p className="p-5 border-t border-ink/10 font-display text-2xl uppercase">{r.name}</p>
+                  <p className="px-5 pb-5 pt-2 font-display text-2xl uppercase">{r.name}</p>
                 </Link>
               </Reveal>
             ))}
