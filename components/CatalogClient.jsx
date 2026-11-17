@@ -4,24 +4,20 @@ import Link from "next/link";
 import { buildCatalog, getConfig, PVC_PROFILES } from "@/lib/catalog";
 import { GLASS, COLORS, fmt } from "@/lib/pricing";
 import WindowDiagram from "./WindowDiagram";
-import Modal from "./Modal";
-import OrderForm from "./OrderForm";
+import { useCart } from "./CartProvider";
+import Reveal from "./Reveal";
 import Icon from "./Icon";
 
 const ALL = buildCatalog();
 const PRICE_MAX = Math.ceil(Math.max(...ALL.map((i) => i.price)) / 1000) * 1000;
 const PAGE = 12;
 
-function toggle(set, v) {
-  const n = new Set(set);
-  n.has(v) ? n.delete(v) : n.add(v);
-  return n;
-}
+const toggle = (set, v) => { const n = new Set(set); n.has(v) ? n.delete(v) : n.add(v); return n; };
 
 function Group({ title, children }) {
   return (
     <fieldset className="border-b border-line pb-4">
-      <legend className="font-semibold text-navy text-sm mb-2">{title}</legend>
+      <legend className="font-bold text-navy text-sm mb-2 uppercase tracking-wide">{title}</legend>
       <div className="space-y-1.5">{children}</div>
     </fieldset>
   );
@@ -29,8 +25,8 @@ function Group({ title, children }) {
 
 function Check({ label, checked, onChange, count }) {
   return (
-    <label className="flex items-center gap-2 text-sm cursor-pointer">
-      <input type="checkbox" checked={checked} onChange={onChange} className="accent-[#1d7cc4] w-4 h-4" />
+    <label className="flex items-center gap-2 text-sm cursor-pointer hover:text-brand">
+      <input type="checkbox" checked={checked} onChange={onChange} className="accent-[#0878c0] w-4 h-4" />
       <span className="flex-1">{label}</span>
       {count != null && <span className="text-xs text-muted">{count}</span>}
     </label>
@@ -38,6 +34,8 @@ function Check({ label, checked, onChange, count }) {
 }
 
 export default function CatalogClient() {
+  const { add } = useCart();
+  const [q, setQ] = useState("");
   const [profiles, setProfiles] = useState(new Set());
   const [sashes, setSashes] = useState(new Set());
   const [glass, setGlass] = useState(new Set());
@@ -46,24 +44,39 @@ export default function CatalogClient() {
   const [sort, setSort] = useState("price-asc");
   const [shown, setShown] = useState(PAGE);
   const [filtersOpen, setFiltersOpen] = useState(false);
-  const [order, setOrder] = useState(null);
+  const [added, setAdded] = useState(null);
 
   const list = useMemo(() => {
+    const t = q.trim().toLowerCase();
     let r = ALL.filter((i) =>
       (!profiles.size || profiles.has(i.profile)) &&
       (!sashes.size || sashes.has(i.sashes)) &&
       (!glass.size || glass.has(i.glass)) &&
       (!colors.size || colors.has(i.color)) &&
-      i.price <= maxPrice
+      i.price <= maxPrice &&
+      (!t || `${i.profileName} ${i.configLabel} ${i.width}x${i.height} ${i.width}×${i.height} ${i.glassLabel} ${i.colorLabel}`.toLowerCase().includes(t))
     );
-    r = [...r].sort((a, b) => sort === "price-asc" ? a.price - b.price : sort === "price-desc" ? b.price - a.price : a.profileName.localeCompare(b.profileName) || a.price - b.price);
-    return r;
-  }, [profiles, sashes, glass, colors, maxPrice, sort]);
+    return [...r].sort((a, b) => sort === "price-asc" ? a.price - b.price : sort === "price-desc" ? b.price - a.price : a.profileName.localeCompare(b.profileName) || a.price - b.price);
+  }, [q, profiles, sashes, glass, colors, maxPrice, sort]);
 
-  const reset = () => { setProfiles(new Set()); setSashes(new Set()); setGlass(new Set()); setColors(new Set()); setMaxPrice(PRICE_MAX); setShown(PAGE); };
+  const reset = () => { setQ(""); setProfiles(new Set()); setSashes(new Set()); setGlass(new Set()); setColors(new Set()); setMaxPrice(PRICE_MAX); setShown(PAGE); };
   const upd = (fn) => (v) => { fn((s) => toggle(s, v)); setShown(PAGE); };
   const count = (key, val) => ALL.filter((i) => i[key] === val).length;
   const activeCount = profiles.size + sashes.size + glass.size + colors.size + (maxPrice < PRICE_MAX ? 1 : 0);
+
+  function addItem(i) {
+    const cfg = getConfig(i.config);
+    add({
+      key: i.id,
+      kind: "window",
+      title: `Вікно ${i.profileName} ${i.width}×${i.height} мм`,
+      details: [i.configLabel, i.glassLabel, `Колір: ${i.colorLabel}`],
+      unitPrice: i.price,
+      meta: { cols: cfg.cols, width: i.width, height: i.height },
+    });
+    setAdded(i.id);
+    setTimeout(() => setAdded((a) => (a === i.id ? null : a)), 1200);
+  }
 
   const filters = (
     <div className="space-y-4">
@@ -88,59 +101,66 @@ export default function CatalogClient() {
         ))}
       </Group>
       <div>
-        <p className="font-semibold text-navy text-sm mb-2">Ціна до: <span className="text-brand">{fmt(maxPrice)}</span></p>
-        <input type="range" min={3000} max={PRICE_MAX} step={500} value={maxPrice} onChange={(e) => { setMaxPrice(+e.target.value); setShown(PAGE); }} className="w-full accent-[#1d7cc4]" aria-label="Максимальна ціна" />
+        <p className="font-bold text-navy text-sm mb-2 uppercase tracking-wide">Ціна до: <span className="text-accent">{fmt(maxPrice)}</span></p>
+        <input type="range" min={3000} max={PRICE_MAX} step={500} value={maxPrice} onChange={(e) => { setMaxPrice(+e.target.value); setShown(PAGE); }} className="w-full accent-[#f37a3a]" aria-label="Максимальна ціна" />
       </div>
-      <button onClick={reset} className="btn btn-outline w-full !py-2">Скинути фільтри</button>
+      <button onClick={reset} className="btn btn-outline btn-sm w-full">Скинути фільтри</button>
     </div>
   );
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[270px_1fr]">
-      <aside className="hidden lg:block self-start sticky top-28 rounded-2xl border border-line p-5">{filters}</aside>
+    <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
+      <aside className="hidden lg:block self-start sticky top-28 border border-line bg-white p-5 border-t-4 border-t-accent">{filters}</aside>
 
       <div>
-        <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
-          <p className="text-sm text-muted">Знайдено: <b className="text-ink">{list.length}</b></p>
-          <div className="flex items-center gap-2">
-            <button className="lg:hidden btn btn-outline !py-2" onClick={() => setFiltersOpen(true)}>
-              <Icon name="filter" size={16} /> Фільтри{activeCount ? ` (${activeCount})` : ""}
-            </button>
-            <label className="sr-only" htmlFor="sort">Сортування</label>
-            <select id="sort" className="field !w-auto !py-2" value={sort} onChange={(e) => setSort(e.target.value)}>
-              <option value="price-asc">Спочатку дешевші</option>
-              <option value="price-desc">Спочатку дорожчі</option>
-              <option value="name">За назвою</option>
-            </select>
+        <div className="flex flex-wrap items-center gap-3 mb-6">
+          <div className="relative flex-1 min-w-[200px]">
+            <Icon name="search" size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" />
+            <input type="search" value={q} onChange={(e) => { setQ(e.target.value); setShown(PAGE); }} placeholder="Пошук: профіль, розмір, колір…" className="field !pl-10" aria-label="Пошук по каталогу" />
           </div>
+          <button className="lg:hidden btn btn-outline btn-sm" onClick={() => setFiltersOpen(true)}>
+            <Icon name="filter" size={16} /> Фільтри{activeCount ? ` (${activeCount})` : ""}
+          </button>
+          <label className="sr-only" htmlFor="sort">Сортування</label>
+          <select id="sort" className="field !w-auto" value={sort} onChange={(e) => setSort(e.target.value)}>
+            <option value="price-asc">Спочатку дешевші</option>
+            <option value="price-desc">Спочатку дорожчі</option>
+            <option value="name">За назвою</option>
+          </select>
         </div>
+        <p className="text-sm text-muted mb-4">Знайдено: <b className="text-ink">{list.length}</b></p>
 
         {list.length === 0 ? (
-          <div className="rounded-2xl border border-line p-10 text-center">
-            <p className="font-semibold text-navy">За вибраними фільтрами нічого не знайдено</p>
+          <div className="border border-line p-10 text-center">
+            <p className="font-bold text-navy">За вибраними параметрами нічого не знайдено</p>
             <button onClick={reset} className="btn btn-brand mt-4">Скинути фільтри</button>
           </div>
         ) : (
           <ul className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-            {list.slice(0, shown).map((i) => (
-              <li key={i.id} className="flex flex-col rounded-2xl border border-line bg-white overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="bg-soft h-48 grid place-items-center p-5">
-                  <WindowDiagram cols={ALL_CFG(i.config)} width={i.width} height={i.height} maxW={190} maxH={150} />
+            {list.slice(0, shown).map((i, idx) => (
+              <Reveal as="li" key={i.id} delay={(idx % 3) * 70} className="card flex flex-col">
+                <div className="bg-[linear-gradient(135deg,#eef3f6_0%,#f8f8f0_100%)] h-48 grid place-items-center p-5 relative overflow-hidden">
+                  <span className="absolute -right-6 -top-6 w-24 h-24 bg-lime/50 shard-a" aria-hidden="true" />
+                  <WindowDiagram cols={getConfig(i.config).cols} width={i.width} height={i.height} maxW={190} maxH={150} className="relative" />
                 </div>
                 <div className="p-4 flex-1 flex flex-col">
                   <Link href={`/catalog/${i.profile}/`} className="eyebrow hover:underline">{i.profileName}</Link>
-                  <h3 className="mt-1 font-bold text-navy leading-snug">{i.configLabel} вікно {i.width}×{i.height} мм</h3>
+                  <h3 className="mt-2 font-bold text-navy leading-snug">{i.configLabel} вікно {i.width}×{i.height} мм</h3>
                   <ul className="mt-2 text-sm text-muted space-y-0.5">
                     <li>Склопакет: {i.glassLabel}</li>
                     <li>Колір: {i.colorLabel}</li>
                   </ul>
-                  <p className="mt-3 text-2xl font-bold text-navy">{fmt(i.price)}</p>
-                  <div className="mt-3 grid grid-cols-2 gap-2">
-                    <button className="btn btn-accent !px-3" onClick={() => setOrder(i)}>Замовити</button>
-                    <Link href={`/calc/?profile=${i.profile}&config=${i.config}&w=${i.width}&h=${i.height}&glass=${i.glass}&color=${i.color}`} className="btn btn-outline !px-3">Змінити</Link>
+                  <p className="mt-3 text-2xl font-extrabold text-navy">{fmt(i.price)}</p>
+                  <div className="mt-3 grid grid-cols-[1fr_auto] gap-2">
+                    <button className={`btn btn-sm ${added === i.id ? "btn-lime" : "btn-accent"}`} onClick={() => addItem(i)}>
+                      {added === i.id ? <><Icon name="check" size={16} /> Додано</> : <><Icon name="cart" size={16} /> В кошик</>}
+                    </button>
+                    <Link href={`/calc/?profile=${i.profile}&config=${i.config}&w=${i.width}&h=${i.height}&glass=${i.glass}&color=${i.color}`} className="btn btn-outline btn-sm" aria-label="Змінити параметри в калькуляторі" title="Змінити параметри">
+                      <Icon name="calc" size={16} />
+                    </Link>
                   </div>
                 </div>
-              </li>
+              </Reveal>
             ))}
           </ul>
         )}
@@ -156,29 +176,13 @@ export default function CatalogClient() {
       {filtersOpen && (
         <div className="lg:hidden fixed inset-0 z-[90] bg-white overflow-y-auto p-5">
           <div className="flex items-center justify-between mb-4">
-            <p className="text-lg font-bold text-navy">Фільтри</p>
+            <p className="text-lg font-extrabold text-navy">Фільтри</p>
             <button onClick={() => setFiltersOpen(false)} aria-label="Закрити"><Icon name="x" size={26} /></button>
           </div>
           {filters}
           <button className="btn btn-accent w-full mt-5" onClick={() => setFiltersOpen(false)}>Показати {list.length}</button>
         </div>
       )}
-
-      <Modal open={!!order} onClose={() => setOrder(null)} title="Замовити вікно">
-        {order && (
-          <>
-            <p className="text-sm text-muted mb-4">{order.profileName}, {order.configLabel.toLowerCase()} {order.width}×{order.height} мм, {order.glassLabel}, {order.colorLabel} — <b className="text-navy">{fmt(order.price)}</b></p>
-            <OrderForm
-              subject="Замовлення вікна з каталогу"
-              compact
-              payload={{ Профіль: order.profileName, Конфігурація: order.configLabel, "Розмір, мм": `${order.width}×${order.height}`, Склопакет: order.glassLabel, Колір: order.colorLabel, "Орієнтовна ціна": fmt(order.price) }}
-            />
-          </>
-        )}
-      </Modal>
     </div>
   );
 }
-
-
-function ALL_CFG(id) { return getConfig(id).cols; }

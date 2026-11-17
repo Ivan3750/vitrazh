@@ -30,21 +30,22 @@ export default async function ProfilePage({ params }) {
 
   return (
     <>
-      <section className="bg-navy text-white">
-        <div className="container-x py-12 md:py-16 grid gap-8 md:grid-cols-[1fr_auto] items-center">
+      <section className="relative bg-ink text-white overflow-hidden on-dark">
+        <div className="absolute -right-10 -top-16 w-72 h-72 bg-brand/35 shard-a anim-drift" aria-hidden="true" />
+        <div className="container-x relative py-14 md:py-20 grid gap-8 md:grid-cols-[1fr_auto] items-center">
           <div>
-            <nav className="text-sm text-white/60" aria-label="Хлібні крихти">
+            <nav className="text-sm text-white/60 anim-rise" aria-label="Хлібні крихти">
               <Link href="/" className="hover:text-white">Головна</Link> / <Link href="/catalog/" className="hover:text-white">Каталог</Link> / {p.name}
             </nav>
-            <h1 className="mt-3 text-3xl md:text-5xl font-bold">{p.name}</h1>
-            <p className="mt-3 text-lg text-white/85 max-w-2xl">{p.tagline}</p>
-            <div className="mt-6 flex flex-wrap gap-3">
+            <h1 className="mt-4 text-4xl md:text-6xl font-extrabold tracking-tight anim-rise [animation-delay:80ms]">{p.name}</h1>
+            <p className="mt-4 text-lg text-white/85 max-w-2xl anim-rise [animation-delay:160ms]">{p.tagline}</p>
+            <div className="mt-7 flex flex-wrap gap-3 anim-rise [animation-delay:240ms]">
               {sellable && <Link href={`/calc/?profile=${p.slug}`} className="btn btn-accent">Розрахувати вартість</Link>}
-              <a href="#order" className="btn btn-ghost-light">Замовити консультацію</a>
+              <a href="#order" className="btn btn-ghost-light">Консультація</a>
             </div>
-            {from && <p className="mt-4 text-white/70 text-sm">Вікно 800×1300 мм від <b className="text-white">{fmt(from)}</b> (орієнтовно)</p>}
+            {from && <p className="mt-5 text-white/70 text-sm">Вікно 800×1300 мм від <b className="text-white">{fmt(from)}</b> (орієнтовно)</p>}
           </div>
-          <div className="hidden md:block relative bg-white rounded-2xl w-72 h-72">
+          <div className="hidden md:block relative bg-white w-72 h-72 border-b-8 border-accent anim-rise [animation-delay:200ms]">
             <Image src={p.image} alt={p.name} fill sizes="288px" className="object-contain p-5" priority />
           </div>
         </div>
@@ -60,7 +61,7 @@ export default async function ProfilePage({ params }) {
             </div>
 
             <h2 className="h2 mt-12">Технічні характеристики</h2>
-            <dl className="mt-5 rounded-2xl border border-line overflow-hidden">
+            <dl className="mt-5 border border-line overflow-hidden">
               {p.specs.map(([k, v], i) => (
                 <div key={k} className={`grid grid-cols-[1fr_1fr] gap-4 px-5 py-3 text-sm ${i % 2 ? "bg-white" : "bg-soft"}`}>
                   <dt className="text-muted">{k}</dt>
@@ -74,7 +75,7 @@ export default async function ProfilePage({ params }) {
                 <h2 className="h2 mt-12">Додаткові можливості</h2>
                 <div className="mt-5 grid gap-4 sm:grid-cols-2">
                   {p.features.map((f) => (
-                    <div key={f.title} className="rounded-2xl bg-soft p-5">
+                    <div key={f.title} className=" bg-soft p-5">
                       <p className="flex items-center gap-2 font-bold text-navy"><Icon name="check" size={18} className="text-brand" />{f.title}</p>
                       <p className="mt-2 text-sm text-muted leading-relaxed">{f.text}</p>
                     </div>
@@ -84,7 +85,7 @@ export default async function ProfilePage({ params }) {
             )}
           </div>
 
-          <aside id="order" className="self-start lg:sticky lg:top-28 rounded-2xl border border-line p-6 shadow-sm">
+          <aside id="order" className="self-start lg:sticky lg:top-28 border-t-4 border-accent bg-white p-6 shadow-[8px_8px_0_var(--color-lime)]">
             <h2 className="text-xl font-bold text-navy">Замовити розрахунок</h2>
             <p className="text-sm text-muted mt-1 mb-4">Залиште контакти — підготуємо пропозицію на {p.name}.</p>
             <OrderForm subject={`Заявка: ${p.name}`} payload={{ Профіль: p.name }} submitLabel="Замовити прорахунок" compact />

@@ -40,7 +40,7 @@ export default function OrderForm({ payload = {}, subject = "Заявка з с�
 
   if (state.status === "ok") {
     return (
-      <div className="rounded-xl bg-green-50 border border-green-200 p-6 text-center">
+      <div className=" bg-green-50 border border-green-200 p-6 text-center">
         <p className="text-lg font-semibold text-green-800">Дякуємо! Заявку отримано.</p>
         <p className="text-green-700 mt-1">Менеджер зателефонує вам найближчим часом.</p>
       </div>

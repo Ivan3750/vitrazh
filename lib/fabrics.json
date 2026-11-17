@@ -1,0 +1,74 @@
+[
+ {
+  "id": "a-maxi-white",
+  "label": "A MAXI white",
+  "color": "Білий",
+  "type": "Однотонні"
+ },
+ {
+  "id": "a-maxi-cream",
+  "label": "A MAXI cream",
+  "color": "Жовтий",
+  "type": "Однотонні"
+ },
+ {
+  "id": "a-maxi-basalt",
+  "label": "A MAXI basalt",
+  "color": "Сірий",
+  "type": "Однотонні"
+ },
+ {
+  "id": "berlin-0826-chocolate-brown",
+  "label": "Berlin 0826 chocolate brown",
+  "color": "Коричневий",
+  "type": "Однотонні"
+ },
+ {
+  "id": "berlin-0842-leaf-green",
+  "label": "Berlin 0842 leaf green",
+  "color": "Зелений",
+  "type": "Однотонні"
+ },
+ {
+  "id": "berlin-0838-lavander-mist",
+  "label": "Berlin 0838 lavander mist",
+  "color": "Синій",
+  "type": "Однотонні"
+ },
+ {
+  "id": "a-87-salmon",
+  "label": "A-87 salmon",
+  "color": "Червоний",
+  "type": "Однотонні"
+ },
+ {
+  "id": "a-maxi-black",
+  "label": "A MAXI black",
+  "color": "Чорний",
+  "type": "Однотонні"
+ },
+ {
+  "id": "adelin-b-o-04-grey",
+  "label": "ADELIN B.O. 04 grey",
+  "color": "Сірий",
+  "type": "Функціональні"
+ },
+ {
+  "id": "adelin-b-o-01-white",
+  "label": "ADELIN B.O. 01 white",
+  "color": "Білий",
+  "type": "Функціональні"
+ },
+ {
+  "id": "aruba-natural-223",
+  "label": "Aruba Natural-223",
+  "color": "Жовтий",
+  "type": "Натуральні"
+ },
+ {
+  "id": "aruba-oak-221",
+  "label": "Aruba Oak-221",
+  "color": "Коричневий",
+  "type": "Натуральні"
+ }
+]

@@ -1,22 +1,17 @@
 import CatalogClient from "@/components/CatalogClient";
+import PageHero from "@/components/PageHero";
 
 export const metadata = {
-  title: "Каталог металопластикових вікон з цінами",
-  description: "Купити металопластикові вікна в Києві: одно-, дво- та тристулкові конструкції на різних профільних системах. Фільтри за профілем, склопакетом і кольором, орієнтовні ціни.",
+  title: "Купити металопластикові вікна в Києві — каталог із цінами",
+  description: "Каталог металопластикових вікон: одно-, дво- та тристулкові конструкції на різних профільних системах. Фільтри, ціни, кошик і замовлення онлайн.",
   alternates: { canonical: "/catalog/" },
 };
 
 export default function CatalogPage() {
   return (
     <>
-      <section className="bg-navy text-white">
-        <div className="container-x py-12 md:py-16">
-          <nav className="text-sm text-white/60" aria-label="Хлібні крихти"><a href="/" className="hover:text-white">Головна</a> / Каталог вікон</nav>
-          <h1 className="mt-3 text-3xl md:text-5xl font-bold">Металопластикові вікна</h1>
-          <p className="mt-3 text-white/80 max-w-2xl">Оберіть готову конфігурацію або змініть розміри в калькуляторі. Ціни вказані орієнтовно — точну вартість розрахуємо після безкоштовного заміру.</p>
-        </div>
-      </section>
-      <section className="py-10 md:py-14">
+      <PageHero title="Металопластикові вікна" lead="Оберіть готову конфігурацію та додайте в кошик або змініть розміри в калькуляторі. Ціни орієнтовні — точну вартість розрахуємо після безкоштовного заміру." crumbs={[["Каталог"]]} />
+      <section className="py-10 md:py-14 bg-soft">
         <div className="container-x"><CatalogClient /></div>
       </section>
     </>
