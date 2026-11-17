@@ -1,27 +1,25 @@
-import Calc from "../components/Calc";
+import Link from "next/link";
+import Calculator from "@/components/Calculator";
 
 export const metadata = {
-  title: "Калькулятор вартості вікон",
-  description:
-    "Онлайн-калькулятор VitraZH допоможе швидко розрахувати вартість металопластикових вікон у Києві та області. Точний прорахунок, зручність та прозорі ціни.",
-  keywords:
-    "калькулятор вікон, розрахунок вартості вікон Київ, ціна металопластикових вікон, прорахунок вікон онлайн, VitraZH калькулятор",
-  robots: "index, follow",
-  openGraph: {
-    type: "website",
-    title: "Калькулятор вартості вікон VitraZH",
-    description:
-      "Розрахуйте онлайн вартість металопластикових вікон. Безкоштовний прорахунок від VitraZH у Києві та області.",
-    siteName: "VitraZH",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Онлайн-калькулятор вікон VitraZH",
-    description:
-      "Зручний калькулятор для прорахунку вартості вікон, у Києві та області. Прозорі ціни та якісний монтаж.",
-  },
+  title: "Калькулятор вартості вікон онлайн",
+  description: "Розрахуйте вартість металопластикових вікон онлайн: оберіть профіль, конфігурацію, розміри, склопакет, колір, фурнітуру та послуги монтажу.",
+  alternates: { canonical: "/calc/" },
 };
 
 export default function CalcPage() {
-  return <Calc />;
+  return (
+    <>
+      <section className="bg-navy text-white">
+        <div className="container-x py-12 md:py-16">
+          <nav className="text-sm text-white/60" aria-label="Хлібні крихти"><Link href="/" className="hover:text-white">Головна</Link> / Калькулятор</nav>
+          <h1 className="mt-3 text-3xl md:text-5xl font-bold">Калькулятор вікон</h1>
+          <p className="mt-3 text-white/80 max-w-2xl">Налаштуйте вікно крок за кроком — вартість оновлюється одразу. Готовий розрахунок можна надіслати нам однією кнопкою.</p>
+        </div>
+      </section>
+      <section className="py-10 md:py-14 bg-soft">
+        <div className="container-x"><Calculator /></div>
+      </section>
+    </>
+  );
 }

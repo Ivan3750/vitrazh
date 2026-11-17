@@ -1,0 +1,190 @@
+"use client";
+import { useEffect, useMemo, useState } from "react";
+import Image from "next/image";
+import { CONFIGS, PVC_PROFILES, getConfig, sashesOf } from "@/lib/catalog";
+import { COLORS, GLASS, HARDWARE, SERVICES, PROFILE_PRICE_M2, calcPrice, fmt } from "@/lib/pricing";
+import WindowDiagram from "./WindowDiagram";
+import OrderForm from "./OrderForm";
+import Icon from "./Icon";
+
+const PROFILES = PVC_PROFILES.filter((p) => p.slug in PROFILE_PRICE_M2);
+const LIMITS = { min: 300, max: 3000 };
+
+function Step({ n, title, children }) {
+  return (
+    <section className="rounded-2xl border border-line bg-white p-5 md:p-6">
+      <h2 className="flex items-center gap-3 text-lg font-bold text-navy">
+        <span className="grid place-items-center w-8 h-8 rounded-full bg-brand text-white text-sm">{n}</span>{title}
+      </h2>
+      <div className="mt-4">{children}</div>
+    </section>
+  );
+}
+
+const Choice = ({ active, onClick, children, className = "" }) => (
+  <button type="button" onClick={onClick} aria-pressed={active} className={`rounded-xl border-2 text-left transition-colors ${active ? "border-brand bg-brand/5" : "border-line hover:border-brand/50"} ${className}`}>
+    {children}
+  </button>
+);
+
+export default function Calculator() {
+  const [profile, setProfile] = useState(PROFILES[0].slug);
+  const [config, setConfig] = useState("2tt");
+  const [width, setWidth] = useState(1300);
+  const [height, setHeight] = useState(1400);
+  const [glass, setGlass] = useState("g2");
+  const [color, setColor] = useState("white");
+  const [hardware, setHardware] = useState("axor");
+  const [services, setServices] = useState(["measure"]);
+  const [qty, setQty] = useState(1);
+
+  // Початкові значення з посилання (з каталогу)
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search);
+    const has = (arr, id) => arr.some((x) => (x.slug ?? x.id) === id);
+    if (has(PROFILES, q.get("profile"))) setProfile(q.get("profile"));
+    if (has(CONFIGS, q.get("config"))) setConfig(q.get("config"));
+    if (has(GLASS, q.get("glass"))) setGlass(q.get("glass"));
+    if (has(COLORS, q.get("color"))) setColor(q.get("color"));
+    const w = +q.get("w"), h = +q.get("h");
+    if (w >= LIMITS.min && w <= LIMITS.max) setWidth(w);
+    if (h >= LIMITS.min && h <= LIMITS.max) setHeight(h);
+  }, []);
+
+  const cfg = getConfig(config);
+  const sashes = sashesOf(cfg);
+  const clamp = (v) => Math.min(LIMITS.max, Math.max(LIMITS.min, Math.round(+v || LIMITS.min)));
+  const price = useMemo(() => calcPrice({ profile, width, height, sashes, glass, color, hardware, services }), [profile, width, height, sashes, glass, color, hardware, services]);
+  const total = price.total * qty;
+  const p = PROFILES.find((x) => x.slug === profile);
+
+  const payload = {
+    Профіль: p.name,
+    Конфігурація: cfg.label,
+    "Розмір, мм": `${width}×${height}`,
+    Кількість: String(qty),
+    Склопакет: GLASS.find((g) => g.id === glass).label,
+    Колір: COLORS.find((c) => c.id === color).label,
+    Фурнітура: HARDWARE.find((h) => h.id === hardware).label,
+    Послуги: services.map((s) => SERVICES.find((x) => x.id === s)?.label).join(", ") || "—",
+    "Орієнтовна сума": fmt(total),
+  };
+
+  return (
+    <div className="grid gap-8 lg:grid-cols-[1fr_380px] items-start">
+      <div className="space-y-5">
+        <Step n={1} title="Профільна система">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {PROFILES.map((x) => (
+              <Choice key={x.slug} active={profile === x.slug} onClick={() => setProfile(x.slug)} className="p-3 flex items-center gap-3">
+                <span className="relative w-11 h-14 shrink-0"><Image src={x.image} alt="" fill sizes="44px" className="object-contain" /></span>
+                <span>
+                  <span className="block font-semibold text-navy leading-tight">{x.name}</span>
+                  <span className="block text-xs text-muted mt-0.5">{x.specs[0]?.[1]}, камер {x.specs[1]?.[1]}</span>
+                </span>
+              </Choice>
+            ))}
+          </div>
+        </Step>
+
+        <Step n={2} title="Конфігурація вікна">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {CONFIGS.map((c) => (
+              <Choice key={c.id} active={config === c.id} onClick={() => setConfig(c.id)} className="p-3 flex flex-col items-center gap-2">
+                <WindowDiagram cols={c.cols} width={c.cols.length * 600} height={1200} maxW={110} maxH={90} />
+                <span className="text-xs text-center text-muted leading-tight">{c.label}</span>
+              </Choice>
+            ))}
+          </div>
+          <p className="text-xs text-muted mt-3 flex gap-4"><span><i className="inline-block w-4 border-t-2 border-dashed border-brand align-middle mr-1" />поворот</span><span><i className="inline-block w-4 border-t-2 border-dashed border-accent align-middle mr-1" />відкидання</span></p>
+        </Step>
+
+        <Step n={3} title="Розміри, мм">
+          <div className="grid sm:grid-cols-[1fr_1fr_180px] gap-4 items-center">
+            {[["Ширина", width, setWidth], ["Висота", height, setHeight]].map(([label, val, set]) => (
+              <label key={label} className="block text-sm">
+                <span className="text-muted">{label}</span>
+                <input type="number" inputMode="numeric" className="field mt-1" min={LIMITS.min} max={LIMITS.max} value={val} onChange={(e) => set(e.target.value === "" ? "" : +e.target.value)} onBlur={(e) => set(clamp(e.target.value))} />
+              </label>
+            ))}
+            <div className="hidden sm:grid place-items-center"><WindowDiagram cols={cfg.cols} width={+width || 1000} height={+height || 1000} maxW={110} maxH={110} /></div>
+          </div>
+          <p className="text-xs text-muted mt-2">Допустимо від {LIMITS.min} до {LIMITS.max} мм. Площа: {price.area.toFixed(2)} м².</p>
+        </Step>
+
+        <Step n={4} title="Склопакет">
+          <div className="grid gap-3 sm:grid-cols-2">
+            {GLASS.map((g) => (
+              <Choice key={g.id} active={glass === g.id} onClick={() => setGlass(g.id)} className="px-4 py-3 text-sm font-medium">{g.label}</Choice>
+            ))}
+          </div>
+        </Step>
+
+        <Step n={5} title="Колір профілю">
+          <div className="flex flex-wrap gap-3">
+            {COLORS.map((c) => (
+              <Choice key={c.id} active={color === c.id} onClick={() => setColor(c.id)} className="px-3 py-2 flex items-center gap-2 text-sm font-medium">
+                <span className="w-6 h-6 rounded-full border border-line" style={{ background: c.swatch }} />{c.label}
+              </Choice>
+            ))}
+          </div>
+        </Step>
+
+        <Step n={6} title="Фурнітура">
+          <div className="grid gap-3 sm:grid-cols-2">
+            {HARDWARE.map((h) => (
+              <Choice key={h.id} active={hardware === h.id} onClick={() => setHardware(h.id)} className="px-4 py-3 text-sm font-medium">{h.label}</Choice>
+            ))}
+          </div>
+        </Step>
+
+        <Step n={7} title="Додаткові послуги">
+          <div className="grid gap-2 sm:grid-cols-2">
+            {SERVICES.map((s) => (
+              <label key={s.id} className="flex items-center gap-3 rounded-xl border border-line px-4 py-3 text-sm cursor-pointer hover:border-brand/50">
+                <input type="checkbox" className="accent-[#1d7cc4] w-4 h-4" checked={services.includes(s.id)} onChange={() => setServices((a) => a.includes(s.id) ? a.filter((x) => x !== s.id) : [...a, s.id])} />
+                <span className="flex-1">{s.label}</span>
+                {s.note && <span className="text-xs text-green-700">{s.note}</span>}
+              </label>
+            ))}
+          </div>
+        </Step>
+      </div>
+
+      <aside className="lg:sticky lg:top-28 rounded-2xl border border-line bg-white shadow-sm p-5 md:p-6">
+        <h2 className="text-lg font-bold text-navy">Ваш розрахунок</h2>
+        <div className="mt-3 grid place-items-center bg-soft rounded-xl p-4">
+          <WindowDiagram cols={cfg.cols} width={+width || 1000} height={+height || 1000} maxW={170} maxH={150} />
+        </div>
+        <dl className="mt-4 space-y-1.5 text-sm">
+          {Object.entries(payload).filter(([k]) => !["Кількість", "Орієнтовна сума"].includes(k)).map(([k, v]) => (
+            <div key={k} className="flex justify-between gap-4"><dt className="text-muted shrink-0">{k}</dt><dd className="text-right font-medium">{v}</dd></div>
+          ))}
+        </dl>
+        <div className="mt-4 border-t border-line pt-4 space-y-1 text-sm">
+          <div className="flex justify-between"><span className="text-muted">Конструкція (1 шт.)</span><b>{fmt(price.construction)}</b></div>
+          {price.lines.filter((l) => l.value > 0).map((l) => (
+            <div key={l.id} className="flex justify-between"><span className="text-muted">{l.label}</span><span>{fmt(l.value)}</span></div>
+          ))}
+          <div className="flex items-center justify-between pt-2">
+            <span className="text-muted">Кількість, шт.</span>
+            <div className="flex items-center gap-2">
+              <button type="button" className="w-8 h-8 rounded-lg border border-line" onClick={() => setQty((q) => Math.max(1, q - 1))} aria-label="Менше">−</button>
+              <span className="w-6 text-center font-semibold">{qty}</span>
+              <button type="button" className="w-8 h-8 rounded-lg border border-line" onClick={() => setQty((q) => Math.min(50, q + 1))} aria-label="Більше">+</button>
+            </div>
+          </div>
+        </div>
+        <div className="mt-4 rounded-xl bg-navy text-white p-4">
+          <p className="text-xs text-white/70">Орієнтовна вартість</p>
+          <p className="text-3xl font-bold">{fmt(total)}</p>
+        </div>
+        <p className="mt-2 text-xs text-muted">Остаточну вартість розрахує менеджер після заміру.</p>
+        <div className="mt-5 border-t border-line pt-5">
+          <p className="font-semibold text-navy mb-3 flex items-center gap-2"><Icon name="calc" size={18} />Замовити за цим розрахунком</p>
+          <OrderForm subject="Заявка з калькулятора вікон" payload={payload} compact submitLabel="Надіслати заявку" />
+        </div>
+      </aside>
+    </div>
+  );
+}

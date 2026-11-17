@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+ 
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Arial Narrow", Arial, sans-serif;
+}
+
+
+a:hover, button:hover{
+  cursor: pointer;
+  scale: 0.95;
+  transition: .2s;
+}
+
+h1 {
+  font-size: 48px;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+@media (min-width: 240px) {
+  /* sm */
+  h1 {
+    font-size: 30px;
+    line-height: 1.2;
+  }
+}
+@media (min-width: 640px) {
+  /* sm */
+  h1 {
+    font-size: 40px;
+    line-height: 1.2;
+  }
+}
+
+@media (min-width: 768px) {
+  /* md */
+  h1 {
+    font-size: 72px;
+    line-height: 1.2;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* lg */
+  h1 {
+    font-size: 80px;
+    line-height: 1.2;
+  }
+}
+
+.mc{
+  max-width: 1200px;
+  margin: 0px auto;
+}
+
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 18s linear infinite;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE і Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+details summary {
+  list-style: none;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+input{
+      @apply accent-[#D8F422];
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* --- СТИЛІ ДЛЯ SWIPER --- */
+
+/* Колір стрілок */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ffffff !important; /* свій колір */
+  transition: color 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #ffffff !important; /* колір при наведенні */
+}
+
+/* Колір точок пагінації */
+.swiper-pagination-bullet {
+  background: #ffffff !important; /* базовий колір */
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background: #ffffff !important; /* активна точка */
+  opacity: 1;
+}
