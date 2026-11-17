@@ -6,7 +6,7 @@ export const metadata = { title: "Дякуємо за замовлення", rob
 
 export default function ThanksPage() {
   return (
-    <section className="section bg-[radial-gradient(50%_60%_at_50%_0%,rgba(216,244,34,.12)_0%,transparent_70%)]">
+    <section className="section">
       <div className="container-x max-w-xl flex flex-col items-center gap-6 text-center">
         <span className="anim-pop grid place-items-center w-16 h-16 bg-accent text-ink"><Icon name="check" size={32} /></span>
         <h1 className="display !text-[clamp(2rem,4.4vw,3rem)] anim-rise [animation-delay:100ms]">Замовлення прийнято</h1>

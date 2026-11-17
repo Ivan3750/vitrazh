@@ -279,7 +279,7 @@ export default function HomePage() {
       {/* єВІДНОВЛЕННЯ */}
       <section className="section-deep border-y border-line relative overflow-hidden">
         <Image src="/img/photo/dark-grey.webp" alt="" fill sizes="100vw" className="object-cover opacity-25" loading="lazy" />
-        <div className="absolute inset-0 bg-gradient-to-r from-deep via-deep/90 to-deep/50" />
+        <div className="absolute inset-0 bg-deep/80" />
         <div className="container-x relative py-16 md:py-24 grid gap-8 md:grid-cols-[1.4fr_1fr] items-center">
           <Reveal className="flex flex-col gap-5">
             <span className="eyebrow">єВідновлення</span>
@@ -305,9 +305,8 @@ export default function HomePage() {
       <section className="section pt-0" id="order">
         <div className="container-x">
           <div className="theme-dark relative overflow-hidden border border-line-2 bg-deep grid gap-10 lg:grid-cols-2 p-6 sm:p-10 md:p-16 items-center">
-            <Image src="/img/photo/window-dark.webp" alt="" fill sizes="100vw" className="object-cover opacity-30" loading="lazy" />
-            <div className="absolute inset-0 bg-gradient-to-r from-deep via-deep/85 to-deep/40" />
-            <div className="absolute -right-24 -bottom-24 w-[420px] h-[420px] glow" aria-hidden="true" />
+            <Image src="/img/photo/window-dark.webp" alt="" fill sizes="100vw" className="object-cover opacity-40" loading="lazy" />
+            <div className="absolute inset-0 bg-deep/75" />
             <Reveal className="relative flex flex-col gap-5">
               <span className="eyebrow">Консультація</span>
               <h2 className="h2">Залишіть заявку — ми передзвонимо</h2>

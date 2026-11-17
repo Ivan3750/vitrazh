@@ -11,7 +11,6 @@ const A = ({ href, children }) => <Link href={href} className="text-text-2 hover
 export default function Footer() {
   return (
     <footer className="theme-dark relative bg-deep border-t border-line overflow-hidden">
-      <div className="absolute -bottom-40 left-1/2 -translate-x-1/2 w-[900px] h-[400px] glow opacity-40 pointer-events-none" aria-hidden="true" />
       <div className="container-x relative pt-16 md:pt-24 pb-12">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 pb-12 border-b border-line">
           <h2 className="h2 max-w-xl">Готові змінити свої вікна? <span className="accent-text">Зателефонуйте.</span></h2>

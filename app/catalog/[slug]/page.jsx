@@ -32,7 +32,6 @@ export default async function ProfilePage({ params }) {
     <>
       <section className="theme-dark relative overflow-hidden border-b border-line bg-deep">
         <div className="absolute inset-0 grid-bg" aria-hidden="true" />
-        <div className="absolute -top-40 -right-40 w-[560px] h-[560px] glow parallax" style={{ "--p": -0.12 }} aria-hidden="true" />
         <div className="container-x relative pt-12 md:pt-16 pb-12 md:pb-20 grid gap-12 md:grid-cols-[1.3fr_1fr] items-center">
           <div className="flex flex-col gap-5">
             <nav className="small anim-rise" aria-label="Хлібні крихти">

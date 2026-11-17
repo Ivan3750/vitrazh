@@ -36,7 +36,6 @@ export default function WindowCard({ item, onQuick, initialGlass = "g2", initial
   return (
     <article className="card flex flex-col h-full group">
       <div className="relative panel h-60 grid place-items-center p-5 overflow-hidden" data-tilt-host>
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
         {tag && <span className="badge absolute left-4 top-4 z-10">{tag.tag}</span>}
         <button type="button" onClick={() => onQuick?.(item, glass, color)} className="relative z-10 transition-transform duration-500 group-hover:scale-105" aria-label={`Швидкий перегляд: ${item.configLabel} ${item.width}×${item.height}`}>
           <WindowDiagram cols={item.cols} width={item.width} height={item.height} color={color} maxW={230} maxH={180} />

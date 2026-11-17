@@ -5,7 +5,6 @@ export default function PageHero({ title, lead, crumbs = [], children }) {
   return (
     <section className="theme-dark relative overflow-hidden border-b border-line bg-deep">
       <div className="absolute inset-0 grid-bg" aria-hidden="true" />
-      <div className="absolute -top-40 -right-40 w-[560px] h-[560px] glow parallax" style={{ "--p": -0.12 }} aria-hidden="true" />
       <div className="container-x relative pt-12 md:pt-16 pb-12 md:pb-20 flex flex-col gap-5">
         <nav className="small anim-rise" aria-label="Хлібні крихти">
           <Link href="/" className="hover:text-accent-fg transition-colors inline-block py-2">Головна</Link>

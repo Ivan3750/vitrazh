@@ -34,7 +34,7 @@
 
 /* Змінні, які не потрапляють у утиліти Tailwind */
 :root {
-  --panel-a: #f1f0ea; --panel-b: #dcdbd3;
+  --panel-a: #e9e8e1; --panel-b: #e9e8e1;
   --grid-line: rgba(10,10,10,.06);
   --select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%230a0a0a' stroke-width='2'%3E%3Cpath d='m1 1 5 5 5-5'/%3E%3C/svg%3E");
   --card-glow: rgba(10,10,10,.05);
@@ -47,7 +47,7 @@
   --color-line: rgba(255,255,255,.09); --color-line-2: rgba(255,255,255,.18);
   --color-ink: #f5f5ef; --color-text-2: rgba(245,245,239,.68); --color-text-3: rgba(245,245,239,.42);
   --color-accent-fg: #d8f422; --color-sel: #d8f422;
-  --panel-a: #262626; --panel-b: #141414; --grid-line: rgba(255,255,255,.05);
+  --panel-a: #1d1d1d; --panel-b: #1d1d1d; --grid-line: rgba(255,255,255,.05);
   --select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23f5f5ef' stroke-width='2'%3E%3Cpath d='m1 1 5 5 5-5'/%3E%3C/svg%3E");
   --card-glow: rgba(216,244,34,.16); --card-hover: rgba(216,244,34,.5);
   background: var(--color-bg); color: var(--color-ink);
@@ -84,10 +84,8 @@
   .eyebrow::before { content: ""; width: 8px; height: 8px; background: var(--color-accent); }
   .num { font-family: var(--font-display); font-weight: 500; letter-spacing: .01em; font-variant-numeric: tabular-nums; }
   .meta { font-size: .6875rem; letter-spacing: .16em; text-transform: uppercase; color: var(--color-text-3); font-weight: 600; }
-  .v-lines { background-image: linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px); background-size: 25% 100%; }
   .h-line { height: 1px; background: var(--color-line-2); }
   .accent-text { color: var(--color-accent-fg); }
-  .shimmer { background: linear-gradient(100deg, var(--color-accent-fg) 20%, var(--color-ink) 45%, var(--color-accent-fg) 70%); background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shimmer 5s linear infinite; }
 
   .section-head { display: flex; flex-direction: column; gap: 16px; margin-bottom: 48px; max-width: 680px; }
   @media (min-width: 768px) { .section-head { margin-bottom: 64px; } }
@@ -103,8 +101,8 @@
     border: 1px solid transparent; cursor: pointer; touch-action: manipulation;
     transition: background-color .25s, color .25s, border-color .25s, box-shadow .25s, transform .25s;
   }
-  .btn::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(100deg, transparent 30%, rgba(255,255,255,.35) 50%, transparent 70%); transform: translateX(-120%); transition: transform .6s; }
-  .btn:hover::after { transform: translateX(120%); }
+  .btn::after { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 45%; z-index: -1; background: rgba(255,255,255,.28); transform: translateX(-130%) skewX(-18deg); transition: transform .6s; }
+  .btn:hover::after { transform: translateX(260%) skewX(-18deg); }
   .btn svg { transition: transform .25s; }
   .btn:hover svg:last-child { transform: translateX(4px); }
   .btn:active { transform: scale(.97); }
@@ -130,21 +128,18 @@
 
   /* Картка з підсвіткою від курсора (--mx / --my виставляє Effects) */
   .card { position: relative; background: var(--color-surface); border: 1px solid var(--color-line); transition: border-color .3s, transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s; }
-  .card::before { content: ""; position: absolute; inset: -1px; pointer-events: none; opacity: 0; transition: opacity .3s; background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), var(--card-glow), transparent 60%); z-index: 1; }
   @media (hover: hover) and (pointer: fine) {
     .card:hover { border-color: var(--card-hover); transform: translateY(-4px); box-shadow: 0 24px 48px -24px rgba(0,0,0,.35); }
-    .card:hover::before { opacity: 1; }
   }
 
   .chip { display: inline-flex; align-items: center; gap: 8px; height: 32px; padding-inline: 12px; font-size: .8125rem; font-weight: 600; border: 1px solid var(--color-line-2); background: color-mix(in srgb, var(--color-surface) 70%, transparent); color: var(--color-ink); backdrop-filter: blur(6px); }
   .badge { display: inline-flex; align-items: center; height: 24px; padding-inline: 8px; font-size: .6875rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; background: var(--color-accent); color: var(--color-on-accent); }
   .badge-dim { background: var(--color-line); color: var(--color-ink); }
-  .tint-brand, .tint-accent, .tint-lime, .tint-soft, .panel { background: radial-gradient(110% 90% at 50% 0%, var(--panel-a) 0%, var(--panel-b) 80%); }
+  .tint-brand, .tint-accent, .tint-lime, .tint-soft, .panel { background: var(--panel-a); }
 
   .link-u { background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .25s, color .2s; }
   .link-u:hover { background-size: 100% 1px; }
-  .grid-bg { background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(70% 70% at 50% 40%, #000 30%, transparent 100%); -webkit-mask-image: radial-gradient(70% 70% at 50% 40%, #000 30%, transparent 100%); }
-  .glow { background: radial-gradient(closest-side, rgba(216,244,34,.28), transparent 70%); filter: blur(10px); }
+  .grid-bg { background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px); background-size: 56px 56px; }
 }
 
 /* ===== Анімації ===== */
@@ -213,7 +208,6 @@ details.acc[open] .acc-body { animation: slideIn .3s ease both; }
   *, ::before, ::after { animation: none !important; transition: none !important; }
   .js .reveal, .js .grow-x { opacity: 1; transform: none; }
   .line-mask > span { transform: none; }
-  .shimmer { color: var(--color-accent); background: none; }
 }
 @media (hover: none) { [data-tilt] { transform: none !important; } }
 

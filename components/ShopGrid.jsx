@@ -19,7 +19,6 @@ export default function ShopGrid({ products }) {
             <article className="card group flex flex-col h-full">
               <button type="button" onClick={() => setActive(p)} className="zoom-img relative block aspect-[4/3] bg-surface-2 text-left overflow-hidden" aria-label={`Налаштувати: ${p.title}`}>
                 {p.image ? <Image src={p.image} alt={p.title} fill sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" className="object-cover" /> : <ProductArt className="absolute inset-0 w-full h-full" />}
-                <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-80" />
                 {p.badge && <span className="badge absolute left-4 top-4 z-10">{p.badge}</span>}
               </button>
               <div className="p-6 flex-1 flex flex-col gap-4">
