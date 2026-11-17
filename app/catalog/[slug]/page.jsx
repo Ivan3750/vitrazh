@@ -30,64 +30,69 @@ export default async function ProfilePage({ params }) {
 
   return (
     <>
-      <section className="relative bg-ink text-white overflow-hidden on-dark">
-        <div className="absolute -right-10 -top-16 w-72 h-72 bg-brand/35 shard-a anim-drift" aria-hidden="true" />
-        <div className="container-x relative py-14 md:py-20 grid gap-8 md:grid-cols-[1fr_auto] items-center">
-          <div>
-            <nav className="text-sm text-white/60 anim-rise" aria-label="Хлібні крихти">
-              <Link href="/" className="hover:text-white">Головна</Link> / <Link href="/catalog/" className="hover:text-white">Каталог</Link> / {p.name}
+      <section className="border-b border-line bg-[linear-gradient(180deg,#fff_0%,var(--color-soft)_100%)]">
+        <div className="container-x py-12 md:py-16 grid gap-12 md:grid-cols-[1.3fr_1fr] items-center">
+          <div className="flex flex-col gap-4">
+            <nav className="small anim-rise" aria-label="Хлібні крихти">
+              <Link href="/" className="hover:text-ink">Головна</Link> <span className="text-text-3">/</span> <Link href="/catalog/" className="hover:text-ink">Каталог</Link> <span className="text-text-3">/</span> <span className="text-ink">{p.name}</span>
             </nav>
-            <h1 className="mt-4 text-4xl md:text-6xl font-extrabold tracking-tight anim-rise [animation-delay:80ms]">{p.name}</h1>
-            <p className="mt-4 text-lg text-white/85 max-w-2xl anim-rise [animation-delay:160ms]">{p.tagline}</p>
-            <div className="mt-7 flex flex-wrap gap-3 anim-rise [animation-delay:240ms]">
-              {sellable && <Link href={`/calc/?profile=${p.slug}`} className="btn btn-accent">Розрахувати вартість</Link>}
-              <a href="#order" className="btn btn-ghost-light">Консультація</a>
+            <h1 className="display !text-[clamp(2.25rem,4.6vw,3.5rem)] anim-rise [animation-delay:70ms]">{p.name}</h1>
+            <p className="lead max-w-xl anim-rise [animation-delay:140ms]">{p.tagline}</p>
+            <div className="flex flex-wrap gap-3 pt-2 anim-rise [animation-delay:210ms]">
+              {sellable && <Link href={`/calc/?profile=${p.slug}`} className="btn btn-primary">Розрахувати вартість <Icon name="arrow" size={18} /></Link>}
+              <a href="#order" className="btn btn-outline">Консультація</a>
             </div>
-            {from && <p className="mt-5 text-white/70 text-sm">Вікно 800×1300 мм від <b className="text-white">{fmt(from)}</b> (орієнтовно)</p>}
+            {from && <p className="small anim-rise [animation-delay:280ms]">Вікно 800×1300 мм від <b className="text-ink">{fmt(from)}</b> (орієнтовно)</p>}
           </div>
-          <div className="hidden md:block relative bg-white w-72 h-72 border-b-8 border-accent anim-rise [animation-delay:200ms]">
-            <Image src={p.image} alt={p.name} fill sizes="288px" className="object-contain p-5" priority />
+          <div className="tint-brand relative h-72 md:h-96 border border-line anim-rise [animation-delay:200ms]">
+            <Image src={p.image} alt={p.name} fill sizes="(min-width:768px) 420px, 100vw" className="object-contain p-10" priority />
           </div>
         </div>
       </section>
 
       <section className="section">
-        <div className="container-x grid gap-12 lg:grid-cols-[1fr_420px]">
-          <div>
-            <h2 className="h2">Опис системи {p.name}</h2>
-            <div className="mt-4 space-y-3 text-muted leading-relaxed">
-              {p.lead.map((t) => <p key={t} className="text-ink font-medium">{t}</p>)}
-              {p.description.map((t) => <p key={t}>{t}</p>)}
+        <div className="container-x grid gap-16 lg:grid-cols-[1fr_400px]">
+          <div className="flex flex-col gap-16 min-w-0">
+            <div className="flex flex-col gap-6">
+              <h2 className="h2 !text-[1.75rem]">Опис системи {p.name}</h2>
+              <div className="flex flex-col gap-4 text-text-2 leading-relaxed">
+                {p.lead.map((t) => <p key={t} className="text-ink text-lg font-medium">{t}</p>)}
+                {p.description.map((t) => <p key={t}>{t}</p>)}
+              </div>
             </div>
 
-            <h2 className="h2 mt-12">Технічні характеристики</h2>
-            <dl className="mt-5 border border-line overflow-hidden">
-              {p.specs.map(([k, v], i) => (
-                <div key={k} className={`grid grid-cols-[1fr_1fr] gap-4 px-5 py-3 text-sm ${i % 2 ? "bg-white" : "bg-soft"}`}>
-                  <dt className="text-muted">{k}</dt>
-                  <dd className="font-medium text-ink">{v}</dd>
-                </div>
-              ))}
-            </dl>
+            <div className="flex flex-col gap-6">
+              <h2 className="h2 !text-[1.75rem]">Технічні характеристики</h2>
+              <dl className="border border-line divide-y divide-line">
+                {p.specs.map(([k, v], i) => (
+                  <div key={k} className={`grid grid-cols-2 gap-6 px-6 py-4 text-sm ${i % 2 ? "bg-white" : "bg-soft"}`}>
+                    <dt className="text-text-2">{k}</dt>
+                    <dd className="font-semibold text-ink">{v}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
 
             {p.features.length > 0 && (
-              <>
-                <h2 className="h2 mt-12">Додаткові можливості</h2>
-                <div className="mt-5 grid gap-4 sm:grid-cols-2">
-                  {p.features.map((f) => (
-                    <div key={f.title} className=" bg-soft p-5">
-                      <p className="flex items-center gap-2 font-bold text-navy"><Icon name="check" size={18} className="text-brand" />{f.title}</p>
-                      <p className="mt-2 text-sm text-muted leading-relaxed">{f.text}</p>
+              <div className="flex flex-col gap-6">
+                <h2 className="h2 !text-[1.75rem]">Додаткові можливості</h2>
+                <div className="grid gap-6 sm:grid-cols-2">
+                  {p.features.map((f, i) => (
+                    <div key={f.title} className={`${["tint-brand", "tint-accent", "tint-lime", "tint-soft"][i % 4]} p-6 flex flex-col gap-2`}>
+                      <p className="h3 !text-base flex items-center gap-2"><Icon name="check" size={18} className="text-brand" />{f.title}</p>
+                      <p className="small">{f.text}</p>
                     </div>
                   ))}
                 </div>
-              </>
+              </div>
             )}
           </div>
 
-          <aside id="order" className="self-start lg:sticky lg:top-28 border-t-4 border-accent bg-white p-6 shadow-[8px_8px_0_var(--color-lime)]">
-            <h2 className="text-xl font-bold text-navy">Замовити розрахунок</h2>
-            <p className="text-sm text-muted mt-1 mb-4">Залиште контакти — підготуємо пропозицію на {p.name}.</p>
+          <aside id="order" className="self-start lg:sticky lg:top-28 border border-line bg-white p-8 flex flex-col gap-4 shadow-[0_24px_48px_-20px_rgba(25,25,25,.2)]">
+            <div className="flex flex-col gap-1">
+              <h2 className="h3">Замовити розрахунок</h2>
+              <p className="small">Залиште контакти — підготуємо пропозицію на {p.name}.</p>
+            </div>
             <OrderForm subject={`Заявка: ${p.name}`} payload={{ Профіль: p.name }} submitLabel="Замовити прорахунок" compact />
           </aside>
         </div>

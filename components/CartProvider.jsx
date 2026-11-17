@@ -64,13 +64,13 @@ export default function CartProvider({ children }) {
     <CartCtx.Provider value={value}>
       {children}
       {toast && (
-        <div role="status" className="anim-slide fixed bottom-5 right-5 z-[120] bg-navy text-white border-l-4 border-lime shadow-2xl max-w-sm">
+        <div role="status" className="anim-slide fixed bottom-6 right-6 left-6 sm:left-auto z-[120] bg-ink text-white shadow-[0_24px_48px_-12px_rgba(0,0,0,.45)] sm:w-[360px]">
           <div className="flex items-start gap-3 p-4">
-            <Icon name="check" size={20} className="text-lime shrink-0 mt-0.5" />
-            <div className="text-sm">
+            <span className="grid place-items-center w-8 h-8 bg-lime text-ink shrink-0"><Icon name="check" size={18} /></span>
+            <div className="text-sm min-w-0">
               <p className="font-semibold">Додано в кошик</p>
-              <p className="text-white/70 line-clamp-1">{toast}</p>
-              <Link href="/cart/" className="inline-block mt-2 text-lime font-semibold link-u" onClick={() => setToast(null)}>Перейти до кошика →</Link>
+              <p className="text-white/65 truncate">{toast}</p>
+              <Link href="/cart/" className="inline-block mt-2 font-semibold text-lime link-u" onClick={() => setToast(null)}>Перейти до кошика →</Link>
             </div>
           </div>
         </div>

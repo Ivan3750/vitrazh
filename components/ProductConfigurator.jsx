@@ -36,7 +36,7 @@ export default function ProductConfigurator({ product, onAdded }) {
 
   const num = (label, val, set, min, max) => (
     <label className="block text-sm">
-      <span className="text-muted">{label} <span className="text-xs">({min}–{max} мм)</span></span>
+      <span className="text-text-2">{label} <span className="text-xs">({min}–{max} мм)</span></span>
       <input type="number" inputMode="numeric" className="field mt-1" min={min} max={max} value={val} onChange={(e) => set(e.target.value === "" ? "" : +e.target.value)} onBlur={(e) => set(clamp(e.target.value, min, max))} />
     </label>
   );
@@ -47,7 +47,7 @@ export default function ProductConfigurator({ product, onAdded }) {
         <div className="relative aspect-square bg-soft">
           {product.image ? <Image src={product.image} alt={product.title} fill sizes="220px" className="object-cover" /> : <ProductArt className="w-full h-full" />}
         </div>
-        <p className="text-sm text-muted mt-3 leading-relaxed">{product.description}</p>
+        <p className="text-sm text-text-2 mt-3 leading-relaxed">{product.description}</p>
       </div>
       <div className="space-y-5">
         {pr.type === "area" && (
@@ -60,14 +60,14 @@ export default function ProductConfigurator({ product, onAdded }) {
 
         {(product.options ?? []).map((o) => (
           <fieldset key={o.id}>
-            <legend className="text-sm font-semibold text-navy mb-2">{o.label}: <span className="font-normal text-muted">{label(o)}</span></legend>
+            <legend className="text-sm font-semibold text-ink mb-2">{o.label}: <span className="font-normal text-text-2">{label(o)}</span></legend>
             <div className="flex flex-wrap gap-2">
               {o.choices.map((c) => {
                 const active = choices[o.id] === c.id;
                 const visual = c.swatch || c.image;
                 return (
                   <button key={c.id} type="button" onClick={() => setChoices((s) => ({ ...s, [o.id]: c.id }))} aria-pressed={active} title={c.label}
-                    className={`border-2 transition-all ${active ? "border-brand shadow-[3px_3px_0_var(--color-lime)]" : "border-line hover:border-navy"} ${visual ? "p-1" : "px-3 py-2 text-sm font-medium"}`}>
+                    className={`border-2 transition-all ${active ? "border-brand ring-2 ring-brand/20" : "border-line hover:border-ink"} ${visual ? "p-1" : "px-3 py-2 text-sm font-medium"}`}>
                     {c.swatch && <span className="block w-8 h-8 border border-line" style={{ background: c.swatch }} />}
                     {c.image && <Image src={c.image} alt={c.label} width={36} height={36} className="block w-9 h-9 object-cover" />}
                     {!visual && c.label}
@@ -81,14 +81,14 @@ export default function ProductConfigurator({ product, onAdded }) {
         {(product.extras ?? []).map((e) => (
           <label key={e.id} className="flex items-center gap-3 text-sm cursor-pointer">
             <input type="checkbox" className="accent-[#0878c0] w-4 h-4" checked={extras.includes(e.id)} onChange={() => setExtras((a) => (a.includes(e.id) ? a.filter((x) => x !== e.id) : [...a, e.id]))} />
-            {e.label} <span className="text-muted">+{fmt(e.price)}</span>
+            {e.label} <span className="text-text-2">+{fmt(e.price)}</span>
           </label>
         ))}
 
-        <div className="flex flex-wrap items-center justify-between gap-4 border-t-2 border-navy pt-4">
+        <div className="flex flex-wrap items-center justify-between gap-4 border-t border-line pt-6">
           <div>
-            <p className="text-xs uppercase tracking-wider text-muted">Ціна за 1 шт.</p>
-            <p className="text-3xl font-extrabold text-navy">{fmt(calc.unit)}</p>
+            <p className="text-xs text-text-2">Ціна за 1 шт.</p>
+            <p className="text-3xl font-bold text-ink">{fmt(calc.unit)}</p>
           </div>
           <div className="flex items-center gap-3">
             <div className="flex items-center border-2 border-line">
@@ -96,7 +96,7 @@ export default function ProductConfigurator({ product, onAdded }) {
               <span className="w-8 text-center font-bold">{qty}</span>
               <button type="button" className="w-10 h-11 grid place-items-center hover:bg-soft" onClick={() => setQty((q) => Math.min(99, q + 1))} aria-label="Більше"><Icon name="plus" size={16} /></button>
             </div>
-            <button type="button" className="btn btn-accent" onClick={addToCart}><Icon name="cart" size={18} /> В кошик</button>
+            <button type="button" className="btn btn-primary" onClick={addToCart}><Icon name="cart" size={18} /> В кошик</button>
           </div>
         </div>
       </div>

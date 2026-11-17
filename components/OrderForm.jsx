@@ -55,10 +55,10 @@ export default function OrderForm({ payload = {}, subject = "Заявка з с�
       {/* honeypot */}
       <input name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
       {state.status === "error" && <p className="text-sm text-red-600">{state.msg}</p>}
-      <button type="submit" className="btn btn-accent w-full" disabled={state.status === "loading"}>
+      <button type="submit" className="btn btn-primary w-full" disabled={state.status === "loading"}>
         {state.status === "loading" ? "Надсилаємо…" : submitLabel}
       </button>
-      <p className="text-xs text-muted">Надсилаючи заявку, ви погоджуєтесь на обробку персональних даних.</p>
+      <p className="text-xs text-text-2">Надсилаючи заявку, ви погоджуєтесь на обробку персональних даних.</p>
     </form>
   );
 }

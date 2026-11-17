@@ -22,9 +22,9 @@ export default async function ShopCategoryPage({ params }) {
   return (
     <>
       <PageHero title={c.title} lead={c.lead} crumbs={[["Каталог", "/catalog/"], [c.title]]} />
-      <section className="py-12 md:py-16">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container-x">
-          <div className="flex flex-wrap gap-2 mb-8">
+          <div className="flex flex-wrap gap-2 mb-12">
             <Link href="/catalog/" className="btn btn-outline btn-sm">Вікна</Link>
             {SHOP_CATEGORIES.map((x) => (
               <Link key={x.id} href={`/shop/${x.id}/`} className={`btn btn-sm ${x.id === c.id ? "btn-dark" : "btn-outline"}`}>{x.title}</Link>

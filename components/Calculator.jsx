@@ -13,11 +13,11 @@ const LIMITS = { min: 300, max: 3000 };
 
 function Step({ n, title, children }) {
   return (
-    <section className=" border border-line bg-white p-5 md:p-6">
-      <h2 className="flex items-center gap-3 text-lg font-bold text-navy">
+    <section className=" border border-line bg-white p-6 md:p-8">
+      <h2 className="h3 flex items-center gap-3">
         <span className="grid place-items-center w-8 h-8 bg-brand text-white text-sm">{n}</span>{title}
       </h2>
-      <div className="mt-4">{children}</div>
+      <div className="mt-6">{children}</div>
     </section>
   );
 }
@@ -86,15 +86,15 @@ export default function Calculator() {
 
   return (
     <div className="grid gap-8 lg:grid-cols-[1fr_380px] items-start">
-      <div className="space-y-5">
+      <div className="flex flex-col gap-6">
         <Step n={1} title="Профільна система">
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {PROFILES.map((x) => (
               <Choice key={x.slug} active={profile === x.slug} onClick={() => setProfile(x.slug)} className="p-3 flex items-center gap-3">
                 <span className="relative w-11 h-14 shrink-0"><Image src={x.image} alt="" fill sizes="44px" className="object-contain" /></span>
                 <span>
-                  <span className="block font-semibold text-navy leading-tight">{x.name}</span>
-                  <span className="block text-xs text-muted mt-0.5">{x.specs[0]?.[1]}, камер {x.specs[1]?.[1]}</span>
+                  <span className="block font-semibold text-ink leading-tight">{x.name}</span>
+                  <span className="block text-xs text-text-2 mt-0.5">{x.specs[0]?.[1]}, камер {x.specs[1]?.[1]}</span>
                 </span>
               </Choice>
             ))}
@@ -106,24 +106,24 @@ export default function Calculator() {
             {CONFIGS.map((c) => (
               <Choice key={c.id} active={config === c.id} onClick={() => setConfig(c.id)} className="p-3 flex flex-col items-center gap-2">
                 <WindowDiagram cols={c.cols} width={c.cols.length * 600} height={1200} maxW={110} maxH={90} />
-                <span className="text-xs text-center text-muted leading-tight">{c.label}</span>
+                <span className="text-xs text-center text-text-2 leading-tight">{c.label}</span>
               </Choice>
             ))}
           </div>
-          <p className="text-xs text-muted mt-3 flex gap-4"><span><i className="inline-block w-4 border-t-2 border-dashed border-brand align-middle mr-1" />поворот</span><span><i className="inline-block w-4 border-t-2 border-dashed border-accent align-middle mr-1" />відкидання</span></p>
+          <p className="text-xs text-text-2 mt-3 flex gap-4"><span><i className="inline-block w-4 border-t-2 border-dashed border-brand align-middle mr-1" />поворот</span><span><i className="inline-block w-4 border-t-2 border-dashed border-accent align-middle mr-1" />відкидання</span></p>
         </Step>
 
         <Step n={3} title="Розміри, мм">
           <div className="grid sm:grid-cols-[1fr_1fr_180px] gap-4 items-center">
             {[["Ширина", width, setWidth], ["Висота", height, setHeight]].map(([label, val, set]) => (
               <label key={label} className="block text-sm">
-                <span className="text-muted">{label}</span>
+                <span className="text-text-2">{label}</span>
                 <input type="number" inputMode="numeric" className="field mt-1" min={LIMITS.min} max={LIMITS.max} value={val} onChange={(e) => set(e.target.value === "" ? "" : +e.target.value)} onBlur={(e) => set(clamp(e.target.value))} />
               </label>
             ))}
             <div className="hidden sm:grid place-items-center"><WindowDiagram cols={cfg.cols} width={+width || 1000} height={+height || 1000} maxW={110} maxH={110} /></div>
           </div>
-          <p className="text-xs text-muted mt-2">Допустимо від {LIMITS.min} до {LIMITS.max} мм. Площа: {price.area.toFixed(2)} м².</p>
+          <p className="text-xs text-text-2 mt-2">Допустимо від {LIMITS.min} до {LIMITS.max} мм. Площа: {price.area.toFixed(2)} м².</p>
         </Step>
 
         <Step n={4} title="Склопакет">
@@ -165,23 +165,23 @@ export default function Calculator() {
         </Step>
       </div>
 
-      <aside className="lg:sticky lg:top-28 border-t-4 border-accent bg-white shadow-[8px_8px_0_var(--color-lime)] p-5 md:p-6">
-        <h2 className="text-lg font-bold text-navy">Ваш розрахунок</h2>
+      <aside className="lg:sticky lg:top-28 border border-line bg-white shadow-[0_24px_48px_-20px_rgba(25,25,25,.25)] p-5 md:p-6">
+        <h2 className="text-lg font-bold text-ink">Ваш розрахунок</h2>
         <div className="mt-3 grid place-items-center bg-soft p-4">
           <WindowDiagram cols={cfg.cols} width={+width || 1000} height={+height || 1000} maxW={170} maxH={150} />
         </div>
         <dl className="mt-4 space-y-1.5 text-sm">
           {Object.entries(payload).filter(([k]) => !["Кількість", "Орієнтовна сума"].includes(k)).map(([k, v]) => (
-            <div key={k} className="flex justify-between gap-4"><dt className="text-muted shrink-0">{k}</dt><dd className="text-right font-medium">{v}</dd></div>
+            <div key={k} className="flex justify-between gap-4"><dt className="text-text-2 shrink-0">{k}</dt><dd className="text-right font-medium">{v}</dd></div>
           ))}
         </dl>
         <div className="mt-4 border-t border-line pt-4 space-y-1 text-sm">
-          <div className="flex justify-between"><span className="text-muted">Конструкція (1 шт.)</span><b>{fmt(price.construction)}</b></div>
+          <div className="flex justify-between"><span className="text-text-2">Конструкція (1 шт.)</span><b>{fmt(price.construction)}</b></div>
           {price.lines.filter((l) => l.value > 0).map((l) => (
-            <div key={l.id} className="flex justify-between"><span className="text-muted">{l.label}</span><span>{fmt(l.value)}</span></div>
+            <div key={l.id} className="flex justify-between"><span className="text-text-2">{l.label}</span><span>{fmt(l.value)}</span></div>
           ))}
           <div className="flex items-center justify-between pt-2">
-            <span className="text-muted">Кількість, шт.</span>
+            <span className="text-text-2">Кількість, шт.</span>
             <div className="flex items-center gap-2">
               <button type="button" className="w-8 h-8 border border-line" onClick={() => setQty((q) => Math.max(1, q - 1))} aria-label="Менше">−</button>
               <span className="w-6 text-center font-semibold">{qty}</span>
@@ -189,14 +189,14 @@ export default function Calculator() {
             </div>
           </div>
         </div>
-        <div className="mt-4 bg-navy text-white p-4">
+        <div className="mt-4 bg-ink text-white p-4">
           <p className="text-xs text-white/70">Орієнтовна вартість</p>
           <p className="text-3xl font-bold">{fmt(total)}</p>
         </div>
-        <p className="mt-2 text-xs text-muted">Остаточну вартість розрахує менеджер після заміру.</p>
-        <button type="button" className="btn btn-accent w-full mt-4" onClick={addToCart}><Icon name="cart" size={18} /> Додати в кошик</button>
+        <p className="mt-2 text-xs text-text-2">Остаточну вартість розрахує менеджер після заміру.</p>
+        <button type="button" className="btn btn-primary w-full mt-4" onClick={addToCart}><Icon name="cart" size={18} /> Додати в кошик</button>
         <div className="mt-5 border-t border-line pt-5">
-          <p className="font-bold text-navy mb-3 flex items-center gap-2"><Icon name="calc" size={18} />Або надішліть розрахунок менеджеру</p>
+          <p className="font-bold text-ink mb-3 flex items-center gap-2"><Icon name="calc" size={18} />Або надішліть розрахунок менеджеру</p>
           <OrderForm subject="Заявка з калькулятора вікон" payload={payload} compact submitLabel="Надіслати заявку" />
         </div>
       </aside>
