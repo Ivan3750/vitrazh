@@ -39,7 +39,7 @@ export default function AboutPage() {
               <Link href="/contacts/" className="btn btn-outline">Зв&apos;язатися з нами</Link>
             </div>
           </Reveal>
-          <Reveal delay={100} className="relative aspect-[4/3] border border-line bg-soft overflow-hidden zoom-img">
+          <Reveal delay={100} className="relative aspect-[4/3] bg-soft overflow-hidden zoom-img">
             <Image src="/img/photo/dark-grey.webp" alt="Сучасні вікна в інтер'єрі" fill sizes="(min-width:1024px) 560px, 100vw" className="object-cover" />
           </Reveal>
         </div>
@@ -65,7 +65,7 @@ export default function AboutPage() {
           <SectionHead eyebrow="Наші роботи" title="Реалізовані об'єкти" />
           <div className="grid gap-4 grid-cols-2 md:grid-cols-4">
             {[3, 5, 8, 6].map((n, i) => (
-              <Reveal key={n} delay={i * 70} className="zoom-img relative aspect-[4/3] border border-line bg-soft overflow-hidden">
+              <Reveal key={n} delay={i * 70} className="zoom-img relative aspect-[4/3] bg-soft overflow-hidden">
                 <Image src={`/img/works/${n}.webp`} alt="Наша робота — встановлені вікна" fill sizes="(min-width:768px) 25vw, 50vw" className="object-cover" />
               </Reveal>
             ))}

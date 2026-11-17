@@ -28,8 +28,8 @@ export default function CartView() {
 
   if (items.length === 0) {
     return (
-      <div className="bg-surface border border-line p-10 md:p-16 text-center">
-        <Icon name="cart" size={44} className="mx-auto text-accent-fg" />
+      <div className="bg-surface p-10 md:p-16 text-center">
+        <Icon name="bag" size={44} className="mx-auto text-accent-fg" />
         <h2 className="mt-4 text-2xl font-bold text-ink">Кошик порожній</h2>
         <p className="mt-2 text-text-2">Оберіть вікна в каталозі або налаштуйте їх у калькуляторі.</p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
@@ -44,7 +44,7 @@ export default function CartView() {
     <div className="grid gap-8 lg:grid-cols-[1fr_360px] items-start">
       <div className="space-y-3">
         {items.map((i) => (
-          <article key={i.key} className="anim-rise bg-surface border border-line p-6 flex gap-6">
+          <article key={i.key} className="anim-rise bg-surface p-6 flex gap-6">
             <ItemThumb item={i} />
             <div className="flex-1 min-w-0">
               <div className="flex justify-between gap-3">
@@ -55,7 +55,7 @@ export default function CartView() {
                 {i.details.map((d) => <li key={d}>{d}</li>)}
               </ul>
               <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
-                <div className="flex items-center border-2 border-line">
+                <div className="flex items-center bg-surface-2">
                   <button className="w-9 h-9 grid place-items-center hover:bg-soft" onClick={() => setQty(i.key, i.qty - 1)} aria-label="Менше"><Icon name="minus" size={15} /></button>
                   <span className="w-8 text-center font-bold text-sm">{i.qty}</span>
                   <button className="w-9 h-9 grid place-items-center hover:bg-soft" onClick={() => setQty(i.key, i.qty + 1)} aria-label="Більше"><Icon name="plus" size={15} /></button>
@@ -71,7 +71,7 @@ export default function CartView() {
         <button onClick={clear} className="text-sm text-text-2 hover:text-accent-fg link-u">Очистити кошик</button>
       </div>
 
-      <aside className="bg-surface border border-line p-8 lg:sticky lg:top-28">
+      <aside className="bg-surface p-8 lg:sticky lg:top-28">
         <h2 className="h3">Разом</h2>
         <dl className="mt-4 space-y-2 text-sm">
           <div className="flex justify-between"><dt className="text-text-2">Товарів</dt><dd className="font-semibold">{count} шт.</dd></div>

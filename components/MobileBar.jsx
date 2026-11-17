@@ -18,7 +18,7 @@ export default function MobileBar() {
         <Link href="/catalog/" className={item}><Icon name="search" size={20} />Каталог</Link>
         <Link href="/calc/" className={item}><Icon name="calc" size={20} />Розрахунок</Link>
         <Link href="/cart/" className={`${item} relative`}>
-          <span className="relative"><Icon name="cart" size={20} />{count > 0 && <span className="absolute -top-2 -right-3 min-w-[18px] h-[18px] px-1 grid place-items-center bg-accent text-on-accent text-[10px] font-bold">{count}</span>}</span>Кошик
+          <span className="relative"><Icon name="bag" size={20} />{count > 0 && <span className="absolute -top-2 -right-3 min-w-[18px] h-[18px] px-1 grid place-items-center bg-accent text-on-accent text-[10px] font-bold">{count}</span>}</span>Кошик
         </Link>
       </div>
     </nav>

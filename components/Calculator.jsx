@@ -13,7 +13,7 @@ const LIMITS = { min: 300, max: 3000 };
 
 function Step({ n, title, children }) {
   return (
-    <section className=" border border-line bg-surface p-6 md:p-8">
+    <section className=" bg-surface p-6 md:p-8">
       <h2 className="h3 flex items-center gap-3">
         <span className="grid place-items-center w-8 h-8 bg-accent text-on-accent text-white text-sm">{n}</span>{title}
       </h2>
@@ -23,7 +23,7 @@ function Step({ n, title, children }) {
 }
 
 const Choice = ({ active, onClick, children, className = "" }) => (
-  <button type="button" onClick={onClick} aria-pressed={active} className={` border-2 text-left transition-colors ${active ? "border-sel bg-accent/10" : "border-line hover:border-sel/50"} ${className}`}>
+  <button type="button" onClick={onClick} aria-pressed={active} className={`text-left transition-all ${active ? "ring-2 ring-sel bg-accent/15" : "bg-surface-2 hover:bg-soft"} ${className}`}>
     {children}
   </button>
 );
@@ -138,7 +138,7 @@ export default function Calculator() {
           <div className="flex flex-wrap gap-3">
             {COLORS.map((c) => (
               <Choice key={c.id} active={color === c.id} onClick={() => setColor(c.id)} className="px-3 py-2 flex items-center gap-2 text-sm font-medium">
-                <span className="w-6 h-6 border border-line" style={{ background: c.swatch }} />{c.label}
+                <span className="w-6 h-6" style={{ background: c.swatch }} />{c.label}
               </Choice>
             ))}
           </div>
@@ -155,7 +155,7 @@ export default function Calculator() {
         <Step n={7} title="Додаткові послуги">
           <div className="grid gap-2 sm:grid-cols-2">
             {SERVICES.map((s) => (
-              <label key={s.id} className="flex items-center gap-3 border border-line px-4 py-3 text-sm cursor-pointer hover:border-sel/50">
+              <label key={s.id} className="flex items-center gap-3 px-4 py-3 text-sm cursor-pointer bg-surface-2 hover:bg-soft transition-colors">
                 <input type="checkbox" className="accent-[#d8f422] w-4 h-4" checked={services.includes(s.id)} onChange={() => setServices((a) => a.includes(s.id) ? a.filter((x) => x !== s.id) : [...a, s.id])} />
                 <span className="flex-1">{s.label}</span>
                 {s.note && <span className="text-xs text-accent-fg">{s.note}</span>}
@@ -165,7 +165,7 @@ export default function Calculator() {
         </Step>
       </div>
 
-      <aside className="lg:sticky lg:top-28 border border-line bg-surface shadow-[0_32px_64px_-24px_rgba(0,0,0,.8)] p-5 md:p-6">
+      <aside className="lg:sticky lg:top-28 bg-surface shadow-[0_32px_64px_-24px_rgba(0,0,0,.8)] p-5 md:p-6">
         <h2 className="text-lg font-bold text-ink">Ваш розрахунок</h2>
         <div className="mt-3 grid place-items-center bg-soft p-4">
           <WindowDiagram cols={cfg.cols} width={+width || 1000} height={+height || 1000} color={color} dims maxW={200} maxH={170} />
@@ -183,9 +183,9 @@ export default function Calculator() {
           <div className="flex items-center justify-between pt-2">
             <span className="text-text-2">Кількість, шт.</span>
             <div className="flex items-center gap-2">
-              <button type="button" className="w-8 h-8 border border-line" onClick={() => setQty((q) => Math.max(1, q - 1))} aria-label="Менше">−</button>
+              <button type="button" className="w-8 h-8" onClick={() => setQty((q) => Math.max(1, q - 1))} aria-label="Менше">−</button>
               <span className="w-6 text-center font-semibold">{qty}</span>
-              <button type="button" className="w-8 h-8 border border-line" onClick={() => setQty((q) => Math.min(50, q + 1))} aria-label="Більше">+</button>
+              <button type="button" className="w-8 h-8" onClick={() => setQty((q) => Math.min(50, q + 1))} aria-label="Більше">+</button>
             </div>
           </div>
         </div>
@@ -194,7 +194,7 @@ export default function Calculator() {
           <p className="text-3xl font-bold">{fmt(total)}</p>
         </div>
         <p className="mt-2 text-xs text-text-2">Остаточну вартість розрахує менеджер після заміру.</p>
-        <button type="button" className="btn btn-primary w-full mt-4" onClick={addToCart}><Icon name="cart" size={18} /> Додати в кошик</button>
+        <button type="button" className="btn btn-primary w-full mt-4" onClick={addToCart}><Icon name="bag" size={18} /> Додати в кошик</button>
         <div className="mt-5 border-t border-line pt-5">
           <p className="font-bold text-ink mb-3 flex items-center gap-2"><Icon name="calc" size={18} />Або надішліть розрахунок менеджеру</p>
           <OrderForm subject="Заявка з калькулятора вікон" payload={payload} compact submitLabel="Надіслати заявку" />

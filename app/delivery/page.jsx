@@ -29,7 +29,7 @@ export default function DeliveryPage() {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {BLOCKS.map((b, i) => (
               <Reveal key={b.title} delay={(i % 3) * 80} className="card p-7 flex flex-col gap-4">
-                <span className="grid place-items-center w-12 h-12 border border-line-2 text-accent-fg"><Icon name={b.icon} size={22} /></span>
+                <span className="grid place-items-center w-12 h-12 text-accent-fg"><Icon name={b.icon} size={22} /></span>
                 <h3 className="h3">{b.title}</h3><p className="small">{b.text}</p>
               </Reveal>
             ))}

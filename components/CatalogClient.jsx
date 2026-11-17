@@ -7,6 +7,7 @@ import WindowQuickView from "./WindowQuickView";
 import Modal from "./Modal";
 import Reveal from "./Reveal";
 import Icon from "./Icon";
+import ShopTabs from "./ShopTabs";
 
 const ALL = buildCatalog();
 const PRICES = ALL.map((i) => itemPrice(i, "g2", "white"));
@@ -84,8 +85,9 @@ export default function CatalogClient() {
   );
 
   return (
+    <div className="flex flex-col gap-8"><ShopTabs active="windows" />
     <div className="grid gap-10 lg:grid-cols-[272px_1fr]">
-      <aside className="hidden lg:block self-start sticky top-28 border border-line bg-surface p-6">{filters}</aside>
+      <aside className="hidden lg:block self-start sticky top-28 bg-surface p-6">{filters}</aside>
 
       <div className="min-w-0">
         <div className="flex flex-wrap items-center gap-3 mb-6">
@@ -106,7 +108,7 @@ export default function CatalogClient() {
         <p className="small mb-6">Знайдено: <b className="text-ink num">{list.length}</b> · ціни вказані за двокамерний склопакет, білий профіль — змінюйте на картці</p>
 
         {list.length === 0 ? (
-          <div className="border border-line bg-surface p-10 text-center flex flex-col items-center gap-4">
+          <div className="bg-surface p-10 text-center flex flex-col items-center gap-4">
             <p className="font-semibold">За вибраними параметрами нічого не знайдено</p>
             <button onClick={reset} className="btn btn-primary">Скинути фільтри</button>
           </div>
@@ -140,6 +142,7 @@ export default function CatalogClient() {
       <Modal open={!!quick} onClose={() => setQuick(null)} title={quick ? `${quick.it.profileName} · ${quick.it.configLabel} ${quick.it.width}×${quick.it.height}` : ""} wide>
         {quick && <WindowQuickView key={quick.it.id} item={quick.it} initialGlass={quick.g} initialColor={quick.c} onDone={() => setQuick(null)} />}
       </Modal>
+    </div>
     </div>
   );
 }

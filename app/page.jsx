@@ -59,7 +59,7 @@ export default function HomePage() {
               <Link href="/calc/" className="btn btn-outline">Калькулятор</Link>
             </div>
           </div>
-          <Reveal variant="scale" className="relative aspect-[4/3] lg:aspect-[5/4] border border-line-2 overflow-hidden">
+          <Reveal variant="scale" className="relative aspect-[4/3] lg:aspect-[5/4] overflow-hidden">
             <Image src="/img/photo/house.webp" alt="Сучасний будинок з панорамними вікнами" fill priority sizes="(min-width:1024px) 50vw, 100vw" className="object-cover anim-kenburns" />
           </Reveal>
         </div>
@@ -115,7 +115,7 @@ export default function HomePage() {
               </Reveal>
             ))}
           </div>
-          <Reveal className="mt-5 flex flex-wrap items-center gap-3 border border-dashed border-line-2 px-6 py-4 small">
+          <Reveal className="mt-5 flex flex-wrap items-center gap-3 bg-surface px-6 py-4 small">
             <Icon name="door" size={18} className="text-accent-fg" /> <span><b className="text-ink">Ворота</b> — скоро в магазині. Попередній розрахунок: <a href={SITE.phoneHref} className="font-semibold text-ink link-u">{SITE.phone}</a></span>
           </Reveal>
         </div>
@@ -136,7 +136,7 @@ export default function HomePage() {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {WHY.map((b, i) => (
               <Reveal key={b.title} delay={i * 80} className="card p-7 flex flex-col gap-5">
-                <span className="relative grid place-items-center w-12 h-12 border border-line-2 text-accent-fg"><Icon name={b.icon} size={22} /></span>
+                <span className="relative grid place-items-center w-12 h-12 text-accent-fg"><Icon name={b.icon} size={22} /></span>
                 <h3 className="h3">{b.title}</h3>
                 <p className="small">{b.text}</p>
                 <span className="mt-auto text-5xl font-bold text-white/[.06] num">0{i + 1}</span>
@@ -196,7 +196,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid gap-10 lg:grid-cols-2 items-center">
-            <Reveal variant="left" className="relative aspect-[4/3] border border-line overflow-hidden zoom-img">
+            <Reveal variant="left" className="relative aspect-[4/3] overflow-hidden zoom-img">
               <Image src="/img/decor/painting.webp" alt="Пофарбований профіль вікна" fill sizes="(min-width:1024px) 600px, 100vw" className="object-cover" />
             </Reveal>
             <Reveal delay={100} className="flex flex-col gap-6">
@@ -205,7 +205,7 @@ export default function HomePage() {
               <p className="lead">Дозволяє надати ПВХ-профілю практично будь-який колір, у тому числі «металік». Застосовуються сучасні, довговічні та екологічно безпечні фарби Zobel Chemie з високою атмосферостійкістю покриття.</p>
               <ul className="grid sm:grid-cols-2 gap-3">
                 {["Яскравий дизайн", "Стійкість і міцність покриття", "Збільшення терміну служби", "Посилення енергозбереження"].map((t) => (
-                  <li key={t} className="flex items-center gap-3 border border-line bg-surface px-4 py-3 text-sm"><Icon name="check" size={16} className="text-accent-fg shrink-0" />{t}</li>
+                  <li key={t} className="flex items-center gap-3 bg-surface px-4 py-3 text-sm"><Icon name="check" size={16} className="text-accent-fg shrink-0" />{t}</li>
                 ))}
               </ul>
             </Reveal>
@@ -221,7 +221,7 @@ export default function HomePage() {
                 <p>Алмазне гравірування — фігурна різьба по склу за допомогою фрезерувального верстата: на звичайне, забарвлене, матове чи дзеркальне скло.</p>
               </div>
             </Reveal>
-            <Reveal variant="right" className="relative aspect-[4/3] border border-line overflow-hidden zoom-img order-1 lg:order-2">
+            <Reveal variant="right" className="relative aspect-[4/3] overflow-hidden zoom-img order-1 lg:order-2">
               <Image src="/img/decor/glass-decor.webp" alt="Декоративне скло" fill sizes="(min-width:1024px) 600px, 100vw" className="object-cover" />
             </Reveal>
           </div>
@@ -234,7 +234,7 @@ export default function HomePage() {
         <div className="scroll-row overflow-hidden" aria-label="Реалізовані об'єкти">
           <div className="scroll-track-fast flex gap-4 pl-4">
             {[...WORKS, ...WORKS].map((n, i) => (
-              <div key={i} className="zoom-img relative shrink-0 w-[280px] md:w-[420px] aspect-[4/3] border border-line bg-surface overflow-hidden">
+              <div key={i} className="zoom-img relative shrink-0 w-[280px] md:w-[420px] aspect-[4/3] bg-surface overflow-hidden">
                 <Image src={`/img/works/${n}.webp`} alt="Встановлені вікна — наша робота" fill sizes="420px" className="object-cover" loading="lazy" />
               </div>
             ))}
@@ -250,7 +250,7 @@ export default function HomePage() {
             {STEPS.map((s, i) => (
               <Reveal as="li" key={s.title} delay={i * 120} className="flex flex-col gap-5">
                 <div className="flex items-center gap-4">
-                  <span className="grid place-items-center w-12 h-12 border border-sel text-accent-fg font-bold num shrink-0">0{i + 1}</span>
+                  <span className="grid place-items-center w-12 h-12 bg-ink text-bg font-bold num shrink-0">0{i + 1}</span>
                   <span className="grow-x h-px flex-1 bg-line-2 hidden md:block" style={{ "--d": `${i * 120 + 300}ms` }} />
                 </div>
                 <h3 className="h3">{s.title}</h3>
@@ -264,7 +264,7 @@ export default function HomePage() {
       {/* ПРО КОМПАНІЮ */}
       <section className="section">
         <div className="container-x grid gap-12 lg:grid-cols-2 items-center">
-          <Reveal variant="left" className="relative aspect-square max-h-[560px] border border-line overflow-hidden zoom-img">
+          <Reveal variant="left" className="relative aspect-square max-h-[560px] overflow-hidden zoom-img">
             <Image src="/img/photo/house.webp" alt="Сучасний будинок з великими вікнами" fill sizes="(min-width:1024px) 560px, 100vw" className="object-cover" />
           </Reveal>
           <Reveal delay={100} className="flex flex-col gap-6">
@@ -304,7 +304,7 @@ export default function HomePage() {
       {/* ЗАЯВКА */}
       <section className="section pt-0" id="order">
         <div className="container-x">
-          <div className="theme-dark relative overflow-hidden border border-line-2 bg-deep grid gap-10 lg:grid-cols-2 p-6 sm:p-10 md:p-16 items-center">
+          <div className="theme-dark relative overflow-hidden bg-deep grid gap-10 lg:grid-cols-2 p-6 sm:p-10 md:p-16 items-center">
             <Image src="/img/photo/window-dark.webp" alt="" fill sizes="100vw" className="object-cover opacity-40" loading="lazy" />
             <div className="absolute inset-0 bg-deep/75" />
             <Reveal className="relative flex flex-col gap-5">
@@ -312,7 +312,7 @@ export default function HomePage() {
               <h2 className="h2">Залишіть заявку — ми передзвонимо</h2>
               <p className="lead">Розрахуємо вартість, підберемо профіль і запишемо на безкоштовний замір. Або зателефонуйте: <a className="font-semibold text-ink link-u" href={SITE.phoneHref}>{SITE.phone}</a></p>
             </Reveal>
-            <Reveal delay={100} variant="right" className="relative bg-surface border border-line-2 p-6 md:p-8">
+            <Reveal delay={100} variant="right" className="relative bg-surface p-6 md:p-8">
               <OrderForm subject="Заявка на консультацію (головна)" submitLabel="Передзвоніть мені" compact />
             </Reveal>
           </div>

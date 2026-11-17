@@ -4,8 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { NAV, INFO, SITE } from "@/lib/site";
 import { SHOP_CATEGORIES } from "@/lib/shop";
-import { useCart } from "./CartProvider";
 import Icon from "./Icon";
+import CartButton from "./CartButton";
 
 const MEGA = [
   { href: "/catalog/", title: "Металопластикові вікна", note: "5 профільних систем", image: "/img/photo/window-2.webp" },
@@ -19,7 +19,7 @@ function Drop({ label, href, children, wide }) {
         {label} <Icon name="down" size={15} className="transition-transform duration-300 group-hover:rotate-180" />
       </Link>
       <div className={`absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 focus-within:opacity-100 focus-within:visible focus-within:translate-y-0 transition-all duration-200 ${wide ? "w-[640px]" : "w-[300px]"}`}>
-        <div className="bg-surface border border-line shadow-[0_32px_64px_-16px_rgba(0,0,0,.9)] p-2">{children}</div>
+        <div className="bg-surface shadow-[0_32px_64px_-16px_rgba(0,0,0,.9)] p-2">{children}</div>
       </div>
     </div>
   );
@@ -28,7 +28,6 @@ function Drop({ label, href, children, wide }) {
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { count, bump } = useCart();
 
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 12);
@@ -75,10 +74,7 @@ export default function Header() {
 
         <div className="flex items-center gap-2">
           <a href={SITE.phoneHref} className="hidden xl:flex items-center gap-2 text-[15px] font-semibold mr-2 hover:text-accent-fg transition-colors"><span className="relative w-2 h-2"><span className="absolute inset-0 bg-accent" /><span className="absolute inset-0 bg-accent" style={{ animation: "pulse-ring 2s infinite" }} /></span>{SITE.phone}</a>
-          <Link href="/cart/" aria-label={`Кошик, товарів: ${count}`} className="relative btn btn-outline btn-sm btn-icon">
-            <Icon name="cart" size={18} />
-            {count > 0 && <span key={bump} className="anim-bump absolute -top-1.5 -right-1.5 min-w-[18px] h-[18px] px-1 grid place-items-center bg-accent text-on-accent text-[11px] font-bold leading-none">{count}</span>}
-          </Link>
+          <CartButton />
           <Link href="/calc/" className="btn btn-primary btn-sm hidden md:inline-flex">Розрахувати</Link>
           <button className="lg:hidden btn btn-outline btn-sm btn-icon" onClick={() => setOpen(!open)} aria-label={open ? "Закрити меню" : "Відкрити меню"} aria-expanded={open}>
             <Icon name={open ? "x" : "menu"} size={20} />

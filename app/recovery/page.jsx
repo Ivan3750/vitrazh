@@ -38,7 +38,7 @@ export default function RecoveryPage() {
             <h2 className="h2">Що таке єВідновлення?</h2>
             <p className="lead">єВідновлення — це державна програма підтримки українців, чиї домівки були пошкоджені або зруйновані внаслідок повномасштабної війни. Програма реалізується через застосунок Дія та передбачає як фінансову допомогу, так і можливість отримати будівельні послуги напряму від підрядників.</p>
           </Reveal>
-          <Reveal variant="right" className="relative aspect-[4/3] border border-line overflow-hidden zoom-img">
+          <Reveal variant="right" className="relative aspect-[4/3] overflow-hidden zoom-img">
             <Image src="/img/decor/recovery.webp" alt="" fill sizes="(min-width:1024px) 600px, 100vw" className="object-cover" />
           </Reveal>
         </div>
@@ -49,7 +49,7 @@ export default function RecoveryPage() {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {HELP.map((h, i) => (
               <Reveal key={h.title} delay={(i % 3) * 80} className="card p-7 flex flex-col gap-4">
-                <span className="grid place-items-center w-12 h-12 border border-line-2 text-accent-fg"><Icon name={h.icon} size={22} /></span>
+                <span className="grid place-items-center w-12 h-12 text-accent-fg"><Icon name={h.icon} size={22} /></span>
                 <h3 className="h3">{h.title}</h3><p className="small">{h.text}</p>
               </Reveal>
             ))}
@@ -69,7 +69,7 @@ export default function RecoveryPage() {
               ))}
             </ol>
           </div>
-          <Reveal variant="right" className="border border-line-2 bg-surface p-8 flex flex-col gap-6 lg:sticky lg:top-28">
+          <Reveal variant="right" className="bg-surface p-8 flex flex-col gap-6 lg:sticky lg:top-28">
             <div className="flex flex-col gap-1"><h2 className="h3">Отримати консультацію</h2><p className="small">Залиште номер — підкажемо, з чого почати.</p></div>
             <OrderForm subject="Консультація: єВідновлення" compact submitLabel="Передзвоніть мені" />
           </Reveal>

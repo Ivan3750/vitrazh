@@ -20,7 +20,7 @@ const PAYMENT = [
 function Radio({ name, value, current, onChange, label, hint }) {
   const active = current === value;
   return (
-    <label className={`flex items-start gap-3 border-2 p-3 cursor-pointer transition-colors ${active ? "border-sel bg-accent/10" : "border-line hover:border-ink"}`}>
+    <label className={`flex items-start gap-3 p-3 cursor-pointer transition-all ${active ? "ring-2 ring-sel bg-accent/15" : "bg-surface-2 hover:bg-soft"}`}>
       <input type="radio" name={name} value={value} checked={active} onChange={() => onChange(value)} className="mt-1 accent-[#d8f422]" />
       <span className="text-sm"><span className="font-semibold text-ink">{label}</span>{hint && <span className="block text-text-2 text-xs mt-0.5">{hint}</span>}</span>
     </label>
@@ -39,7 +39,7 @@ export default function CheckoutForm() {
   if (!ready) return <p className="text-text-2">Завантаження…</p>;
   if (items.length === 0) {
     return (
-      <div className="bg-surface border border-line p-10 text-center">
+      <div className="bg-surface p-10 text-center">
         <p className="text-lg font-semibold text-ink">У кошику немає товарів</p>
         <Link href="/catalog/" className="btn btn-primary mt-5">До каталогу</Link>
       </div>
@@ -87,7 +87,7 @@ export default function CheckoutForm() {
   return (
     <form onSubmit={onSubmit} className="grid gap-8 lg:grid-cols-[1fr_380px] items-start" noValidate>
       <div className="space-y-6">
-        <section className="bg-surface border border-line p-6 md:p-8">
+        <section className="bg-surface p-6 md:p-8">
           <h2 className="h3">1. Контактні дані</h2>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             <input name="name" className="field" placeholder="Ім'я та прізвище *" autoComplete="name" required />
@@ -96,7 +96,7 @@ export default function CheckoutForm() {
           </div>
         </section>
 
-        <section className="bg-surface border border-line p-6 md:p-8">
+        <section className="bg-surface p-6 md:p-8">
           <h2 className="h3">2. Доставка</h2>
           <div className="mt-4 grid gap-3">
             {DELIVERY.map((d) => <Radio key={d.id} name="delivery" value={d.id} current={delivery} onChange={setDelivery} label={d.label} hint={d.hint} />)}
@@ -116,7 +116,7 @@ export default function CheckoutForm() {
           )}
         </section>
 
-        <section className="bg-surface border border-line p-6 md:p-8">
+        <section className="bg-surface p-6 md:p-8">
           <h2 className="h3">3. Оплата</h2>
           <div className="mt-4 grid gap-3">
             {PAYMENT.map((p) => <Radio key={p.id} name="payment" value={p.id} current={payment} onChange={setPayment} label={p.label} />)}
@@ -124,14 +124,14 @@ export default function CheckoutForm() {
           {hasWindows && <p className="mt-3 text-sm text-text-2">Для виробів на замовлення (вікна) передбачена передоплата 80%, решту 20% сплачуєте в день доставки та підписання акту прийому-передачі.</p>}
         </section>
 
-        <section className="bg-surface border border-line p-6 md:p-8">
+        <section className="bg-surface p-6 md:p-8">
           <h2 className="h3">4. Коментар</h2>
           <textarea name="message" className="field mt-4 min-h-24" placeholder="Побажання, зручний час дзвінка, поверх, ліфт тощо" />
         </section>
         <input name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
       </div>
 
-      <aside className="bg-surface border border-line p-8 lg:sticky lg:top-28">
+      <aside className="bg-surface p-8 lg:sticky lg:top-28">
         <h2 className="h3">Ваше замовлення</h2>
         <ul className="mt-4 divide-y divide-line">
           {items.map((i) => (

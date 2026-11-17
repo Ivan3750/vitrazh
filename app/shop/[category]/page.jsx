@@ -1,8 +1,8 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SHOP_CATEGORIES, getShopCategory, productsIn } from "@/lib/shop";
 import ShopGrid from "@/components/ShopGrid";
 import PageHero from "@/components/PageHero";
+import ShopTabs from "@/components/ShopTabs";
 
 export function generateStaticParams() {
   return SHOP_CATEGORIES.map((c) => ({ category: c.id }));
@@ -24,12 +24,7 @@ export default async function ShopCategoryPage({ params }) {
       <PageHero title={c.title} lead={c.lead} crumbs={[["Каталог", "/catalog/"], [c.title]]} />
       <section className="py-12 md:py-16 bg-surface">
         <div className="container-x">
-          <div className="flex flex-wrap gap-2 mb-12">
-            <Link href="/catalog/" className="btn btn-outline btn-sm">Вікна</Link>
-            {SHOP_CATEGORIES.map((x) => (
-              <Link key={x.id} href={`/shop/${x.id}/`} className={`btn btn-sm ${x.id === c.id ? "btn-dark" : "btn-outline"}`}>{x.title}</Link>
-            ))}
-          </div>
+          <div className="mb-10"><ShopTabs active={c.id} /></div>
           <ShopGrid products={productsIn(c.id)} />
         </div>
       </section>

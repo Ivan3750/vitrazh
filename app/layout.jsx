@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import CartProvider from "@/components/CartProvider";
 import Effects from "@/components/Effects";
 import MobileBar from "@/components/MobileBar";
-import PageTransition from "@/components/PageTransition";
 import { SITE } from "@/lib/site";
 
 export const metadata = {
@@ -30,7 +29,7 @@ export default function RootLayout({ children }) {
         <CartProvider>
           <Effects />
           <Header />
-          <main><PageTransition>{children}</PageTransition></main>
+          <main>{children}</main>
           <Footer />
           <MobileBar />
         </CartProvider>

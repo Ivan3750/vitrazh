@@ -68,8 +68,8 @@ export default function ProductConfigurator({ product, onAdded }) {
                 const visual = c.swatch || c.image;
                 return (
                   <button key={c.id} type="button" onClick={() => setChoices((s) => ({ ...s, [o.id]: c.id }))} aria-pressed={active} title={c.label}
-                    className={`border-2 transition-all ${active ? "border-sel ring-2 ring-sel/30" : "border-line hover:border-ink"} ${visual ? "p-1" : "px-3 py-2 text-sm font-medium"}`}>
-                    {c.swatch && <span className="block w-8 h-8 border border-line" style={{ background: c.swatch }} />}
+                    className={`transition-all ${active ? "ring-2 ring-sel" : "bg-surface-2 hover:ring-2 hover:ring-ink/30"} ${visual ? "p-1" : "px-3 py-2 text-sm font-medium"}`}>
+                    {c.swatch && <span className="block w-8 h-8" style={{ background: c.swatch }} />}
                     {c.image && <Image src={c.image} alt={c.label} width={36} height={36} className="block w-9 h-9 object-cover" />}
                     {!visual && c.label}
                   </button>
@@ -92,12 +92,12 @@ export default function ProductConfigurator({ product, onAdded }) {
             <p className="text-3xl font-bold text-ink">{fmt(calc.unit)}</p>
           </div>
           <div className="flex items-center gap-3">
-            <div className="flex items-center border-2 border-line">
+            <div className="flex items-center bg-surface-2">
               <button type="button" className="w-10 h-11 grid place-items-center hover:bg-soft" onClick={() => setQty((q) => Math.max(1, q - 1))} aria-label="Менше"><Icon name="minus" size={16} /></button>
               <span className="w-8 text-center font-bold">{qty}</span>
               <button type="button" className="w-10 h-11 grid place-items-center hover:bg-soft" onClick={() => setQty((q) => Math.min(99, q + 1))} aria-label="Більше"><Icon name="plus" size={16} /></button>
             </div>
-            <button type="button" className="btn btn-primary" onClick={addToCart}><Icon name="cart" size={18} /> В кошик</button>
+            <button type="button" className="btn btn-primary" onClick={addToCart}><Icon name="bag" size={18} /> В кошик</button>
           </div>
         </div>
       </div>

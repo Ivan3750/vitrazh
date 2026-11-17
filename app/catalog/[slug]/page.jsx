@@ -45,7 +45,7 @@ export default async function ProfilePage({ params }) {
             </div>
             {from && <p className="small anim-rise [animation-delay:280ms]">Вікно 800×1300 мм від <b className="text-ink">{fmt(from)}</b> (орієнтовно)</p>}
           </div>
-          <div className="panel relative h-72 md:h-[26rem] border border-line-2 anim-rise [animation-delay:200ms]" data-tilt>
+          <div className="panel relative h-72 md:h-[26rem] anim-rise [animation-delay:200ms]" data-tilt>
             <Image src={p.image} alt={p.name} fill sizes="(min-width:768px) 420px, 100vw" className="object-contain p-10" priority />
           </div>
         </div>
@@ -64,7 +64,7 @@ export default async function ProfilePage({ params }) {
 
             <div className="flex flex-col gap-6">
               <h2 className="h2 !text-[1.75rem]">Технічні характеристики</h2>
-              <dl className="border border-line divide-y divide-line">
+              <dl className="divide-y divide-line">
                 {p.specs.map(([k, v], i) => (
                   <div key={k} className={`grid grid-cols-2 gap-6 px-6 py-4 text-sm ${i % 2 ? "bg-surface" : "bg-soft"}`}>
                     <dt className="text-text-2">{k}</dt>
@@ -89,7 +89,7 @@ export default async function ProfilePage({ params }) {
             )}
           </div>
 
-          <aside id="order" className="self-start lg:sticky lg:top-28 border border-line bg-surface p-8 flex flex-col gap-4 shadow-[0_32px_64px_-24px_rgba(0,0,0,.8)]">
+          <aside id="order" className="self-start lg:sticky lg:top-28 bg-surface p-8 flex flex-col gap-4 shadow-[0_32px_64px_-24px_rgba(0,0,0,.8)]">
             <div className="flex flex-col gap-1">
               <h2 className="h3">Замовити розрахунок</h2>
               <p className="small">Залиште контакти — підготуємо пропозицію на {p.name}.</p>

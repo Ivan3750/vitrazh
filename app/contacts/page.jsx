@@ -44,7 +44,7 @@ export default function ContactsPage() {
                 </div>
               </Reveal>
             </ul>
-            <Reveal className="border border-line overflow-hidden">
+            <Reveal className="overflow-hidden">
               <iframe
                 title="Карта: ВІТРАЖ, Київ"
                 className="w-full h-80 block"
@@ -54,7 +54,7 @@ export default function ContactsPage() {
               />
             </Reveal>
           </div>
-          <Reveal delay={100} className="border border-line bg-surface p-8 flex flex-col gap-6 shadow-[0_32px_64px_-24px_rgba(0,0,0,.8)] lg:sticky lg:top-28">
+          <Reveal delay={100} className="bg-surface p-8 flex flex-col gap-6 shadow-[0_32px_64px_-24px_rgba(0,0,0,.8)] lg:sticky lg:top-28">
             <div className="flex flex-col gap-1">
               <h2 className="h3">Напишіть нам</h2>
               <p className="small">Передзвонимо протягом робочого дня.</p>

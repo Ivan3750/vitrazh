@@ -20,7 +20,7 @@ export default function ServicePage() {
             {SERVICE_PRICES.map((g) => (
               <Reveal key={g.title} className="flex flex-col gap-6">
                 <h2 className="h2 !text-[1.75rem]">{g.title}</h2>
-                <ul className="border border-line divide-y divide-line bg-surface">
+                <ul className="divide-y divide-line bg-surface">
                   {g.rows.map(([name, price]) => (
                     <li key={name} className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-6 px-5 py-4 hover:bg-surface-2 transition-colors">
                       <span className="text-sm sm:text-base">{name}</span>
@@ -32,7 +32,7 @@ export default function ServicePage() {
             ))}
             <p className="small !text-text-3">* Ціна орієнтовна, без вартості матеріалів. Точну вартість визначає майстер після діагностики.</p>
           </div>
-          <Reveal variant="right" className="lg:sticky lg:top-28 border border-line-2 bg-surface p-8 flex flex-col gap-6">
+          <Reveal variant="right" className="lg:sticky lg:top-28 bg-surface p-8 flex flex-col gap-6">
             <div className="flex flex-col gap-1"><h2 className="h3">Викликати майстра</h2><p className="small">Залиште номер — зателефонуємо та узгодимо час. Або: <a className="text-accent-fg font-semibold" href={SITE.phoneHref}>{SITE.phone}</a></p></div>
             <OrderForm subject="Виклик майстра (сервіс)" submitLabel="Викликати майстра" compact />
           </Reveal>
