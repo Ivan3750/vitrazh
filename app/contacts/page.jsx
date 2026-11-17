@@ -12,9 +12,9 @@ export const metadata = {
 
 export default function ContactsPage() {
   const rows = [
-    ["phone", "Телефон", SITE.phone, SITE.phoneHref, "tint-brand"],
-    ["mail", "Пошта", SITE.email, `mailto:${SITE.email}`, "tint-accent"],
-    ["pin", "Адреса", SITE.address, null, "tint-lime"],
+    ["phone", "Телефон", SITE.phone, SITE.phoneHref, "panel"],
+    ["mail", "Пошта", SITE.email, `mailto:${SITE.email}`, "panel"],
+    ["pin", "Адреса", SITE.address, null, "panel"],
   ];
   return (
     <>
@@ -28,12 +28,12 @@ export default function ContactsPage() {
                   <span className={`${tint} grid place-items-center w-12 h-12`}><Icon name={ic} size={22} /></span>
                   <div className="flex flex-col gap-1">
                     <p className="small !text-text-3">{label}</p>
-                    {href ? <a href={href} className="font-semibold hover:text-brand transition-colors">{val}</a> : <p className="font-semibold">{val}</p>}
+                    {href ? <a href={href} className="font-semibold hover:text-accent-fg transition-colors inline-block py-1.5">{val}</a> : <p className="font-semibold">{val}</p>}
                   </div>
                 </Reveal>
               ))}
               <Reveal as="li" delay={210} className="card p-6 flex flex-col gap-4">
-                <span className="tint-soft grid place-items-center w-12 h-12"><Icon name="chat" size={22} /></span>
+                <span className="panel grid place-items-center w-12 h-12"><Icon name="chat" size={22} /></span>
                 <div className="flex flex-col gap-3">
                   <p className="small !text-text-3">Месенджери</p>
                   <div className="flex flex-wrap gap-2">
@@ -54,7 +54,7 @@ export default function ContactsPage() {
               />
             </Reveal>
           </div>
-          <Reveal delay={100} className="border border-line bg-white p-8 flex flex-col gap-6 shadow-[0_24px_48px_-20px_rgba(25,25,25,.2)] lg:sticky lg:top-28">
+          <Reveal delay={100} className="border border-line bg-surface p-8 flex flex-col gap-6 shadow-[0_32px_64px_-24px_rgba(0,0,0,.8)] lg:sticky lg:top-28">
             <div className="flex flex-col gap-1">
               <h2 className="h3">Напишіть нам</h2>
               <p className="small">Передзвонимо протягом робочого дня.</p>

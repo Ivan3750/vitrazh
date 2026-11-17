@@ -30,13 +30,15 @@ export default async function ProfilePage({ params }) {
 
   return (
     <>
-      <section className="border-b border-line bg-[linear-gradient(180deg,#fff_0%,var(--color-soft)_100%)]">
-        <div className="container-x py-12 md:py-16 grid gap-12 md:grid-cols-[1.3fr_1fr] items-center">
-          <div className="flex flex-col gap-4">
+      <section className="theme-dark relative overflow-hidden border-b border-line bg-deep">
+        <div className="absolute inset-0 grid-bg" aria-hidden="true" />
+        <div className="absolute -top-40 -right-40 w-[560px] h-[560px] glow parallax" style={{ "--p": -0.12 }} aria-hidden="true" />
+        <div className="container-x relative pt-12 md:pt-16 pb-12 md:pb-20 grid gap-12 md:grid-cols-[1.3fr_1fr] items-center">
+          <div className="flex flex-col gap-5">
             <nav className="small anim-rise" aria-label="Хлібні крихти">
-              <Link href="/" className="hover:text-ink">Головна</Link> <span className="text-text-3">/</span> <Link href="/catalog/" className="hover:text-ink">Каталог</Link> <span className="text-text-3">/</span> <span className="text-ink">{p.name}</span>
+              <Link href="/" className="hover:text-accent-fg inline-block py-2">Головна</Link> <span className="text-text-3">/</span> <Link href="/catalog/" className="hover:text-accent-fg inline-block py-2">Каталог</Link> <span className="text-text-3">/</span> <span className="text-ink">{p.name}</span>
             </nav>
-            <h1 className="display !text-[clamp(2.25rem,4.6vw,3.5rem)] anim-rise [animation-delay:70ms]">{p.name}</h1>
+            <h1 className="display !text-[clamp(2.25rem,6vw,4.5rem)] anim-rise [animation-delay:70ms]">{p.name}</h1>
             <p className="lead max-w-xl anim-rise [animation-delay:140ms]">{p.tagline}</p>
             <div className="flex flex-wrap gap-3 pt-2 anim-rise [animation-delay:210ms]">
               {sellable && <Link href={`/calc/?profile=${p.slug}`} className="btn btn-primary">Розрахувати вартість <Icon name="arrow" size={18} /></Link>}
@@ -44,7 +46,7 @@ export default async function ProfilePage({ params }) {
             </div>
             {from && <p className="small anim-rise [animation-delay:280ms]">Вікно 800×1300 мм від <b className="text-ink">{fmt(from)}</b> (орієнтовно)</p>}
           </div>
-          <div className="tint-brand relative h-72 md:h-96 border border-line anim-rise [animation-delay:200ms]">
+          <div className="panel relative h-72 md:h-[26rem] border border-line-2 anim-rise [animation-delay:200ms]" data-tilt>
             <Image src={p.image} alt={p.name} fill sizes="(min-width:768px) 420px, 100vw" className="object-contain p-10" priority />
           </div>
         </div>
@@ -65,7 +67,7 @@ export default async function ProfilePage({ params }) {
               <h2 className="h2 !text-[1.75rem]">Технічні характеристики</h2>
               <dl className="border border-line divide-y divide-line">
                 {p.specs.map(([k, v], i) => (
-                  <div key={k} className={`grid grid-cols-2 gap-6 px-6 py-4 text-sm ${i % 2 ? "bg-white" : "bg-soft"}`}>
+                  <div key={k} className={`grid grid-cols-2 gap-6 px-6 py-4 text-sm ${i % 2 ? "bg-surface" : "bg-soft"}`}>
                     <dt className="text-text-2">{k}</dt>
                     <dd className="font-semibold text-ink">{v}</dd>
                   </div>
@@ -78,8 +80,8 @@ export default async function ProfilePage({ params }) {
                 <h2 className="h2 !text-[1.75rem]">Додаткові можливості</h2>
                 <div className="grid gap-6 sm:grid-cols-2">
                   {p.features.map((f, i) => (
-                    <div key={f.title} className={`${["tint-brand", "tint-accent", "tint-lime", "tint-soft"][i % 4]} p-6 flex flex-col gap-2`}>
-                      <p className="h3 !text-base flex items-center gap-2"><Icon name="check" size={18} className="text-brand" />{f.title}</p>
+                    <div key={f.title} className={`${["panel", "panel", "panel", "panel"][i % 4]} p-6 flex flex-col gap-2`}>
+                      <p className="h3 !text-base flex items-center gap-2"><Icon name="check" size={18} className="text-accent-fg" />{f.title}</p>
                       <p className="small">{f.text}</p>
                     </div>
                   ))}
@@ -88,7 +90,7 @@ export default async function ProfilePage({ params }) {
             )}
           </div>
 
-          <aside id="order" className="self-start lg:sticky lg:top-28 border border-line bg-white p-8 flex flex-col gap-4 shadow-[0_24px_48px_-20px_rgba(25,25,25,.2)]">
+          <aside id="order" className="self-start lg:sticky lg:top-28 border border-line bg-surface p-8 flex flex-col gap-4 shadow-[0_32px_64px_-24px_rgba(0,0,0,.8)]">
             <div className="flex flex-col gap-1">
               <h2 className="h3">Замовити розрахунок</h2>
               <p className="small">Залиште контакти — підготуємо пропозицію на {p.name}.</p>

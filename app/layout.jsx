@@ -2,6 +2,9 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CartProvider from "@/components/CartProvider";
+import Effects from "@/components/Effects";
+import MobileBar from "@/components/MobileBar";
+import PageTransition from "@/components/PageTransition";
 import { SITE } from "@/lib/site";
 
 export const metadata = {
@@ -15,7 +18,7 @@ export const metadata = {
   openGraph: { type: "website", siteName: "ВІТРАЖ", locale: "uk_UA", url: SITE.url },
 };
 
-export const viewport = { width: "device-width", initialScale: 1 };
+export const viewport = { width: "device-width", initialScale: 1, viewportFit: "cover", themeColor: "#0a0a0a" };
 
 export default function RootLayout({ children }) {
   return (
@@ -25,9 +28,11 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <CartProvider>
+          <Effects />
           <Header />
-          <main>{children}</main>
+          <main><PageTransition>{children}</PageTransition></main>
           <Footer />
+          <MobileBar />
         </CartProvider>
       </body>
     </html>

@@ -7,27 +7,37 @@ import Modal from "./Modal";
 import ProductConfigurator from "./ProductConfigurator";
 import ProductArt from "./ProductArt";
 import Reveal from "./Reveal";
+import Icon from "./Icon";
 
 export default function ShopGrid({ products }) {
   const [active, setActive] = useState(null);
   return (
     <>
-      <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {products.map((p, i) => (
-          <Reveal as="li" key={p.id} delay={(i % 3) * 90} className="card flex flex-col group">
-            <button type="button" onClick={() => setActive(p)} className="zoom-img relative block aspect-[4/3] bg-soft text-left" aria-label={`Налаштувати: ${p.title}`}>
-              {p.image ? <Image src={p.image} alt={p.title} fill sizes="(min-width:1024px) 380px, 90vw" className="object-cover" /> : <ProductArt className="absolute inset-0 w-full h-full" />}
-            </button>
-            <div className="p-6 flex-1 flex flex-col gap-4">
-              <div className="flex flex-col gap-1">
-                <h3 className="h3">{p.title}</h3>
-                <p className="small">{p.short}</p>
+          <Reveal as="li" key={p.id} delay={(i % 3) * 80}>
+            <article className="card group flex flex-col h-full">
+              <button type="button" onClick={() => setActive(p)} className="zoom-img relative block aspect-[4/3] bg-surface-2 text-left overflow-hidden" aria-label={`Налаштувати: ${p.title}`}>
+                {p.image ? <Image src={p.image} alt={p.title} fill sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" className="object-cover" /> : <ProductArt className="absolute inset-0 w-full h-full" />}
+                <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-80" />
+                {p.badge && <span className="badge absolute left-4 top-4 z-10">{p.badge}</span>}
+              </button>
+              <div className="p-6 flex-1 flex flex-col gap-4">
+                <div className="flex flex-col gap-1">
+                  <h3 className="h3">{p.title}</h3>
+                  <p className="small">{p.short}</p>
+                </div>
+                {p.features && (
+                  <ul className="flex flex-col gap-2 text-sm text-text-2">
+                    {p.features.slice(0, 3).map((f) => <li key={f} className="flex gap-2"><Icon name="check" size={16} className="text-accent-fg shrink-0 mt-0.5" />{f}</li>)}
+                  </ul>
+                )}
+                <div className="mt-auto pt-2 flex items-center justify-between gap-3 border-t border-line">
+                  <p className="small pt-4">від <b className="text-xl text-ink num">{fmt(minPrice(p))}</b></p>
+                  <button type="button" className="btn btn-primary btn-sm mt-4" onClick={() => setActive(p)}>Обрати</button>
+                </div>
               </div>
-              <div className="mt-auto flex items-center justify-between gap-3">
-                <p className="small">від <b className="text-xl text-ink">{fmt(minPrice(p))}</b></p>
-                <button type="button" className="btn btn-primary btn-sm" onClick={() => setActive(p)}>Обрати</button>
-              </div>
-            </div>
+            </article>
           </Reveal>
         ))}
       </ul>

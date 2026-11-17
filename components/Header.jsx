@@ -2,10 +2,28 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { NAV, SITE } from "@/lib/site";
+import { NAV, INFO, SITE } from "@/lib/site";
 import { SHOP_CATEGORIES } from "@/lib/shop";
 import { useCart } from "./CartProvider";
 import Icon from "./Icon";
+
+const MEGA = [
+  { href: "/catalog/", title: "Металопластикові вікна", note: "5 профільних систем", image: "/img/photo/window-2.webp" },
+  ...SHOP_CATEGORIES.map((c) => ({ href: `/shop/${c.id}/`, title: c.title, note: null, image: c.image })),
+];
+
+function Drop({ label, href, children, wide }) {
+  return (
+    <div className="relative group">
+      <Link href={href || "#"} className="h-10 px-3 flex items-center gap-1 text-text-2 hover:text-ink transition-colors">
+        {label} <Icon name="down" size={15} className="transition-transform duration-300 group-hover:rotate-180" />
+      </Link>
+      <div className={`absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 focus-within:opacity-100 focus-within:visible focus-within:translate-y-0 transition-all duration-200 ${wide ? "w-[640px]" : "w-[300px]"}`}>
+        <div className="bg-surface border border-line shadow-[0_32px_64px_-16px_rgba(0,0,0,.9)] p-2">{children}</div>
+      </div>
+    </div>
+  );
+}
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -13,47 +31,55 @@ export default function Header() {
   const { count, bump } = useCart();
 
   useEffect(() => {
-    const on = () => setScrolled(window.scrollY > 8);
+    const on = () => setScrolled(window.scrollY > 12);
     on();
     window.addEventListener("scroll", on, { passive: true });
     return () => window.removeEventListener("scroll", on);
   }, []);
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
 
-  const cats = [{ href: "/catalog/", title: "Металопластикові вікна", note: "Каталог і ціни" }, ...SHOP_CATEGORIES.map((c) => ({ href: `/shop/${c.id}/`, title: c.title, note: null }))];
   const links = NAV.filter((n) => n.href !== "/catalog/");
 
   return (
-    <header className={`sticky top-0 z-50 bg-white/85 backdrop-blur-md border-b transition-colors duration-300 ${scrolled ? "border-line" : "border-transparent"}`}>
-      <div className="container-x flex items-center justify-between h-[72px] gap-6">
+    <header className={`theme-dark sticky top-0 z-[100] border-b border-line transition-shadow duration-300 bg-deep ${scrolled ? "shadow-[0_8px_32px_-8px_rgba(0,0,0,.6)]" : ""}`}>
+      <div className="container-x flex items-center justify-between h-[68px] md:h-[76px] gap-4">
         <Link href="/" aria-label="ВІТРАЖ — на головну" className="shrink-0">
-          <Image src="/logo-dark.png" alt="ВІТРАЖ" width={120} height={60} priority className="h-12 w-auto" />
+          <Image src="/logo.png" alt="ВІТРАЖ" width={120} height={60} priority className="h-11 md:h-12 w-auto" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1 text-[15px] font-medium" aria-label="Головне меню">
-          <div className="relative group">
-            <Link href="/catalog/" className="h-10 px-3 flex items-center gap-1 text-text-2 hover:text-ink hover:bg-soft transition-colors">Каталог <Icon name="down" size={15} className="transition-transform group-hover:rotate-180" /></Link>
-            <div className="absolute left-0 top-full pt-2 w-[300px] opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 focus-within:opacity-100 focus-within:visible focus-within:translate-y-0 transition-all duration-200">
-              <div className="bg-white border border-line shadow-[0_24px_48px_-16px_rgba(25,25,25,.25)] p-2">
-                {cats.map((c) => (
-                  <Link key={c.href} href={c.href} className="flex items-center justify-between px-3 h-11 text-text-2 hover:text-ink hover:bg-soft transition-colors">
-                    {c.title}{c.note && <span className="text-xs text-text-3">{c.note}</span>}
-                  </Link>
-                ))}
-              </div>
+          <Drop label="Каталог" href="/catalog/" wide>
+            <div className="grid grid-cols-2 gap-1">
+              {MEGA.map((c) => (
+                <Link key={c.href} href={c.href} className="group/i flex items-center gap-3 p-2 hover:bg-surface-2 transition-colors">
+                  <span className="relative w-14 h-14 shrink-0 bg-surface-2 overflow-hidden">{c.image && <Image src={c.image} alt="" fill sizes="56px" className="object-cover" />}</span>
+                  <span className="min-w-0"><span className="block text-sm font-semibold leading-tight group-hover/i:text-accent-fg transition-colors">{c.title}</span>{c.note && <span className="block text-xs text-text-3 mt-0.5">{c.note}</span>}</span>
+                </Link>
+              ))}
             </div>
-          </div>
+          </Drop>
           {links.map((n) => (
-            <Link key={n.href} href={n.href} className="h-10 px-3 flex items-center text-text-2 hover:text-ink hover:bg-soft transition-colors">{n.label}</Link>
+            <Link key={n.href} href={n.href} className="h-10 px-3 flex items-center text-text-2 hover:text-ink transition-colors">{n.label}</Link>
           ))}
+          <Drop label="Інформація">
+            {INFO.map((c) => (
+              <Link key={c.href} href={c.href} className="flex flex-col px-3 py-2.5 hover:bg-surface-2 transition-colors">
+                <span className="text-sm font-semibold">{c.label}</span><span className="text-xs text-text-3">{c.note}</span>
+              </Link>
+            ))}
+          </Drop>
         </nav>
 
         <div className="flex items-center gap-2">
-          <a href={SITE.phoneHref} className="hidden xl:block text-[15px] font-semibold mr-2 hover:text-brand transition-colors">{SITE.phone}</a>
+          <a href={SITE.phoneHref} className="hidden xl:flex items-center gap-2 text-[15px] font-semibold mr-2 hover:text-accent-fg transition-colors"><span className="relative w-2 h-2"><span className="absolute inset-0 bg-accent" /><span className="absolute inset-0 bg-accent" style={{ animation: "pulse-ring 2s infinite" }} /></span>{SITE.phone}</a>
           <Link href="/cart/" aria-label={`Кошик, товарів: ${count}`} className="relative btn btn-outline btn-sm btn-icon">
             <Icon name="cart" size={18} />
-            {count > 0 && <span key={bump} className="anim-bump absolute -top-1.5 -right-1.5 min-w-[18px] h-[18px] px-1 grid place-items-center bg-accent text-white text-[11px] font-bold leading-none">{count}</span>}
+            {count > 0 && <span key={bump} className="anim-bump absolute -top-1.5 -right-1.5 min-w-[18px] h-[18px] px-1 grid place-items-center bg-accent text-on-accent text-[11px] font-bold leading-none">{count}</span>}
           </Link>
-          <Link href="/calc/" className="btn btn-dark btn-sm hidden md:inline-flex">Розрахувати</Link>
+          <Link href="/calc/" className="btn btn-primary btn-sm hidden md:inline-flex">Розрахувати</Link>
           <button className="lg:hidden btn btn-outline btn-sm btn-icon" onClick={() => setOpen(!open)} aria-label={open ? "Закрити меню" : "Відкрити меню"} aria-expanded={open}>
             <Icon name={open ? "x" : "menu"} size={20} />
           </button>
@@ -61,12 +87,20 @@ export default function Header() {
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-line bg-white max-h-[calc(100vh-72px)] overflow-y-auto anim-fade">
-          <nav className="container-x flex flex-col py-4" aria-label="Мобільне меню">
-            {cats.map((c) => <Link key={c.href} href={c.href} onClick={() => setOpen(false)} className="py-3 text-lg border-b border-line">{c.title}</Link>)}
-            {links.map((n) => <Link key={n.href} href={n.href} onClick={() => setOpen(false)} className="py-3 text-lg border-b border-line text-text-2">{n.label}</Link>)}
-            <a href={SITE.phoneHref} className="py-4 text-lg font-semibold">{SITE.phone}</a>
-            <Link href="/calc/" onClick={() => setOpen(false)} className="btn btn-dark btn-block">Розрахувати вартість</Link>
+        <div className="lg:hidden fixed inset-x-0 top-[68px] bottom-0 bg-deep overflow-y-auto anim-fade">
+          <nav className="container-x flex flex-col py-6 gap-8" aria-label="Мобільне меню">
+            <div className="flex flex-col">
+              <p className="eyebrow mb-3">Магазин</p>
+              {MEGA.map((c) => <Link key={c.href} href={c.href} onClick={() => setOpen(false)} className="py-3.5 text-xl font-semibold border-b border-line flex items-center justify-between">{c.title}<Icon name="arrow" size={18} className="text-text-3" /></Link>)}
+            </div>
+            <div className="flex flex-col">
+              <p className="eyebrow mb-3">Компанія та інформація</p>
+              {[...links, ...INFO].map((n) => <Link key={n.href} href={n.href} onClick={() => setOpen(false)} className="py-3 text-lg text-text-2 border-b border-line">{n.label}</Link>)}
+            </div>
+            <div className="flex flex-col gap-3 pb-8">
+              <a href={SITE.phoneHref} className="btn btn-primary btn-block"><Icon name="phone" size={18} /> {SITE.phone}</a>
+              <Link href="/calc/" onClick={() => setOpen(false)} className="btn btn-outline btn-block">Розрахувати вартість</Link>
+            </div>
           </nav>
         </div>
       )}

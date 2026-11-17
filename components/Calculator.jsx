@@ -13,9 +13,9 @@ const LIMITS = { min: 300, max: 3000 };
 
 function Step({ n, title, children }) {
   return (
-    <section className=" border border-line bg-white p-6 md:p-8">
+    <section className=" border border-line bg-surface p-6 md:p-8">
       <h2 className="h3 flex items-center gap-3">
-        <span className="grid place-items-center w-8 h-8 bg-brand text-white text-sm">{n}</span>{title}
+        <span className="grid place-items-center w-8 h-8 bg-accent text-on-accent text-white text-sm">{n}</span>{title}
       </h2>
       <div className="mt-6">{children}</div>
     </section>
@@ -23,7 +23,7 @@ function Step({ n, title, children }) {
 }
 
 const Choice = ({ active, onClick, children, className = "" }) => (
-  <button type="button" onClick={onClick} aria-pressed={active} className={` border-2 text-left transition-colors ${active ? "border-brand bg-brand/5" : "border-line hover:border-brand/50"} ${className}`}>
+  <button type="button" onClick={onClick} aria-pressed={active} className={` border-2 text-left transition-colors ${active ? "border-sel bg-accent/10" : "border-line hover:border-sel/50"} ${className}`}>
     {children}
   </button>
 );
@@ -110,7 +110,7 @@ export default function Calculator() {
               </Choice>
             ))}
           </div>
-          <p className="text-xs text-text-2 mt-3 flex gap-4"><span><i className="inline-block w-4 border-t-2 border-dashed border-brand align-middle mr-1" />поворот</span><span><i className="inline-block w-4 border-t-2 border-dashed border-accent align-middle mr-1" />відкидання</span></p>
+          <p className="text-xs text-text-2 mt-3 flex gap-4"><span><i className="inline-block w-4 border-t-2 border-dashed border-sel align-middle mr-1" />поворот</span><span><i className="inline-block w-4 border-t-2 border-dashed border-sel align-middle mr-1" />відкидання</span></p>
         </Step>
 
         <Step n={3} title="Розміри, мм">
@@ -121,7 +121,7 @@ export default function Calculator() {
                 <input type="number" inputMode="numeric" className="field mt-1" min={LIMITS.min} max={LIMITS.max} value={val} onChange={(e) => set(e.target.value === "" ? "" : +e.target.value)} onBlur={(e) => set(clamp(e.target.value))} />
               </label>
             ))}
-            <div className="hidden sm:grid place-items-center"><WindowDiagram cols={cfg.cols} width={+width || 1000} height={+height || 1000} maxW={110} maxH={110} /></div>
+            <div className="hidden sm:grid place-items-center"><WindowDiagram cols={cfg.cols} width={+width || 1000} height={+height || 1000} color={color} maxW={110} maxH={110} /></div>
           </div>
           <p className="text-xs text-text-2 mt-2">Допустимо від {LIMITS.min} до {LIMITS.max} мм. Площа: {price.area.toFixed(2)} м².</p>
         </Step>
@@ -155,20 +155,20 @@ export default function Calculator() {
         <Step n={7} title="Додаткові послуги">
           <div className="grid gap-2 sm:grid-cols-2">
             {SERVICES.map((s) => (
-              <label key={s.id} className="flex items-center gap-3 border border-line px-4 py-3 text-sm cursor-pointer hover:border-brand/50">
-                <input type="checkbox" className="accent-[#0878c0] w-4 h-4" checked={services.includes(s.id)} onChange={() => setServices((a) => a.includes(s.id) ? a.filter((x) => x !== s.id) : [...a, s.id])} />
+              <label key={s.id} className="flex items-center gap-3 border border-line px-4 py-3 text-sm cursor-pointer hover:border-sel/50">
+                <input type="checkbox" className="accent-[#d8f422] w-4 h-4" checked={services.includes(s.id)} onChange={() => setServices((a) => a.includes(s.id) ? a.filter((x) => x !== s.id) : [...a, s.id])} />
                 <span className="flex-1">{s.label}</span>
-                {s.note && <span className="text-xs text-green-700">{s.note}</span>}
+                {s.note && <span className="text-xs text-accent-fg">{s.note}</span>}
               </label>
             ))}
           </div>
         </Step>
       </div>
 
-      <aside className="lg:sticky lg:top-28 border border-line bg-white shadow-[0_24px_48px_-20px_rgba(25,25,25,.25)] p-5 md:p-6">
+      <aside className="lg:sticky lg:top-28 border border-line bg-surface shadow-[0_32px_64px_-24px_rgba(0,0,0,.8)] p-5 md:p-6">
         <h2 className="text-lg font-bold text-ink">Ваш розрахунок</h2>
         <div className="mt-3 grid place-items-center bg-soft p-4">
-          <WindowDiagram cols={cfg.cols} width={+width || 1000} height={+height || 1000} maxW={170} maxH={150} />
+          <WindowDiagram cols={cfg.cols} width={+width || 1000} height={+height || 1000} color={color} dims maxW={200} maxH={170} />
         </div>
         <dl className="mt-4 space-y-1.5 text-sm">
           {Object.entries(payload).filter(([k]) => !["Кількість", "Орієнтовна сума"].includes(k)).map(([k, v]) => (
@@ -189,7 +189,7 @@ export default function Calculator() {
             </div>
           </div>
         </div>
-        <div className="mt-4 bg-ink text-white p-4">
+        <div className="mt-4 bg-deep text-white p-4">
           <p className="text-xs text-white/70">Орієнтовна вартість</p>
           <p className="text-3xl font-bold">{fmt(total)}</p>
         </div>

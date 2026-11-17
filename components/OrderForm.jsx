@@ -40,9 +40,9 @@ export default function OrderForm({ payload = {}, subject = "Заявка з с�
 
   if (state.status === "ok") {
     return (
-      <div className=" bg-green-50 border border-green-200 p-6 text-center">
+      <div className=" bg-accent/10 border border-green-200 p-6 text-center">
         <p className="text-lg font-semibold text-green-800">Дякуємо! Заявку отримано.</p>
-        <p className="text-green-700 mt-1">Менеджер зателефонує вам найближчим часом.</p>
+        <p className="text-accent-fg mt-1">Менеджер зателефонує вам найближчим часом.</p>
       </div>
     );
   }
@@ -54,7 +54,7 @@ export default function OrderForm({ payload = {}, subject = "Заявка з с�
       {!compact && <textarea name="message" className="field min-h-24" placeholder="Коментар (необов'язково)" />}
       {/* honeypot */}
       <input name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
-      {state.status === "error" && <p className="text-sm text-red-600">{state.msg}</p>}
+      {state.status === "error" && <p className="text-sm text-red-400">{state.msg}</p>}
       <button type="submit" className="btn btn-primary w-full" disabled={state.status === "loading"}>
         {state.status === "loading" ? "Надсилаємо…" : submitLabel}
       </button>

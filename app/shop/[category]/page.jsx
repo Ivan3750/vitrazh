@@ -22,7 +22,7 @@ export default async function ShopCategoryPage({ params }) {
   return (
     <>
       <PageHero title={c.title} lead={c.lead} crumbs={[["Каталог", "/catalog/"], [c.title]]} />
-      <section className="py-12 md:py-16 bg-white">
+      <section className="py-12 md:py-16 bg-surface">
         <div className="container-x">
           <div className="flex flex-wrap gap-2 mb-12">
             <Link href="/catalog/" className="btn btn-outline btn-sm">Вікна</Link>

@@ -42,12 +42,13 @@ export default function ProductConfigurator({ product, onAdded }) {
   );
 
   return (
-    <div className="grid gap-6 md:grid-cols-[220px_1fr]">
+    <div className="grid gap-8 md:grid-cols-[240px_1fr]">
       <div className="hidden md:block">
         <div className="relative aspect-square bg-soft">
           {product.image ? <Image src={product.image} alt={product.title} fill sizes="220px" className="object-cover" /> : <ProductArt className="w-full h-full" />}
         </div>
-        <p className="text-sm text-text-2 mt-3 leading-relaxed">{product.description}</p>
+        <p className="text-sm text-text-2 mt-4 leading-relaxed">{product.description}</p>
+        {product.features && <ul className="mt-4 flex flex-col gap-2 text-sm">{product.features.map((f) => <li key={f} className="flex gap-2"><Icon name="check" size={16} className="text-accent-fg shrink-0 mt-0.5" />{f}</li>)}</ul>}
       </div>
       <div className="space-y-5">
         {pr.type === "area" && (
@@ -67,7 +68,7 @@ export default function ProductConfigurator({ product, onAdded }) {
                 const visual = c.swatch || c.image;
                 return (
                   <button key={c.id} type="button" onClick={() => setChoices((s) => ({ ...s, [o.id]: c.id }))} aria-pressed={active} title={c.label}
-                    className={`border-2 transition-all ${active ? "border-brand ring-2 ring-brand/20" : "border-line hover:border-ink"} ${visual ? "p-1" : "px-3 py-2 text-sm font-medium"}`}>
+                    className={`border-2 transition-all ${active ? "border-sel ring-2 ring-sel/30" : "border-line hover:border-ink"} ${visual ? "p-1" : "px-3 py-2 text-sm font-medium"}`}>
                     {c.swatch && <span className="block w-8 h-8 border border-line" style={{ background: c.swatch }} />}
                     {c.image && <Image src={c.image} alt={c.label} width={36} height={36} className="block w-9 h-9 object-cover" />}
                     {!visual && c.label}
@@ -80,7 +81,7 @@ export default function ProductConfigurator({ product, onAdded }) {
 
         {(product.extras ?? []).map((e) => (
           <label key={e.id} className="flex items-center gap-3 text-sm cursor-pointer">
-            <input type="checkbox" className="accent-[#0878c0] w-4 h-4" checked={extras.includes(e.id)} onChange={() => setExtras((a) => (a.includes(e.id) ? a.filter((x) => x !== e.id) : [...a, e.id]))} />
+            <input type="checkbox" className="accent-[#d8f422] w-4 h-4" checked={extras.includes(e.id)} onChange={() => setExtras((a) => (a.includes(e.id) ? a.filter((x) => x !== e.id) : [...a, e.id]))} />
             {e.label} <span className="text-text-2">+{fmt(e.price)}</span>
           </label>
         ))}

@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useRef } from "react";
 
-// Плавна поява блоку при прокрутці. delay — затримка в мс (для каскаду).
-export default function Reveal({ as: Tag = "div", delay = 0, left = false, className = "", children, ...rest }) {
+// Поява блоку при прокрутці. variant: up | left | right | scale. delay — мс (каскад).
+export default function Reveal({ as: Tag = "div", delay = 0, variant = "up", left = false, className = "", children, ...rest }) {
   const ref = useRef(null);
   useEffect(() => {
     const el = ref.current;
@@ -15,8 +15,10 @@ export default function Reveal({ as: Tag = "div", delay = 0, left = false, class
     io.observe(el);
     return () => io.disconnect();
   }, []);
+  const v = left ? "left" : variant;
+  const cls = v === "left" ? "reveal-left" : v === "right" ? "reveal-right" : v === "scale" ? "reveal-scale" : "";
   return (
-    <Tag ref={ref} className={`reveal ${left ? "reveal-left" : ""} ${className}`} style={{ "--d": `${delay}ms` }} {...rest}>
+    <Tag ref={ref} className={`reveal ${cls} ${className}`} style={{ "--d": `${delay}ms` }} {...rest}>
       {children}
     </Tag>
   );
