@@ -9,7 +9,7 @@ import ProductArt from "./ProductArt";
 import CartButton from "./CartButton";
 
 const MEGA = [
-  { href: "/catalog/", title: "Металопластикові вікна", note: "5 профільних систем", image: "/img/photo/window-2.webp" },
+  { href: "/catalog/", title: "Металопластикові вікна", note: "6 профільних систем", image: "/img/photo/window-2.webp" },
   ...SHOP_CATEGORIES.map((c) => ({ href: `/shop/${c.id}/`, title: c.title, note: null, image: c.image })),
 ];
 

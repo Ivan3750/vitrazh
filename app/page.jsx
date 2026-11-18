@@ -96,7 +96,7 @@ export default function HomePage() {
                   <span className="badge absolute left-5 top-5">Головне</span>
                 </div>
                 <div className="p-6 flex items-center justify-between gap-4 relative z-[2]">
-                  <div><h3 className="h3 !text-2xl">Металопластикові вікна</h3><p className="small mt-1">5 профільних систем, калькулятор, ціни</p></div>
+                  <div><h3 className="h3 !text-2xl">Металопластикові вікна</h3><p className="small mt-1">{PVC_PROFILES.length} профільних систем, калькулятор, ціни</p></div>
                   <span className="btn btn-primary btn-sm btn-icon shrink-0"><Icon name="arrow" size={18} /></span>
                 </div>
               </Link>
