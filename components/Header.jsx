@@ -5,6 +5,7 @@ import Image from "next/image";
 import { NAV, INFO, SITE } from "@/lib/site";
 import { SHOP_CATEGORIES } from "@/lib/shop";
 import Icon from "./Icon";
+import ProductArt from "./ProductArt";
 import CartButton from "./CartButton";
 
 const MEGA = [
@@ -18,8 +19,8 @@ function Drop({ label, href, children, wide }) {
       <Link href={href || "#"} className="h-10 px-3 flex items-center gap-1 text-text-2 hover:text-ink transition-colors">
         {label} <Icon name="down" size={15} className="transition-transform duration-300 group-hover:rotate-180" />
       </Link>
-      <div className={`absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 focus-within:opacity-100 focus-within:visible focus-within:translate-y-0 transition-all duration-200 ${wide ? "w-[640px]" : "w-[300px]"}`}>
-        <div className="bg-surface shadow-[0_32px_64px_-16px_rgba(0,0,0,.9)] p-2">{children}</div>
+      <div className={`absolute top-full pt-3 ${wide ? "left-0" : "left-1/2 -translate-x-1/2"} opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 focus-within:opacity-100 focus-within:visible focus-within:translate-y-0 transition-all duration-200 ${wide ? "w-[min(640px,calc(100vw-48px))]" : "w-[300px]"}`}>
+        <div className="bg-surface border border-line-2 shadow-[0_32px_64px_-16px_rgba(0,0,0,.9)] p-2">{children}</div>
       </div>
     </div>
   );
@@ -54,7 +55,7 @@ export default function Header() {
             <div className="grid grid-cols-2 gap-1">
               {MEGA.map((c) => (
                 <Link key={c.href} href={c.href} className="group/i flex items-center gap-3 p-2 hover:bg-surface-2 transition-colors">
-                  <span className="relative w-14 h-14 shrink-0 bg-surface-2 overflow-hidden">{c.image && <Image src={c.image} alt="" fill sizes="56px" className="object-cover" />}</span>
+                  <span className="relative w-14 h-14 shrink-0 bg-surface-2 overflow-hidden">{c.image ? <Image src={c.image} alt="" fill sizes="56px" className="object-cover" /> : <ProductArt className="absolute inset-0 w-full h-full" />}</span>
                   <span className="min-w-0"><span className="block text-sm font-semibold leading-tight group-hover/i:text-accent-fg transition-colors">{c.title}</span>{c.note && <span className="block text-xs text-text-3 mt-0.5">{c.note}</span>}</span>
                 </Link>
               ))}
