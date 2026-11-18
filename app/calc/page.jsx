@@ -1,27 +1,20 @@
-import Calc from "../components/Calc";
+import Link from "next/link";
+import Calculator from "@/components/Calculator";
+import PageHero from "@/components/PageHero";
 
 export const metadata = {
-  title: "Калькулятор вартості вікон",
-  description:
-    "Онлайн-калькулятор VitraZH допоможе швидко розрахувати вартість металопластикових вікон у Києві та області. Точний прорахунок, зручність та прозорі ціни.",
-  keywords:
-    "калькулятор вікон, розрахунок вартості вікон Київ, ціна металопластикових вікон, прорахунок вікон онлайн, VitraZH калькулятор",
-  robots: "index, follow",
-  openGraph: {
-    type: "website",
-    title: "Калькулятор вартості вікон VitraZH",
-    description:
-      "Розрахуйте онлайн вартість металопластикових вікон. Безкоштовний прорахунок від VitraZH у Києві та області.",
-    siteName: "VitraZH",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Онлайн-калькулятор вікон VitraZH",
-    description:
-      "Зручний калькулятор для прорахунку вартості вікон, у Києві та області. Прозорі ціни та якісний монтаж.",
-  },
+  title: "Калькулятор вартості вікон онлайн",
+  description: "Розрахуйте вартість металопластикових вікон онлайн: оберіть профіль, конфігурацію, розміри, склопакет, колір, фурнітуру та послуги монтажу.",
+  alternates: { canonical: "/calc/" },
 };
 
 export default function CalcPage() {
-  return <Calc />;
+  return (
+    <>
+      <PageHero title="Калькулятор вікон" lead="Налаштуйте вікно крок за кроком — вартість оновлюється одразу. Готовий розрахунок додайте в кошик або надішліть нам." crumbs={[["Калькулятор"]]} />
+      <section className="py-10 md:py-14 bg-soft">
+        <div className="container-x"><Calculator /></div>
+      </section>
+    </>
+  );
 }

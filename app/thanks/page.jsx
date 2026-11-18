@@ -1,27 +1,22 @@
-import Button from "@/app/components/Button";
+import Link from "next/link";
+import { SITE } from "@/lib/site";
+import Icon from "@/components/Icon";
 
-const Thanks = () => {
+export const metadata = { title: "Дякуємо за замовлення", robots: { index: false } };
+
+export default function ThanksPage() {
   return (
-    <>
-      <div className="bg-[#171717] flex justify-center items-center w-screen max-w-full h-screen max-h-full px-[10px] py-[60px]">
-        <div className="flex flex-col text-center w-[600px] mb-0 items-center gap-[15px]">
-          <h1 className="!text-[120px] !text-[#e9e9e9] !leading-[120px] font-light">Дякуємо!</h1>
-          <h2 className="!text-[38px] !capitalize !text-[#e9e9e9]">
-            Вашу заявку успішно надіслано
-          </h2>
-          <div className="!text-[22px] !text-[#a3a3a3] text-balance max-w-[500px]">
-            Ми зв’яжемось із вами найближчим часом, щоб відповісти на запит або уточнити деталі.
-          </div>
-
-          <Button
-            link="/"
-            name="На головну сторінку"
-            className="my-4 mx-auto block"
-          />
+    <section className="section">
+      <div className="container-x max-w-xl flex flex-col items-center gap-6 text-center">
+        <span className="anim-pop grid place-items-center w-16 h-16 bg-accent text-ink"><Icon name="check" size={32} /></span>
+        <h1 className="display !text-[clamp(2rem,4.4vw,3rem)] anim-rise [animation-delay:100ms]">Замовлення прийнято</h1>
+        <p className="lead anim-rise [animation-delay:180ms]">Дякуємо! Менеджер зателефонує найближчим часом, уточнить деталі та узгодить замір і доставку.</p>
+        <p className="small anim-rise [animation-delay:240ms]">Питання? <a className="text-accent-fg font-semibold inline-block py-2" href={SITE.phoneHref}>{SITE.phone}</a></p>
+        <div className="flex flex-wrap justify-center gap-3 anim-rise [animation-delay:300ms]">
+          <Link href="/" className="btn btn-dark">На головну</Link>
+          <Link href="/catalog/" className="btn btn-outline">Продовжити покупки</Link>
         </div>
       </div>
-    </>
+    </section>
   );
-};
-
-export default Thanks;
+}

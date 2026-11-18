@@ -1,0 +1,48 @@
+# Apache (ukraine.com.ua та інші хостинги з PHP). Кладіть поруч з index.html у корені сайту.
+DirectoryIndex index.html index.php
+Options -Indexes
+AddDefaultCharset UTF-8
+
+# Сторінка 404 (Next.js експортує її як 404.html)
+ErrorDocument 404 /404.html
+
+# Якщо хостинг віддає лише http, а SSL вже підключено в панелі — розкоментуйте, щоб увімкнути HTTPS
+# RewriteEngine On
+# RewriteCond %{HTTPS} !=on
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Не віддавати службові файли
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+<FilesMatch "^\.htaccess$">
+  Require all denied
+</FilesMatch>
+
+# Стиснення
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml text/plain application/xml
+</IfModule>
+
+# Кеш: файли _next/static мають хеш у назві, картинки змінюються рідко
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# PHP-ендпоінт форм не повинен кешуватися
+<FilesMatch "order\.php$">
+  Header set Cache-Control "no-store"
+</FilesMatch>

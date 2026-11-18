@@ -1,0 +1,8 @@
+User-Agent: *
+Allow: /
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /thanks/
+Disallow: /api/
+
+Sitemap: https://vitrazh.com.ua/sitemap.xml
