@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "npx serve out",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next build && rm -rf export && cp -r out export"
   },
   "dependencies": {
     "lucide-react": "^0.556.0",
