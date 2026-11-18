@@ -12,7 +12,7 @@ export default function MobileBar() {
   if (path?.startsWith("/checkout")) return null;
   const item = "flex-1 flex flex-col items-center justify-center gap-1 text-[11px] font-semibold text-text-2 active:text-accent-fg min-h-[56px]";
   return (
-    <nav className="theme-dark lg:hidden fixed bottom-0 inset-x-0 z-[90] bg-deep/92 backdrop-blur-lg border-t border-line pb-[env(safe-area-inset-bottom)]" aria-label="Швидкі дії">
+    <nav className="theme-dark lg:hidden fixed bottom-0 inset-x-0 z-(--z-bar) bg-deep/92 backdrop-blur-lg border-t border-line pb-[env(safe-area-inset-bottom)]" aria-label="Швидкі дії">
       <div className="flex">
         <a href={SITE.phoneHref} className={item}><Icon name="phone" size={20} />Дзвінок</a>
         <Link href="/catalog/" className={item}><Icon name="search" size={20} />Каталог</Link>

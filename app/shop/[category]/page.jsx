@@ -22,7 +22,7 @@ export default async function ShopCategoryPage({ params }) {
   return (
     <>
       <PageHero title={c.title} lead={c.lead} crumbs={[["Каталог", "/catalog/"], [c.title]]} />
-      <section className="py-12 md:py-16 bg-surface">
+      <section className="py-10 md:py-14">
         <div className="container-x">
           <div className="mb-10"><ShopTabs active={c.id} /></div>
           <ShopGrid products={productsIn(c.id)} />

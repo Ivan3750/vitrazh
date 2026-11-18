@@ -81,7 +81,7 @@ export default function ProductConfigurator({ product, onAdded }) {
 
         {(product.extras ?? []).map((e) => (
           <label key={e.id} className="flex items-center gap-3 text-sm cursor-pointer">
-            <input type="checkbox" className="accent-[#d8f422] w-4 h-4" checked={extras.includes(e.id)} onChange={() => setExtras((a) => (a.includes(e.id) ? a.filter((x) => x !== e.id) : [...a, e.id]))} />
+            <input type="checkbox" className="accent-accent w-4 h-4" checked={extras.includes(e.id)} onChange={() => setExtras((a) => (a.includes(e.id) ? a.filter((x) => x !== e.id) : [...a, e.id]))} />
             {e.label} <span className="text-text-2">+{fmt(e.price)}</span>
           </label>
         ))}

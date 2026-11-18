@@ -1,5 +1,5 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { buildCatalog, PVC_PROFILES, CONFIGS, PROFILE_TAGS, itemPrice } from "@/lib/catalog";
 import { fmt } from "@/lib/pricing";
 import WindowCard from "./WindowCard";
@@ -28,7 +28,7 @@ function Group({ title, children }) {
 function Check({ label, checked, onChange, count }) {
   return (
     <label className="flex items-center gap-3 text-sm cursor-pointer min-h-8 text-text-2 hover:text-ink transition-colors">
-      <input type="checkbox" checked={checked} onChange={onChange} className="w-4 h-4 accent-[#d8f422]" />
+      <input type="checkbox" checked={checked} onChange={onChange} className="w-4 h-4 accent-accent" />
       <span className="flex-1">{label}</span>
       {count != null && <span className="text-xs text-text-3 num">{count}</span>}
     </label>
@@ -44,6 +44,16 @@ export default function CatalogClient() {
   const [shown, setShown] = useState(PAGE);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [quick, setQuick] = useState(null);
+
+  // Поки відкрита панель фільтрів — сторінка під нею не прокручується
+  useEffect(() => {
+    if (!filtersOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKey = (e) => e.key === "Escape" && setFiltersOpen(false);
+    document.addEventListener("keydown", onKey);
+    return () => { document.body.style.overflow = prev; document.removeEventListener("keydown", onKey); };
+  }, [filtersOpen]);
 
   const list = useMemo(() => {
     const t = q.trim().toLowerCase();
@@ -78,7 +88,7 @@ export default function CatalogClient() {
       </Group>
       <div>
         <p className="eyebrow !text-text-3 mb-4 before:hidden">Ціна до: <span className="accent-text normal-case tracking-normal text-sm">{fmt(maxPrice)}</span></p>
-        <input type="range" min={3000} max={PRICE_MAX} step={500} value={maxPrice} onChange={(e) => { setMaxPrice(+e.target.value); setShown(PAGE); }} className="w-full accent-[#d8f422]" aria-label="Максимальна ціна" />
+        <input type="range" min={3000} max={PRICE_MAX} step={500} value={maxPrice} onChange={(e) => { setMaxPrice(+e.target.value); setShown(PAGE); }} className="w-full accent-accent" aria-label="Максимальна ціна" />
       </div>
       <button onClick={reset} className="btn btn-outline btn-sm btn-block">Скинути фільтри</button>
     </div>
@@ -129,7 +139,7 @@ export default function CatalogClient() {
       </div>
 
       {filtersOpen && (
-        <div className="lg:hidden fixed inset-0 z-[150] bg-bg overflow-y-auto p-5 pb-28 anim-fade">
+        <div className="lg:hidden fixed inset-0 z-(--z-overlay) bg-bg overflow-y-auto overscroll-contain p-5 pb-28 anim-fade" role="dialog" aria-modal="true" aria-label="Фільтри">
           <div className="flex items-center justify-between mb-6">
             <p className="h3">Фільтри</p>
             <button onClick={() => setFiltersOpen(false)} className="btn btn-outline btn-sm btn-icon" aria-label="Закрити"><Icon name="x" size={20} /></button>

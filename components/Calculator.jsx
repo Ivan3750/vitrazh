@@ -15,7 +15,7 @@ function Step({ n, title, children }) {
   return (
     <section className=" bg-surface p-6 md:p-8">
       <h2 className="h3 flex items-center gap-3">
-        <span className="grid place-items-center w-8 h-8 bg-accent text-on-accent text-white text-sm">{n}</span>{title}
+        <span className="grid place-items-center w-8 h-8 bg-accent text-on-accent text-sm">{n}</span>{title}
       </h2>
       <div className="mt-6">{children}</div>
     </section>
@@ -156,7 +156,7 @@ export default function Calculator() {
           <div className="grid gap-2 sm:grid-cols-2">
             {SERVICES.map((s) => (
               <label key={s.id} className="flex items-center gap-3 px-4 py-3 text-sm cursor-pointer bg-surface-2 hover:bg-soft transition-colors">
-                <input type="checkbox" className="accent-[#d8f422] w-4 h-4" checked={services.includes(s.id)} onChange={() => setServices((a) => a.includes(s.id) ? a.filter((x) => x !== s.id) : [...a, s.id])} />
+                <input type="checkbox" className="accent-accent w-4 h-4" checked={services.includes(s.id)} onChange={() => setServices((a) => a.includes(s.id) ? a.filter((x) => x !== s.id) : [...a, s.id])} />
                 <span className="flex-1">{s.label}</span>
                 {s.note && <span className="text-xs text-accent-fg">{s.note}</span>}
               </label>

@@ -21,7 +21,7 @@ function Radio({ name, value, current, onChange, label, hint }) {
   const active = current === value;
   return (
     <label className={`flex items-start gap-3 p-3 cursor-pointer transition-all ${active ? "ring-2 ring-sel bg-accent/15" : "bg-surface-2 hover:bg-soft"}`}>
-      <input type="radio" name={name} value={value} checked={active} onChange={() => onChange(value)} className="mt-1 accent-[#d8f422]" />
+      <input type="radio" name={name} value={value} checked={active} onChange={() => onChange(value)} className="mt-1 accent-accent" />
       <span className="text-sm"><span className="font-semibold text-ink">{label}</span>{hint && <span className="block text-text-2 text-xs mt-0.5">{hint}</span>}</span>
     </label>
   );
@@ -110,7 +110,7 @@ export default function CheckoutForm() {
           {delivery === "pickup" && (<><input type="hidden" name="city" value="Київ" /><input type="hidden" name="address" value="Самовивіз" /></>)}
           {hasWindows && (
             <label className="mt-4 flex items-center gap-3 text-sm cursor-pointer">
-              <input type="checkbox" checked={measure} onChange={(e) => setMeasure(e.target.checked)} className="w-4 h-4 accent-[#d8f422]" />
+              <input type="checkbox" checked={measure} onChange={(e) => setMeasure(e.target.checked)} className="w-4 h-4 accent-accent" />
               Потрібен безкоштовний виїзд замірника
             </label>
           )}
@@ -150,7 +150,7 @@ export default function CheckoutForm() {
           <span className="text-xs text-white/70">Разом</span>
           <span className="text-2xl font-bold">{fmt(total)}</span>
         </div>
-        {state.status === "error" && <p className="mt-3 text-sm text-red-400">{state.msg}</p>}
+        {state.status === "error" && <p className="mt-3 text-sm text-danger">{state.msg}</p>}
         <button type="submit" className="btn btn-primary w-full mt-4" disabled={state.status === "loading"}>
           {state.status === "loading" ? "Оформлюємо…" : "Підтвердити замовлення"}
         </button>

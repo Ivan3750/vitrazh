@@ -59,15 +59,15 @@ export default function HomePage() {
               <Link href="/calc/" className="btn btn-outline">Калькулятор</Link>
             </div>
           </div>
-          <Reveal variant="scale" className="relative aspect-[4/3] lg:aspect-[5/4] overflow-hidden">
+          <div className="relative aspect-[4/3] lg:aspect-[5/4] overflow-hidden anim-fade">
             <Image src="/img/photo/house.webp" alt="Сучасний будинок з панорамними вікнами" fill priority sizes="(min-width:1024px) 50vw, 100vw" className="object-cover anim-kenburns" />
-          </Reveal>
+          </div>
         </div>
         <div className="container-x">
           <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-line-2 border-t border-line-2">
             {STATS.map((s) => (
               <div key={s.label} className="py-5 md:py-8 px-3 md:px-8 first:pl-0 flex flex-col items-start sm:flex-row sm:items-center gap-1 sm:gap-5 min-w-0">
-                <span className="num text-3xl sm:text-4xl md:text-6xl leading-none"><CountUp to={s.to} suffix={s.suffix} /></span>
+                <span className="num whitespace-nowrap text-3xl sm:text-4xl md:text-5xl xl:text-6xl leading-none"><CountUp to={s.to} suffix={s.suffix} /></span>
                 <span className="small sm:max-w-[120px] leading-snug min-w-0">{s.label}</span>
               </div>
             ))}
@@ -79,7 +79,7 @@ export default function HomePage() {
       <section className="theme-dark bg-deep border-y border-line py-7 overflow-hidden scroll-row" aria-label="Системи та комплектуючі заводу">
         <div className="scroll-track flex" aria-hidden="true">
           {[...BRANDS, ...BRANDS, ...BRANDS, ...BRANDS].map((b, i) => (
-            <span key={i} className="px-10 text-2xl font-bold tracking-tight text-white/25 hover:text-accent-fg transition-colors whitespace-nowrap">{b}</span>
+            <span key={i} className="px-10 text-2xl font-bold tracking-tight text-ink/25 hover:text-accent-fg transition-colors whitespace-nowrap">{b}</span>
           ))}
         </div>
       </section>
@@ -139,7 +139,7 @@ export default function HomePage() {
                 <span className="relative grid place-items-center w-12 h-12 text-accent-fg"><Icon name={b.icon} size={22} /></span>
                 <h3 className="h3">{b.title}</h3>
                 <p className="small">{b.text}</p>
-                <span className="mt-auto text-5xl font-bold text-white/[.06] num">0{i + 1}</span>
+                <span className="mt-auto text-5xl font-bold text-ink/[.06] num">0{i + 1}</span>
               </Reveal>
             ))}
           </div>

@@ -43,7 +43,7 @@ export default function Header() {
   const links = NAV.filter((n) => n.href !== "/catalog/");
 
   return (
-    <header className={`theme-dark sticky top-0 z-[100] border-b border-line transition-shadow duration-300 bg-deep ${scrolled ? "shadow-[0_8px_32px_-8px_rgba(0,0,0,.6)]" : ""}`}>
+    <header className={`theme-dark sticky top-0 z-(--z-header) border-b border-line transition-shadow duration-300 bg-deep ${scrolled ? "shadow-[0_8px_32px_-8px_rgba(0,0,0,.6)]" : ""}`}>
       <div className="container-x flex items-center justify-between h-[68px] md:h-[76px] gap-4">
         <Link href="/" aria-label="ВІТРАЖ — на головну" className="shrink-0">
           <Image src="/logo.png" alt="ВІТРАЖ" width={120} height={60} priority className="h-11 md:h-12 w-auto" />

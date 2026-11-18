@@ -18,7 +18,7 @@ export default function CountUp({ to, suffix = "", duration = 1600 }) {
       };
       raf = requestAnimationFrame(tick);
     };
-    if (!("IntersectionObserver" in window)) { setV(to); return; }
+    if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) { setV(to); return; }
     const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { run(); io.disconnect(); } }, { threshold: 0.4 });
     io.observe(el);
     return () => { io.disconnect(); cancelAnimationFrame(raf); };
