@@ -84,7 +84,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <div className="lg:hidden fixed inset-x-0 top-[68px] bottom-0 bg-deep overflow-y-auto anim-fade">
+        <div className="lg:hidden fixed inset-x-0 top-[69px] md:top-[77px] bottom-0 overscroll-contain bg-deep overflow-y-auto anim-fade">
           <nav className="container-x flex flex-col py-6 gap-8" aria-label="Мобільне меню">
             <div className="flex flex-col">
               <p className="eyebrow mb-3">Магазин</p>
